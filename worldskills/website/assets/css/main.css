@@ -44,7 +44,7 @@ section {
 }
 
 .section-bg {
-  background: url(../img/bg.svg);
+  background: url(../img/bg.jpg);
   color: #fff;
 }
 
@@ -59,6 +59,11 @@ h1 {
   border: 2px solid transparent;
   text-decoration: none;
   font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #e63a23;
 }
 
 .btn-bg {
@@ -75,6 +80,33 @@ h1 {
   left: 50%;
   bottom: 150px;
   transform: translate(-50%, 0);
+  transition: all 0.3s ease-in-out;
+  animation: chevron-animation infinite 2s ease-in-out;
+}
+
+.chevron img {
+  transition: all 0.5s ease-in-out;
+}
+
+.chevron:hover {
+  transform: translate (-50%, 25px);
+  animation-play-state: paused;
+}
+
+.chevron:hover img {
+  transform: translateY(25px);
+}
+
+@keyframes chevron-animation {
+
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 10px);
+  }
 }
 
 h2 {
@@ -103,10 +135,15 @@ p {
   cursor: pointer;
   display: flex;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .img-wrapper img {
   object-fit: cover;
+}
+
+.img-wrapper:hover {
+  transform: scale(1.05);
 }
 
 .d-flex {
