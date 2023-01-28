@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title>Мой сайт</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+  <link rel="stylesheet" href="assets/css/lg-transitions.min.css">
 </head>
 
 <body>
@@ -14,8 +16,8 @@
         <h1>Веб-разработчик <br> к вашим услугам</h1>
       </div>
       <div>
-        <a class="btn btn-bg" href="#">Узнать больше</a>
-        <a class="btn btn-outline" href="#">Нанять меня</a>
+        <a class="btn btn-bg" onclick="smoothScroll('#about')" href="#">Узнать больше</a>
+        <a class="btn btn-outline" onclick="smoothScroll('#portfolio')" href="#">Нанять меня</a>
       </div>
     </div>
 
@@ -26,7 +28,7 @@
 
   <section>
     <div class="container">
-      <h2>Обо мне</h2>
+      <h2 id="about">Обо мне</h2>
       <p>
         С другой стороны, повышение уровня гражданского сознания обеспечивает широкому кругу специалистов участие в
         формировании существующих финансовых и административных условий!
@@ -40,43 +42,43 @@
 
   <section>
     <div class="container">
-      <h2>Портфолио</h2>
-      <div class="gallery">
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+      <h2 id="portfolio">Портфолио</h2>
+      <div id="lightgallery" class="gallery">
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
 
-        <div class="img-wrapper">
-          <img src="assets/img/placeholder.png" alt="image">
-        </div>
+        <a class="img-wrapper" href="assets/img/placeholder.jpg">
+          <img src="assets/img/placeholder.jpg" alt="image">
+        </a>
       </div>
     </div>
   </section>
@@ -108,6 +110,19 @@
       Copyright &copy; 2020. Все права защищены.
     </div>
   </footer>
+
+  <script src="assets/js/lightgallery.min.js"></script>
+  <script>
+    lightGallery(document.getElementById('lightgallery'));
+
+    function smoothScroll(selector) {
+      event.preventDefault();
+
+      document.querySelector(selector).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 
 </html>
