@@ -1,5 +1,12 @@
+<?php
+  require_once "db.php";
+
+  $stmt = $pdo->query("select * from works");
+  $works = $stmt->fetchAll();
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
   <meta charset="utf-8">
@@ -44,41 +51,11 @@
     <div class="container">
       <h2 id="portfolio">Портфолио</h2>
       <div id="lightgallery" class="gallery">
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
-
-        <a class="img-wrapper" href="assets/img/placeholder.jpg">
-          <img src="assets/img/placeholder.jpg" alt="image">
-        </a>
+          <?php foreach($works as $work): ?>
+          <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="<?= $work['file_path'] ?>">
+            <img src="<?= $work['file_path'] ?>" alt="image">
+          </a>
+          <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -94,10 +71,10 @@
           </p>
         </div>
         <div class="w-40">
-          <form>
-            <input type="text" placeholder="Как к вам обращаться">
-            <input type="email" placeholder="Ваш email">
-            <textarea rows="4" placeholder="Сообщение"></textarea>
+          <form action="feedback.php" method="POST">
+            <input name="name" required type="text" placeholder="Как к вам обращаться">
+            <input name="email" required type="email" placeholder="Ваш email">
+            <textarea name="text" required rows="4" placeholder="Сообщение"></textarea>
             <input class="btn btn-bg" type="submit" value="Отправить">
           </form>
         </div>
