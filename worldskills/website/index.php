@@ -11,6 +11,7 @@
 <head>
   <meta charset="utf-8">
   <title>Мой сайт</title>
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/lightgallery.min.css">
   <link rel="stylesheet" href="assets/css/lg-transitions.min.css">
@@ -51,11 +52,11 @@
     <div class="container">
       <h2 id="portfolio">Портфолио</h2>
       <div id="lightgallery" class="gallery">
-          <?php foreach($works as $work): ?>
-          <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="<?= $work['file_path'] ?>">
-            <img src="<?= $work['file_path'] ?>" alt="image">
-          </a>
-          <?php endforeach; ?>
+        <?php foreach($works as $work): ?>
+        <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="<?= $work['file_path'] ?>">
+          <img src="<?= $work['file_path'] ?>" alt="image">
+        </a>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>

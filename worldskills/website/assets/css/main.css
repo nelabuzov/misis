@@ -44,7 +44,8 @@ section {
 }
 
 .section-bg {
-  background: url(../img/bg.jpg);
+  background-image: url(../img/bg.jpg);
+  background-attachment: fixed;
   color: #fff;
 }
 

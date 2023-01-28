@@ -14,6 +14,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Админка</title>
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <style>
     table {
@@ -39,6 +40,8 @@
 <body>
   <div class="container">
     <h2>Портфолио</h2>
+    <a href="add.php">Добавить</a>
+
     <div id="lightgallery" class="gallery">
       <?php foreach ($works as $work) : ?>
         <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://website/<?= $work['file_path'] ?>">
