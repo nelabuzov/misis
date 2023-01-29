@@ -44,8 +44,8 @@
 
     <div id="lightgallery" class="gallery">
       <?php foreach ($works as $work) : ?>
-        <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://website/<?= $work['file_path'] ?>">
-          <img src="http://website/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
+        <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/worldskills/website/<?= $work['file_path'] ?>">
+          <img src="http://misis/worldskills/website/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
         </a>
       <?php endforeach; ?>
     </div>
