@@ -54,7 +54,7 @@
       <div id="lightgallery" class="gallery">
         <?php foreach($works as $work): ?>
         <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="<?= $work['file_path'] ?>">
-          <img src="<?= $work['file_path'] ?>" alt="image">
+          <img src="<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
         </a>
         <?php endforeach; ?>
       </div>
