@@ -1,5 +1,19 @@
 @use '../util' as *;
 
+html {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 .container {
 	padding: 0 rem(24);
 	max-width: rem(1110);
