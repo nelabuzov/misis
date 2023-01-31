@@ -7,8 +7,32 @@ h3 {
 	line-height: 1.1;
 }
 
+li {
+	list-style-type: none;
+}
+
 a,
 a:visited,
 a:active {
 	text-decoration: none;
+	color: #000;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input {
+	border: none;
+	padding: 10px 80px 10px 20px;
+}
+
+.logo {
+	font-size: 30px;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	span {
+		color: #fff;
+	}
 }

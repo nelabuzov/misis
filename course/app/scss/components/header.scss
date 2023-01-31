@@ -19,3 +19,23 @@ body {
   padding: 0 20px;
   max-width: 1200px;
 }
+
+.header {
+  background-color: #808080;
+  padding: 20px 0;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu ul {
+    display: flex;
+    align-items: center;
+
+    li+li {
+      margin-left: 20px;
+    }
+  }
+}
