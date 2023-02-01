@@ -4,24 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('https://imagesbase.ru/uploads/posts/2017-11/1511074193_imagesbase.ru.jpg') no-repeat 50% / cover;
+  background: url('https://i.pinimg.com/originals/dd/53/f3/dd53f393d6983693d6bedb55f2e36ca0.jpg') no-repeat 50% / cover;
   text-align: center;
   min-height: 100vh;
   font-size: 40px;
+  color: #fff;
 
-  // *::after {
-  //   content: '';
-  //   width: 100%;
-  //   height: 100%;
-  //   background-color: rgba(0, 0, 0, .7);
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  // }
-
-  // &__inner {
-  //   position: relative;
-  //   color: #fff;
-  //   z-index: 1;
-  // }
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+  }
 }

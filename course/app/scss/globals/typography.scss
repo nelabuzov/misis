@@ -18,7 +18,7 @@ a:active {
 	color: #000;
 }
 
-a:hover {
+a:hover:not(.logo) {
 	text-decoration: underline;
 }
 
@@ -28,11 +28,20 @@ input {
 }
 
 .logo {
+	padding: 20px;
 	font-size: 30px;
 	font-weight: 700;
+	overflow: hidden;
 	text-transform: uppercase;
+	transition: .3s ease-in-out;
+
+	&:hover {
+		color: #fff;
+		text-shadow: 0 0 50px #fff;
+		background: #000;
+	}
 
 	span {
-		color: #fff;
+		color: orange;
 	}
 }

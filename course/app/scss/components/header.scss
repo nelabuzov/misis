@@ -1,10 +1,10 @@
 @use '../util' as *;
 
 .header {
-  background-color: rgba(150, 150, 150, .9);
+  background-color: #fff;
   position: absolute;
-  padding: 20px 0;
   width: 100%;
+  z-index: 1;
 
   &__inner {
     display: flex;
