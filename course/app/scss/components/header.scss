@@ -1,7 +1,7 @@
 @use '../util' as *;
 
 .header {
-  background-color: #fff;
+  background-color: var(--white);
   position: absolute;
   width: 100%;
   z-index: 1;

@@ -4,11 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('https://i.pinimg.com/originals/dd/53/f3/dd53f393d6983693d6bedb55f2e36ca0.jpg') no-repeat 50% / cover;
+  background: url('https://phonoteka.org/uploads/posts/2021-06/1624355307_45-phonoteka_org-p-oboi-dlya-ofisa-krasivo-48.png') no-repeat 50% / cover fixed;
   text-align: center;
   min-height: 100vh;
   font-size: 40px;
-  color: #fff;
+  color: var(--white);
 
   &::before {
     content: '';
