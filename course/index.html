@@ -57,14 +57,22 @@
 		</div>
 	</section>
 
-	<section class="feedback container">
-		<div class="feedback__inner">
-			<h2>Мы поможем</h2>
-			<form action="#" method="POST">
-				<input type="text" placeholder="Имя">
-				<input type="text" placeholder="Почта">
-				<textarea placeholder="Сообщение"></textarea>
-			</form>
+	<section class="feedback">
+		<div class="container">
+			<div class="feedback__inner">
+				<h2>Мы поможем</h2>
+				<form action="#" method="POST">
+					<label for="name">Введите имя:
+						<input type="text" id="name" name="name" placeholder="Имя">
+					</label>
+					<label for="email">Введите почту:
+						<input type="text" id="email" name="email" placeholder="Почта">
+					</label>
+					<label for="message">Введите сообщение:
+						<textarea id="message" name="message" placeholder="Сообщение"></textarea>
+					</label>
+				</form>
+			</div>
 		</div>
 	</section>
 

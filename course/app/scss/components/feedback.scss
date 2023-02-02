@@ -1,15 +1,22 @@
 @use '../util' as *;
 
+.feedback {
+  background: url('https://phonoteka.org/uploads/posts/2021-04/1618499076_46-p-fon-dlya-mokapa-48.jpg') no-repeat 0 0 / cover;
+  color: var(--white);
+  // filter: blur(5px);
+}
+
 form {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 600px;
+  max-width: 800px;
+  margin: 0 auto;
   flex-wrap: wrap;
+  font-size: 20px;
 
-  * {
+  >* {
     width: 100%;
     padding: 20px 20px;
-    margin-bottom: 30px;
   }
 }
