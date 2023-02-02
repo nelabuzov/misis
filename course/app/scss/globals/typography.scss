@@ -7,6 +7,15 @@ h3 {
 	line-height: 1.1;
 }
 
+h1 {
+	font-size: 60px;
+}
+
+.subtitle {
+	font-size: 24px;
+	opacity: .6;
+}
+
 li {
 	list-style-type: none;
 }
@@ -22,9 +31,12 @@ a:hover:not(.logo) {
 	text-decoration: underline;
 }
 
-input {
-	border: none;
+input,
+textarea {
+	box-shadow: 0 3px 0 #939393;
+	border: 2px solid #939393;
 	padding: 10px 80px 10px 20px;
+	resize: vertical;
 }
 
 .logo {

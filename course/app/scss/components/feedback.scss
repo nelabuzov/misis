@@ -1,0 +1,15 @@
+@use '../util' as *;
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  flex-wrap: wrap;
+
+  * {
+    width: 100%;
+    padding: 20px 20px;
+    margin-bottom: 30px;
+  }
+}
