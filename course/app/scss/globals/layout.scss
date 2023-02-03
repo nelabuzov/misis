@@ -11,6 +11,6 @@
 	}
 }
 
-section {
+section:not(.feedback) {
 	padding: 60px 0 !important;
 }

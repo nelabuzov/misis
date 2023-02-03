@@ -1,0 +1,32 @@
+@use '../util' as *;
+
+.job {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    border-radius: 20px 40%;
+    border: 5px solid;
+    border-top-color: var(--brand);
+    border-bottom-color: var(--brand);
+    max-width: 250px;
+    margin: 10px;
+    padding: 25px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  &__item:hover {
+    box-shadow: -10px 10px 2px rgba(153, 153, 153, .2);
+    text-decoration: none !important;
+    top: -10px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+  }
+}
