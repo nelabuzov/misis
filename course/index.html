@@ -12,19 +12,21 @@
 
 <body>
 	<header class="header">
-		<div class="container">
-			<div class="header__inner">
-				<a class="logo" href="#">Work<span>flow</span></a>
+		<div class="header__inner container">
+			<a class="logo" href="index.html">Work<span>flow</span></a>
 
-				<nav class="menu">
-					<ul>
-						<li><a href="#">Главная</a></li>
-						<li><a href="#">О сервисе</a></li>
-						<li><input type="text" placeholder="Поиск"></li>
-						<li><a href="#">Помощь</a></li>
-					</ul>
-				</nav>
-			</div>
+			<nav class="menu">
+				<ul>
+					<li><a href="#">О сервисе</a></li>
+					<li><a href="#">Помощь</a></li>
+					<li><input type="text" placeholder="Поиск"></li>
+					<li>
+						<button class="btn">
+							<img src="images/tools/account.svg" alt="account">Войти
+						</button>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</header>
 
@@ -108,6 +110,8 @@
 			<h2>Мы поможем</h2>
 		</div>
 		<div class="feedback__inner">
+			<div class="feedback__bg"></div>
+
 			<form action="#" method="POST">
 				<label for="name">Введите имя:
 					<input type="text" id="name" name="name" placeholder="Имя">

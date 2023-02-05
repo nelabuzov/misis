@@ -33,9 +33,7 @@ li {
 	list-style-type: none;
 }
 
-a,
-a:visited,
-a:active {
+a {
 	text-decoration: none;
 	color: var(--black);
 }
@@ -59,6 +57,14 @@ textarea {
 	resize: vertical;
 }
 
+.btn {
+	font-weight: 700;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+}
+
 .logo {
 	padding: 20px;
 	font-size: 30px;
@@ -66,12 +72,8 @@ textarea {
 	text-transform: uppercase;
 	position: relative;
 	color: var(--white);
-	text-shadow: 0 0 50px var(--white);
 	background: var(--black);
-
-	&:hover::after {
-		top: 70px;
-	}
+	text-shadow: 0 0 50px var(--white);
 
 	&::after {
 		content: '';
@@ -84,6 +86,10 @@ textarea {
 		left: 0;
 		z-index: -1;
 		clip-path: polygon(50% 50%, 100% 100%, 100% 0, 0 0, 0 100%);
+	}
+
+	&:hover::after {
+		top: 70px;
 	}
 
 	span {
