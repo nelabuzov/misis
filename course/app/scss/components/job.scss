@@ -1,6 +1,7 @@
 @use '../util' as *;
 
 .job {
+
   &__inner {
     display: flex;
     align-items: center;
@@ -9,22 +10,20 @@
   }
 
   &__item {
-    border-radius: 17px;
-    border: 3px dashed var(--gray);
+    border-radius: 10px;
+    border: 2px solid;
     max-width: 250px;
     margin: 20px 10px 10px;
     padding: 25px;
-    position: relative;
-    transition: all .3s ease-in-out;
+    transition: .3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 50px var(--gray);
+      margin-top: 10px;
+    }
   }
 
-  &__item:hover {
-    box-shadow: 0 5px 50px var(--gray);
-    text-decoration: none !important;
-    margin-top: 10px;
-  }
-
-  &__subtitle {
+  &__item &__subtitle {
     font-size: 14px;
   }
 }

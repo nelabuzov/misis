@@ -38,10 +38,6 @@ a {
 	color: var(--black);
 }
 
-a:hover:not(.logo) {
-	text-decoration: underline;
-}
-
 label {
 	display: flex;
 	align-items: center;
@@ -53,8 +49,9 @@ input,
 textarea {
 	box-shadow: 0 3px 0 var(--gray);
 	border: 2px solid var(--gray);
-	padding: 10px 80px 10px 20px;
-	resize: vertical;
+	padding: 12px 80px 12px 20px;
+	border-radius: 10px;
+	resize: none;
 }
 
 .btn {
@@ -63,17 +60,38 @@ textarea {
 	display: flex;
 	align-items: center;
 	background-color: transparent;
+	overflow: hidden;
+	color: var(--brand);
+	border: rem(2) solid var(--brand);
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 5px 20px;
+	transition: .4s;
+
+	img {
+		position: relative;
+		transition: .4s;
+		left: rem(70);
+	}
+
+	&:hover {
+		color: var(--black);
+		background-color: var(--brand);
+
+		img {
+			left: rem(8);
+		}
+	}
 }
 
 .logo {
-	padding: 20px;
+	padding: 25px;
 	font-size: 30px;
 	font-weight: 700;
 	text-transform: uppercase;
 	position: relative;
 	color: var(--white);
 	background: var(--black);
-	text-shadow: 0 0 50px var(--white);
 
 	&::after {
 		content: '';
@@ -82,14 +100,14 @@ textarea {
 		transition: .3s;
 		background-color: var(--black);
 		position: absolute;
-		top: 60px;
+		top: 65px;
 		left: 0;
 		z-index: -1;
 		clip-path: polygon(50% 50%, 100% 100%, 100% 0, 0 0, 0 100%);
 	}
 
 	&:hover::after {
-		top: 70px;
+		top: 75px;
 	}
 
 	span {
