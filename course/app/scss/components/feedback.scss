@@ -12,18 +12,18 @@
     filter: blur(5px);
     background: url('https://phonoteka.org/uploads/posts/2021-04/1618499076_46-p-fon-dlya-mokapa-48.jpg') no-repeat 0 100% / cover fixed;
   }
-}
 
-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  flex-wrap: wrap;
-  font-size: 20px;
+  form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-wrap: wrap;
+    font-size: 20px;
 
-  >* {
-    width: 100%;
-    margin: 20px;
+    >* {
+      width: 100%;
+      margin: 20px;
+    }
   }
 }

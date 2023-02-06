@@ -11,6 +11,20 @@
 </head>
 
 <body>
+	<div id="popup" class="overlay">
+		<a class="cancel" href="#"></a>
+		<div class="popup">
+			<a class="close" href="#">&times;</a>
+			<h2>Info box</h2>
+
+			<form action="check.php" method="post">
+				<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
+				<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
+				<button type="submit" class="btn">Регистрация</button>
+			</form>
+		</div>
+	</div>
+
 	<header class="header">
 		<div class="header__inner container">
 			<a class="logo" href="index.html">Work<span>flow</span></a>
@@ -21,9 +35,9 @@
 					<li><a href="#">Помощь</a></li>
 					<li><input type="text" placeholder="Поиск"></li>
 					<li>
-						<button class="btn">Вход
+						<a class="btn" href="#popup">Вход
 							<img src="images/tools/account.svg" alt="account">
-						</button>
+						</a>
 					</li>
 				</ul>
 			</nav>
