@@ -11,26 +11,37 @@
 </head>
 
 <body>
+	<?php
+		if($_COOKIE['account'] == ''):
+	?>
+
 	<div id="popup" class="overlay">
 		<a class="cancel" href="#"></a>
 		<div class="popup">
 			<a class="close" href="#">&times;</a>
 
 			<h2>Регистрация</h2>
-			<form action="php/check.php" method="post">
+			<form action="validation/check.php" method="post">
 				<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 				<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 				<button type="submit" class="btn">Регистрация</button>
 			</form>
 
 			<h2>Вход</h2>
-			<form action="php/auth.php" method="post">
+			<form action="validation/auth.php" method="post">
 				<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 				<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 				<button type="submit" class="btn">Вход</button>
 			</form>
 		</div>
 	</div>
+
+	<?php else: ?>
+		<?=$_COOKIE['account']?>
+		<a href="exit.php">
+			<img src="images/tools/user.svg" alt="user">
+		</a>
+	<?php endif ?>
 
 	<header class="header">
 		<div class="header__inner container">
@@ -43,7 +54,7 @@
 					<li><input type="text" placeholder="Поиск"></li>
 					<li>
 						<a class="btn" href="#popup">Вход
-							<img src="images/tools/account.svg" alt="account">
+							<img src="images/tools/account.svg" alt="account/user.svg">
 						</a>
 					</li>
 				</ul>

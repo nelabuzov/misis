@@ -17,5 +17,5 @@
 
   $mysql -> close();
 
-  header('Location: /course');
+  header('Location: ../index.php');
 ?>

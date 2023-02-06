@@ -13,9 +13,12 @@
     exit();
   }
 
-  setcookie('account', $account['email'], time() + 3600, "/course");
+  setcookie('account', $account['email'], time() + 100000, "/course");
 
   $mysql -> close();
 
-  header('Location: /course');
+  header('Location: ../index.php');
+
+  print_r($account);
+  exit();
 ?>
