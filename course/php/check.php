@@ -1,6 +1,5 @@
 <?php
   $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
-
   $password = filter_var(trim($_POST['password']), FILTER_SANITIZE_STRING);
 
   if(mb_strlen($email) < 5 || mb_strlen($email) > 50) {
@@ -18,5 +17,5 @@
 
   $mysql -> close();
 
-  header('Location: /');
+  header('Location: /course');
 ?>
