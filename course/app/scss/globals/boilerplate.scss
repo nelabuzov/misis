@@ -43,8 +43,10 @@ body {
 		margin: 100px auto;
 		padding: 20px;
 		background: #fff;
-		max-width: 300px;
+		max-width: 700px;
 		position: relative;
+		display: flex;
+		align-items: center;
 
 		.close {
 			position: absolute;
@@ -57,6 +59,10 @@ body {
 			font-weight: bold;
 			text-decoration: none;
 			color: #666;
+		}
+
+		form * {
+			margin-bottom: 10px;
 		}
 	}
 }

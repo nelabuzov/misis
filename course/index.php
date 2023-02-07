@@ -12,7 +12,7 @@
 
 <body>
 	<?php
-		if($_COOKIE['account'] == ''):
+		if (($_COOKIE['account'] ?? '') === ''):
 	?>
 
 	<div id="popup" class="overlay">
@@ -20,27 +20,59 @@
 		<div class="popup">
 			<a class="close" href="#">&times;</a>
 
-			<h2>Регистрация</h2>
-			<form action="validation/check.php" method="post">
-				<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-				<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-				<button type="submit" class="btn">Регистрация</button>
-			</form>
+			<div class="popup__inner">
+				<h2>Регистрация</h2>
+				<!-- rename file to signup -->
+				<form action="validation/check.php" method="post">
+					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
+					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
+					<button type="submit" class="btn">Регистрация</button>
+				</form>
+			</div>
 
-			<h2>Вход</h2>
-			<form action="validation/auth.php" method="post">
-				<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-				<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-				<button type="submit" class="btn">Вход</button>
-			</form>
+			<div class="popup__inner">
+				<h2>Вход</h2>
+				<!-- rename file to login -->
+				<form action="validation/auth.php" method="post">
+					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
+					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
+					<button type="submit" class="btn">Вход</button>
+				</form>
+			</div>
 		</div>
 	</div>
 
 	<?php else: ?>
-		<?=$_COOKIE['account']?>
-		<a href="exit.php">
-			<img src="images/tools/user.svg" alt="user">
-		</a>
+		<style>
+			.account {
+				position: absolute;
+				top: 20px;
+				right: 820px;
+				z-index: 5;
+			}
+
+			.account__inner {
+				display: inline-flex;
+				align-items: center;
+				font-weight: 700;
+				margin-right: 20px;
+			}
+
+			.btn {
+				display: none;
+			}
+		</style>
+
+		<div class="account">
+			<div class="account__inner">
+				<?=$_COOKIE['account']?>
+				<img src="images/tools/user.svg" alt="user">
+			</div>
+
+			<a href="exit.php">
+				Выход
+			</a>
+		</div>
 	<?php endif ?>
 
 	<header class="header">
@@ -53,7 +85,7 @@
 					<li><a href="#">Помощь</a></li>
 					<li><input type="text" placeholder="Поиск"></li>
 					<li>
-						<a class="btn" href="#popup">Вход
+						<a class="btn" href="#popup">Аккаунт
 							<img src="images/tools/account.svg" alt="account/user.svg">
 						</a>
 					</li>
