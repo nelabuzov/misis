@@ -22,8 +22,7 @@
 
 			<div class="popup__inner">
 				<h2>Регистрация</h2>
-				<!-- rename file to signup -->
-				<form action="validation/check.php" method="post">
+				<form action="validation/signup.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 					<button type="submit" class="btn">Регистрация</button>
@@ -32,8 +31,7 @@
 
 			<div class="popup__inner">
 				<h2>Вход</h2>
-				<!-- rename file to login -->
-				<form action="validation/auth.php" method="post">
+				<form action="validation/login.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 					<button type="submit" class="btn">Вход</button>
@@ -77,7 +75,7 @@
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="index.html">Work<span>flow</span></a>
+			<a class="logo" href="index.php">Work<span>flow</span></a>
 
 			<nav class="menu">
 				<ul>
@@ -108,42 +106,42 @@
 	<section class="job container">
 		<div class="job__inner">
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">Frontend Developer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">Backend Developer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">Fullstack Developer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">UI/UX Designer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">Frontend Developer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">Backend Developer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">Fullstack Developer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.html">
+			<a class="job__item" href="job.php">
 				<h3 class="job__title">UI/UX Designer</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
