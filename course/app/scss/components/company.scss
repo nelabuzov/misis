@@ -1,0 +1,15 @@
+@use '../util' as *;
+
+.company {
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    background-color: var(--brand);
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding: 20px 0;
+    font-size: 40px;
+    font-weight: 700;
+  }
+}

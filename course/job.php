@@ -101,6 +101,15 @@
     <img src="images/content/job/job.png" alt="frontend">
   </section>
 
+  <section class="company">
+    <marquee class="company__inner">
+      Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON
+    </marquee>
+    <marquee class="company__inner" direction="right">
+      Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON
+    </marquee>
+  </section>
+
   <footer class="footer container">
     <p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
   </footer>
