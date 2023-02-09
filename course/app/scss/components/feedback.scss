@@ -4,13 +4,15 @@
   &__inner {
     color: var(--white);
     position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   &__bg {
-    min-width: 100%;
+    border-radius: 5%;
     height: 600px;
-    filter: blur(5px);
-    background: url('../images/content/feedback.png') no-repeat 0 100% / cover fixed;
+    filter: blur(rem(5));
+    background: url('../images/content/feedback.png') no-repeat 50% 50% / contain fixed;
   }
 
   form {
@@ -24,6 +26,17 @@
     >* {
       width: 100%;
       margin: 20px;
+      border-width: 0;
+      box-shadow: none;
+      border-radius: 50px;
+      padding: 25px;
+      background-color: hsla(0, 0%, 100%, .5);
+
+      &::placeholder {
+        color: #fff;
+        font-size: 14px;
+        font-family: var(--font-body);
+      }
     }
   }
 }

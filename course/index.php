@@ -175,15 +175,9 @@
 			<div class="feedback__bg"></div>
 
 			<form action="#" method="POST">
-				<label for="name">Введите имя:
-					<input type="text" id="name" name="name" placeholder="Имя">
-				</label>
-				<label for="email">Введите почту:
-					<input type="text" id="email" name="email" placeholder="Почта">
-				</label>
-				<label for="message">Введите сообщение:
-					<textarea id="message" name="message" placeholder="Сообщение"></textarea>
-				</label>
+				<input type="text" name="name" placeholder="Имя">
+				<input type="text" name="email" placeholder="Почта">
+				<textarea name="message" placeholder="Сообщение"></textarea>
 			</form>
 		</div>
 	</section>
