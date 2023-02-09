@@ -178,6 +178,7 @@
 				<input type="text" name="name" placeholder="Имя">
 				<input type="text" name="email" placeholder="Почта">
 				<textarea name="message" placeholder="Сообщение"></textarea>
+				<button type="submit">Отправить</button>
 			</form>
 		</div>
 	</section>
