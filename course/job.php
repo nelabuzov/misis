@@ -102,12 +102,16 @@
   </section>
 
   <section class="company">
-    <marquee class="company__inner">
-      Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON
-    </marquee>
-    <marquee class="company__inner" direction="right">
-      Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON Tinkoff Yandex VK OZON
-    </marquee>
+    <div class="company__inner">
+
+      <p class="company__text">
+        Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON
+      </p>
+
+      <p class="company__text company__text--reverse">
+        Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON
+      </p>
+    </div>
   </section>
 
   <footer class="footer container">

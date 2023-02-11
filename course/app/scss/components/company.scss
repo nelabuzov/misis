@@ -1,15 +1,30 @@
 @use '../util' as *;
 
 .company {
+  background-color: var(--brand);
+  text-transform: uppercase;
+  overflow: hidden;
+  padding: 10px 0;
 
-  &__inner {
-    display: flex;
-    align-items: center;
-    background-color: var(--brand);
-    justify-content: space-between;
-    text-transform: uppercase;
-    padding: 20px 0;
-    font-size: 40px;
+  &__text {
+    margin: 10px 0;
     font-weight: 700;
+    font-size: 70px;
+    color: var(--black) !important;
+    animation: move 4s linear infinite alternate;
+
+    &--reverse {
+      animation: move 4s linear infinite reverse;
+    }
+  }
+
+  @keyframes move {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-40%);
+    }
   }
 }
