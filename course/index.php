@@ -20,21 +20,23 @@
 		<div class="popup">
 			<a class="close" href="#">&times;</a>
 
-			<div class="popup__inner">
+			<div class="popup__inner" id="signup">
 				<h2>Регистрация</h2>
 				<form action="validation/signup.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 					<button type="submit" class="btn">Регистрация</button>
+					<a href="#" onclick="prev()" >You don't have an account yet? Register Here</a>
 				</form>
 			</div>
 
-			<div class="popup__inner">
+			<div class="popup__inner" id="login">
 				<h2>Вход</h2>
 				<form action="validation/login.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 					<button type="submit" class="btn">Вход</button>
+					<a href="#" onclick="next()" >You don't have an account yet? Register Here</a>
 				</form>
 			</div>
 		</div>

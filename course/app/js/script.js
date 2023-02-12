@@ -1,9 +1,9 @@
 function prev() {
-	document.getElementById('regis').style.display = "none";
-	document.getElementById('log').style.display = "block";
+	document.getElementById('signup').style.display = "none";
+	document.getElementById('login').style.display = "block";
 }
 
 function next() {
-	document.getElementById('log').style.display = "none";
-	document.getElementById('regis').style.display = "block";
+	document.getElementById('login').style.display = "none";
+	document.getElementById('signup').style.display = "block";
 }
