@@ -1,5 +1,9 @@
-console.log('HELLO');
+function prev() {
+	document.getElementById('regis').style.display = "none";
+	document.getElementById('log').style.display = "block";
+}
 
-const test = () => {
-	console.log('this is a test');
-};
+function next() {
+	document.getElementById('log').style.display = "none";
+	document.getElementById('regis').style.display = "block";
+}

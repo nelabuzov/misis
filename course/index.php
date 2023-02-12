@@ -186,6 +186,8 @@
 	<footer class="footer container">
 		<p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
 	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 </body>
 
 </html>

@@ -105,11 +105,11 @@
     <div class="company__inner">
 
       <p class="company__text">
-        Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON
+        Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON
       </p>
 
       <p class="company__text company__text--reverse">
-        Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON
+        Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON&nbsp;Tinkoff&nbsp;Yandex&nbsp;VK&nbsp;OZON
       </p>
     </div>
   </section>
@@ -117,6 +117,8 @@
   <footer class="footer container">
     <p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 </body>
 
 </html>

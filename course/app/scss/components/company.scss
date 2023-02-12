@@ -5,16 +5,18 @@
   text-transform: uppercase;
   overflow: hidden;
   padding: 10px 0;
+  transform: translateX(-4px) rotate(2deg);
+  width: 101%;
 
   &__text {
     margin: 10px 0;
-    font-weight: 700;
     font-size: 70px;
-    color: var(--black) !important;
-    animation: move 4s linear infinite alternate;
+    font-weight: 700;
+    font-family: fantasy;
+    animation: move 10s linear infinite alternate;
 
     &--reverse {
-      animation: move 4s linear infinite reverse;
+      animation-direction: alternate-reverse;
     }
   }
 
@@ -24,7 +26,7 @@
     }
 
     to {
-      transform: translateX(-40%);
+      transform: translateX(-50%);
     }
   }
 }
