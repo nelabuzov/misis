@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="dist/style.css">
   <script defer src="dist/script.js"></script>
-  <title>Workflow | Поиск для работы</title>
+  <title>Workflow | Frontend Разработчик</title>
 </head>
 
 <body>

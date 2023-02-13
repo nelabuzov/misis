@@ -43,7 +43,7 @@ body {
 		margin: 100px auto;
 		padding: 20px;
 		background: #fff;
-		max-width: 700px;
+		max-width: 590px;
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -51,6 +51,11 @@ body {
 
 		&__inner {
 			display: none;
+		}
+
+		&__btns {
+			display: flex;
+			justify-content: space-between;
 		}
 
 		#login {
@@ -70,8 +75,15 @@ body {
 			color: #666;
 		}
 
-		form * {
-			margin-bottom: 10px;
+		form {
+
+			>* {
+				margin-bottom: 25px;
+			}
+
+			input {
+				width: 100%;
+			}
 		}
 	}
 }

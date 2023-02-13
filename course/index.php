@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="dist/style.css">
 	<script defer src="dist/script.js"></script>
-	<title>Workflow | Поиск для работы</title>
+	<title>Workflow | Объединяя профессии</title>
 </head>
 
 <body>
@@ -25,8 +25,11 @@
 				<form action="validation/login.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-					<button type="submit" class="btn">Вход</button>
-					<button onclick="next()">You don't have an account yet? Register Here</button>
+
+					<div class="popup__btns">
+						<button type="submit" class="btn">Вход</button>
+						<button class="btn" onclick="next()">Регистрация</button>
+					</div>
 				</form>
 			</div>
 
@@ -43,8 +46,11 @@
 				<form action="validation/signup.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-					<button type="submit" class="btn">Регистрация</button>
-					<button onclick="prev()">You don't have an account yet? Register Here</button>
+
+					<div class="popup__btns">
+						<button type="submit" class="btn">Регистрация</button>
+						<button class="btn" onclick="prev()">Вход</button>
+					</div>
 				</form>
 			</div>
 
