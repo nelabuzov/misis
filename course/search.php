@@ -109,8 +109,8 @@
 		</div>
 	</header>
 
-	<main>
-		<aside class="aside container">
+	<main class="search container">
+		<aside class="aside">
 			<label for="view" class="aside__box">
 				<h3>Исключения:</h3>
 				<input type="text" id="view" name="view" placeholder="Введите что исключить">
@@ -123,8 +123,42 @@
 				<label for="three"><input type="checkbox" id="three" name="exp" value="3-4">3-4 года</label>
 				<label for="four"><input type="checkbox" id="four" name="exp" value="3-4">Более 4 лет</label>
 			</div>
+
+			<div class="aside__box">
+				<h3>Занятость:</h3>
+				<label for="one"><input type="checkbox" id="one" name="exp" value="0">Подработка</label>
+				<label for="two"><input type="checkbox" id="two" name="exp" value="1-2">Полный день</label>
+				<label for="three"><input type="checkbox" id="three" name="exp" value="3-4">Частичная занятось</label>
+			</div>
 		</aside>
 
-		<article></article>
+		<article class="article">
+			<div class="article__box">
+				<h2>Frontend Разработчик</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
+				</p>
+			</div>
+
+			<div class="article__box">
+				<h2>Frontend Разработчик</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
+				</p>
+			</div>
+
+			<div class="article__box">
+				<h2>Frontend Разработчик</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
+				</p>
+			</div>
+		</article>
 	</main>
+
+	<footer class="footer container">
+		<p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 </body>

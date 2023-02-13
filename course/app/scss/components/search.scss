@@ -1,27 +1,40 @@
 @use '../util' as *;
 
-main {
+.search {
+  display: flex;
+  justify-content: space-between;
   padding-top: rem(240);
+}
 
-  .aside {
+.aside {
+  padding-right: rem(80);
 
-    &__box {
-      margin-top: rem(60);
+  &__box {
+    margin-top: rem(60);
 
-      h3 {
-        margin-bottom: rem(20);
-      }
-
-      label {
-        display: flex;
-        padding: rem(10) 0;
-      }
-
-      input[type=checkbox] {
-        display: block;
-        box-shadow: none;
-        margin-right: rem(10);
-      }
+    h3 {
+      margin-bottom: rem(20);
     }
+
+    label {
+      display: flex;
+      padding: rem(10) 0;
+    }
+
+    input[type=checkbox] {
+      display: block;
+      box-shadow: none;
+      margin-right: rem(10);
+    }
+  }
+}
+
+.article {
+
+  &__box {
+    padding: rem(20);
+    border-radius: rem(20);
+    border: 1px solid var(--gray);
+    margin-bottom: rem(40);
   }
 }
