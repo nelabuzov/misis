@@ -118,41 +118,50 @@
 
 			<div class="aside__box">
 				<h3>Опыт работы:</h3>
-				<label for="one"><input type="checkbox" id="one" name="exp" value="0">Без опыта</label>
-				<label for="two"><input type="checkbox" id="two" name="exp" value="1-2">1-2 года</label>
-				<label for="three"><input type="checkbox" id="three" name="exp" value="3-4">3-4 года</label>
-				<label for="four"><input type="checkbox" id="four" name="exp" value="3-4">Более 4 лет</label>
+				<label for="exp-one"><input type="checkbox" id="exp-one" name="exp" value="0">Без опыта</label>
+				<label for="exp-two"><input type="checkbox" id="exp-two" name="exp" value="1-2">1-2 года</label>
+				<label for="exp-three"><input type="checkbox" id="exp-three" name="exp" value="3-4">3-4 года</label>
+				<label for="exp-four"><input type="checkbox" id="exp-four" name="exp" value="3-4">Более 4 лет</label>
 			</div>
 
 			<div class="aside__box">
 				<h3>Занятость:</h3>
-				<label for="one"><input type="checkbox" id="one" name="exp" value="0">Подработка</label>
-				<label for="two"><input type="checkbox" id="two" name="exp" value="1-2">Полный день</label>
-				<label for="three"><input type="checkbox" id="three" name="exp" value="3-4">Частичная занятось</label>
+				<label for="work-one"><input type="checkbox" id="work-one" name="work" value="part">Подработка</label>
+				<label for="work-two"><input type="checkbox" id="work-two" name="work" value="full">Полный день</label>
+				<label for="work-three"><input type="checkbox" id="work-three" name="work" value="period">Частичная занятось</label>
+			</div>
+
+			<div class="aside__box">
+				<h3>Регион:</h3>
+				<label for="geo-one"><input type="checkbox" id="geo-one" name="geo" value="moskow">Москва</label>
+				<label for="geo-two"><input type="checkbox" id="geo-two" name="geo" value="belgorod">Белгород</label>
+				<label for="geo-three"><input type="checkbox" id="geo-three" name="geo" value="kursk">Курск</label>
+				<label for="geo-four"><input type="checkbox" id="geo-four" name="geo" value="voronezh">Воронеж</label>
+				<label for="geo-five"><input type="checkbox" id="geo-five" name="geo" value="stary-oskol">Старый Оскол</label>
 			</div>
 		</aside>
 
 		<article class="article">
-			<div class="article__box">
+			<a href="job.php" class="article__box">
 				<h2>Frontend Разработчик</h2>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
-			</div>
+		</a>
 
-			<div class="article__box">
+			<a href="job.php" class="article__box">
 				<h2>Frontend Разработчик</h2>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
-			</div>
+		</a>
 
-			<div class="article__box">
+			<a href="job.php" class="article__box">
 				<h2>Frontend Разработчик</h2>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
-			</div>
+		</a>
 		</article>
 	</main>
 
