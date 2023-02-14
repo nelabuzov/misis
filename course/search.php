@@ -142,26 +142,47 @@
 		</aside>
 
 		<article class="article">
-			<a href="job.php" class="article__box">
+			<div class="article__box">
+				<div class="price">35 000 - 44 000 руб.</div>
 				<h2>Frontend Разработчик</h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
-				</p>
-		</a>
+				<div class="region">Yandex (Воронеж)</div>
 
-			<a href="job.php" class="article__box">
-				<h2>Frontend Разработчик</h2>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
-		</a>
+				<div>
+					<a href="job.php" class="btn">Откликнуться</a>
+					<a href="#" class="btn">Показать контакты</a>
+				</div>
+			</div>
 
-			<a href="job.php" class="article__box">
+			<div class="article__box">
+				<div class="price">35 000 - 44 000 руб.</div>
 				<h2>Frontend Разработчик</h2>
+				<div class="region">Yandex (Воронеж)</div>
+
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
-		</a>
+				<div>
+					<a href="job.php" class="btn">Откликнуться</a>
+					<a href="#" class="btn">Показать контакты</a>
+				</div>
+			</div>
+
+			<div class="article__box">
+				<div class="price">35 000 - 44 000 руб.</div>
+				<h2>Frontend Разработчик</h2>
+				<div class="region">Yandex (Воронеж)</div>
+
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
+				</p>
+				<div>
+					<a href="job.php" class="btn">Откликнуться</a>
+					<a href="#" class="btn">Показать контакты</a>
+				</div>
+			</div>
 		</article>
 	</main>
 
