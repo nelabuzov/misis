@@ -4,4 +4,12 @@
   text-align: center;
   color: var(--gray);
   padding: 20px 0;
+
+  &__inner {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: rem(200);
+  }
 }
