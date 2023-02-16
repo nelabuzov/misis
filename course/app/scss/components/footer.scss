@@ -4,6 +4,7 @@
   text-align: center;
   color: var(--gray);
   padding: 20px 0;
+  filter: invert(1);
 
   &__content {
     text-align: left;
@@ -14,6 +15,11 @@
     &+& {
       margin-top: rem(60);
     }
+  }
+
+  &__inner {
+    padding: rem(30) 0;
+    background-color: var(--white);
   }
 
   li {

@@ -186,87 +186,9 @@
 		</article>
 	</main>
 
-	<footer class="footer container">
+	<footer class="footer">
 		<div class="footer__inner">
-
-			<!-- Footer Content -->
-			<div class="footer__content">
-				<div class="footer__box">
-					<h3>Новости и статьи</h3>
-					<nav>
-						<ul>
-							<li>
-								<a href="#">Новости рынка HR</a>
-							</li>
-							<li>
-								<a href="#">Жизнь в компании</a>
-							</li>
-							<li>
-								<a href="#">ИТ-проекты</a>
-							</li>
-							<li>
-								<a href="#">Рейтинг работодателей России</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-
-				<div class="footer__box">
-					<h3>Молодым специалистам</h3>
-					<nav>
-						<ul>
-							<li>
-								<a href="#">Карьера для молодых специалистов</a>
-							</li>
-							<li>
-								<a href="#">Школа программистов</a>
-							</li>
-							<li>
-								<a href="#">Школа продактов</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-
-				<div class="footer__box">
-						<h3>Новости и статьи</h3>
-						<nav>
-							<ul>
-								<li>
-									<a href="#">Новости рынка HR</a>
-								</li>
-								<li>
-									<a href="#">Жизнь в компании</a>
-								</li>
-								<li>
-									<a href="#">ИТ-проекты</a>
-								</li>
-								<li>
-									<a href="#">Рейтинг работодателей России</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-
-					<div class="footer__box">
-						<h3>Молодым специалистам</h3>
-						<nav>
-							<ul>
-								<li>
-									<a href="#">Карьера для молодых специалистов</a>
-								</li>
-								<li>
-									<a href="#">Школа программистов</a>
-								</li>
-								<li>
-									<a href="#">Школа продактов</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				<!-- / Footer Content -->
-
+			<div class="container">
 				<!-- Footer Content -->
 				<div class="footer__content">
 					<div class="footer__box">
@@ -343,9 +265,88 @@
 							</nav>
 						</div>
 					</div>
-				</div>
-				<!-- / Footer Content -->
+					<!-- / Footer Content -->
 
+					<!-- Footer Content -->
+					<div class="footer__content">
+						<div class="footer__box">
+							<h3>Новости и статьи</h3>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Новости рынка HR</a>
+									</li>
+									<li>
+										<a href="#">Жизнь в компании</a>
+									</li>
+									<li>
+										<a href="#">ИТ-проекты</a>
+									</li>
+									<li>
+										<a href="#">Рейтинг работодателей России</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+						<div class="footer__box">
+							<h3>Молодым специалистам</h3>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Карьера для молодых специалистов</a>
+									</li>
+									<li>
+										<a href="#">Школа программистов</a>
+									</li>
+									<li>
+										<a href="#">Школа продактов</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+						<div class="footer__box">
+								<h3>Новости и статьи</h3>
+								<nav>
+									<ul>
+										<li>
+											<a href="#">Новости рынка HR</a>
+										</li>
+										<li>
+											<a href="#">Жизнь в компании</a>
+										</li>
+										<li>
+											<a href="#">ИТ-проекты</a>
+										</li>
+										<li>
+											<a href="#">Рейтинг работодателей России</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+
+							<div class="footer__box">
+								<h3>Молодым специалистам</h3>
+								<nav>
+									<ul>
+										<li>
+											<a href="#">Карьера для молодых специалистов</a>
+										</li>
+										<li>
+											<a href="#">Школа программистов</a>
+										</li>
+										<li>
+											<a href="#">Школа продактов</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<!-- / Footer Content -->
+
+				</div>
 			</div>
 		</div>
 
