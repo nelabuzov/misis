@@ -10,6 +10,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    min-height: rem(200);
+
+    &+& {
+      margin-top: rem(60);
+    }
+  }
+
+  li {
+    padding: rem(5) 0;
+  }
+
+  p {
+    margin-top: rem(80);
   }
 }
