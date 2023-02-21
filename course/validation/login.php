@@ -17,7 +17,7 @@
 
   $mysql -> close();
 
-  header('Location: ../index.php');
+  header('Location: ../admin/index.php');
 
   print_r($account);
   exit();

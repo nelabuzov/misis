@@ -1,8 +1,9 @@
 <?php
 	require_once "db.php";
 
-	$stmt = $pdo->query("select * from works");
-	$works = $stmt->fetchAll();
+	$messages = $stmt -> fetchAll();
+	$stmt = $pdo -> query("select * from works");
+	$works = $stmt -> fetchAll();
 ?>
 
 <!DOCTYPE html>

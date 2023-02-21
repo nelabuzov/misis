@@ -1,6 +1,6 @@
 @use '../util' as *;
 
-.admin {
+.message {
 
   &__table {
     border-collapse: collapse;
@@ -9,6 +9,17 @@
     th,
     td {
       padding: 10px;
+    }
+  }
+}
+
+.admin {
+
+  &-img-wrapper {
+    margin-bottom: rem(30);
+
+    .img-wrapper {
+      margin-bottom: 0;
     }
   }
 }
