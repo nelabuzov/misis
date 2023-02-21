@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php
+	<?php
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
 
@@ -28,18 +28,9 @@
 
 					<div class="popup__btns">
 						<button type="submit" class="btn">Вход</button>
-						<button class="btn" onclick="next()">Регистрация</button>
 					</div>
 				</form>
 			</div>
-
-		</div>
-	</div>
-
-	<div id="popup" class="overlay">
-		<a class="cancel" href="#"></a>
-		<div class="popup">
-			<a class="close" href="#">&times;</a>
 
 			<div class="popup__inner" id="signup">
 				<h2>Регистрация</h2>
@@ -49,7 +40,6 @@
 
 					<div class="popup__btns">
 						<button type="submit" class="btn">Регистрация</button>
-						<button class="btn" onclick="prev()">Вход</button>
 					</div>
 				</form>
 			</div>

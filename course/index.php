@@ -1,3 +1,10 @@
+<?php
+	require_once "db.php";
+
+	$stmt = $pdo->query("select * from works");
+	$works = $stmt->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -28,18 +35,9 @@
 
 					<div class="popup__btns">
 						<button type="submit" class="btn">Вход</button>
-						<button class="btn" onclick="next()">Регистрация</button>
 					</div>
 				</form>
 			</div>
-
-		</div>
-	</div>
-
-	<div id="popup" class="overlay">
-		<a class="cancel" href="#"></a>
-		<div class="popup">
-			<a class="close" href="#">&times;</a>
 
 			<div class="popup__inner" id="signup">
 				<h2>Регистрация</h2>
@@ -49,7 +47,6 @@
 
 					<div class="popup__btns">
 						<button type="submit" class="btn">Регистрация</button>
-						<button class="btn" onclick="prev()">Вход</button>
 					</div>
 				</form>
 			</div>
@@ -124,42 +121,37 @@
 		<div class="job__inner">
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">Frontend Developer</h3>
+				<h3 class="job__title">Frontend Разработчик</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">Backend Developer</h3>
+				<h3 class="job__title">Backend Разработчик</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">Fullstack Developer</h3>
+				<h3 class="job__title">Fullstack Разработчик</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">UI/UX Designer</h3>
+				<h3 class="job__title">UI/UX Дизайнер</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">Frontend Developer</h3>
+				<h3 class="job__title">Системный Администратор</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">Backend Developer</h3>
+				<h3 class="job__title">Разработчик Видеоигр</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
 			<a class="job__item" href="job.php">
-				<h3 class="job__title">Fullstack Developer</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
-
-			<a class="job__item" href="job.php">
-				<h3 class="job__title">UI/UX Designer</h3>
+				<h3 class="job__title">Team Lead</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
@@ -191,10 +183,10 @@
 		<div class="feedback__inner">
 			<div class="feedback__bg"></div>
 
-			<form action="#" method="POST">
+			<form action="feedback.php" method="POST">
 				<input type="text" name="name" placeholder="Имя">
-				<input type="text" name="email" placeholder="Почта">
-				<textarea name="message" placeholder="Сообщение"></textarea>
+				<input type="text" name="email" placeholder="Почта *" required>
+				<textarea name="text" placeholder="Сообщение *" required></textarea>
 				<button type="submit">Отправить</button>
 			</form>
 		</div>

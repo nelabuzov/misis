@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<?php
+  <?php
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
 
@@ -20,23 +20,30 @@
 		<div class="popup">
 			<a class="close" href="#">&times;</a>
 
-			<div class="popup__inner">
-				<h2>Регистрация</h2>
-				<form action="validation/signup.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-					<button type="submit" class="btn">Регистрация</button>
-				</form>
-			</div>
-
-			<div class="popup__inner">
+			<div class="popup__inner" id="login">
 				<h2>Вход</h2>
 				<form action="validation/login.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-					<button type="submit" class="btn">Вход</button>
+
+					<div class="popup__btns">
+						<button type="submit" class="btn">Вход</button>
+					</div>
 				</form>
 			</div>
+
+			<div class="popup__inner" id="signup">
+				<h2>Регистрация</h2>
+				<form action="validation/signup.php" method="post">
+					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
+					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
+
+					<div class="popup__btns">
+						<button type="submit" class="btn">Регистрация</button>
+					</div>
+				</form>
+			</div>
+
 		</div>
 	</div>
 

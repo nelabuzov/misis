@@ -43,24 +43,26 @@ body {
 		margin: 100px auto;
 		padding: 20px;
 		background: #fff;
-		max-width: 590px;
+		max-width: 790px;
 		position: relative;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		border-radius: 20px;
 
 		&__inner {
-			display: none;
+			// display: none;
+			margin: 0 20px;
 		}
 
-		&__btns {
-			display: flex;
-			justify-content: space-between;
-		}
+		// &__btns {
+		// 	display: flex;
+		// 	justify-content: space-between;
+		// }
 
-		#login {
-			display: block;
-		}
+		// #login {
+		// 	display: block;
+		// }
 
 		.close {
 			position: absolute;

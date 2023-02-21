@@ -4,8 +4,6 @@
 
   &__inner {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
 
@@ -19,7 +17,6 @@
 
     &:hover {
       box-shadow: 0 0 50px var(--gray);
-      margin-top: 10px;
     }
   }
 
