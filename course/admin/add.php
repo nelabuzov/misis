@@ -5,7 +5,6 @@
     $apppath = dirname(dirname(__FILE__));
     $filepath = 'uploads/' . time() . basename($_FILES['file']['name']);
     $uploadfile = $apppath . '/' . $filepath;
-    $uploadfile = $apppath . '/' . $filepath;
 
     move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
 

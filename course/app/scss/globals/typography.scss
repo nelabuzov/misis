@@ -55,7 +55,7 @@ textarea {
 .btn {
 	font-weight: 700;
 	font-size: 18px;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	overflow: hidden;
 	color: var(--brand);
@@ -65,6 +65,13 @@ textarea {
 	cursor: pointer;
 	padding: 5px 20px;
 	transition: .4s;
+
+	&__search img {
+		width: 25px;
+		position: absolute;
+		top: rem(30);
+		right: rem(30);
+	}
 
 	img {
 		position: relative;

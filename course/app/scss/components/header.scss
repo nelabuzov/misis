@@ -1,10 +1,6 @@
 @use '../util' as *;
 
 .header {
-  background-color: var(--white);
-  position: fixed;
-  width: 100%;
-  z-index: 1;
 
   &__inner {
     padding: 0;

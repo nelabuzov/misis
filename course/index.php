@@ -1,7 +1,7 @@
 <?php
 	require_once "db.php";
 
-	$messages = $stmt -> fetchAll();
+	// $messages = $stmt -> fetchAll();
 	$stmt = $pdo -> query("select * from works");
 	$works = $stmt -> fetchAll();
 ?>
@@ -71,21 +71,23 @@
 				margin-right: 20px;
 			}
 
-			.btn {
+			.btn__account {
 				display: none;
 			}
 		</style>
 
-		<div class="account">
-			<div class="account__inner">
-				<?=$_COOKIE['account']?>
-				<img src="images/tools/user.svg" alt="user">
-			</div>
+		<a href="admin">
+			<div class="account">
+				<div class="account__inner">
+					<?=$_COOKIE['account']?>
+					<img src="images/tools/user.svg" alt="user">
+				</div>
 
-			<a href="exit.php">
-				Выход
-			</a>
-		</div>
+				<a href="exit.php">
+					Выход
+				</a>
+			</div>
+		</a>
 	<?php endif ?>
 
 	<header class="header">
@@ -94,12 +96,17 @@
 
 			<nav class="menu">
 				<ul>
-					<li><a href="#">О сервисе</a></li>
-					<li><a href="#">Помощь</a></li>
-					<li><input type="text" placeholder="Поиск"></li>
+					<li><a href="#about">О сервисе</a></li>
+					<li><a href="#feedback">Помощь</a></li>
 					<li>
-						<a class="btn" href="#popup">Аккаунт
-							<img src="images/tools/account.svg" alt="account/user.svg">
+						<input type="text" placeholder="Поиск">
+						<a class="btn__search" href="search.php">
+							<img src="images/tools/search.svg" alt="search">
+						</a>
+					</li>
+					<li>
+						<a class="btn btn__account" href="#popup">Аккаунт
+							<img src="images/tools/account.svg" alt="account">
 						</a>
 					</li>
 				</ul>
@@ -121,37 +128,37 @@
 	<section class="job container">
 		<div class="job__inner">
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">Frontend Разработчик</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">Backend Разработчик</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">Fullstack Разработчик</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">UI/UX Дизайнер</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">Системный Администратор</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">Разработчик Видеоигр</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
 
-			<a class="job__item" href="job.php">
+			<a class="job__item" href="job/frontend.php">
 				<h3 class="job__title">Team Lead</h3>
 				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 			</a>
@@ -159,7 +166,7 @@
 		</div>
 	</section>
 
-	<section class="about container">
+	<section class="about container" id="about">
 		<div class="about__inner">
 			<h2>О сервисе</h2>
 			<p>
@@ -177,7 +184,7 @@
 		</div>
 	</section>
 
-	<section class="feedback">
+	<section class="feedback" id="feedback">
 		<div class="container">
 			<h2>Мы поможем</h2>
 		</div>
@@ -193,7 +200,170 @@
 		</div>
 	</section>
 
-	<footer class="footer container">
+	<footer class="footer">
+		<div class="footer__inner">
+			<div class="container">
+				<!-- Footer Content -->
+				<div class="footer__content">
+					<div class="footer__box">
+						<h3>Новости и статьи</h3>
+						<nav>
+							<ul>
+								<li>
+									<a href="#">Новости рынка HR</a>
+								</li>
+								<li>
+									<a href="#">Жизнь в компании</a>
+								</li>
+								<li>
+									<a href="#">ИТ-проекты</a>
+								</li>
+								<li>
+									<a href="#">Рейтинг работодателей России</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="footer__box">
+						<h3>Молодым специалистам</h3>
+						<nav>
+							<ul>
+								<li>
+									<a href="#">Карьера для молодых специалистов</a>
+								</li>
+								<li>
+									<a href="#">Школа программистов</a>
+								</li>
+								<li>
+									<a href="#">Школа продактов</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="footer__box">
+							<h3>Новости и статьи</h3>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Новости рынка HR</a>
+									</li>
+									<li>
+										<a href="#">Жизнь в компании</a>
+									</li>
+									<li>
+										<a href="#">ИТ-проекты</a>
+									</li>
+									<li>
+										<a href="#">Рейтинг работодателей России</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+						<div class="footer__box">
+							<h3>Молодым специалистам</h3>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Карьера для молодых специалистов</a>
+									</li>
+									<li>
+										<a href="#">Школа программистов</a>
+									</li>
+									<li>
+										<a href="#">Школа продактов</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<!-- / Footer Content -->
+
+					<!-- Footer Content -->
+					<div class="footer__content">
+						<div class="footer__box">
+							<h3>Новости и статьи</h3>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Новости рынка HR</a>
+									</li>
+									<li>
+										<a href="#">Жизнь в компании</a>
+									</li>
+									<li>
+										<a href="#">ИТ-проекты</a>
+									</li>
+									<li>
+										<a href="#">Рейтинг работодателей России</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+						<div class="footer__box">
+							<h3>Молодым специалистам</h3>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">Карьера для молодых специалистов</a>
+									</li>
+									<li>
+										<a href="#">Школа программистов</a>
+									</li>
+									<li>
+										<a href="#">Школа продактов</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+						<div class="footer__box">
+								<h3>Новости и статьи</h3>
+								<nav>
+									<ul>
+										<li>
+											<a href="#">Новости рынка HR</a>
+										</li>
+										<li>
+											<a href="#">Жизнь в компании</a>
+										</li>
+										<li>
+											<a href="#">ИТ-проекты</a>
+										</li>
+										<li>
+											<a href="#">Рейтинг работодателей России</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+
+							<div class="footer__box">
+								<h3>Молодым специалистам</h3>
+								<nav>
+									<ul>
+										<li>
+											<a href="#">Карьера для молодых специалистов</a>
+										</li>
+										<li>
+											<a href="#">Школа программистов</a>
+										</li>
+										<li>
+											<a href="#">Школа продактов</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<!-- / Footer Content -->
+
+				</div>
+			</div>
+		</div>
+
 		<p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
 	</footer>
 

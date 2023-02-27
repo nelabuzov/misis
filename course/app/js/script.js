@@ -7,3 +7,5 @@ function next() {
 	document.getElementById('login').style.display = "none";
 	document.getElementById('signup').style.display = "block";
 }
+
+lightGallery(document.getElementById('lightgallery'));

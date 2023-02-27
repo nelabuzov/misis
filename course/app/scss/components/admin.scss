@@ -1,6 +1,7 @@
 @use '../util' as *;
 
 .message {
+  margin: rem(50) 0;
 
   &__table {
     border-collapse: collapse;
@@ -13,13 +14,19 @@
   }
 }
 
-.admin {
+.portfolio {
 
-  &-img-wrapper {
-    margin-bottom: rem(30);
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
-    .img-wrapper {
-      margin-bottom: 0;
-    }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  * {
+    width: rem(300);
   }
 }

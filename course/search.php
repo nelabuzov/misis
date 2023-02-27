@@ -63,21 +63,23 @@
 				margin-right: 20px;
 			}
 
-			.btn {
+			.btn__account {
 				display: none;
 			}
 		</style>
 
-		<div class="account">
-			<div class="account__inner">
-				<?=$_COOKIE['account']?>
-				<img src="images/tools/user.svg" alt="user">
-			</div>
+		<a href="admin">
+			<div class="account">
+				<div class="account__inner">
+					<?=$_COOKIE['account']?>
+					<img src="images/tools/user.svg" alt="user">
+				</div>
 
-			<a href="exit.php">
-				Выход
-			</a>
-		</div>
+				<a href="exit.php">
+					Выход
+				</a>
+			</div>
+		</a>
 	<?php endif ?>
 
 	<header class="header">
@@ -88,9 +90,14 @@
 				<ul>
 					<li><a href="#">О сервисе</a></li>
 					<li><a href="#">Помощь</a></li>
-					<li><input type="text" placeholder="Поиск"></li>
 					<li>
-						<a class="btn" href="#popup">Аккаунт
+						<input type="text" placeholder="Поиск">
+						<a class="btn__search" href="search.php">
+							<img src="images/tools/search.svg" alt="search">
+						</a>
+					</li>
+					<li>
+						<a class="btn btn__account" href="#popup">Аккаунт
 							<img src="images/tools/account.svg" alt="account/user.svg">
 						</a>
 					</li>
