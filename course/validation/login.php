@@ -1,6 +1,6 @@
 <?php
-  $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_STRING);
-  $password = filter_var(trim($_POST['password']), FILTER_SANITIZE_STRING);
+  $email = filter_var(trim($_POST['email']));
+  $password = filter_var(trim($_POST['password']));
 
   $password = md5($password."fa32tro8");
 

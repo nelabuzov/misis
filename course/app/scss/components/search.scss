@@ -40,8 +40,9 @@
 
     div:last-child {
       display: flex;
+      align-items: center;
 
-      a+a {
+      *+* {
         margin-left: rem(20);
       }
     }

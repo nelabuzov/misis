@@ -19,38 +19,6 @@
   }
 
   &__inner {
-    max-width: rem(630);
-  }
-
-  h1 {
-    border-right: 3px solid;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 0 auto;
-    animation:
-      typing 7s steps(25) infinite,
-      blink 1s step-end infinite;
-  }
-
-  /* Typing Effect */
-  @keyframes typing {
-    0% {
-      width: 0;
-    }
-
-    50% {
-      width: 100%;
-    }
-
-    100% {
-      width: 0;
-    }
-  }
-
-  /* Cursor Effect */
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
+    max-width: rem(900);
   }
 }

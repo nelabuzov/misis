@@ -12,7 +12,6 @@
 
   &__bg {
     height: 600px;
-    filter: blur(rem(5));
     background: url('../images/content/feedback.png') no-repeat 50% 50% / contain fixed;
   }
 
@@ -29,7 +28,6 @@
       margin: 20px;
       border-width: 0;
       box-shadow: none;
-      border-radius: 50px;
       padding: 25px;
       background-color: hsla(0, 0%, 100%, .5);
 
@@ -41,7 +39,8 @@
     }
 
     button {
-      background-color: #fff;
+      background-color: #000;
+      color: #fff;
       padding: 20px;
       width: 50%;
       position: relative;
@@ -51,14 +50,6 @@
       font-size: 25px;
       font-weight: 700;
       cursor: pointer;
-      transition: .3s;
-      box-shadow: 0 0 5px #fff;
-
-      &:hover {
-        background-color: #000;
-        box-shadow: none;
-        color: #fff;
-      }
     }
   }
 }

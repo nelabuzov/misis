@@ -5,8 +5,10 @@
 	max-width: rem(1200);
 	margin: 0 auto;
 
-	@include breakpoint(large) {
-		padding: rem(60) 0;
-		transform: translate(0, 0);
+	&:not(.header__inner) {
+
+		@include breakpoint(large) {
+			padding: rem(60) 0;
+		}
 	}
 }

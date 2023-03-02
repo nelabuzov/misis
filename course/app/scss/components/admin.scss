@@ -1,6 +1,6 @@
 @use '../util' as *;
 
-.message {
+.data {
   margin: rem(50) 0;
 
   &__table {
@@ -15,10 +15,13 @@
 }
 
 .portfolio {
+  display: flex;
+  flex-direction: column;
 
   &__content {
     display: flex;
     justify-content: space-between;
+    order: -1;
   }
 }
 

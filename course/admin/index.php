@@ -4,6 +4,12 @@
   $stmt = $pdo -> query("select * from messages");
   $messages = $stmt -> fetchAll();
 
+  $stmt = $pdo -> query("select * from employer");
+  $employer = $stmt -> fetchAll();
+
+  $stmt = $pdo -> query("select * from applicant");
+  $applicant = $stmt -> fetchAll();
+
   $stmt = $pdo -> query("select * from works");
   $works = $stmt -> fetchAll();
 ?>
@@ -14,15 +20,34 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="../assets/css/lightgallery.css">
 	<link rel="stylesheet" href="../assets/css/lg-transitions.css">
 	<link rel="stylesheet" href="../dist/style.css">
+
 	<script defer src="../dist/script.js"></script>
-  <script defer src="assets/js/lightgallery.min.js"></script>
+  <script defer src="../assets/js/lightgallery.min.js"></script>
   <title>Страница Пользователя</title>
 </head>
 <body>
-  <?php
+	<!-- <div id="popup" class="overlay">
+		<a class="cancel" href="#"></a>
+		<div class="popup">
+			<a class="close" href="#">&times;</a>
+
+			<div class="popup__inner">
+				<h2>Добавление работы</h2>
+				<form action="add.php" method="post" enctype="multipart/form-data">
+          <input name="name" type="text" placeholder="Название" required>
+          <input name="file" type="file" required>
+          <input type="submit" value="Создать">
+        </form>
+			</div>
+		</div>
+	</div> -->
+
+	<?php
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
 
@@ -61,17 +86,35 @@
 	<?php else: ?>
 		<style>
 			.account {
-				position: absolute;
-				top: 20px;
-				right: 820px;
-				z-index: 5;
-			}
-
-			.account__inner {
 				display: inline-flex;
 				align-items: center;
+				position: absolute;
+				left: 50%;
+				z-index: 2;
 				font-weight: 700;
+				transform: translateX(-65%);
+				padding: 17px 0;
+				cursor: pointer;
+			}
+
+			.account img {
 				margin-right: 20px;
+			}
+
+			.account__menu {
+				background-color: var(--white);
+				position: absolute;
+				top: 78px;
+				left: 0;
+				z-index: -1;
+				transition: .3s;
+				border-radius: 0 0 10px 10px;
+			}
+
+			.account__menu a {
+				display: block;
+				padding: 0 20px;
+				margin: 20px 0;
 			}
 
 			.btn__account {
@@ -79,37 +122,34 @@
 			}
 		</style>
 
-		<a href="index.php">
-			<div class="account">
-				<div class="account__inner">
-					<?=$_COOKIE['account']?>
-					<img src="../images/tools/user.svg" alt="user">
-				</div>
+		<div class="account" onclick="showHide()">
+			<img src="../images/tools/user.svg" alt="user">
+			<?=$_COOKIE['account']?>
 
-				<a href="../exit.php">
-					Выход
-				</a>
+			<div class="account__menu hidden" id="menu">
+				<a href="#">Профиль</a>
+				<a href="../exit.php">Выход</a>
 			</div>
-		</a>
+		</div>
 	<?php endif ?>
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="../index.php">Work<span>flow</span></a>
+			<a class="logo" href="../#">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>
 					<li><a href="../#about">О сервисе</a></li>
 					<li><a href="../#feedback">Помощь</a></li>
 					<li>
-						<input type="text" placeholder="Поиск">
-						<a class="btn__search" href="../search.php">
-							<img src="../images/tools/search.svg" alt="search">
-						</a>
+						<a href="../search.php">Вакансии</a>
+					</li>
+					<li>
+						<a href="../search.php">Соискатели</a>
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
-							<img src="../images/tools/account.svg" alt="account/user.svg">
+							<img src="../images/tools/account.svg" alt="account">
 						</a>
 					</li>
 				</ul>
@@ -118,10 +158,10 @@
 	</header>
 
   <main class="container">
-    <section class="message">
+    <section class="data">
       <h2>Сообщения</h2>
 
-      <table class="message__table" border="1">
+      <table class="data__table" border="1">
         <tr>
           <th>#</th>
           <th>Имя</th>
@@ -142,7 +182,74 @@
       </table>
     </section>
 
+    <section class="data">
+      <h2>Работодатели</h2>
+
+      <table class="data__table" border="1">
+        <tr>
+          <th>#</th>
+          <th>Название</th>
+          <th>Описание</th>
+          <th>Вакансии</th>
+          <th>Регион</th>
+          <th>Почта</th>
+          <th>Телефон</th>
+        </tr>
+
+        <?php foreach ($employer as $key => $emp) : ?>
+          <tr>
+            <td><?= $key + 1 ?></td>
+            <td><?= htmlspecialchars($emp['name']) ?></td>
+            <td><?= htmlspecialchars($emp['description']) ?></td>
+            <td><?= htmlspecialchars($emp['vacancy']) ?></td>
+            <td><?= htmlspecialchars($emp['region']) ?></td>
+            <td><?= htmlspecialchars($emp['email']) ?></td>
+            <td><?= htmlspecialchars($emp['phone_number']) ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
+    </section>
+
+    <section class="data">
+      <h2>Соискатели</h2>
+
+      <table class="data__table" border="1">
+        <tr>
+          <th>#</th>
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+          <th>Опыт</th>
+          <th>Дата рождения</th>
+          <th>Регион</th>
+          <th>Почта</th>
+          <th>Телефон</th>
+        </tr>
+
+        <?php foreach ($applicant as $key => $app) : ?>
+          <tr>
+            <td><?= $key + 1 ?></td>
+            <td><?= htmlspecialchars($app['last_name']) ?></td>
+            <td><?= htmlspecialchars($app['first_name']) ?></td>
+            <td><?= htmlspecialchars($app['middle_name']) ?></td>
+            <td><?= htmlspecialchars($app['experience']) ?></td>
+            <td><?= htmlspecialchars($app['birthday']) ?></td>
+            <td><?= htmlspecialchars($app['region']) ?></td>
+            <td><?= htmlspecialchars($app['email']) ?></td>
+            <td><?= htmlspecialchars($app['phone_number']) ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
+    </section>
+
     <section class="portfolio">
+      <div id="lightgallery" class="gallery">
+          <?php foreach ($works as $work) : ?>
+            <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
+              <img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
+            </a>
+          <?php endforeach; ?>
+      </div>
 
       <div class="portfolio__content">
         <h2>Портфолио</h2>
@@ -152,183 +259,10 @@
           <a class="btn" href="remove.php?id=<?= $work['id'] ?>">Удалить</a>
         </div>
       </div>
-
-      <div id="lightgallery" class="gallery">
-          <?php foreach ($works as $work) : ?>
-            <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
-              <img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
-            </a>
-          <?php endforeach; ?>
-      </div>
     </section>
   </main>
 
-  <footer class="footer">
-		<div class="footer__inner">
-			<div class="container">
-				<!-- Footer Content -->
-				<div class="footer__content">
-					<div class="footer__box">
-						<h3>Новости и статьи</h3>
-						<nav>
-							<ul>
-								<li>
-									<a href="#">Новости рынка HR</a>
-								</li>
-								<li>
-									<a href="#">Жизнь в компании</a>
-								</li>
-								<li>
-									<a href="#">ИТ-проекты</a>
-								</li>
-								<li>
-									<a href="#">Рейтинг работодателей России</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-
-					<div class="footer__box">
-						<h3>Молодым специалистам</h3>
-						<nav>
-							<ul>
-								<li>
-									<a href="#">Карьера для молодых специалистов</a>
-								</li>
-								<li>
-									<a href="#">Школа программистов</a>
-								</li>
-								<li>
-									<a href="#">Школа продактов</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-
-					<div class="footer__box">
-							<h3>Новости и статьи</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Новости рынка HR</a>
-									</li>
-									<li>
-										<a href="#">Жизнь в компании</a>
-									</li>
-									<li>
-										<a href="#">ИТ-проекты</a>
-									</li>
-									<li>
-										<a href="#">Рейтинг работодателей России</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-
-						<div class="footer__box">
-							<h3>Молодым специалистам</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Карьера для молодых специалистов</a>
-									</li>
-									<li>
-										<a href="#">Школа программистов</a>
-									</li>
-									<li>
-										<a href="#">Школа продактов</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-					<!-- / Footer Content -->
-
-					<!-- Footer Content -->
-					<div class="footer__content">
-						<div class="footer__box">
-							<h3>Новости и статьи</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Новости рынка HR</a>
-									</li>
-									<li>
-										<a href="#">Жизнь в компании</a>
-									</li>
-									<li>
-										<a href="#">ИТ-проекты</a>
-									</li>
-									<li>
-										<a href="#">Рейтинг работодателей России</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-
-						<div class="footer__box">
-							<h3>Молодым специалистам</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Карьера для молодых специалистов</a>
-									</li>
-									<li>
-										<a href="#">Школа программистов</a>
-									</li>
-									<li>
-										<a href="#">Школа продактов</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-
-						<div class="footer__box">
-								<h3>Новости и статьи</h3>
-								<nav>
-									<ul>
-										<li>
-											<a href="#">Новости рынка HR</a>
-										</li>
-										<li>
-											<a href="#">Жизнь в компании</a>
-										</li>
-										<li>
-											<a href="#">ИТ-проекты</a>
-										</li>
-										<li>
-											<a href="#">Рейтинг работодателей России</a>
-										</li>
-									</ul>
-								</nav>
-							</div>
-
-							<div class="footer__box">
-								<h3>Молодым специалистам</h3>
-								<nav>
-									<ul>
-										<li>
-											<a href="#">Карьера для молодых специалистов</a>
-										</li>
-										<li>
-											<a href="#">Школа программистов</a>
-										</li>
-										<li>
-											<a href="#">Школа продактов</a>
-										</li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-					<!-- / Footer Content -->
-
-				</div>
-			</div>
-		</div>
-
-		<p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
-	</footer>
+  <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 </body>

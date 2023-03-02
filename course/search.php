@@ -5,9 +5,10 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="dist/style.css">
 	<script defer src="dist/script.js"></script>
-	<title>Workflow | Поиск для работы</title>
+	<title>Work Flow - поиск персонала и публикация вакансий</title>
 </head>
 
 <body>
@@ -50,17 +51,35 @@
 	<?php else: ?>
 		<style>
 			.account {
-				position: absolute;
-				top: 20px;
-				right: 820px;
-				z-index: 5;
-			}
-
-			.account__inner {
 				display: inline-flex;
 				align-items: center;
+				position: absolute;
+				left: 50%;
+				z-index: 2;
 				font-weight: 700;
+				transform: translateX(-65%);
+				padding: 17px 0;
+				cursor: pointer;
+			}
+
+			.account img {
 				margin-right: 20px;
+			}
+
+			.account__menu {
+				background-color: var(--white);
+				position: absolute;
+				top: 78px;
+				left: 0;
+				z-index: -1;
+				transition: .3s;
+				border-radius: 0 0 10px 10px;
+			}
+
+			.account__menu a {
+				display: block;
+				padding: 0 20px;
+				margin: 20px 0;
 			}
 
 			.btn__account {
@@ -68,37 +87,34 @@
 			}
 		</style>
 
-		<a href="admin">
-			<div class="account">
-				<div class="account__inner">
-					<?=$_COOKIE['account']?>
-					<img src="images/tools/user.svg" alt="user">
-				</div>
+		<div class="account" onclick="showHide()">
+			<img src="images/tools/user.svg" alt="user">
+			<?=$_COOKIE['account']?>
 
-				<a href="exit.php">
-					Выход
-				</a>
+			<div class="account__menu hidden" id="menu">
+				<a href="admin">Профиль</a>
+				<a href="exit.php">Выход</a>
 			</div>
-		</a>
+		</div>
 	<?php endif ?>
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="index.php">Work<span>flow</span></a>
+			<a class="logo" href="#">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>
-					<li><a href="#">О сервисе</a></li>
-					<li><a href="#">Помощь</a></li>
+					<li><a href="#about">О сервисе</a></li>
+					<li><a href="#feedback">Помощь</a></li>
 					<li>
-						<input type="text" placeholder="Поиск">
-						<a class="btn__search" href="search.php">
-							<img src="images/tools/search.svg" alt="search">
-						</a>
+						<a href="search.php">Вакансии</a>
+					</li>
+					<li>
+						<a href="search.php">Соискатели</a>
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
-							<img src="images/tools/account.svg" alt="account/user.svg">
+							<img src="images/tools/account.svg" alt="account">
 						</a>
 					</li>
 				</ul>
@@ -138,7 +154,7 @@
 			</div>
 		</aside>
 
-		<article class="article">
+		<article class="article" id="myBOX">
 			<div class="article__box">
 				<div class="price">35 000 - 44 000 руб.</div>
 				<h2>Frontend Разработчик</h2>
@@ -148,207 +164,42 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job.php" class="btn">Откликнуться</a>
-					<a href="#" class="btn">Показать контакты</a>
+					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<a href="tel:88005553535">+7 (800) 555-35-35</a>
 				</div>
 			</div>
 
 			<div class="article__box">
 				<div class="price">35 000 - 44 000 руб.</div>
-				<h2>Frontend Разработчик</h2>
+				<h2>Backend Разработчик</h2>
 				<div class="region">Yandex (Воронеж)</div>
 
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job.php" class="btn">Откликнуться</a>
-					<a href="#" class="btn">Показать контакты</a>
+					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<a href="tel:82004688000">+7 (200) 468-80-00</a>
 				</div>
 			</div>
 
 			<div class="article__box">
 				<div class="price">35 000 - 44 000 руб.</div>
-				<h2>Frontend Разработчик</h2>
+				<h2>Fullstack Разработчик</h2>
 				<div class="region">Yandex (Воронеж)</div>
 
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job.php" class="btn">Откликнуться</a>
-					<a href="#" class="btn">Показать контакты</a>
+					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<a href="tel:89006663333">+7 (900) 666-33-33</a>
 				</div>
 			</div>
 		</article>
 	</main>
 
-	<footer class="footer">
-		<div class="footer__inner">
-			<div class="container">
-				<!-- Footer Content -->
-				<div class="footer__content">
-					<div class="footer__box">
-						<h3>Новости и статьи</h3>
-						<nav>
-							<ul>
-								<li>
-									<a href="#">Новости рынка HR</a>
-								</li>
-								<li>
-									<a href="#">Жизнь в компании</a>
-								</li>
-								<li>
-									<a href="#">ИТ-проекты</a>
-								</li>
-								<li>
-									<a href="#">Рейтинг работодателей России</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-
-					<div class="footer__box">
-						<h3>Молодым специалистам</h3>
-						<nav>
-							<ul>
-								<li>
-									<a href="#">Карьера для молодых специалистов</a>
-								</li>
-								<li>
-									<a href="#">Школа программистов</a>
-								</li>
-								<li>
-									<a href="#">Школа продактов</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-
-					<div class="footer__box">
-							<h3>Новости и статьи</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Новости рынка HR</a>
-									</li>
-									<li>
-										<a href="#">Жизнь в компании</a>
-									</li>
-									<li>
-										<a href="#">ИТ-проекты</a>
-									</li>
-									<li>
-										<a href="#">Рейтинг работодателей России</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-
-						<div class="footer__box">
-							<h3>Молодым специалистам</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Карьера для молодых специалистов</a>
-									</li>
-									<li>
-										<a href="#">Школа программистов</a>
-									</li>
-									<li>
-										<a href="#">Школа продактов</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-					<!-- / Footer Content -->
-
-					<!-- Footer Content -->
-					<div class="footer__content">
-						<div class="footer__box">
-							<h3>Новости и статьи</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Новости рынка HR</a>
-									</li>
-									<li>
-										<a href="#">Жизнь в компании</a>
-									</li>
-									<li>
-										<a href="#">ИТ-проекты</a>
-									</li>
-									<li>
-										<a href="#">Рейтинг работодателей России</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-
-						<div class="footer__box">
-							<h3>Молодым специалистам</h3>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">Карьера для молодых специалистов</a>
-									</li>
-									<li>
-										<a href="#">Школа программистов</a>
-									</li>
-									<li>
-										<a href="#">Школа продактов</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-
-						<div class="footer__box">
-								<h3>Новости и статьи</h3>
-								<nav>
-									<ul>
-										<li>
-											<a href="#">Новости рынка HR</a>
-										</li>
-										<li>
-											<a href="#">Жизнь в компании</a>
-										</li>
-										<li>
-											<a href="#">ИТ-проекты</a>
-										</li>
-										<li>
-											<a href="#">Рейтинг работодателей России</a>
-										</li>
-									</ul>
-								</nav>
-							</div>
-
-							<div class="footer__box">
-								<h3>Молодым специалистам</h3>
-								<nav>
-									<ul>
-										<li>
-											<a href="#">Карьера для молодых специалистов</a>
-										</li>
-										<li>
-											<a href="#">Школа программистов</a>
-										</li>
-										<li>
-											<a href="#">Школа продактов</a>
-										</li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-					<!-- / Footer Content -->
-
-				</div>
-			</div>
-		</div>
-
-		<p>© 2023 WORKFLOW. Все права защищены. Разработан THELABUZOV</p>
-	</footer>
+	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 </body>
