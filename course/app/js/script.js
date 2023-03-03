@@ -5,16 +5,16 @@ function showHide() {
   menu.classList.toggle('hidden');
 }
 
-function myFunction() {
-  let input, filter, box, div, h2, i, txtValue;
-  input = document.getElementById('myInput');
+function filterList() {
+  let input, filter, box, div, search, i, txtValue;
+  input = document.getElementById('input');
   filter = input.value.toUpperCase();
-  box = document.getElementById("myBOX");
+  box = document.getElementById("article");
   div = box.getElementsByClassName('article__box');
 
   for (i = 0; i < div.length; i++) {
-    h2 = div[i].getElementsByTagName("h2")[0];
-    txtValue = h2.textContent || h2.innerText;
+    search = div[i].getElementsByClassName("search")[0];
+    txtValue = search.textContent || search.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       div[i].style.display = "";
     } else {

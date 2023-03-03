@@ -57,13 +57,14 @@
 				left: 50%;
 				z-index: 2;
 				font-weight: 700;
-				transform: translateX(-65%);
+				transform: translateX(-170%);
+				/* transform: translateX(-210%); */
 				padding: 17px 0;
 				cursor: pointer;
 			}
 
 			.account img {
-				margin-right: 20px;
+				margin-right: 5px;
 			}
 
 			.account__menu {
@@ -71,7 +72,6 @@
 				position: absolute;
 				top: 78px;
 				left: 0;
-				z-index: -1;
 				transition: .3s;
 				border-radius: 0 0 10px 10px;
 			}
@@ -100,17 +100,20 @@
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="#">Work<span>Flow</span></a>
+			<a class="logo" href="./">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>
-					<li><a href="#about">О сервисе</a></li>
-					<li><a href="#feedback">Помощь</a></li>
+					<li><a href="./#about">О сервисе</a></li>
+					<li><a href="./#feedback">Помощь</a></li>
 					<li>
-						<a href="search.php">Вакансии</a>
+						<a href="employer.php">Вакансии</a>
 					</li>
 					<li>
-						<a href="search.php">Соискатели</a>
+						<a href="#">Соискатели</a>
+					</li>
+					<li>
+						<input type="text" placeholder="Специальность / Город" id="input" onkeyup="filterList()">
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
@@ -154,46 +157,58 @@
 			</div>
 		</aside>
 
-		<article class="article" id="myBOX">
+		<article class="article" id="article">
 			<div class="article__box">
-				<div class="price">35 000 - 44 000 руб.</div>
-				<h2>Frontend Разработчик</h2>
-				<div class="region">Yandex (Воронеж)</div>
+				<div class="price">40 000 - 50 000 руб.</div>
 
+				<div class="avatar">
+					<img src="images/content/uploads/tools/avatar-1.png" alt="avatar">
+					<h2>Дмитрий Лабузов</h2>
+				</div>
+
+				<div class="search">Frontend Разработчик (Старый Оскол)</div>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<a href="job/frontend.php" class="btn">Связаться</a>
 					<a href="tel:88005553535">+7 (800) 555-35-35</a>
 				</div>
 			</div>
 
 			<div class="article__box">
-				<div class="price">35 000 - 44 000 руб.</div>
-				<h2>Backend Разработчик</h2>
-				<div class="region">Yandex (Воронеж)</div>
+				<div class="price">20 000 - 30 000 руб.</div>
 
+				<div class="avatar">
+					<img src="images/content/uploads/tools/avatar-2.png" alt="avatar">
+					<h2>Николай Казаков</h2>
+				</div>
+
+				<div class="search">UI / UX Дизайнер (Старый Оскол)</div>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job/frontend.php" class="btn">Откликнуться</a>
-					<a href="tel:82004688000">+7 (200) 468-80-00</a>
+					<a href="job/frontend.php" class="btn">Связаться</a>
+					<a href="tel:88005553535">+7 (800) 555-35-35</a>
 				</div>
 			</div>
 
 			<div class="article__box">
-				<div class="price">35 000 - 44 000 руб.</div>
-				<h2>Fullstack Разработчик</h2>
-				<div class="region">Yandex (Воронеж)</div>
+				<div class="price">50 000 - 75 000 руб.</div>
 
+				<div class="avatar">
+					<img src="images/content/uploads/tools/avatar-3.png" alt="avatar">
+					<h2>Дмитрий Медведев</h2>
+				</div>
+
+				<div class="search">UI / UX Дизайнер (Москва)</div>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job/frontend.php" class="btn">Откликнуться</a>
-					<a href="tel:89006663333">+7 (900) 666-33-33</a>
+					<a href="job/frontend.php" class="btn">Связаться</a>
+					<a href="tel:88005553535">+7 (800) 555-35-35</a>
 				</div>
 			</div>
 		</article>

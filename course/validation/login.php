@@ -15,10 +15,17 @@
 
   setcookie('account', $account['email'], time() + 100000, "/course");
 
-  $mysql -> close();
+  $employer = $mysql -> query("SELECT * FROM `employer` WHERE `email` = '$email'");
+  $emp = $employer -> fetch_assoc();
 
-  header('Location: ../admin/index.php');
+  $applicant = $mysql -> query("SELECT * FROM `applicant` WHERE `email` = '$email'");
+  $app = $applicant -> fetch_assoc();
 
-  print_r($account);
-  exit();
+  if(mysqli_num_rows($employer)) {
+    header('Location: ../admin/employer.php');
+  } elseif(mysqli_num_rows($applicant)) {
+    header('Location: ../admin/applicant.php');
+  } else {
+    header('Location: ../admin/index.php');
+  }
 ?>

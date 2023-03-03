@@ -26,10 +26,31 @@
 }
 
 .gallery {
-  display: flex;
+  display: inline-flex;
+  align-items: start;
+  align-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: rem(50);
 
-  * {
-    width: rem(300);
+  .img-wrapper {
+    border: rem(10) solid var(--brand);
+    box-shadow: 0 0 rem(10) var(--brand);
+    width: rem(350);
+    height: rem(400);
+    overflow: hidden;
+
+    img {
+      width: rem(350);
+      height: 100%;
+      transition: 1s;
+      position: relative;
+      object-fit: cover;
+      object-position: top center;
+
+      &:hover {
+        object-position: bottom center;
+      }
+    }
   }
 }

@@ -71,16 +71,6 @@ textarea {
 	transition: .4s;
 	cursor: pointer;
 
-	&__search {
-		position: relative;
-		top: rem(8);
-		right: rem(48);
-
-		img {
-			width: rem(25);
-		}
-	}
-
 	img {
 		position: relative;
 		transition: .4s;

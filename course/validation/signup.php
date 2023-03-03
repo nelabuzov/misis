@@ -27,13 +27,13 @@
     if(in_array($chosenValue, $allowedValues)){
       if(strcasecmp($chosenValue, 1) == 0){
         $mysql -> query("INSERT INTO `employer` (`name`, `description`, `vacancy`, `region`, `email`, `phone_number`, `category`) VALUES('', '', '', 0, '$email', 0, 1)");
+        $mysql -> close();
+        header('Location: ../admin/employer.php');
       } else {
         $mysql -> query("INSERT INTO `applicant` (`last_name`, `first_name`, `middle_name`, `experience`, `birthday`, `region`, `email`, `phone_number`, `category`) VALUES('', '', '', 0, '2000-01-01', 0, '$email', 0, 2)");
+        $mysql -> close();
+        header('Location: ../admin/applicant.php');
       }
     }
   }
-
-  $mysql -> close();
-
-  header('Location: ../admin/index.php');
 ?>

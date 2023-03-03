@@ -135,7 +135,7 @@
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="../#">Work<span>Flow</span></a>
+			<a class="logo" href="../">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>
@@ -158,89 +158,6 @@
 	</header>
 
   <main class="container">
-    <section class="data">
-      <h2>Сообщения</h2>
-
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Имя</th>
-          <th>Email</th>
-          <th>Текст</th>
-          <th>Дата и время</th>
-        </tr>
-
-        <?php foreach ($messages as $key => $message) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($message['name']) ?></td>
-            <td><?= htmlspecialchars($message['email']) ?></td>
-            <td><?= htmlspecialchars($message['text']) ?></td>
-            <td><?= $message['created_at'] ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
-    </section>
-
-    <section class="data">
-      <h2>Работодатели</h2>
-
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Название</th>
-          <th>Описание</th>
-          <th>Вакансии</th>
-          <th>Регион</th>
-          <th>Почта</th>
-          <th>Телефон</th>
-        </tr>
-
-        <?php foreach ($employer as $key => $emp) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($emp['name']) ?></td>
-            <td><?= htmlspecialchars($emp['description']) ?></td>
-            <td><?= htmlspecialchars($emp['vacancy']) ?></td>
-            <td><?= htmlspecialchars($emp['region']) ?></td>
-            <td><?= htmlspecialchars($emp['email']) ?></td>
-            <td><?= htmlspecialchars($emp['phone_number']) ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
-    </section>
-
-    <section class="data">
-      <h2>Соискатели</h2>
-
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Фамилия</th>
-          <th>Имя</th>
-          <th>Отчество</th>
-          <th>Опыт</th>
-          <th>Дата рождения</th>
-          <th>Регион</th>
-          <th>Почта</th>
-          <th>Телефон</th>
-        </tr>
-
-        <?php foreach ($applicant as $key => $app) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($app['last_name']) ?></td>
-            <td><?= htmlspecialchars($app['first_name']) ?></td>
-            <td><?= htmlspecialchars($app['middle_name']) ?></td>
-            <td><?= htmlspecialchars($app['experience']) ?></td>
-            <td><?= htmlspecialchars($app['birthday']) ?></td>
-            <td><?= htmlspecialchars($app['region']) ?></td>
-            <td><?= htmlspecialchars($app['email']) ?></td>
-            <td><?= htmlspecialchars($app['phone_number']) ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
-    </section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>

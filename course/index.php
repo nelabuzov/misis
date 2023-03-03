@@ -28,8 +28,8 @@
 			<div class="popup__inner" id="login">
 				<h2>Вход</h2>
 				<form action="validation/login.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
+					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту" required>
+					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" required>
 					<button type="submit" class="btn">Вход</button>
 				</form>
 			</div>
@@ -65,7 +65,7 @@
 			}
 
 			.account img {
-				margin-right: 20px;
+				margin-right: 5px;
 			}
 
 			.account__menu {
@@ -109,10 +109,10 @@
 					<li><a href="#about">О сервисе</a></li>
 					<li><a href="#feedback">Помощь</a></li>
 					<li>
-						<a href="search.php">Вакансии</a>
+						<a href="employer.php">Вакансии</a>
 					</li>
 					<li>
-						<a href="search.php">Соискатели</a>
+						<a href="applicant.php">Соискатели</a>
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
