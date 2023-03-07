@@ -3,30 +3,31 @@
 h1,
 h2,
 h3 {
-	margin: 0 0 40px;
+	margin: 0 0 rem(40);
 	line-height: 1.1;
 	position: relative;
 }
 
 h1 {
-	font-size: 60px;
+	font-size: rem(75);
+	text-transform: uppercase;
 }
 
 h2 {
-	font-size: 40px;
+	font-size: rem(40);
 }
 
 h3 {
-	font-size: 20px;
+	font-size: rem(20);
 }
 
 .subtitle {
-	font-size: 24px;
+	font-size: rem(24);
 	opacity: .6;
 }
 
 p {
-	font-size: 18px;
+	font-size: rem(18);
 	opacity: .6;
 }
 
@@ -46,10 +47,10 @@ a {
 
 input:not([type="radio"]),
 textarea {
-	box-shadow: 0 3px 0 var(--gray);
-	border: 2px solid var(--gray);
-	padding: 12px 80px 12px 20px;
-	border-radius: 10px;
+	box-shadow: 0 rem(3) 0 var(--gray);
+	border: rem(2) solid var(--gray);
+	padding: rem(12) rem(80) rem(12) rem(20);
+	border-radius: rem(10);
 	resize: none;
 }
 
@@ -58,7 +59,7 @@ textarea {
 }
 
 .btn {
-	font-size: 18px;
+	font-size: rem(18);
 	font-weight: 700;
 	display: inline-flex;
 	align-items: center;
@@ -66,8 +67,8 @@ textarea {
 	color: var(--brand);
 	background-color: transparent;
 	border: rem(2) solid var(--brand);
-	border-radius: 10px;
-	padding: 5px 20px;
+	padding: rem(5) rem(20);
+	border-radius: rem(10);
 	transition: .4s;
 	cursor: pointer;
 
@@ -88,12 +89,12 @@ textarea {
 }
 
 .logo {
-	padding: 25px;
-	font-size: 30px;
+	padding: rem(25);
+	font-size: rem(30);
 	font-weight: 700;
 	text-transform: uppercase;
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 	color: var(--white);
 	background: var(--black);
 
@@ -104,17 +105,17 @@ textarea {
 		transition: .3s;
 		background-color: var(--black);
 		position: absolute;
-		top: 65px;
+		top: rem(65);
 		left: 0;
 		z-index: -1;
 		clip-path: polygon(50% 50%, 100% 100%, 100% 0, 0 0, 0 100%);
 	}
 
 	&:hover::after {
-		top: 75px;
+		top: rem(75);
 	}
+}
 
-	span {
-		color: var(--brand);
-	}
+span {
+	color: var(--brand);
 }

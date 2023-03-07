@@ -1,5 +1,17 @@
 <?php
 	require_once "db.php";
+
+	if (isset($_COOKIE['account'])) {
+		$email = $_COOKIE['account'];
+
+		$stmt = $pdo -> prepare('SELECT * FROM employer WHERE email = ?');
+		$stmt -> execute([$email]);
+		$employer = $stmt -> fetch();
+	
+		$stmt = $pdo -> prepare('SELECT * FROM applicant WHERE email = ?');
+		$stmt -> execute([$email]);
+		$applicant = $stmt -> fetch();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +22,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+	<link rel="stylesheet" href="assets/animate.min.css">
 	<link rel="stylesheet" href="dist/style.css">
-	<script defer src="dist/script.js"></script>
 	<title>Work Flow - поиск персонала и публикация вакансий</title>
 </head>
 
@@ -94,7 +107,18 @@
 			<?=$_COOKIE['account']?>
 
 			<div class="account__menu hidden" id="menu">
-				<a href="admin">Профиль</a>
+
+				<?php if ($employer): ?>
+					<a href="admin/employer">Профиль</a>
+
+				<?php elseif ($applicant): ?>
+					<a href="admin/applicant">Профиль</a>
+
+				<?php else: ?>
+					<a href="admin">Профиль</a>
+
+				<?php endif ?>
+
 				<a href="exit.php">Выход</a>
 			</div>
 		</div>
@@ -109,10 +133,10 @@
 					<li><a href="#about">О сервисе</a></li>
 					<li><a href="#feedback">Помощь</a></li>
 					<li>
-						<a href="employer.php">Вакансии</a>
+						<a href="search/employer.php">Вакансии</a>
 					</li>
 					<li>
-						<a href="applicant.php">Соискатели</a>
+						<a href="search/applicant.php">Соискатели</a>
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
@@ -127,10 +151,12 @@
 	<section class="hero">
 		<div class="container">
 			<div class="hero__inner">
-				<h1>Работа найдется для каждого</h1>
-				<p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel
-					quibusdam fugiat
-					cum, voluptates esse, quasi corrupti quidem optio repellat beatae et.</p>
+				<div>
+					<h1>Работа со <span>всего</span> мира</h1>
+					<p class="subtitle">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem optio repellat beatae et.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -176,7 +202,28 @@
 		</div>
 	</section>
 
-	<section class="about container" id="about">
+	<section class="description container">
+		<div>
+			<h2>Наши заслуги</h2>
+			<p>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptas perferendis cupiditate! At vero molestiae sint, voluptates adipisci eius fugit odit itaque aliquid deserunt illum aperiam rem debitis voluptas esse eveniet quam ut quo laudantium sit est nesciunt! Aperiam at harum ullam, modi alias dicta eius hic, itaque ut debitis quo dolorem! Architecto fuga et hic quo accusamus aperiam reprehenderit exercitationem perferendis, perspiciatis sint ad id, nulla veniam in mollitia, rerum cupiditate enim ipsa quasi nemo porro consectetur quis doloribus ut. Voluptatem eveniet obcaecati, officiis excepturi debitis velit veniam doloremque repudiandae rerum omnis quo provident fugit dolore ex molestias laborum?
+			</p>
+		</div>
+
+		<div class="swiper wow animate__animated animate__slideInRight">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="images/content/banner-user-1.png" alt="banner-user-1"></div>
+				<div class="swiper-slide"><img src="images/content/banner-user-2.png" alt="banner-user-2"></div>
+				<div class="swiper-slide"><img src="images/content/banner-user-3.png" alt="banner-user-3"></div>
+				<div class="swiper-slide"><img src="images/content/banner-user-4.png" alt="banner-user-4"></div>
+				<div class="swiper-slide"><img src="images/content/banner-user-5.png" alt="banner-user-5"></div>
+				<div class="swiper-slide"><img src="images/content/banner-user-6.png" alt="banner-user-6"></div>
+				<div class="swiper-slide"><img src="images/content/banner-user-7.png" alt="banner-user-7"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about container wow animate__animated animate__slideInLeft" id="about">
 		<div class="about__inner">
 			<h2>О сервисе</h2>
 			<p>
@@ -194,7 +241,7 @@
 		</div>
 	</section>
 
-	<section class="feedback" id="feedback">
+	<section class="feedback wow animate__animated animate__slideInUp" id="feedback">
 		<div class="container">
 			<h2>Мы поможем</h2>
 		</div>
@@ -211,8 +258,12 @@
 	</section>
 
 	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<script src="assets/wow.min.js"></script>
+	<script src="dist/script.js"></script>
+  <script>new WOW().init()</script>
 </body>
 
 </html>

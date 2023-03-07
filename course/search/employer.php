@@ -5,9 +5,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="dist/style.css">
-	<script defer src="dist/script.js"></script>
+  <link rel="shortcut icon" href="../../images/tools/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../dist/style.css">
+	<script defer src="../dist/script.js"></script>
 	<title>Work Flow - поиск персонала и публикация вакансий</title>
 </head>
 
@@ -23,7 +23,7 @@
 
 			<div class="popup__inner" id="login">
 				<h2>Вход</h2>
-				<form action="validation/login.php" method="post">
+				<form action="../validation/login.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 
@@ -35,7 +35,7 @@
 
 			<div class="popup__inner" id="signup">
 				<h2>Регистрация</h2>
-				<form action="validation/signup.php" method="post">
+				<form action="../validation/signup.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 
@@ -88,24 +88,24 @@
 		</style>
 
 		<div class="account" onclick="showHide()">
-			<img src="images/tools/user.svg" alt="user">
+			<img src="../images/tools/user.svg" alt="user">
 			<?=$_COOKIE['account']?>
 
 			<div class="account__menu hidden" id="menu">
-				<a href="admin">Профиль</a>
-				<a href="exit.php">Выход</a>
+				<!-- <a href="admin">Профиль</a> -->
+				<a href="../exit.php">Выход</a>
 			</div>
 		</div>
 	<?php endif ?>
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="./">Work<span>Flow</span></a>
+			<a class="logo" href=".././">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>
-					<li><a href="./#about">О сервисе</a></li>
-					<li><a href="./#feedback">Помощь</a></li>
+					<li><a href=".././#about">О сервисе</a></li>
+					<li><a href=".././#feedback">Помощь</a></li>
 					<li>
 						<a href="#">Вакансии</a>
 					</li>
@@ -113,11 +113,11 @@
 						<a href="applicant.php">Соискатели</a>
 					</li>
 					<li>
-						<input type="text" placeholder="Поиск" id="input" onkeyup="filterList()">
+						<input type="text" placeholder="Специальность" id="input" onkeyup="filterList()">
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
-							<img src="images/tools/account.svg" alt="account">
+							<img src="../images/tools/account.svg" alt="account">
 						</a>
 					</li>
 				</ul>
@@ -126,7 +126,7 @@
 	</header>
 
 	<main class="search container">
-		<aside class="aside">
+		<!-- <aside class="aside">
 			<label for="view" class="aside__box">
 				<h3>Исключения:</h3>
 				<input type="text" id="view" name="view" placeholder="Введите что исключить">
@@ -155,7 +155,7 @@
 				<label for="geo-four"><input type="checkbox" id="geo-four" name="geo" value="voronezh">Воронеж</label>
 				<label for="geo-five"><input type="checkbox" id="geo-five" name="geo" value="stary-oskol">Старый Оскол</label>
 			</div>
-		</aside>
+		</aside> -->
 
 		<article class="article" id="article">
 			<div class="article__box">
@@ -166,7 +166,7 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<!-- <a href="job/frontend.php" class="btn">Откликнуться</a> -->
 					<a href="tel:88005553535">+7 (800) 555-35-35</a>
 				</div>
 			</div>
@@ -179,7 +179,7 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<!-- <a href="job/frontend.php" class="btn">Откликнуться</a> -->
 					<a href="tel:82004688000">+7 (200) 468-80-00</a>
 				</div>
 			</div>
@@ -192,7 +192,7 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, vero minima distinctio vitae ad molestiae excepturi ducimus fuga doloremque exercitationem asperiores, et earum temporibus. Cupiditate nesciunt similique quibusdam ratione facere.
 				</p>
 				<div>
-					<a href="job/frontend.php" class="btn">Откликнуться</a>
+					<!-- <a href="job/frontend.php" class="btn">Откликнуться</a> -->
 					<a href="tel:89006663333">+7 (900) 666-33-33</a>
 				</div>
 			</div>

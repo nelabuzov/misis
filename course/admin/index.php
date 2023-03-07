@@ -135,7 +135,7 @@
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="../#">Work<span>Flow</span></a>
+			<a class="logo" href="../">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>

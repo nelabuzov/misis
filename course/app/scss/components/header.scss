@@ -1,6 +1,7 @@
 @use '../util' as *;
 
 .header {
+  background-color: var(--white);
 
   .menu ul {
     display: flex;
@@ -8,7 +9,7 @@
     justify-content: right;
 
     li+li {
-      margin-left: 20px;
+      margin-left: rem(20);
     }
 
     a:not(.btn, .btn__search) {

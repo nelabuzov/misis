@@ -1,3 +1,44 @@
+const swiper = new Swiper(".swiper", {
+  // autoplay: {
+  //   delay: 2000,
+  // },
+  // direction: 'vertical',
+  // loop: true,
+  effect: "cards",
+  grabCursor: true,
+});
+
+document.getElementsByTagName('h1').className += 'responsive';
+// document.getElementsByTagName('h1').classList.add('animate__animated', 'animate__zoomInRight');
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.5, 0);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setClearColor(0x000000, 0);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const geometry = new THREE.SphereGeometry(1.75, 15, 15);
+const material = new THREE.MeshBasicMaterial({ 
+  wireframe: true, 
+  color: 0xffc105
+});
+const object = new THREE.Mesh(geometry, material);
+scene.add(object);
+object.position.set(1.75, 0, 0);
+
+camera.position.z = 5;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // object.rotation.y += 0.002;
+
+  renderer.render(scene, camera);
+};
+
+animate();
+
 lightGallery(document.getElementById('lightgallery'));
 
 function showHide() {

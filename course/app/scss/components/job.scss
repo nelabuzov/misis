@@ -8,19 +8,19 @@
   }
 
   &__item {
-    border-radius: 10px;
-    border: 2px solid;
-    max-width: 250px;
-    margin: 20px 10px 10px;
-    padding: 25px;
+    border-radius: rem(10);
+    border: rem(2) solid;
+    max-width: rem(250);
+    margin: rem(20) rem(10) rem(10);
+    padding: rem(25);
     transition: .3s ease-in-out;
 
     &:hover {
-      box-shadow: 0 0 50px var(--gray);
+      box-shadow: 0 0 rem(50) var(--gray);
     }
   }
 
   &__item &__subtitle {
-    font-size: 14px;
+    font-size: rem(14);
   }
 }

@@ -4,14 +4,14 @@
   &__inner {
     color: var(--white);
     position: relative;
-    max-width: 1000px;
+    max-width: rem(1000);
     margin: 0 auto;
-    margin-bottom: 80px;
-    border: 50px solid #000;
+    margin-bottom: rem(80);
+    border: rem(50) solid #000;
   }
 
   &__bg {
-    height: 600px;
+    height: rem(600);
     background: url('../images/content/feedback.png') no-repeat 50% 50% / contain fixed;
   }
 
@@ -21,19 +21,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     flex-wrap: wrap;
-    font-size: 20px;
+    font-size: rem(20);
 
     >* {
       width: 100%;
-      margin: 20px;
+      margin: rem(20);
       border-width: 0;
       box-shadow: none;
-      padding: 25px;
+      padding: rem(25);
       background-color: hsla(0, 0%, 100%, .5);
 
       &::placeholder {
         color: #fff;
-        font-size: 14px;
+        font-size: rem(14);
         font-family: var(--font-body);
       }
     }
@@ -41,13 +41,13 @@
     button {
       background-color: #000;
       color: #fff;
-      padding: 20px;
+      padding: rem(20);
       width: 50%;
       position: relative;
-      top: 130px;
+      top: rem(130);
       left: 50%;
       transform: translateX(-50%);
-      font-size: 25px;
+      font-size: rem(25);
       font-weight: 700;
       cursor: pointer;
     }

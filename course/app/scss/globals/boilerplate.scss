@@ -1,7 +1,10 @@
+@use '../util' as *;
+
 html {
 	font-size: 100%;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 *,
@@ -14,6 +17,14 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: var(--font-body);
+
+	canvas {
+		position: absolute;
+		top: rem(250);
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+	}
 
 	.overlay {
 		position: fixed;
@@ -41,36 +52,92 @@ body {
 	}
 
 	.popup {
-		margin: 100px auto;
-		padding: 40px;
+		margin: rem(100) auto;
+		padding: rem(40);
 		background: #fff;
-		max-width: 790px;
+		max-width: rem(790);
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		border-radius: 20px;
+		border-radius: rem(20);
 
 		&__inner {
-			margin: 0 20px;
+			margin: 0 rem(20);
 		}
 
 		.close {
 			position: absolute;
-			width: 20px;
-			top: 10px;
-			right: 15px;
+			width: rem(20);
+			top: rem(10);
+			right: rem(15);
 			transition: all 200ms;
 			text-align: center;
-			font-size: 30px;
+			font-size: rem(30);
 			font-weight: bold;
 			text-decoration: none;
-			color: #666;
+			color: var(--gray);
 		}
 
 		form :not(:last-child) {
-			margin-bottom: 25px;
+			margin-bottom: rem(25);
 			width: 100%;
+		}
+	}
+
+	.swiper {
+		width: rem(240);
+		height: rem(320);
+
+		&-slide {
+			border-radius: rem(20);
+			font-size: rem(20);
+			font-weight: bold;
+			border: 2px solid var(--white);
+			position: relative;
+			overflow: visible;
+
+			&::before {
+				position: absolute;
+				top: rem(-15);
+				left: 50%;
+				width: rem(100);
+				height: rem(30);
+				transform: translateX(-50%);
+				border-radius: rem(20) rem(20) 0 0;
+				background-color: var(--white);
+				padding: rem(10);
+				color: var(--black);
+			}
+
+			&:nth-child(1n) {
+				background-color: rgba(206, 17, 17, .8);
+
+				&::before {
+					content: 'Лилит';
+				}
+			}
+
+			&:nth-child(2n) {
+				background-color: rgb(0, 140, 255, .8) !important;
+
+				&::before {
+					content: 'Денис' !important;
+				}
+			}
+
+			&:nth-child(3n) {
+				background-color: rgb(10, 184, 111, .8) !important;
+
+				&::before {
+					content: 'Лилит' !important;
+				}
+			}
+
+			img {
+				width: rem(250);
+				height: rem(321);
+			}
 		}
 	}
 

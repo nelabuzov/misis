@@ -9,7 +9,7 @@
 
     th,
     td {
-      padding: 10px;
+      padding: rem(10);
     }
   }
 }
@@ -34,8 +34,6 @@
   gap: rem(50);
 
   .img-wrapper {
-    border: rem(10) solid var(--brand);
-    box-shadow: 0 0 rem(10) var(--brand);
     width: rem(350);
     height: rem(400);
     overflow: hidden;
