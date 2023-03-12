@@ -21,7 +21,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 	<link rel="stylesheet" href="assets/animate.min.css">
 	<link rel="stylesheet" href="dist/style.css">
@@ -109,10 +109,10 @@
 			<div class="account__menu hidden" id="menu">
 
 				<?php if ($employer): ?>
-					<a href="admin/employer">Профиль</a>
+					<a href="admin/employer.php">Профиль</a>
 
 				<?php elseif ($applicant): ?>
-					<a href="admin/applicant">Профиль</a>
+					<a href="admin/applicant.php">Профиль</a>
 
 				<?php else: ?>
 					<a href="admin">Профиль</a>
@@ -133,10 +133,10 @@
 					<li><a href="#about">О сервисе</a></li>
 					<li><a href="#feedback">Помощь</a></li>
 					<li>
-						<a href="search/employer.php">Вакансии</a>
+						<a href="employer.php">Вакансии</a>
 					</li>
 					<li>
-						<a href="search/applicant.php">Соискатели</a>
+						<a href="applicant.php">Соискатели</a>
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
@@ -159,6 +159,8 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="ocean"></div>
 	</section>
 
 	<section class="job container">
@@ -264,6 +266,22 @@
 	<script src="assets/wow.min.js"></script>
 	<script src="dist/script.js"></script>
   <script>new WOW().init()</script>
+	<script>
+		var ocean = document.getElementById("ocean"),
+    waveWidth = 10,
+    waveCount = Math.floor(window.innerWidth/waveWidth),
+    docFrag = document.createDocumentFragment();
+
+		for(var i = 0; i < waveCount; i++) {
+			var wave = document.createElement("div");
+			wave.className += " wave";
+			docFrag.appendChild(wave);
+			wave.style.left = i * waveWidth + "px";
+			wave.style.webkitAnimationDelay = (i/100) + "s";
+		}
+
+		ocean.appendChild(docFrag);
+	</script>
 </body>
 
 </html>

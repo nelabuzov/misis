@@ -123,12 +123,23 @@
 		</style>
 
 		<div class="account" onclick="showHide()">
-			<img src="../images/tools/user.svg" alt="user">
+			<img src="images/tools/user.svg" alt="user">
 			<?=$_COOKIE['account']?>
 
 			<div class="account__menu hidden" id="menu">
-				<a href="#">Профиль</a>
-				<a href="../exit.php">Выход</a>
+
+				<?php if ($employer): ?>
+					<a href="admin/employer.php">Профиль</a>
+
+				<?php elseif ($applicant): ?>
+					<a href="admin/applicant.php">Профиль</a>
+
+				<?php else: ?>
+					<a href="admin">Профиль</a>
+
+				<?php endif ?>
+
+				<a href="exit.php">Выход</a>
 			</div>
 		</div>
 	<?php endif ?>
@@ -204,6 +215,7 @@
             <td><?= htmlspecialchars($emp['vacancy']) ?></td>
             <td><?= htmlspecialchars($emp['region']) ?></td>
             <td><?= htmlspecialchars($emp['email']) ?></td>
+            <td><?= htmlspecialchars($app['password']) ?></td>
             <td><?= htmlspecialchars($emp['phone_number']) ?></td>
           </tr>
         <?php endforeach; ?>
@@ -236,6 +248,7 @@
             <td><?= htmlspecialchars($app['birthday']) ?></td>
             <td><?= htmlspecialchars($app['region']) ?></td>
             <td><?= htmlspecialchars($app['email']) ?></td>
+            <td><?= htmlspecialchars($app['password']) ?></td>
             <td><?= htmlspecialchars($app['phone_number']) ?></td>
           </tr>
         <?php endforeach; ?>

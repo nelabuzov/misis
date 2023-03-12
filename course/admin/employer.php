@@ -21,13 +21,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="shortcut icon" href="../../images/tools/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="../../assets/css/lightgallery.css">
-	<link rel="stylesheet" href="../../assets/css/lg-transitions.css">
-	<link rel="stylesheet" href="../../dist/style.css">
+  <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../assets/css/lightgallery.css">
+	<link rel="stylesheet" href="../assets/css/lg-transitions.css">
+	<link rel="stylesheet" href="../dist/style.css">
 
-	<script defer src="../../dist/script.js"></script>
-  <script defer src="../../assets/js/lightgallery.min.js"></script>
+	<script defer src="../dist/script.js"></script>
+  <script defer src="../assets/js/lightgallery.min.js"></script>
   <title>Страница Пользователя</title>
 </head>
 <body>
@@ -58,7 +58,7 @@
 
 			<div class="popup__inner" id="login">
 				<h2>Вход</h2>
-				<form action="../../validation/login.php" method="post">
+				<form action="../validation/login.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 
@@ -70,7 +70,7 @@
 
 			<div class="popup__inner" id="signup">
 				<h2>Регистрация</h2>
-				<form action="../../validation/signup.php" method="post">
+				<form action="../validation/signup.php" method="post">
 					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
 					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
 
@@ -123,33 +123,44 @@
 		</style>
 
 		<div class="account" onclick="showHide()">
-			<img src="../../images/tools/user.svg" alt="user">
+			<img src="images/tools/user.svg" alt="user">
 			<?=$_COOKIE['account']?>
 
 			<div class="account__menu hidden" id="menu">
-				<a href="../../applicant.php">Профиль</a>
-				<a href="../../exit.php">Выход</a>
+
+				<?php if ($employer): ?>
+					<a href="admin/employer.php">Профиль</a>
+
+				<?php elseif ($applicant): ?>
+					<a href="admin/applicant.php">Профиль</a>
+
+				<?php else: ?>
+					<a href="admin">Профиль</a>
+
+				<?php endif ?>
+
+				<a href="exit.php">Выход</a>
 			</div>
 		</div>
 	<?php endif ?>
 
 	<header class="header">
 		<div class="header__inner container">
-			<a class="logo" href="../../">Work<span>Flow</span></a>
+			<a class="logo" href="../">Work<span>Flow</span></a>
 
 			<nav class="menu">
 				<ul>
-					<li><a href="../../#about">О сервисе</a></li>
-					<li><a href="../../#feedback">Помощь</a></li>
+					<li><a href="../#about">О сервисе</a></li>
+					<li><a href="../#feedback">Помощь</a></li>
 					<li>
-						<a href="../../search/employer.php">Вакансии</a>
+						<a href="../employer.php">Вакансии</a>
 					</li>
 					<li>
-						<a href="../../search/applicant.php">Соискатели</a>
+						<a href="../applicant.php">Соискатели</a>
 					</li>
 					<li>
 						<a class="btn btn__account" href="#popup">Аккаунт
-							<img src="../../images/tools/account.svg" alt="account">
+							<img src="../images/tools/account.svg" alt="account">
 						</a>
 					</li>
 				</ul>
@@ -158,28 +169,6 @@
 	</header>
 
   <main class="container">
-    <section class="portfolio">
-      <div id="lightgallery" class="gallery">
-          <?php foreach ($works as $work) : ?>
-            <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
-              <img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
-            </a>
-          <?php endforeach; ?>
-      </div>
-
-      <div class="portfolio__content">
-        <h2>Портфолио</h2>
-
-				<!-- <div>
-					<a class="btn" href="edit.php">Редактировать профиль</a>
-				</div> -->
-
-        <div>
-          <a class="btn" href="../add.php">Добавить</a>
-          <a class="btn" href="../remove.php?id=<?= $work['id'] ?>">Удалить</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
