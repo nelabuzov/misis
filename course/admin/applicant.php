@@ -1,8 +1,5 @@
-<?php	
-  require_once "../../db.php";
-
-  $stmt = $pdo -> query("select * from employer");
-  $employer = $stmt -> fetchAll();
+<?php
+  require_once "../db.php";
 
   $stmt = $pdo -> query("select * from applicant");
   $applicant = $stmt -> fetchAll();
@@ -11,66 +8,14 @@
   $works = $stmt -> fetchAll();
 
   session_start();
-  $user = $_COOKIE['account'];
+  $acc = $_COOKIE['account'];
   $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
   if (!$mysql) {
     die("Connection failed: " . mysqli_connect_error());
   }
 
-
-
-
-
-
-
-  // Получаем текущие значения полей из базы данных account
-  $account = "SELECT * FROM `account` WHERE email = '$user'";
-  $applicant = "SELECT * FROM `applicant` WHERE email = '$user'";
-
-  $result = mysqli_query($mysql, $account);
-  if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $email = $row["email"];
-    $password = $row["password"];
-  } else {
-    echo "Error: " . $account . "<br>" . mysqli_error($mysql);
-  }
-
-  // Обработка данных из формы редактирования
-  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {    
-    $new_email = $_POST["email"];
-    $new_password = $_POST["password"];
-
-    // Запрос к базе данных для обновления данных пользователя
-    $account = "UPDATE `account` SET
-    email = '$new_email',
-    password = '$new_password',
-    WHERE email = '$user'";
-
-    if (mysqli_query($mysql, $account)) {
-      exit();
-    } else {
-      echo "Error: " . $account . "<br>" . mysqli_error($mysql);
-    }
-
-    if (empty($user)) {
-      echo "Error: User is empty";
-      exit;
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
   // Получаем текущие значения полей из базы данных applicant
-  $applicant = "SELECT * FROM `applicant` WHERE email = '$user'";
+  $applicant = "SELECT * FROM `applicant` WHERE email = '$acc'";
   $result = mysqli_query($mysql, $applicant);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -80,6 +25,8 @@
     $experience = $row["experience"];
     $birthday = $row["birthday"];
     $region = $row["region"];
+    $email = $row["email"];
+    $password = $row["password"];
     $phone_number = $row["phone_number"];
   } else {
     echo "Error: " . $applicant . "<br>" . mysqli_error($mysql);
@@ -93,6 +40,8 @@
     $new_experience = $_POST["experience"];
     $new_birthday = $_POST["birthday"];
     $new_region = $_POST["region"];
+    $new_email = $_POST["email"];
+    $new_password = $_POST["password"];
     $new_phone_number = $_POST["phone_number"];
 
     // Запрос к базе данных для обновления данных пользователя
@@ -103,17 +52,24 @@
     experience = '$new_experience',
     birthday = '$new_birthday',
     region = '$new_region',
+    email = '$new_email',
+    password = '$new_password',
     phone_number = '$new_phone_number'
-    WHERE email = '$user'";
+    WHERE email = '$acc'";
 
     if (mysqli_query($mysql, $applicant)) {
-      exit();
+      if ($email != $new_email || $password != $new_password) {
+				setcookie('account', $account['email'], time() - 100000, "/course");
+				header('Location: ../');
+			} else {
+				header('Location: #');
+			}
     } else {
       echo "Error: " . $applicant . "<br>" . mysqli_error($mysql);
     }
 
-    if (empty($user)) {
-      echo "Error: User is empty";
+    if (empty($acc)) {
+      echo "Error: Account is empty";
       exit;
     }
   }
@@ -236,23 +192,23 @@
 		</style>
 
 		<div class="account" onclick="showHide()">
-			<img src="images/tools/user.svg" alt="user">
+			<img src="../images/tools/user.svg" alt="user">
 			<?=$_COOKIE['account']?>
 
 			<div class="account__menu hidden" id="menu">
 
 				<?php if ($employer): ?>
-					<a href="admin/employer.php">Профиль</a>
+					<a href="employer.php">Профиль</a>
 
 				<?php elseif ($applicant): ?>
-					<a href="admin/applicant.php">Профиль</a>
+					<a href="#">Профиль</a>
 
 				<?php else: ?>
-					<a href="admin">Профиль</a>
+					<a href="index.php">Профиль</a>
 
 				<?php endif ?>
 
-				<a href="exit.php">Выход</a>
+				<a href="../exit.php">Выход</a>
 			</div>
 		</div>
 	<?php endif ?>
@@ -283,70 +239,80 @@
 
   <main class="container">
 		<section class="form">
-		<form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
-			<!-- <div>
-				<label for="name">Аватар: <input id="name" name="name" type="text" placeholder="Название" required></label>
-				<input name="file" type="file" required>
-			</div> -->
-			<label for="email">Почта: <input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email?>" required></label>
-			<label for="password">Пароль: <input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password?>" required></label>
+			<!-- <form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
+				<div>
+					<label for="name">Аватар: <input id="name" name="name" type="text" placeholder="Название" required></label>
+					<input name="file" type="file" required>
+				</div>
+				<label for="email">Почта: <input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email?>" required></label>
+				<label for="password">Пароль: <input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password?>" required></label>
 
-			<br>
+				<br>
 
-			<input type="submit" id="account" name="account" value="Данные аккаунта">
-		</form>
+				<input type="submit" id="account" name="account" value="Данные аккаунта">
+			</form>
 
-		<br>
+			<br> -->
 
-		<form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
-			<label for="last_name">Фамилия:
-				<input id="last_name" name="last_name" type="text" placeholder="Введите текст" value="<?php echo $last_name?>" required></label>
-			<label for="first_name">Имя:
-				<input id="first_name" name="first_name" type="text" placeholder="Введите текст" value="<?php echo $first_name?>" required>
-			</label>
-			<label for="middle_name">Отчество:
-				<input id="middle_name" name="middle_name" type="text" placeholder="Введите текст" value="<?php echo $middle_name?>" required>
-			</label>
+			<form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
+				<label for="email">Почта:
+					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
+				</label>
+				<label for="password">Пароль:
+					<input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password ?>">
+				</label>
 
-			<br>
+				<br>
 
-			<label for="experience">Опыт:
-				<input id="experience" name="experience" type="text" placeholder="Введите число" value="<?php echo $experience?>" required>
-			</label>
-			<label for="birthday">Дата рождения:
-				<input id="birthday" name="birthday" type="date" placeholder="Введите дату" value="<?php echo $birthday?>" required>
-			</label>
-			<label for="region">Регион:
-				<input id="region" name="region" type="text" placeholder="Введите число" value="<?php echo $region?>" required>
-			</label>
-			<label for="phone_number">Номер телефона:
-				<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number?>" required>
-			</label>
+				<label for="last_name">Фамилия:
+					<input id="last_name" name="last_name" type="text" placeholder="Введите текст" value="<?php echo $last_name ?>">
+				</label>
+				<label for="first_name">Имя:
+					<input id="first_name" name="first_name" type="text" placeholder="Введите текст" value="<?php echo $first_name ?>">
+				</label>
+				<label for="middle_name">Отчество:
+					<input id="middle_name" name="middle_name" type="text" placeholder="Введите текст" value="<?php echo $middle_name ?>">
+				</label>
 
-			<br>
+				<br>
 
-			<!-- <input type="submit" id="submit" name="submit" value="Редактировать"> -->
-		</form>
+				<label for="experience">Опыт:
+					<input id="experience" name="experience" type="text" placeholder="Введите число" value="<?php echo $experience ?>">
+				</label>
+				<label for="birthday">Дата рождения:
+					<input id="birthday" name="birthday" type="date" placeholder="Введите дату" value="<?php echo $birthday ?>">
+				</label>
+				<label for="region">Регион:
+					<input id="region" name="region" type="text" placeholder="Введите число" value="<?php echo $region ?>">
+				</label>
+				<label for="phone_number">Номер телефона:
+					<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number ?>">
+				</label>
+
+				<br>
+
+				<input type="submit" id="submit" name="submit" value="Редактировать">
+			</form>
 		</section>
 
-    <section class="portfolio">
-      <div id="lightgallery" class="gallery">
-          <?php foreach ($works as $work) : ?>
-            <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
-              <img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
-            </a>
-          <?php endforeach; ?>
-      </div>
+  	<section class="portfolio">
+    	<div id="lightgallery" class="gallery">
+        <?php foreach ($works as $work) : ?>
+          <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
+            <img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
+          </a>
+        <?php endforeach; ?>
+    	</div>
 
-      <div class="portfolio__content">
-        <h2>Портфолио</h2>
+    	<div class="portfolio__content">
+      	<h2>Портфолио</h2>
 
-        <div>
-          <a class="btn" href="add.php">Добавить</a>
-          <a class="btn" href="remove.php?id=<?= $work['id'] ?>">Удалить</a>
-        </div>
-      </div>
-    </section>
+      	<div>
+        	<a class="btn" href="add.php">Добавить</a>
+        	<a class="btn" href="remove.php?id=<?= $work['id'] ?>">Удалить</a>
+      	</div>
+    	</div>
+  	</section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>

@@ -1,17 +1,72 @@
 <?php
-  require_once "../../db.php";
-
-  $stmt = $pdo -> query("select * from messages");
-  $messages = $stmt -> fetchAll();
+  require_once "../db.php";
 
   $stmt = $pdo -> query("select * from employer");
   $employer = $stmt -> fetchAll();
 
-  $stmt = $pdo -> query("select * from applicant");
-  $applicant = $stmt -> fetchAll();
+  session_start();
+  $acc = $_COOKIE['account'];
+  $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
+  if (!$mysql) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
 
-  $stmt = $pdo -> query("select * from works");
-  $works = $stmt -> fetchAll();
+  // Получаем текущие значения полей из базы данных employer
+  $employer = "SELECT * FROM `employer` WHERE email = '$acc'";
+  $result = mysqli_query($mysql, $employer);
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $name = $row["name"];
+    $description = $row["description"];
+    $vacancy = $row["vacancy"];
+    $region = $row["region"];
+    $email = $row["email"];
+    $password = $row["password"];
+    $phone_number = $row["phone_number"];
+  } else {
+    echo "Error: " . $employer . "<br>" . mysqli_error($mysql);
+  }
+
+  // Обработка данных из формы редактирования employer
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+    $new_name = $_POST["name"];
+    $new_description = $_POST["description"];
+    $new_vacancy = $_POST["vacancy"];
+    $new_region = $_POST["region"];
+    $new_email = $_POST["email"];
+    $new_password = $_POST["password"];
+    $new_phone_number = $_POST["phone_number"];
+
+    // Запрос к базе данных для обновления данных пользователя
+    $employer = "UPDATE `employer` SET
+    name = '$new_name',
+    description = '$new_description',
+    vacancy = '$new_vacancy',
+    region = '$new_region',
+    email = '$new_email',
+    password = '$new_password',
+    phone_number = '$new_phone_number'
+    WHERE email = '$acc'";
+
+    if (mysqli_query($mysql, $employer)) {
+      if ($email != $new_email || $password != $new_password) {
+				setcookie('account', $account['email'], time() - 100000, "/course");
+				header('Location: ../');
+			} else {
+				header('Location: #');
+			}
+    } else {
+      echo "Error: " . $employer . "<br>" . mysqli_error($mysql);
+    }
+
+    if (empty($acc)) {
+      echo "Error: Account is empty";
+      exit;
+    }
+  }
+
+  // Закрытие соединения с базой данных
+  mysqli_close($mysql);
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +80,11 @@
 	<link rel="stylesheet" href="../assets/css/lightgallery.css">
 	<link rel="stylesheet" href="../assets/css/lg-transitions.css">
 	<link rel="stylesheet" href="../dist/style.css">
+	<style>
+    .edit > label {
+	    display: block;
+    }
+	</style>
 
 	<script defer src="../dist/script.js"></script>
   <script defer src="../assets/js/lightgallery.min.js"></script>
@@ -123,23 +183,23 @@
 		</style>
 
 		<div class="account" onclick="showHide()">
-			<img src="images/tools/user.svg" alt="user">
+			<img src="../images/tools/user.svg" alt="user">
 			<?=$_COOKIE['account']?>
 
 			<div class="account__menu hidden" id="menu">
 
 				<?php if ($employer): ?>
-					<a href="admin/employer.php">Профиль</a>
+					<a href="#">Профиль</a>
 
 				<?php elseif ($applicant): ?>
-					<a href="admin/applicant.php">Профиль</a>
+					<a href="applicant.php">Профиль</a>
 
 				<?php else: ?>
-					<a href="admin">Профиль</a>
+					<a href="index.php">Профиль</a>
 
 				<?php endif ?>
 
-				<a href="exit.php">Выход</a>
+				<a href="../exit.php">Выход</a>
 			</div>
 		</div>
 	<?php endif ?>
@@ -169,7 +229,57 @@
 	</header>
 
   <main class="container">
-  </main>
+		<section class="form">
+			<!-- <form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
+				<div>
+					<label for="name">Аватар: <input id="name" name="name" type="text" placeholder="Название" required></label>
+					<input name="file" type="file" required>
+				</div>
+				<label for="email">Почта: <input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email?>" required></label>
+				<label for="password">Пароль: <input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password?>" required></label>
+
+				<br>
+
+				<input type="submit" id="account" name="account" value="Данные аккаунта">
+			</form>
+
+			<br> -->
+
+			<form class="edit" action="employer.php" method="post" enctype="multipart/form-data">
+				<label for="email">Почта:
+					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
+				</label>
+				<label for="password">Пароль:
+					<input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password ?>">
+				</label>
+
+				<br>
+
+				<label for="name">Название:
+					<input id="name" name="name" type="text" placeholder="Введите текст" value="<?php echo $name ?>">
+				</label>
+				<label for="description">Описание:
+					<input id="description" name="description" type="text" placeholder="Введите текст" value="<?php echo $description ?>">
+				</label>
+				<label for="vacancy">Вакансии:
+					<input id="vacancy" name="vacancy" type="text" placeholder="Введите текст" value="<?php echo $vacancy ?>">
+				</label>
+
+				<br>
+
+				<label for="region">Регион:
+					<input id="region" name="region" type="text" placeholder="Введите число" value="<?php echo $region ?>">
+				</label>
+				<label for="phone_number">Номер телефона:
+					<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number ?>">
+				</label>
+
+				<br>
+
+				<input type="submit" id="submit" name="submit" value="Редактировать">
+			</form>
+		</section>
+	</main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
 

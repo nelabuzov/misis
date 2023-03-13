@@ -24,13 +24,13 @@
         $result = $mysql -> query("SELECT * FROM `employer` WHERE `email` = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();
-        header('Location: ../admin/employer/index.php');
+        header('Location: ../admin/employer.php');
       } else {
         $mysql -> query("INSERT INTO `applicant` (`last_name`, `first_name`, `middle_name`, `experience`, `birthday`, `region`, `email`, `password`, `phone_number`, `category`) VALUES('', '', '', 0, '2000-01-01', 0, '$email', '$password', 0, 2)");
         $result = $mysql -> query("SELECT * FROM `applicant` WHERE `email` = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();
-        header('Location: ../admin/applicant/index.php');
+        header('Location: ../admin/applicant.php');
       }
     }
   }

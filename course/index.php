@@ -4,6 +4,10 @@
 	if (isset($_COOKIE['account'])) {
 		$email = $_COOKIE['account'];
 
+		$stmt = $pdo -> prepare('SELECT * FROM admin WHERE email = ?');
+		$stmt -> execute([$email]);
+		$admin = $stmt -> fetch();
+
 		$stmt = $pdo -> prepare('SELECT * FROM employer WHERE email = ?');
 		$stmt -> execute([$email]);
 		$employer = $stmt -> fetch();

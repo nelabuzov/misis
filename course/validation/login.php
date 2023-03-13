@@ -22,12 +22,12 @@
 
   if(mysqli_num_rows($employer)) {
     setcookie('account', $account1['email'], time() + 100000, "/course");
-    header('Location: ../admin/employer/index.php');
+    header('Location: ../admin/employer.php');
   } elseif(mysqli_num_rows($applicant)) {
     setcookie('account', $account2['email'], time() + 100000, "/course");
-    header('Location: ../admin/applicant/index.php');
+    header('Location: ../admin/applicant.php');
   } else {
     setcookie('account', $account0['email'], time() + 100000, "/course");
-    header('Location: ../admin/index.php');
+    header('Location: ../admin');
   }
 ?>
