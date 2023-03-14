@@ -15,5 +15,5 @@
     }
   }
 
-  header('Location: index.php');
+  header('Location: applicant.php');
 ?>

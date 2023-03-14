@@ -58,7 +58,8 @@ textarea {
 	display: none;
 }
 
-.btn {
+.btn,
+input[type=submit] {
 	font-size: rem(18);
 	font-weight: 700;
 	display: inline-flex;
@@ -70,6 +71,7 @@ textarea {
 	padding: rem(5) rem(20);
 	border-radius: rem(10);
 	transition: .4s;
+	box-shadow: none;
 	cursor: pointer;
 
 	img {

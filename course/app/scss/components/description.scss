@@ -7,4 +7,63 @@
   >* {
     width: 50%;
   }
+
+  .worker {
+    width: rem(240);
+    height: rem(320);
+
+    *:not(.swiper-slide) {
+      background-color: transparent !important;
+    }
+
+    &__item {
+      border-radius: rem(20);
+      font-size: rem(20);
+      font-weight: bold;
+      border: 2px solid var(--black);
+      overflow: visible !important;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: rem(-44);
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+        border-radius: rem(20) rem(20) 0 0;
+        background-color: var(--black);
+        padding: rem(10);
+        color: var(--white);
+      }
+
+      &:nth-child(1n) {
+        background-color: rgba(206, 17, 17, .8);
+
+        &::before {
+          content: 'Дизайнер';
+        }
+      }
+
+      &:nth-child(2n) {
+        background-color: rgb(0, 140, 255, .8) !important;
+
+        &::before {
+          content: 'Разработчик' !important;
+        }
+      }
+
+      &:nth-child(3n) {
+        background-color: rgb(10, 184, 111, .8) !important;
+
+        &::before {
+          content: 'Диктор' !important;
+        }
+      }
+
+      img {
+        width: rem(250);
+        height: rem(321);
+      }
+    }
+  }
 }

@@ -1,3 +1,23 @@
+<?php
+	require_once "db.php";
+
+	if (isset($_COOKIE['account'])) {
+		$email = $_COOKIE['account'];
+
+		$stmt = $pdo -> prepare('SELECT * FROM admin WHERE email = ?');
+		$stmt -> execute([$email]);
+		$admin = $stmt -> fetch();
+
+		$stmt = $pdo -> prepare('SELECT * FROM employer WHERE email = ?');
+		$stmt -> execute([$email]);
+		$employer = $stmt -> fetch();
+	
+		$stmt = $pdo -> prepare('SELECT * FROM applicant WHERE email = ?');
+		$stmt -> execute([$email]);
+		$applicant = $stmt -> fetch();
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 

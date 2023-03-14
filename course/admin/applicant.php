@@ -74,6 +74,22 @@
     }
   }
 
+	if (!empty($_POST['name'])) {
+    $apppath = dirname(dirname(__FILE__));
+    $filepath = 'images/content/uploads/' . time() . basename($_FILES['file']['name']);
+    $uploadfile = $apppath . '/' . $filepath;
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+
+    $stmt = $pdo->prepare("insert into works(name, file_path) values(?,?)");
+    $stmt->execute([
+      $_POST['name'],
+      $filepath
+    ]);
+
+    header("Location: #");
+  }
+
   // Закрытие соединения с базой данных
   mysqli_close($mysql);
 ?>
@@ -100,21 +116,21 @@
   <title>Страница Пользователя</title>
 </head>
 <body>
-	<!-- <div id="popup" class="overlay">
+	<div id="popup" class="overlay">
 		<a class="cancel" href="#"></a>
 		<div class="popup">
 			<a class="close" href="#">&times;</a>
 
 			<div class="popup__inner">
 				<h2>Добавление работы</h2>
-				<form action="add.php" method="post" enctype="multipart/form-data">
+				<form action="applicant.php" method="post" enctype="multipart/form-data">
           <input name="name" type="text" placeholder="Название" required>
           <input name="file" type="file" required>
           <input type="submit" value="Создать">
         </form>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<?php
 		if (($_COOKIE['account'] ?? '') === ''):
@@ -197,11 +213,11 @@
 
 			<div class="account__menu hidden" id="menu">
 
-				<?php if ($employer): ?>
-					<a href="employer.php">Профиль</a>
-
-				<?php elseif ($applicant): ?>
+				<?php if ($applicant): ?>
 					<a href="#">Профиль</a>
+
+				<?php elseif ($employer): ?>
+					<a href="employer.php">Профиль</a>
 
 				<?php else: ?>
 					<a href="index.php">Профиль</a>
@@ -239,21 +255,6 @@
 
   <main class="container">
 		<section class="form">
-			<!-- <form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
-				<div>
-					<label for="name">Аватар: <input id="name" name="name" type="text" placeholder="Название" required></label>
-					<input name="file" type="file" required>
-				</div>
-				<label for="email">Почта: <input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email?>" required></label>
-				<label for="password">Пароль: <input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password?>" required></label>
-
-				<br>
-
-				<input type="submit" id="account" name="account" value="Данные аккаунта">
-			</form>
-
-			<br> -->
-
 			<form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
 				<label for="email">Почта:
 					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
@@ -295,7 +296,7 @@
 			</form>
 		</section>
 
-  	<section class="portfolio">
+  	<section class="data portfolio">
     	<div id="lightgallery" class="gallery">
         <?php foreach ($works as $work) : ?>
           <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
@@ -308,7 +309,7 @@
       	<h2>Портфолио</h2>
 
       	<div>
-        	<a class="btn" href="add.php">Добавить</a>
+					<a class="btn" href="#popup">Добавить</a>
         	<a class="btn" href="remove.php?id=<?= $work['id'] ?>">Удалить</a>
       	</div>
     	</div>

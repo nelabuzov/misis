@@ -167,44 +167,54 @@
 		<div id="ocean"></div>
 	</section>
 
-	<section class="job container">
-		<div class="job__inner">
+	<section class="container">
+		<div class="job__slider">
+			<div class="swiper job">
+				<div class="swiper-wrapper">
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">Frontend Разработчик</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
+					
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">Backend Разработчик</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">Fullstack Разработчик</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">UI/UX Дизайнер</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">Системный Администратор</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">Разработчик Видеоигр</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
+					<a class="swiper-slide job__item" href="job/frontend.php">
+						<h3 class="job__title">Frontend Разработчик</h3>
+						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					</a>
+				</div>
 
-			<a class="job__item" href="job/frontend.php">
-				<h3 class="job__title">Team Lead</h3>
-				<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-			</a>
-
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
 		</div>
 	</section>
 
@@ -216,15 +226,15 @@
 			</p>
 		</div>
 
-		<div class="swiper wow animate__animated animate__slideInRight">
+		<div class="swiper worker wow animate__animated animate__slideInRight">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img src="images/content/banner-user-1.png" alt="banner-user-1"></div>
-				<div class="swiper-slide"><img src="images/content/banner-user-2.png" alt="banner-user-2"></div>
-				<div class="swiper-slide"><img src="images/content/banner-user-3.png" alt="banner-user-3"></div>
-				<div class="swiper-slide"><img src="images/content/banner-user-4.png" alt="banner-user-4"></div>
-				<div class="swiper-slide"><img src="images/content/banner-user-5.png" alt="banner-user-5"></div>
-				<div class="swiper-slide"><img src="images/content/banner-user-6.png" alt="banner-user-6"></div>
-				<div class="swiper-slide"><img src="images/content/banner-user-7.png" alt="banner-user-7"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-1.png" alt="banner-user-1"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-2.png" alt="banner-user-2"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-3.png" alt="banner-user-3"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-4.png" alt="banner-user-4"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-5.png" alt="banner-user-5"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-6.png" alt="banner-user-6"></div>
+				<div class="swiper-slide worker__item"><img src="images/content/banner-user-7.png" alt="banner-user-7"></div>
 			</div>
 		</div>
 	</section>
@@ -247,7 +257,7 @@
 		</div>
 	</section>
 
-	<section class="feedback wow animate__animated animate__slideInUp" id="feedback">
+	<section class="feedback" id="feedback">
 		<div class="container">
 			<h2>Мы поможем</h2>
 		</div>

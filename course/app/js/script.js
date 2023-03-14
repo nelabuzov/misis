@@ -1,14 +1,23 @@
-const swiper = new Swiper(".swiper", {
-  // autoplay: {
-  //   delay: 2000,
-  // },
-  // direction: 'vertical',
-  // loop: true,
-  effect: "cards",
-  grabCursor: true,
+const job = new Swiper('.job', {
+  autoplay: {
+    delay: 2000
+  },
+  spaceBetween: 30,
+  slidesPerView: 4,
+  loop: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
 });
 
-document.getElementsByTagName('h1').className += 'responsive';
+const workers = new Swiper(".worker", {
+  effect: "cards",
+  grabCursor: true
+});
+
+// document.getElementsByTagName('h1').className += 'responsive';
 // document.getElementsByTagName('h1').classList.add('animate__animated', 'animate__zoomInRight');
 
 const mouse = new THREE.Vector2();
@@ -35,10 +44,8 @@ object.position.set(1.7, 0, 0);
 camera.position.z = 5;
 
 function onMouseMove( event ) {
-
 	mouse.x = ( event.clientX - windowHalf.x );
 	mouse.y = ( event.clientY - windowHalf.x );
-
 }
 
 function animate() {
@@ -46,7 +53,7 @@ function animate() {
 
 	// target.x = ( 1 - mouse.x ) * 0.00008;
   // target.y = ( 1 - mouse.y ) * 0.00008;
-  
+
   // camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
   // camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
 

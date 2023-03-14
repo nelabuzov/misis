@@ -1,26 +1,46 @@
 @use '../util' as *;
 
 .job {
+  position: unset;
 
-  &__inner {
-    display: flex;
-    flex-wrap: wrap;
+  &__slider {
+    position: relative;
   }
 
   &__item {
+    transition: .3s ease-in-out;
     border-radius: rem(10);
     border: rem(2) solid;
-    max-width: rem(250);
-    margin: rem(20) rem(10) rem(10);
     padding: rem(25);
-    transition: .3s ease-in-out;
 
     &:hover {
       box-shadow: 0 0 rem(50) var(--gray);
     }
   }
 
-  &__item &__subtitle {
+  &__subtitle {
     font-size: rem(14);
   }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    border-radius: 5px;
+    background-color: var(--black);
+    color: var(--white);
+    transform: scale(1.3);
+
+    &::after {
+      transform: scale(.3)
+    }
+  }
+
+  .swiper-button-prev {
+    left: -15px;
+  }
+
+  .swiper-button-next {
+    right: -15px;
+  }
+
+  .swiper-slide-active {}
 }
