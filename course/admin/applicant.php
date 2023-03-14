@@ -19,12 +19,10 @@
   $result = mysqli_query($mysql, $applicant);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
-    $last_name = $row["last_name"];
-    $first_name = $row["first_name"];
-    $middle_name = $row["middle_name"];
+    $full_name = $row["full_name"];
+    $location = $row["location"];
     $experience = $row["experience"];
     $birthday = $row["birthday"];
-    $region = $row["region"];
     $email = $row["email"];
     $password = $row["password"];
     $phone_number = $row["phone_number"];
@@ -34,24 +32,20 @@
 
   // Обработка данных из формы редактирования applicant
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-    $new_last_name = $_POST["last_name"];
-    $new_first_name = $_POST["first_name"];
-    $new_middle_name = $_POST["middle_name"];
+    $new_full_name = $_POST["full_name"];
+    $new_location = $_POST["location"];
     $new_experience = $_POST["experience"];
     $new_birthday = $_POST["birthday"];
-    $new_region = $_POST["region"];
     $new_email = $_POST["email"];
     $new_password = $_POST["password"];
     $new_phone_number = $_POST["phone_number"];
 
     // Запрос к базе данных для обновления данных пользователя
     $applicant = "UPDATE `applicant` SET
-    last_name = '$new_last_name',
-    first_name = '$new_first_name',
-    middle_name = '$new_middle_name',
+    full_name = '$new_full_name',
+    location = '$new_location',
     experience = '$new_experience',
     birthday = '$new_birthday',
-    region = '$new_region',
     email = '$new_email',
     password = '$new_password',
     phone_number = '$new_phone_number'
@@ -100,21 +94,19 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Страница Пользователя</title>
 
   <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="../assets/css/lightgallery.css">
-	<link rel="stylesheet" href="../assets/css/lg-transitions.css">
+	<link rel="stylesheet" href="../assets/css/lightgallery.min.css">
+	<link rel="stylesheet" href="../assets/css/lg-transitions.min.css">
 	<link rel="stylesheet" href="../dist/style.css">
 	<style>
     .edit > label {
 	    display: block;
     }
 	</style>
-
-	<script defer src="../dist/script.js"></script>
-  <script defer src="../assets/js/lightgallery.min.js"></script>
-  <title>Страница Пользователя</title>
 </head>
+
 <body>
 	<div id="popup" class="overlay">
 		<a class="cancel" href="#"></a>
@@ -265,14 +257,11 @@
 
 				<br>
 
-				<label for="last_name">Фамилия:
-					<input id="last_name" name="last_name" type="text" placeholder="Введите текст" value="<?php echo $last_name ?>">
+				<label for="full_name">Полное имя:
+					<input id="full_name" name="full_name" type="text" placeholder="Введите текст" value="<?php echo $full_name ?>">
 				</label>
-				<label for="first_name">Имя:
-					<input id="first_name" name="first_name" type="text" placeholder="Введите текст" value="<?php echo $first_name ?>">
-				</label>
-				<label for="middle_name">Отчество:
-					<input id="middle_name" name="middle_name" type="text" placeholder="Введите текст" value="<?php echo $middle_name ?>">
+				<label for="location">Локация:
+					<input id="location" name="location" type="text" placeholder="Введите текст" value="<?php echo $location ?>">
 				</label>
 
 				<br>
@@ -283,9 +272,6 @@
 				<label for="birthday">Дата рождения:
 					<input id="birthday" name="birthday" type="date" placeholder="Введите дату" value="<?php echo $birthday ?>">
 				</label>
-				<label for="region">Регион:
-					<input id="region" name="region" type="text" placeholder="Введите число" value="<?php echo $region ?>">
-				</label>
 				<label for="phone_number">Номер телефона:
 					<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number ?>">
 				</label>
@@ -294,6 +280,12 @@
 
 				<input type="submit" id="submit" name="submit" value="Редактировать">
 			</form>
+
+			<!-- <form action="applicant.php" method="post" enctype="multipart/form-data">
+        <label for="name"></label>
+        <input name="file" type="file">
+        <input type="submit" value="Добавить">
+      </form> -->
 		</section>
 
   	<section class="data portfolio">
@@ -319,5 +311,7 @@
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+  <script src="../assets/js/lightgallery.min.js"></script>
+	<script src="../dist/script.js"></script>
 </body>
 </html>

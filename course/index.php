@@ -267,7 +267,7 @@
 			<form action="feedback.php" method="POST">
 				<input type="text" name="name" placeholder="Имя">
 				<input type="text" name="email" placeholder="Почта *" required>
-				<textarea name="text" placeholder="Сообщение *" required></textarea>
+				<textarea name="description" placeholder="Сообщение *" required></textarea>
 				<button type="submit">Отправить</button>
 			</form>
 		</div>

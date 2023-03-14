@@ -18,8 +18,8 @@
     $row = mysqli_fetch_assoc($result);
     $name = $row["name"];
     $description = $row["description"];
+    $location = $row["location"];
     $vacancy = $row["vacancy"];
-    $region = $row["region"];
     $email = $row["email"];
     $password = $row["password"];
     $phone_number = $row["phone_number"];
@@ -31,8 +31,8 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $new_name = $_POST["name"];
     $new_description = $_POST["description"];
+    $new_location = $_POST["location"];
     $new_vacancy = $_POST["vacancy"];
-    $new_region = $_POST["region"];
     $new_email = $_POST["email"];
     $new_password = $_POST["password"];
     $new_phone_number = $_POST["phone_number"];
@@ -41,8 +41,8 @@
     $employer = "UPDATE `employer` SET
     name = '$new_name',
     description = '$new_description',
+    location = '$new_location',
     vacancy = '$new_vacancy',
-    region = '$new_region',
     email = '$new_email',
     password = '$new_password',
     phone_number = '$new_phone_number'
@@ -230,21 +230,6 @@
 
   <main class="container">
 		<section class="form">
-			<!-- <form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
-				<div>
-					<label for="name">Аватар: <input id="name" name="name" type="text" placeholder="Название" required></label>
-					<input name="file" type="file" required>
-				</div>
-				<label for="email">Почта: <input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email?>" required></label>
-				<label for="password">Пароль: <input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password?>" required></label>
-
-				<br>
-
-				<input type="submit" id="account" name="account" value="Данные аккаунта">
-			</form>
-
-			<br> -->
-
 			<form class="edit" action="employer.php" method="post" enctype="multipart/form-data">
 				<label for="email">Почта:
 					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
@@ -261,15 +246,15 @@
 				<label for="description">Описание:
 					<input id="description" name="description" type="text" placeholder="Введите текст" value="<?php echo $description ?>">
 				</label>
+				<label for="location">Локация:
+					<input id="location" name="location" type="text" placeholder="Введите текст" value="<?php echo $location ?>">
+				</label>
 				<label for="vacancy">Вакансии:
 					<input id="vacancy" name="vacancy" type="text" placeholder="Введите текст" value="<?php echo $vacancy ?>">
 				</label>
 
 				<br>
 
-				<label for="region">Регион:
-					<input id="region" name="region" type="text" placeholder="Введите число" value="<?php echo $region ?>">
-				</label>
 				<label for="phone_number">Номер телефона:
 					<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number ?>">
 				</label>

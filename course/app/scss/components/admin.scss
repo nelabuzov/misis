@@ -37,6 +37,12 @@
     width: rem(350);
     height: rem(400);
     overflow: hidden;
+    transition: .3s ease-in-out;
+    border: rem(2) solid var(--black);
+
+    &:hover {
+      box-shadow: 0 0 rem(50) var(--black);
+    }
 
     img {
       width: rem(350);
