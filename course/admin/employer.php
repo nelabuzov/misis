@@ -18,7 +18,7 @@
     $row = mysqli_fetch_assoc($result);
     $name = $row["name"];
     $description = $row["description"];
-    $location = $row["location"];
+    $region = $row["region"];
     $vacancy = $row["vacancy"];
     $email = $row["email"];
     $password = $row["password"];
@@ -31,7 +31,7 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $new_name = $_POST["name"];
     $new_description = $_POST["description"];
-    $new_location = $_POST["location"];
+    $new_region = $_POST["region"];
     $new_vacancy = $_POST["vacancy"];
     $new_email = $_POST["email"];
     $new_password = $_POST["password"];
@@ -41,7 +41,7 @@
     $employer = "UPDATE `employer` SET
     name = '$new_name',
     description = '$new_description',
-    location = '$new_location',
+    region = '$new_region',
     vacancy = '$new_vacancy',
     email = '$new_email',
     password = '$new_password',
@@ -110,38 +110,6 @@
 	<?php
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
-
-	<div id="popup" class="overlay">
-		<a class="cancel" href="#"></a>
-		<div class="popup">
-			<a class="close" href="#">&times;</a>
-
-			<div class="popup__inner" id="login">
-				<h2>Вход</h2>
-				<form action="../validation/login.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-
-					<div class="popup__btns">
-						<button type="submit" class="btn">Вход</button>
-					</div>
-				</form>
-			</div>
-
-			<div class="popup__inner" id="signup">
-				<h2>Регистрация</h2>
-				<form action="../validation/signup.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-
-					<div class="popup__btns">
-						<button type="submit" class="btn">Регистрация</button>
-					</div>
-				</form>
-			</div>
-
-		</div>
-	</div>
 
 	<?php else: ?>
 		<style>
@@ -246,8 +214,8 @@
 				<label for="description">Описание:
 					<input id="description" name="description" type="text" placeholder="Введите текст" value="<?php echo $description ?>">
 				</label>
-				<label for="location">Локация:
-					<input id="location" name="location" type="text" placeholder="Введите текст" value="<?php echo $location ?>">
+				<label for="region">Город:
+					<input id="region" name="region" type="text" placeholder="Введите текст" value="<?php echo $region ?>">
 				</label>
 				<label for="vacancy">Вакансии:
 					<input id="vacancy" name="vacancy" type="text" placeholder="Введите текст" value="<?php echo $vacancy ?>">

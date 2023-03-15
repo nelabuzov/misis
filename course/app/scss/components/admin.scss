@@ -1,5 +1,20 @@
 @use '../util' as *;
 
+.form {
+  display: flex;
+  justify-content: space-between;
+
+  label {
+    display: block;
+    text-align: right;
+
+    input,
+    textarea {
+      width: rem(350);
+    }
+  }
+}
+
 .data {
   margin: rem(50) 0;
 
@@ -26,26 +41,23 @@
 }
 
 .gallery {
-  display: inline-flex;
-  align-items: start;
-  align-content: flex-start;
-  justify-content: space-between;
+  display: flex;
   flex-wrap: wrap;
-  gap: rem(50);
+  gap: rem(30);
 
   .img-wrapper {
-    width: rem(350);
     height: rem(400);
     overflow: hidden;
     transition: .3s ease-in-out;
-    border: rem(2) solid var(--black);
+    display: block;
 
     &:hover {
       box-shadow: 0 0 rem(50) var(--black);
     }
 
     img {
-      width: rem(350);
+      border: rem(2) solid var(--black);
+      width: rem(380);
       height: 100%;
       transition: 1s;
       position: relative;
@@ -56,5 +68,11 @@
         object-position: bottom center;
       }
     }
+  }
+
+  .btn--del {
+    border-radius: 0;
+    position: relative;
+    top: rem(-2);
   }
 }

@@ -4,6 +4,9 @@
   $stmt = $pdo -> query("select * from applicant");
   $applicant = $stmt -> fetchAll();
 
+	$stmt = $pdo -> query("select * from applicant_jobs");
+  $applicant_jobs = $stmt -> fetchAll();
+
   $stmt = $pdo -> query("select * from works");
   $works = $stmt -> fetchAll();
 
@@ -20,7 +23,7 @@
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $full_name = $row["full_name"];
-    $location = $row["location"];
+    $region = $row["region"];
     $experience = $row["experience"];
     $birthday = $row["birthday"];
     $email = $row["email"];
@@ -31,9 +34,9 @@
   }
 
   // Обработка данных из формы редактирования applicant
-  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['account'])) {
     $new_full_name = $_POST["full_name"];
-    $new_location = $_POST["location"];
+    $new_region = $_POST["region"];
     $new_experience = $_POST["experience"];
     $new_birthday = $_POST["birthday"];
     $new_email = $_POST["email"];
@@ -43,7 +46,7 @@
     // Запрос к базе данных для обновления данных пользователя
     $applicant = "UPDATE `applicant` SET
     full_name = '$new_full_name',
-    location = '$new_location',
+    region = '$new_region',
     experience = '$new_experience',
     birthday = '$new_birthday',
     email = '$new_email',
@@ -68,12 +71,39 @@
     }
   }
 
+	// Создание вакансии
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['applicant_jobs'])) {
+		$stmt = $pdo->prepare("insert into applicant_jobs(price, job, description, category) values(?,?,?,2)");
+    $stmt->execute([
+      $_POST['price'],
+			$_POST['job'],
+      $_POST['description']
+    ]);
+
+		header("Location: #");
+  }
+
+	// Удаление вакансии
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from applicant_jobs where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $job = $stmt->fetch();
+
+    if($job) {
+      $stmt = $pdo->prepare('delete from applicant_jobs where id = ?');
+      $stmt->execute([$_GET['id']]);
+    }
+
+    header('Location: applicant.php');
+  }
+
+	// Добавление элемента портфолио
 	if (!empty($_POST['name'])) {
     $apppath = dirname(dirname(__FILE__));
-    $filepath = 'images/content/uploads/' . time() . basename($_FILES['file']['name']);
+    $filepath = 'images/content/uploads/' . time() . basename($_FILES['file_path']['name']);
     $uploadfile = $apppath . '/' . $filepath;
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+    move_uploaded_file($_FILES['file_path']['tmp_name'], $uploadfile);
 
     $stmt = $pdo->prepare("insert into works(name, file_path) values(?,?)");
     $stmt->execute([
@@ -82,6 +112,22 @@
     ]);
 
     header("Location: #");
+  }
+
+	// Удаление элемента портфолио
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from works where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $work = $stmt->fetch();
+
+    if($work) {
+      $stmt = $pdo->prepare('delete from works where id = ?');
+      $stmt->execute([$_GET['id']]);
+
+      unlink( dirname(dirname(__FILE__)).'/'.$work['file_path'] );
+    }
+
+    header('Location: applicant.php');
   }
 
   // Закрытие соединения с базой данных
@@ -100,11 +146,6 @@
 	<link rel="stylesheet" href="../assets/css/lightgallery.min.css">
 	<link rel="stylesheet" href="../assets/css/lg-transitions.min.css">
 	<link rel="stylesheet" href="../dist/style.css">
-	<style>
-    .edit > label {
-	    display: block;
-    }
-	</style>
 </head>
 
 <body>
@@ -113,13 +154,21 @@
 		<div class="popup">
 			<a class="close" href="#">&times;</a>
 
-			<div class="popup__inner">
-				<h2>Добавление работы</h2>
+			<div class="popup__inner form">
 				<form action="applicant.php" method="post" enctype="multipart/form-data">
-          <input name="name" type="text" placeholder="Название" required>
-          <input name="file" type="file" required>
-          <input type="submit" value="Создать">
-        </form>
+					<h2>Добавление работы</h2>
+
+					<label for="name">Название:
+						<input id="name" name="name" type="text" placeholder="Название" required>
+					</label>
+					<label for="file_path">Путь:
+						<input id="file_path" name="file_path" type="file" required>
+					</label>
+
+					<br>
+
+					<input type="submit" value="Добавить">
+      	</form>
 			</div>
 		</div>
 	</div>
@@ -127,38 +176,6 @@
 	<?php
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
-
-	<div id="popup" class="overlay">
-		<a class="cancel" href="#"></a>
-		<div class="popup">
-			<a class="close" href="#">&times;</a>
-
-			<div class="popup__inner" id="login">
-				<h2>Вход</h2>
-				<form action="../validation/login.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-
-					<div class="popup__btns">
-						<button type="submit" class="btn">Вход</button>
-					</div>
-				</form>
-			</div>
-
-			<div class="popup__inner" id="signup">
-				<h2>Регистрация</h2>
-				<form action="../validation/signup.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-
-					<div class="popup__btns">
-						<button type="submit" class="btn">Регистрация</button>
-					</div>
-				</form>
-			</div>
-
-		</div>
-	</div>
 
 	<?php else: ?>
 		<style>
@@ -247,7 +264,9 @@
 
   <main class="container">
 		<section class="form">
-			<form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
+			<form action="applicant.php" method="post" enctype="multipart/form-data">
+				<h2>Изменение данных</h2>
+
 				<label for="email">Почта:
 					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
 				</label>
@@ -260,8 +279,8 @@
 				<label for="full_name">Полное имя:
 					<input id="full_name" name="full_name" type="text" placeholder="Введите текст" value="<?php echo $full_name ?>">
 				</label>
-				<label for="location">Локация:
-					<input id="location" name="location" type="text" placeholder="Введите текст" value="<?php echo $location ?>">
+				<label for="region">Город:
+					<input id="region" name="region" type="text" placeholder="Введите текст" value="<?php echo $region ?>">
 				</label>
 
 				<br>
@@ -273,27 +292,62 @@
 					<input id="birthday" name="birthday" type="date" placeholder="Введите дату" value="<?php echo $birthday ?>">
 				</label>
 				<label for="phone_number">Номер телефона:
-					<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number ?>">
+					<input id="phone_number" name="phone_number" type="tel" placeholder="Введите номер" value="<?php echo $phone_number ?>">
 				</label>
 
 				<br>
 
-				<input type="submit" id="submit" name="submit" value="Редактировать">
+				<input type="submit" id="account" name="account" value="Редактировать">
 			</form>
 
-			<!-- <form action="applicant.php" method="post" enctype="multipart/form-data">
-        <label for="name"></label>
-        <input name="file" type="file">
-        <input type="submit" value="Добавить">
-      </form> -->
+			<form action="applicant.php" method="post" enctype="multipart/form-data">
+				<h2>Создание вакансии</h2>
+
+				<label for="price">Зарплата:
+        	<input id="price" name="price" type="number" placeholder="Введите число">
+				</label>
+				<label for="job">Специальность:
+					<input id="job" name="job" type="text" placeholder="Введите текст">
+				</label>
+				<label for="description">Описание:
+					<textarea id="description" name="description" placeholder="Введите текст"></textarea>
+				</label>
+
+				<br>
+
+        <input type="submit" id="applicant_jobs" name="applicant_jobs" value="Опубликовать">
+      </form>
+		</section>
+
+		<section class="data">
+			<div class="job">
+        <?php foreach ($applicant_jobs as $job) : ?>
+          <div class="job__item">
+						<div class="price"><?= $job['price'] ?> руб.</div>
+						<h2><?= $row['full_name'] ?></h2>
+						<div class="search"><?= $job['job'] ?> (<?= $row['region'] ?>)</div>
+						<p><?= $job['description'] ?></p>
+
+						<div>
+							<a class="btn" href="mailto:<?= $row['email'] ?>"><?= $row['email'] ?></a>
+							<a class="btn" href="tel:<?= $row['phone_number'] ?>"><?= $row['phone_number'] ?></a>
+						</div>
+
+						<a class="btn btn--del" href="applicant.php?id=<?= $job['id'] ?>">Удалить</a>
+          </div>
+        <?php endforeach; ?>
+    	</div>
 		</section>
 
   	<section class="data portfolio">
     	<div id="lightgallery" class="gallery">
         <?php foreach ($works as $work) : ?>
-          <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
-            <img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
-          </a>
+          <div>
+						<a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="http://misis/course/<?= $work['file_path'] ?>">
+            	<img src="http://misis/course/<?= $work['file_path'] ?>" alt="<?= $work['name'] ?>">
+          	</a>
+						<a class="btn btn--del" href="applicant.php?id=<?= $work['id'] ?>">Удалить</a>
+					</div>
         <?php endforeach; ?>
     	</div>
 
@@ -302,7 +356,6 @@
 
       	<div>
 					<a class="btn" href="#popup">Добавить</a>
-        	<a class="btn" href="remove.php?id=<?= $work['id'] ?>">Удалить</a>
       	</div>
     	</div>
   	</section>

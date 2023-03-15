@@ -156,7 +156,7 @@
 		<div class="container">
 			<div class="hero__inner">
 				<div>
-					<h1>Работа со <span>всего</span> мира</h1>
+					<h1>Работа со <span>всей</span> россии</h1>
 					<p class="subtitle">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem optio repellat beatae et.
 					</p>

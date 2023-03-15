@@ -79,9 +79,9 @@ body {
 			color: var(--gray);
 		}
 
-		form :not(:last-child) {
-			margin-bottom: rem(25);
-			width: 100%;
+		input[type=radio],
+		.btn {
+			margin-top: rem(20);
 		}
 	}
 

@@ -44,24 +44,22 @@
 			<div class="popup__inner" id="login">
 				<h2>Вход</h2>
 				<form action="validation/login.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-
-					<div class="popup__btns">
-						<button type="submit" class="btn">Вход</button>
-					</div>
+					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту" required>
+					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" required>
+					<button type="submit" class="btn">Вход</button>
 				</form>
 			</div>
 
 			<div class="popup__inner" id="signup">
 				<h2>Регистрация</h2>
 				<form action="validation/signup.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту">
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль">
-
-					<div class="popup__btns">
-						<button type="submit" class="btn">Регистрация</button>
+					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту" required>
+					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" required>
+          <div>
+          	<label for="employer"><input type="radio" name="category" id="employer" value="1" checked>Работодатель</label>
+						<label for="applicant"><input type="radio" name="category" id="applicant" value="2">Соискатель</label>
 					</div>
+					<button type="submit" class="btn">Регистрация</button>
 				</form>
 			</div>
 

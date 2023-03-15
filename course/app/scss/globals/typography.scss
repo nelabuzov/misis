@@ -9,7 +9,7 @@ h3 {
 }
 
 h1 {
-	font-size: rem(75);
+	font-size: rem(66);
 	text-transform: uppercase;
 }
 
@@ -45,13 +45,15 @@ a {
 	color: var(--black);
 }
 
-input:not([type="radio"]),
+input:not([type=radio]),
 textarea {
-	box-shadow: 0 rem(3) 0 var(--gray);
 	border: rem(2) solid var(--gray);
 	padding: rem(12) rem(80) rem(12) rem(20);
-	border-radius: rem(10);
-	resize: none;
+	box-shadow: rem(-6) 0 0 var(--gray) inset;
+}
+
+textarea {
+	resize: vertical;
 }
 
 .hidden {
@@ -88,6 +90,13 @@ input[type=submit] {
 			left: rem(8);
 		}
 	}
+}
+
+.btn--del {
+	float: right;
+	color: var(--brand);
+	border-color: var(--black);
+	background-color: var(--black);
 }
 
 .logo {
