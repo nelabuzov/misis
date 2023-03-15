@@ -20,13 +20,13 @@
 
     if(in_array($chosenValue, $allowedValues)){
       if(strcasecmp($chosenValue, 1) == 0){
-        $mysql -> query("INSERT INTO `employer` (`name`, `description`, `region`, `vacancy`, `email`, `password`, `phone_number`, `category`) VALUES('', '', '', '', '$email', '$password', 0, 1)");
+        $mysql -> query("INSERT INTO `employer` (`name`, `description`, `region`, `vacancy`, `email`, `password`, `phone_number`, `category`) VALUES('Аноним', '', '', '', '$email', '$password', 0, 1)");
         $result = $mysql -> query("SELECT * FROM `employer` WHERE `email` = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();
         header('Location: ../admin/employer.php');
       } else {
-        $mysql -> query("INSERT INTO `applicant` (`full_name`, `region`, `experience`, `birthday`, `email`, `password`, `phone_number`, `category`) VALUES('', '', 0, '2000-01-01', '$email', '$password', 0, 2)");
+        $mysql -> query("INSERT INTO `applicant` (`full_name`, `region`, `experience`, `birthday`, `email`, `password`, `phone_number`, `category`) VALUES('Аноним', '', 0, '2000-01-01', '$email', '$password', 0, 2)");
         $result = $mysql -> query("SELECT * FROM `applicant` WHERE `email` = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();

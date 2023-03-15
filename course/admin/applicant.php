@@ -2,7 +2,7 @@
   require_once "../db.php";
 
   $stmt = $pdo -> query("select * from applicant");
-  $applicant = $stmt -> fetchAll();
+  $applicants = $stmt -> fetchAll();
 
 	$stmt = $pdo -> query("select * from applicant_jobs");
   $applicant_jobs = $stmt -> fetchAll();
@@ -57,9 +57,9 @@
     if (mysqli_query($mysql, $applicant)) {
       if ($email != $new_email || $password != $new_password) {
 				setcookie('account', $account['email'], time() - 100000, "/course");
-				header('Location: ../');
+				header('Location: ../index.php');
 			} else {
-				header('Location: #');
+				header('Location: applicant.php');
 			}
     } else {
       echo "Error: " . $applicant . "<br>" . mysqli_error($mysql);
@@ -71,6 +71,20 @@
     }
   }
 
+	// Удаление соискателя
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from applicant where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $app = $stmt->fetch();
+
+    if($app) {
+      $stmt = $pdo->prepare('delete from applicant where id = ?');
+      $stmt->execute([$_GET['id']]);
+    }
+
+    header('Location: applicant.php');
+  }
+
 	// Создание вакансии
 	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['applicant_jobs'])) {
 		$stmt = $pdo->prepare("insert into applicant_jobs(price, job, description, category) values(?,?,?,2)");
@@ -80,7 +94,7 @@
       $_POST['description']
     ]);
 
-		header("Location: #");
+		header("Location: applicant.php");
   }
 
 	// Удаление вакансии
@@ -111,7 +125,7 @@
       $filepath
     ]);
 
-    header("Location: #");
+    header("Location: applicant.php");
   }
 
 	// Удаление элемента портфолио
@@ -222,10 +236,10 @@
 
 			<div class="account__menu hidden" id="menu">
 
-				<?php if ($applicant): ?>
+				<?php if ($applicants): ?>
 					<a href="#">Профиль</a>
 
-				<?php elseif ($employer): ?>
+				<?php elseif ($employers): ?>
 					<a href="employer.php">Профиль</a>
 
 				<?php else: ?>
@@ -263,43 +277,47 @@
 	</header>
 
   <main class="container">
-		<section class="form">
-			<form action="applicant.php" method="post" enctype="multipart/form-data">
-				<h2>Изменение данных</h2>
+		<section>
+			<h2>Соискатель</h2>
 
-				<label for="email">Почта:
-					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
-				</label>
-				<label for="password">Пароль:
-					<input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password ?>">
-				</label>
+			<div class="data">
+				<form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
+					<table class="data__table" border="1">
+						<tr>
+							<th>#</th>
+							<th>Полное имя</th>
+							<th>Регион</th>
+							<th>Опыт</th>
+							<th>Дата рождения</th>
+							<th>Почта</th>
+							<th>Пароль</th>
+							<th>Телефон</th>
+							<th>Действие</th>
+						</tr>
 
-				<br>
+						<?php foreach ($applicants as $key => $app) : ?>
+							<tr>
+								<td><?= $key + 1 ?></td>
+								<td><input name="full_name" type="text" placeholder="Введите текст" value="<?php echo $app["full_name"] ?>"></td>
+								<td><input name="region" type="text" placeholder="Введите текст" value="<?php echo $app["region"] ?>"></td>
+								<td><input name="experience" type="number" placeholder="Введите число" value="<?php echo $app["experience"] ?>"></td>
+								<td><input name="birthday" type="date" placeholder="Введите дату" value="<?php echo $app["birthday"] ?>"></td>
+								<td><input name="email" type="email" placeholder="Введите почту" value="<?php echo $app["email"] ?>"></td>
+								<td><input name="password" type="password" placeholder="Введите пароль" value="<?php echo $app["password"] ?>"></td>
+								<td><input name="phone_number" type="tel" placeholder="Введите номер" value="<?php echo $app["phone_number"] ?>"></td>
 
-				<label for="full_name">Полное имя:
-					<input id="full_name" name="full_name" type="text" placeholder="Введите текст" value="<?php echo $full_name ?>">
-				</label>
-				<label for="region">Город:
-					<input id="region" name="region" type="text" placeholder="Введите текст" value="<?php echo $region ?>">
-				</label>
+								<td class="data__btns">
+									<input class="btn" type="submit" name="submit" value="Редактировать">
+									<a class="btn btn--del" href="applicant.php?id=<?= $app['id'] ?>">Удалить</a>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
+				</form>
+			</div>
+		</section>
 
-				<br>
-
-				<label for="experience">Опыт:
-					<input id="experience" name="experience" type="text" placeholder="Введите число" value="<?php echo $experience ?>">
-				</label>
-				<label for="birthday">Дата рождения:
-					<input id="birthday" name="birthday" type="date" placeholder="Введите дату" value="<?php echo $birthday ?>">
-				</label>
-				<label for="phone_number">Номер телефона:
-					<input id="phone_number" name="phone_number" type="tel" placeholder="Введите номер" value="<?php echo $phone_number ?>">
-				</label>
-
-				<br>
-
-				<input type="submit" id="account" name="account" value="Редактировать">
-			</form>
-
+		<section>
 			<form action="applicant.php" method="post" enctype="multipart/form-data">
 				<h2>Создание вакансии</h2>
 

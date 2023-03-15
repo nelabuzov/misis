@@ -25,10 +25,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Work Flow - поиск персонала и публикация вакансий</title>
+
   <link rel="shortcut icon" href="images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="dist/style.css">
 	<script defer src="dist/script.js"></script>
-	<title>Work Flow - поиск персонала и публикация вакансий</title>
 </head>
 
 <body>

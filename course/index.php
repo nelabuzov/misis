@@ -25,11 +25,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Work Flow - поиск персонала и публикация вакансий</title>
+
   <link rel="shortcut icon" href="images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 	<link rel="stylesheet" href="assets/animate.min.css">
 	<link rel="stylesheet" href="dist/style.css">
-	<title>Work Flow - поиск персонала и публикация вакансий</title>
 </head>
 
 <body>
@@ -264,9 +265,8 @@
 		<div class="feedback__inner">
 			<div class="feedback__bg"></div>
 
-			<form action="feedback.php" method="POST">
-				<input type="text" name="name" placeholder="Имя">
-				<input type="text" name="email" placeholder="Почта *" required>
+			<form action="index.php" method="POST">
+				<input type="text" name="email" placeholder="Почта *" value="<?php echo $email ?>" required>
 				<textarea name="description" placeholder="Сообщение *" required></textarea>
 				<button type="submit">Отправить</button>
 			</form>

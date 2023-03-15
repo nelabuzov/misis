@@ -17,14 +17,27 @@
 
 .data {
   margin: rem(50) 0;
+  overflow-x: scroll;
+  box-shadow: rem(1) 0 0 var(--gray) inset,
+    rem(-1) 0 0 var(--gray) inset;
 
   &__table {
     border-collapse: collapse;
+    border-color: var(--gray);
     width: 100%;
 
     th,
     td {
       padding: rem(10);
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+
+        &:not(:last-child) {
+          margin-bottom: rem(10);
+        }
+      }
     }
   }
 }

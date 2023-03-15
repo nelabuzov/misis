@@ -2,7 +2,7 @@
   require_once "../db.php";
 
   $stmt = $pdo -> query("select * from employer");
-  $employer = $stmt -> fetchAll();
+  $employers = $stmt -> fetchAll();
 
   session_start();
   $acc = $_COOKIE['account'];
@@ -51,9 +51,9 @@
     if (mysqli_query($mysql, $employer)) {
       if ($email != $new_email || $password != $new_password) {
 				setcookie('account', $account['email'], time() - 100000, "/course");
-				header('Location: ../');
+				header('Location: ../index.php');
 			} else {
-				header('Location: #');
+				header('Location: employer.php');
 			}
     } else {
       echo "Error: " . $employer . "<br>" . mysqli_error($mysql);
@@ -63,6 +63,20 @@
       echo "Error: Account is empty";
       exit;
     }
+  }
+
+	// Удаление работодателя
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from employer where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $emp = $stmt->fetch();
+
+    if($emp) {
+      $stmt = $pdo->prepare('delete from employer where id = ?');
+      $stmt->execute([$_GET['id']]);
+    }
+
+    header('Location: employer.php');
   }
 
   // Закрытие соединения с базой данных
@@ -75,20 +89,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница Пользователя</title>
 
   <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="../assets/css/lightgallery.css">
 	<link rel="stylesheet" href="../assets/css/lg-transitions.css">
 	<link rel="stylesheet" href="../dist/style.css">
-	<style>
-    .edit > label {
-	    display: block;
-    }
-	</style>
-
-	<script defer src="../dist/script.js"></script>
-  <script defer src="../assets/js/lightgallery.min.js"></script>
-  <title>Страница Пользователя</title>
 </head>
 <body>
 	<!-- <div id="popup" class="overlay">
@@ -156,10 +162,10 @@
 
 			<div class="account__menu hidden" id="menu">
 
-				<?php if ($employer): ?>
+				<?php if ($employers): ?>
 					<a href="#">Профиль</a>
 
-				<?php elseif ($applicant): ?>
+				<?php elseif ($applicants): ?>
 					<a href="applicant.php">Профиль</a>
 
 				<?php else: ?>
@@ -197,45 +203,51 @@
 	</header>
 
   <main class="container">
-		<section class="form">
-			<form class="edit" action="employer.php" method="post" enctype="multipart/form-data">
-				<label for="email">Почта:
-					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
-				</label>
-				<label for="password">Пароль:
-					<input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password ?>">
-				</label>
+		<section>
+      <h2>Работодатель</h2>
 
-				<br>
+      <div class="data">
+        <form class="edit" action="employer.php" method="post" enctype="multipart/form-data">
+          <table class="data__table" border="1">
+            <tr>
+              <th>#</th>
+              <th>Название</th>
+              <th>Описание</th>
+              <th>Вакансии</th>
+              <th>Регион</th>
+              <th>Почта</th>
+              <th>Пароль</th>
+              <th>Телефон</th>
+              <th>Действие</th>
+            </tr>
 
-				<label for="name">Название:
-					<input id="name" name="name" type="text" placeholder="Введите текст" value="<?php echo $name ?>">
-				</label>
-				<label for="description">Описание:
-					<input id="description" name="description" type="text" placeholder="Введите текст" value="<?php echo $description ?>">
-				</label>
-				<label for="region">Город:
-					<input id="region" name="region" type="text" placeholder="Введите текст" value="<?php echo $region ?>">
-				</label>
-				<label for="vacancy">Вакансии:
-					<input id="vacancy" name="vacancy" type="text" placeholder="Введите текст" value="<?php echo $vacancy ?>">
-				</label>
+            <?php foreach ($employers as $key => $emp) : ?>
+              <tr>
+                <td><?= $key + 1 ?></td>
+                <td><input name="name" type="text" placeholder="Введите текст" value="<?php echo $emp["name"] ?>"></td>
+                <td><input name="description" type="text" placeholder="Введите текст" value="<?php echo $emp["description"] ?>"></td>
+                <td><input name="vacancy" type="text" placeholder="Введите текст" value="<?php echo $emp["vacancy"] ?>"></td>
+                <td><input name="region" type="text" placeholder="Введите текст" value="<?php echo $emp["region"] ?>"></td>
+                <td><input name="email" type="email" placeholder="Введите почту" value="<?php echo $emp["email"] ?>"></td>
+                <td><input name="password" type="password" placeholder="Введите пароль" value="<?php echo $emp["password"] ?>"></td>
+                <td><input name="phone_number" type="tel" placeholder="Введите номер" value="<?php echo $emp["phone_number"] ?>"></td>
 
-				<br>
-
-				<label for="phone_number">Номер телефона:
-					<input id="phone_number" name="phone_number" type="number" placeholder="Введите номер" value="<?php echo $phone_number ?>">
-				</label>
-
-				<br>
-
-				<input type="submit" id="submit" name="submit" value="Редактировать">
-			</form>
-		</section>
+                <td class="data__btns">
+                  <input class="btn" type="submit" name="submit" value="Редактировать">
+                  <a class="btn btn--del" href="employer.php?id=<?= $emp['id'] ?>">Удалить</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </form>
+      </div>
+    </section>
 	</main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+  <script src="../assets/js/lightgallery.min.js"></script>
+	<script src="../dist/script.js"></script>
 </body>
 </html>

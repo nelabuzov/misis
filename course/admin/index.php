@@ -1,27 +1,23 @@
 <?php
   require_once "../db.php";
 
-	$stmt = $pdo -> query("select * from messages");
-  $messages = $stmt -> fetchAll();
-
 	$stmt = $pdo -> query("select * from admin");
-  $administrator = $stmt -> fetchAll();
+  $administrators = $stmt -> fetchAll();
 
   $stmt = $pdo -> query("select * from employer");
-  $employer = $stmt -> fetchAll();
+  $employers = $stmt -> fetchAll();
 
   $stmt = $pdo -> query("select * from applicant");
-  $applicant = $stmt -> fetchAll();
+  $applicants = $stmt -> fetchAll();
 
   session_start();
-  $acc = $_COOKIE['account'];
   $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
   if (!$mysql) {
     die("Connection failed: " . mysqli_connect_error());
   }
 
   // Получаем текущие значения полей из базы данных admin
-  $admin = "SELECT * FROM `admin` WHERE email = '$acc'";
+  $admin = "SELECT * FROM `admin`";
   $result = mysqli_query($mysql, $admin);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -39,15 +35,14 @@
     // Запрос к базе данных для обновления данных пользователя
     $admin = "UPDATE `admin` SET
     email = '$new_email',
-    password = '$new_password'
-    WHERE email = '$acc'";
+    password = '$new_password'";
 
     if (mysqli_query($mysql, $admin)) {
       if ($email != $new_email || $password != $new_password) {
 				setcookie('account', $account['email'], time() - 100000, "/course");
-				header('Location: ../');
+				header('Location: ../index.php');
 			} else {
-				header('Location: #');
+				header('Location: index.php');
 			}
     } else {
       echo "Error: " . $admin . "<br>" . mysqli_error($mysql);
@@ -57,6 +52,154 @@
       echo "Error: Account is empty";
       exit;
     }
+  }
+
+  // Удаление администратора
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from admin where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $adm = $stmt->fetch();
+
+    if($adm) {
+      $stmt = $pdo->prepare('delete from admin where id = ?');
+      $stmt->execute([$_GET['id']]);
+    }
+
+    header('Location: index.php');
+  }
+
+  // Получаем текущие значения полей из базы данных employer
+  $employer = "SELECT * FROM `employer`";
+  $result = mysqli_query($mysql, $employer);
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $name = $row["name"];
+    $description = $row["description"];
+    $region = $row["region"];
+    $vacancy = $row["vacancy"];
+    $email = $row["email"];
+    $password = $row["password"];
+    $phone_number = $row["phone_number"];
+  } else {
+    echo "Error: " . $employer . "<br>" . mysqli_error($mysql);
+  }
+
+  // Обработка данных из формы редактирования employer
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+    $new_name = $_POST["name"];
+    $new_description = $_POST["description"];
+    $new_region = $_POST["region"];
+    $new_vacancy = $_POST["vacancy"];
+    $new_email = $_POST["email"];
+    $new_password = $_POST["password"];
+    $new_phone_number = $_POST["phone_number"];
+
+    // Запрос к базе данных для обновления данных пользователя
+    $employer = "UPDATE `employer` SET
+    name = '$new_name',
+    description = '$new_description',
+    region = '$new_region',
+    vacancy = '$new_vacancy',
+    email = '$new_email',
+    password = '$new_password',
+    phone_number = '$new_phone_number'";
+
+    if (mysqli_query($mysql, $employer)) {
+      if ($email != $new_email || $password != $new_password) {
+				setcookie('account', $account['email'], time() - 100000, "/course");
+				header('Location: ../index.php');
+			} else {
+				header('Location: index.php');
+			}
+    } else {
+      echo "Error: " . $employer . "<br>" . mysqli_error($mysql);
+    }
+
+    if (empty($acc)) {
+      echo "Error: Account is empty";
+      exit;
+    }
+  }
+
+  // Удаление работодателя
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from employer where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $emp = $stmt->fetch();
+
+    if($emp) {
+      $stmt = $pdo->prepare('delete from employer where id = ?');
+      $stmt->execute([$_GET['id']]);
+    }
+
+    header('Location: index.php');
+  }
+
+  // Получаем текущие значения полей из базы данных applicant
+  $applicant = "SELECT * FROM `applicant`";
+  $result = mysqli_query($mysql, $applicant);
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $full_name = $row["full_name"];
+    $region = $row["region"];
+    $experience = $row["experience"];
+    $birthday = $row["birthday"];
+    $email = $row["email"];
+    $password = $row["password"];
+    $phone_number = $row["phone_number"];
+  } else {
+    echo "Error: " . $applicant . "<br>" . mysqli_error($mysql);
+  }
+
+  // Обработка данных из формы редактирования applicant
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['account'])) {
+    $new_full_name = $_POST["full_name"];
+    $new_region = $_POST["region"];
+    $new_experience = $_POST["experience"];
+    $new_birthday = $_POST["birthday"];
+    $new_email = $_POST["email"];
+    $new_password = $_POST["password"];
+    $new_phone_number = $_POST["phone_number"];
+
+    // Запрос к базе данных для обновления данных пользователя
+    $applicant = "UPDATE `applicant` SET
+    full_name = '$new_full_name',
+    region = '$new_region',
+    experience = '$new_experience',
+    birthday = '$new_birthday',
+    email = '$new_email',
+    password = '$new_password',
+    phone_number = '$new_phone_number'";
+
+    if (mysqli_query($mysql, $applicant)) {
+      if ($email != $new_email || $password != $new_password) {
+				setcookie('account', $account['email'], time() - 100000, "/course");
+				header('Location: ../index.php');
+			} else {
+				header('Location: index.php');
+			}
+    } else {
+      echo "Error: " . $applicant . "<br>" . mysqli_error($mysql);
+    }
+
+    if (empty($acc)) {
+      echo "Error: Account is empty";
+      exit;
+    }
+  }
+
+  // Удаление соискателя
+	if(isset($_GET['id'])) {
+    $stmt = $pdo->prepare('select * from applicant where id = ?');
+    $stmt->execute([$_GET['id']]);
+    $app = $stmt->fetch();
+
+    if($app) {
+      $stmt = $pdo->prepare('delete from applicant where id = ?');
+      $stmt->execute([$_GET['id']]);
+    }
+
+    header('Location: index.php');
   }
 
   // Закрытие соединения с базой данных
@@ -69,38 +212,14 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница Пользователя</title>
 
   <link rel="shortcut icon" href="../images/tools/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="../assets/css/lightgallery.css">
 	<link rel="stylesheet" href="../assets/css/lg-transitions.css">
 	<link rel="stylesheet" href="../dist/style.css">
-	<style>
-    .edit > label {
-	    display: block;
-    }
-	</style>
-
-	<script defer src="../dist/script.js"></script>
-  <script defer src="../assets/js/lightgallery.min.js"></script>
-  <title>Страница Пользователя</title>
 </head>
 <body>
-	<!-- <div id="popup" class="overlay">
-		<a class="cancel" href="#"></a>
-		<div class="popup">
-			<a class="close" href="#">&times;</a>
-
-			<div class="popup__inner">
-				<h2>Добавление работы</h2>
-				<form action="add.php" method="post" enctype="multipart/form-data">
-          <input name="name" type="text" placeholder="Название" required>
-          <input name="file" type="file" required>
-          <input type="submit" value="Создать">
-        </form>
-			</div>
-		</div>
-	</div> -->
-
 	<?php
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
@@ -150,10 +269,10 @@
 
 			<div class="account__menu hidden" id="menu">
 
-				<?php if ($employer): ?>
+				<?php if ($employers): ?>
 					<a href="employer.php">Профиль</a>
 
-				<?php elseif ($applicant): ?>
+				<?php elseif ($applicants): ?>
 					<a href="applicant.php">Профиль</a>
 
 				<?php else: ?>
@@ -191,147 +310,121 @@
 	</header>
 
   <main class="container">
-		<section class="form">
-			<!-- <form class="edit" action="applicant.php" method="post" enctype="multipart/form-data">
-				<div>
-					<label for="name">Аватар: <input id="name" name="name" type="text" placeholder="Название" required></label>
-					<input name="file" type="file" required>
-				</div>
-				<label for="email">Почта: <input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email?>" required></label>
-				<label for="password">Пароль: <input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password?>" required></label>
+    <section>
+      <h2>Администратор</h2>
 
-				<br>
+      <div class="data">
+        <form class="edit" action="index.php" method="post" enctype="multipart/form-data">
+          <table class="data__table" border="1">
+            <tr>
+              <th>#</th>
+              <th>Почта</th>
+              <th>Пароль</th>
+              <th>Действие</th>
+            </tr>
 
-				<input type="submit" id="account" name="account" value="Данные аккаунта">
-			</form>
+            <?php foreach ($administrators as $key => $adm) : ?>
+              <tr>
+                <td><?= $key + 1 ?></td>
+                <td><input name="email" type="email" placeholder="Введите почту" value="<?php echo $adm["email"] ?>"></td>
+                <td><input name="password" type="password" placeholder="Введите пароль" value="<?php echo $adm["password"] ?>"></td>
 
-			<br> -->
-
-			<form class="edit" action="index.php" method="post" enctype="multipart/form-data">
-				<label for="email">Почта:
-					<input id="email" name="email" type="email" placeholder="Введите почту" value="<?php echo $email ?>">
-				</label>
-				<label for="password">Пароль:
-					<input id="password" name="password" type="password" placeholder="Введите пароль" value="<?php echo $password ?>">
-				</label>
-
-				<br>
-
-				<input type="submit" id="submit" name="submit" value="Редактировать">
-			</form>
-		</section>
-
-    <section class="data">
-      <h2>Сообщения</h2>
-
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Имя</th>
-          <th>Email</th>
-          <th>Текст</th>
-          <th>Дата и время</th>
-        </tr>
-
-        <?php foreach ($messages as $key => $message) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($message['name']) ?></td>
-            <td><?= htmlspecialchars($message['email']) ?></td>
-            <td><?= htmlspecialchars($message['text']) ?></td>
-            <td><?= $message['created_at'] ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
+                <td class="data__btns">
+                  <input class="btn" type="submit" name="submit" value="Редактировать">
+                  <a class="btn btn--del" href="index.php?id=<?= $adm['id'] ?>">Удалить</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </form>
+      </div>
     </section>
 
-		<section class="data">
-      <h2>Администраторы</h2>
-
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Почта</th>
-          <th>Пароль</th>
-        </tr>
-
-        <?php foreach ($administrator as $key => $adm) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($adm['email']) ?></td>
-            <td><?= htmlspecialchars($adm['password']) ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
-    </section>
-
-    <section class="data">
+    <section>
       <h2>Работодатели</h2>
 
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Название</th>
-          <th>Описание</th>
-          <th>Вакансии</th>
-          <th>Регион</th>
-          <th>Почта</th>
-          <th>Пароль</th>
-          <th>Телефон</th>
-        </tr>
+      <div class="data">
+        <form class="edit" action="index.php" method="post" enctype="multipart/form-data">
+          <table class="data__table" border="1">
+            <tr>
+              <th>#</th>
+              <th>Название</th>
+              <th>Описание</th>
+              <th>Вакансии</th>
+              <th>Регион</th>
+              <th>Почта</th>
+              <th>Пароль</th>
+              <th>Телефон</th>
+              <th>Действие</th>
+            </tr>
 
-        <?php foreach ($employer as $key => $emp) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($emp['name']) ?></td>
-            <td><?= htmlspecialchars($emp['description']) ?></td>
-            <td><?= htmlspecialchars($emp['vacancy']) ?></td>
-            <td><?= htmlspecialchars($emp['region']) ?></td>
-            <td><?= htmlspecialchars($emp['email']) ?></td>
-            <td><?= htmlspecialchars($emp['password']) ?></td>
-            <td><?= htmlspecialchars($emp['phone_number']) ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
+            <?php foreach ($employers as $key => $emp) : ?>
+              <tr>
+                <td><?= $key + 1 ?></td>
+                <td><input name="name" type="text" placeholder="Введите текст" value="<?php echo $emp["name"] ?>"></td>
+                <td><input name="description" type="text" placeholder="Введите текст" value="<?php echo $emp["description"] ?>"></td>
+                <td><input name="vacancy" type="text" placeholder="Введите текст" value="<?php echo $emp["vacancy"] ?>"></td>
+                <td><input name="region" type="text" placeholder="Введите текст" value="<?php echo $emp["region"] ?>"></td>
+                <td><input name="email" type="email" placeholder="Введите почту" value="<?php echo $emp["email"] ?>"></td>
+                <td><input name="password" type="password" placeholder="Введите пароль" value="<?php echo $emp["password"] ?>"></td>
+                <td><input name="phone_number" type="tel" placeholder="Введите номер" value="<?php echo $emp["phone_number"] ?>"></td>
+
+                <td class="data__btns">
+                  <input class="btn" type="submit" name="submit" value="Редактировать">
+                  <a class="btn btn--del" href="index.php?id=<?= $emp['id'] ?>">Удалить</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </form>
+      </div>
     </section>
 
-    <section class="data">
+    <section>
       <h2>Соискатели</h2>
 
-      <table class="data__table" border="1">
-        <tr>
-          <th>#</th>
-          <th>Фамилия</th>
-          <th>Имя</th>
-          <th>Отчество</th>
-          <th>Опыт</th>
-          <th>Дата рождения</th>
-          <th>Регион</th>
-          <th>Почта</th>
-          <th>Пароль</th>
-          <th>Телефон</th>
-        </tr>
+      <div class="data">
+        <form class="edit" action="index.php" method="post" enctype="multipart/form-data">
+          <table class="data__table" border="1">
+            <tr>
+              <th>#</th>
+              <th>Полное имя</th>
+              <th>Регион</th>
+              <th>Опыт</th>
+              <th>Дата рождения</th>
+              <th>Почта</th>
+              <th>Пароль</th>
+              <th>Телефон</th>
+              <th>Действие</th>
+            </tr>
 
-        <?php foreach ($applicant as $key => $app) : ?>
-          <tr>
-            <td><?= $key + 1 ?></td>
-            <td><?= htmlspecialchars($app['last_name']) ?></td>
-            <td><?= htmlspecialchars($app['first_name']) ?></td>
-            <td><?= htmlspecialchars($app['middle_name']) ?></td>
-            <td><?= htmlspecialchars($app['experience']) ?></td>
-            <td><?= htmlspecialchars($app['birthday']) ?></td>
-            <td><?= htmlspecialchars($app['region']) ?></td>
-            <td><?= htmlspecialchars($app['email']) ?></td>
-            <td><?= htmlspecialchars($app['password']) ?></td>
-            <td><?= htmlspecialchars($app['phone_number']) ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
+            <?php foreach ($applicants as $key => $app) : ?>
+              <tr>
+                <td><?= $key + 1 ?></td>
+                <td><input name="full_name" type="text" placeholder="Введите текст" value="<?php echo $app["full_name"] ?>"></td>
+                <td><input name="region" type="text" placeholder="Введите текст" value="<?php echo $app["region"] ?>"></td>
+                <td><input name="experience" type="number" placeholder="Введите число" value="<?php echo $app["experience"] ?>"></td>
+                <td><input name="birthday" type="date" placeholder="Введите дату" value="<?php echo $app["birthday"] ?>"></td>
+                <td><input name="email" type="email" placeholder="Введите почту" value="<?php echo $app["email"] ?>"></td>
+                <td><input name="password" type="password" placeholder="Введите пароль" value="<?php echo $app["password"] ?>"></td>
+                <td><input name="phone_number" type="tel" placeholder="Введите номер" value="<?php echo $app["phone_number"] ?>"></td>
+
+                <td class="data__btns">
+                  <input class="btn" type="submit" name="submit" value="Редактировать">
+                  <a class="btn btn--del" href="index.php?id=<?= $app['id'] ?>">Удалить</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </table>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+  <script src="../assets/js/lightgallery.min.js"></script>
+  <script src="../dist/script.js"></script>
 </body>
 </html>
