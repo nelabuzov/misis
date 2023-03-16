@@ -8,11 +8,11 @@
 		$stmt -> execute([$email]);
 		$admin = $stmt -> fetch();
 
-		$stmt = $pdo -> prepare('SELECT * FROM employer WHERE email = ?');
+		$stmt = $pdo -> prepare('SELECT * FROM employers WHERE email = ?');
 		$stmt -> execute([$email]);
 		$employer = $stmt -> fetch();
 	
-		$stmt = $pdo -> prepare('SELECT * FROM applicant WHERE email = ?');
+		$stmt = $pdo -> prepare('SELECT * FROM applicants WHERE email = ?');
 		$stmt -> execute([$email]);
 		$applicant = $stmt -> fetch();
 	}
@@ -108,7 +108,7 @@
 
 		<div class="account" onclick="showHide()">
 			<img src="images/tools/user.svg" alt="user">
-			<?=$_COOKIE['account']?>
+			<?= $_COOKIE['account'] ?>
 
 			<div class="account__menu hidden" id="menu">
 

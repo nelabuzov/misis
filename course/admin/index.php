@@ -1,13 +1,13 @@
 <?php
   require_once "../db.php";
 
-	$stmt = $pdo -> query("select * from admin");
+	$stmt = $pdo -> query("SELECT * FROM admin");
   $administrators = $stmt -> fetchAll();
 
-  $stmt = $pdo -> query("select * from employer");
+  $stmt = $pdo -> query("SELECT * FROM employers");
   $employers = $stmt -> fetchAll();
 
-  $stmt = $pdo -> query("select * from applicant");
+  $stmt = $pdo -> query("SELECT * FROM applicants");
   $applicants = $stmt -> fetchAll();
 
   session_start();
@@ -69,7 +69,7 @@
   }
 
   // Получаем текущие значения полей из базы данных employer
-  $employer = "SELECT * FROM `employer`";
+  $employer = "SELECT * FROM `employers`";
   $result = mysqli_query($mysql, $employer);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -95,7 +95,7 @@
     $new_phone_number = $_POST["phone_number"];
 
     // Запрос к базе данных для обновления данных пользователя
-    $employer = "UPDATE `employer` SET
+    $employer = "UPDATE `employers` SET
     name = '$new_name',
     description = '$new_description',
     region = '$new_region',
@@ -123,12 +123,12 @@
 
   // Удаление работодателя
 	if(isset($_GET['id'])) {
-    $stmt = $pdo->prepare('select * from employer where id = ?');
+    $stmt = $pdo->prepare('select * from employers where id = ?');
     $stmt->execute([$_GET['id']]);
     $emp = $stmt->fetch();
 
     if($emp) {
-      $stmt = $pdo->prepare('delete from employer where id = ?');
+      $stmt = $pdo->prepare('delete from employers where id = ?');
       $stmt->execute([$_GET['id']]);
     }
 
@@ -136,7 +136,7 @@
   }
 
   // Получаем текущие значения полей из базы данных applicant
-  $applicant = "SELECT * FROM `applicant`";
+  $applicant = "SELECT * FROM `applicants`";
   $result = mysqli_query($mysql, $applicant);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -162,7 +162,7 @@
     $new_phone_number = $_POST["phone_number"];
 
     // Запрос к базе данных для обновления данных пользователя
-    $applicant = "UPDATE `applicant` SET
+    $applicant = "UPDATE `applicants` SET
     full_name = '$new_full_name',
     region = '$new_region',
     experience = '$new_experience',
@@ -190,12 +190,12 @@
 
   // Удаление соискателя
 	if(isset($_GET['id'])) {
-    $stmt = $pdo->prepare('select * from applicant where id = ?');
+    $stmt = $pdo->prepare('select * from applicants where id = ?');
     $stmt->execute([$_GET['id']]);
     $app = $stmt->fetch();
 
     if($app) {
-      $stmt = $pdo->prepare('delete from applicant where id = ?');
+      $stmt = $pdo->prepare('delete from applicants where id = ?');
       $stmt->execute([$_GET['id']]);
     }
 
@@ -265,7 +265,7 @@
 
 		<div class="account" onclick="showHide()">
 			<img src="../images/tools/user.svg" alt="user">
-			<?=$_COOKIE['account']?>
+			<?= $_COOKIE['account'] ?>
 
 			<div class="account__menu hidden" id="menu">
 

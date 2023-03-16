@@ -51,14 +51,14 @@ function onMouseMove( event ) {
 function animate() {
   requestAnimationFrame(animate);
 
-	target.x = ( 1 - mouse.x ) * 0.00008;
-  target.y = ( 1 - mouse.y ) * 0.00008;
+  // target.x = ( 1 - mouse.x ) * 0.00008;
+  // target.y = ( 1 - mouse.y ) * 0.00008;
 
-  camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
-  camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
+  // camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
+  // camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
 
-  object.rotation.x += 0.0008;
-  object.rotation.y += 0.002;
+  // object.rotation.x += 0.0008;
+  // object.rotation.y += 0.002;
 
   renderer.render(scene, camera);
 };

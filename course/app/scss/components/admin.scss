@@ -17,9 +17,12 @@
 
 .data {
   margin: rem(50) 0;
-  overflow-x: scroll;
-  box-shadow: rem(1) 0 0 var(--gray) inset,
-    rem(-1) 0 0 var(--gray) inset;
+
+  &:has(table) {
+    overflow-x: scroll;
+    box-shadow: rem(1) 0 0 var(--gray) inset,
+      rem(-1) 0 0 var(--gray) inset;
+  }
 
   &__table {
     border-collapse: collapse;
