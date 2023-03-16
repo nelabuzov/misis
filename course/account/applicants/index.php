@@ -2,10 +2,10 @@
   require_once '../../db.php';
 
 	if (isset($_COOKIE['account'])) {
-		$email = $_COOKIE['account'];
+		$cookie = $_COOKIE['account'];
 
 		$stmt = $pdo -> prepare("SELECT * FROM applicants WHERE email = ?");
-		$stmt -> execute([$email]);
+		$stmt -> execute([$cookie]);
 		$applicants = $stmt -> fetchAll();
 	}
 
@@ -103,7 +103,7 @@
 			<?= $_COOKIE['account'] ?>
 
 			<div class='account__menu hidden' id='menu'>
-					<a href='index.php'>Профиль</a>
+				<a href='index.php'>Профиль</a>
 				<a href='../../exit.php'>Выход</a>
 			</div>
 		</div>
@@ -232,7 +232,7 @@
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
-  <script src='../assets/js/lightgallery.min.js'></script>
-	<script src='../dist/script.js'></script>
+  <script src='../../assets/js/lightgallery.min.js'></script>
+	<script src='../../dist/script.js'></script>
 </body>
 </html>

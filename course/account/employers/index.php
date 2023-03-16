@@ -2,10 +2,10 @@
   require_once '../../db.php';
 
 	if (isset($_COOKIE['account'])) {
-		$email = $_COOKIE['account'];
+		$cookie = $_COOKIE['account'];
 
 		$stmt = $pdo -> prepare("SELECT * FROM employers WHERE email = ?");
-		$stmt -> execute([$email]);
+		$stmt -> execute([$cookie]);
 		$employers = $stmt -> fetchAll();
 	}
 ?>

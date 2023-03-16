@@ -1,15 +1,15 @@
 <?php
-  require_once '../../db.php';
+  require_once '../../../db.php';
 
   session_start();
-  $acc = $_COOKIE['account'];
+  $cookie = $_COOKIE['account'];
   $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
   if (!$mysql) {
     die('Connection failed: ' . mysqli_connect_error());
   }
 
   // Получаем значения из employers
-  $employer = "SELECT * FROM employers WHERE email = '$acc'";
+  $employer = "SELECT * FROM employers WHERE email = '$cookie'";
   $result = mysqli_query($mysql, $employer);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -43,20 +43,15 @@
     email = '$new_email',
     password = '$new_password',
     phone_number = '$new_phone_number'
-    WHERE email = '$acc'";
+    WHERE email = '$cookie'";
 
     if (mysqli_query($mysql, $employer)) {
-      if ($email != $new_email || $password != $new_password) {
-				setcookie('account', $account['email'], time() - 100000, '/course');
-				header('Location: ../../index.php');
-			} else {
-				header('Location: index.php');
-			}
+			header('Location: ../index.php');
     } else {
       echo 'Error: ' . $employer . '<br>' . mysqli_error($mysql);
     }
 
-    if (empty($acc)) {
+    if (empty($cookie)) {
       echo 'Error: Account is empty';
       exit;
     }

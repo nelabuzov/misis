@@ -1,36 +1,36 @@
 <?php
-	require_once "db.php";
+	require_once 'db.php';
 
 	if (isset($_COOKIE['account'])) {
-		$email = $_COOKIE['account'];
+		$cookie = $_COOKIE['account'];
 
-		$stmt = $pdo -> prepare('SELECT * FROM admin WHERE email = ?');
-		$stmt -> execute([$email]);
-		$admin = $stmt -> fetch();
+		$stmt = $pdo -> prepare("SELECT * FROM admin WHERE email = ?");
+		$stmt -> execute([$cookie]);
+		$admins = $stmt -> fetch();
 
-		$stmt = $pdo -> prepare('SELECT * FROM employers WHERE email = ?');
-		$stmt -> execute([$email]);
-		$employer = $stmt -> fetch();
-	
-		$stmt = $pdo -> prepare('SELECT * FROM applicants WHERE email = ?');
-		$stmt -> execute([$email]);
-		$applicant = $stmt -> fetch();
+		$stmt = $pdo -> prepare("SELECT * FROM employers WHERE email = ?");
+		$stmt -> execute([$cookie]);
+		$employers = $stmt -> fetch();
+
+		$stmt = $pdo -> prepare("SELECT * FROM applicants WHERE email = ?");
+		$stmt -> execute([$cookie]);
+		$applicants = $stmt -> fetch();
 	}
 ?>
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang='ru'>
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset='UTF-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<title>Work Flow - поиск персонала и публикация вакансий</title>
 
-  <link rel="shortcut icon" href="images/tools/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-	<link rel="stylesheet" href="assets/animate.min.css">
-	<link rel="stylesheet" href="dist/style.css">
+  <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'>
+	<link rel='stylesheet' href='assets/animate.min.css'>
+	<link rel='stylesheet' href='dist/style.css'>
 </head>
 
 <body>
@@ -38,30 +38,30 @@
 		if (($_COOKIE['account'] ?? '') === ''):
 	?>
 
-	<div id="popup" class="overlay">
-		<a class="cancel" href="#"></a>
-		<div class="popup">
-			<a class="close" href="#">&times;</a>
+	<div id='popup' class='overlay'>
+		<a class='cancel' href='#'></a>
+		<div class='popup'>
+			<a class='close' href='#'>&times;</a>
 
-			<div class="popup__inner" id="login">
+			<div class='popup__inner' id='login'>
 				<h2>Вход</h2>
-				<form action="validation/login.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту" required>
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" required>
-					<button type="submit" class="btn">Вход</button>
+				<form action='validation/login.php' method='post'>
+					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
+					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
+					<button type='submit' class='btn'>Вход</button>
 				</form>
 			</div>
 
-			<div class="popup__inner" id="signup">
+			<div class='popup__inner' id='signup'>
 				<h2>Регистрация</h2>
-				<form action="validation/signup.php" method="post">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Введите почту" required>
-					<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" required>
+				<form action='validation/signup.php' method='post'>
+					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
+					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
           <div>
-          	<label for="employer"><input type="radio" name="category" id="employer" value="1" checked>Работодатель</label>
-						<label for="applicant"><input type="radio" name="category" id="applicant" value="2">Соискатель</label>
+          	<label for='employer'><input type='radio' name='category' id='employer' value='1' checked>Работодатель</label>
+						<label for='applicant'><input type='radio' name='category' id='applicant' value='2'>Соискатель</label>
 					</div>
-					<button type="submit" class="btn">Регистрация</button>
+					<button type='submit' class='btn'>Регистрация</button>
 				</form>
 			</div>
 
@@ -107,45 +107,45 @@
 			}
 		</style>
 
-		<div class="account" onclick="showHide()">
-			<img src="images/tools/user.svg" alt="user">
+		<div class='account' onclick='showHide()'>
+			<img src='images/tools/user.svg' alt='user'>
 			<?= $_COOKIE['account'] ?>
 
-			<div class="account__menu hidden" id="menu">
+			<div class='account__menu hidden' id='menu'>
 
-				<?php if ($employer): ?>
-					<a href="admin/employer.php">Профиль</a>
+				<?php if ($employers): ?>
+					<a href='account/employers/index.php'>Профиль</a>
 
-				<?php elseif ($applicant): ?>
-					<a href="admin/applicant.php">Профиль</a>
+				<?php elseif ($applicants): ?>
+					<a href='account/applicants/index.php'>Профиль</a>
 
 				<?php else: ?>
-					<a href="admin">Профиль</a>
+					<a href='account/admin/index.php'>Профиль</a>
 
 				<?php endif ?>
 
-				<a href="exit.php">Выход</a>
+				<a href='exit.php'>Выход</a>
 			</div>
 		</div>
 	<?php endif ?>
 
-	<header class="header">
-		<div class="header__inner container">
-			<a class="logo" href="#">Work<span>Flow</span></a>
+	<header class='header'>
+		<div class='header__inner container'>
+			<a class='logo' href='index.php'>Work<span>Flow</span></a>
 
-			<nav class="menu">
+			<nav class='menu'>
 				<ul>
-					<li><a href="#about">О сервисе</a></li>
-					<li><a href="#feedback">Помощь</a></li>
+					<li><a href='index.php#about'>О сервисе</a></li>
+					<li><a href='index.php#feedback'>Помощь</a></li>
 					<li>
-						<a href="employer.php">Вакансии</a>
+						<a href='employer.php'>Вакансии</a>
 					</li>
 					<li>
-						<a href="applicant.php">Соискатели</a>
+						<a href='applicant.php'>Соискатели</a>
 					</li>
 					<li>
-						<a class="btn btn__account" href="#popup">Аккаунт
-							<img src="images/tools/account.svg" alt="account">
+						<a class='btn btn__account' href='index.php#popup'>Аккаунт
+							<img src='images/tools/account.svg' alt='account'>
 						</a>
 					</li>
 				</ul>
@@ -153,73 +153,73 @@
 		</div>
 	</header>
 
-	<section class="hero">
-		<div class="container">
-			<div class="hero__inner">
+	<section class='hero'>
+		<div class='container'>
+			<div class='hero__inner'>
 				<div>
 					<h1>Работа со <span>всей</span> россии</h1>
-					<p class="subtitle">
+					<p class='subtitle'>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem optio repellat beatae et.
 					</p>
 				</div>
 			</div>
 		</div>
 
-		<div id="ocean"></div>
+		<div id='ocean'></div>
 	</section>
 
-	<section class="container">
-		<div class="job__slider">
-			<div class="swiper job">
-				<div class="swiper-wrapper">
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+	<section class='container'>
+		<div class='job__slider'>
+			<div class='swiper job'>
+				<div class='swiper-wrapper'>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 					
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 
-					<a class="swiper-slide job__item" href="job/frontend.php">
-						<h3 class="job__title">Frontend Разработчик</h3>
-						<p class="job__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='#'>
+						<h3 class='job__title'>Frontend Разработчик</h3>
+						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
 					</a>
 				</div>
 
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
+				<div class='swiper-button-prev'></div>
+				<div class='swiper-button-next'></div>
 			</div>
 		</div>
 	</section>
 
-	<section class="description container">
+	<section class='description container'>
 		<div>
 			<h2>Наши заслуги</h2>
 			<p>
@@ -227,21 +227,21 @@
 			</p>
 		</div>
 
-		<div class="swiper worker wow animate__animated animate__slideInRight">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-1.png" alt="banner-user-1"></div>
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-2.png" alt="banner-user-2"></div>
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-3.png" alt="banner-user-3"></div>
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-4.png" alt="banner-user-4"></div>
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-5.png" alt="banner-user-5"></div>
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-6.png" alt="banner-user-6"></div>
-				<div class="swiper-slide worker__item"><img src="images/content/banner-user-7.png" alt="banner-user-7"></div>
+		<div class='swiper worker wow animate__animated animate__slideInRight'>
+			<div class='swiper-wrapper'>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-1.png' alt='banner-user-1'></div>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-2.png' alt='banner-user-2'></div>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-3.png' alt='banner-user-3'></div>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-4.png' alt='banner-user-4'></div>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-5.png' alt='banner-user-5'></div>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-6.png' alt='banner-user-6'></div>
+				<div class='swiper-slide worker__item'><img src='images/content/banner-user-7.png' alt='banner-user-7'></div>
 			</div>
 		</div>
 	</section>
 
-	<section class="about container wow animate__animated animate__slideInLeft" id="about">
-		<div class="about__inner">
+	<section class='about container wow animate__animated animate__slideInLeft' id='about'>
+		<div class='about__inner'>
 			<h2>О сервисе</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum,
@@ -258,40 +258,40 @@
 		</div>
 	</section>
 
-	<section class="feedback" id="feedback">
-		<div class="container">
+	<section class='feedback' id='feedback'>
+		<div class='container'>
 			<h2>Мы поможем</h2>
 		</div>
-		<div class="feedback__inner">
-			<div class="feedback__bg"></div>
+		<div class='feedback__inner'>
+			<div class='feedback__bg'></div>
 
-			<form action="index.php" method="POST">
-				<input type="text" name="email" placeholder="Почта *" value="<?php echo $email ?>" required>
-				<textarea name="description" placeholder="Сообщение *" required></textarea>
-				<button type="submit">Отправить</button>
+			<form action='index.php' method='post'>
+				<input type='text' name='email' placeholder='Почта *' value='<?php echo $cookie ?>' required>
+				<textarea name='description' placeholder='Сообщение *' required></textarea>
+				<button type='submit'>Отправить</button>
 			</form>
 		</div>
 	</section>
 
-	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href="https://thelabuzov.github.io">THELABUZOV</a></footer>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-	<script src="assets/wow.min.js"></script>
-	<script src="dist/script.js"></script>
+	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>
+	<script src='assets/wow.min.js'></script>
+	<script src='dist/script.js'></script>
   <script>new WOW().init()</script>
 	<script>
-		var ocean = document.getElementById("ocean"),
+		var ocean = document.getElementById('ocean'),
     waveWidth = 10,
     waveCount = Math.floor(window.innerWidth/waveWidth),
     docFrag = document.createDocumentFragment();
 
 		for(var i = 0; i < waveCount; i++) {
-			var wave = document.createElement("div");
-			wave.className += " wave";
+			var wave = document.createElement('div');
+			wave.className += ' wave';
 			docFrag.appendChild(wave);
-			wave.style.left = i * waveWidth + "px";
-			wave.style.webkitAnimationDelay = (i/100) + "s";
+			wave.style.left = i * waveWidth + 'px';
+			wave.style.webkitAnimationDelay = (i/100) + 's';
 		}
 
 		ocean.appendChild(docFrag);
