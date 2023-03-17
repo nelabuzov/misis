@@ -1,20 +1,5 @@
 @use '../util' as *;
 
-.form {
-  display: flex;
-  justify-content: space-between;
-
-  label {
-    display: block;
-    text-align: right;
-
-    input,
-    textarea {
-      width: rem(350);
-    }
-  }
-}
-
 .data {
   margin: rem(50) 0;
 
@@ -41,6 +26,20 @@
           margin-bottom: rem(10);
         }
       }
+    }
+  }
+}
+
+.form {
+  display: flex;
+
+  label {
+    display: block;
+    text-align: right;
+
+    input,
+    textarea {
+      width: rem(350);
     }
   }
 }
@@ -90,5 +89,26 @@
     border-radius: 0;
     position: relative;
     top: rem(-2);
+  }
+}
+
+.error {
+  padding: rem(10);
+  border-radius: rem(25);
+  color: var(--white);
+  font-weight: 700;
+  background-color: var(--gray);
+  position: relative;
+
+  &::before {
+    content: '';
+    width: rem(25);
+    height: rem(25);
+    display: inline-block;
+    background-color: var(--gray);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    position: absolute;
+    top: rem(-25);
+    left: rem(25);
   }
 }

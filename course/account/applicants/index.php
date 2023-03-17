@@ -133,9 +133,10 @@
 			<h2>Соискатель</h2>
 
 			<div class='data'>
-				<form class='edit' action='edit.php' method='post' enctype='multipart/form-data'>
+				<form action='edit.php' method='post' enctype='multipart/form-data'>
 					<table class='data__table' border='1'>
 						<tr>
+							<th>Действие</th>
 							<th>Полное имя</th>
 							<th>Регион</th>
 							<th>Опыт</th>
@@ -143,11 +144,15 @@
 							<th>Почта</th>
 							<th>Пароль</th>
 							<th>Телефон</th>
-							<th>Действие</th>
 						</tr>
 
 						<?php foreach ($applicants as $key => $applicant) : ?>
 							<tr>
+								<td class='data__btns'>
+									<input class='btn' type='submit' name='applicants' value='Редактировать'>
+									<a class='btn btn__row btn--del' href='delete.php?id=<?= $applicant['id'] ?>'>Удалить</a>
+								</td>
+
 								<td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
 								<td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
 								<td><input name='experience' type='number' placeholder='Введите число' value='<?php echo $applicant['experience'] ?>'></td>
@@ -155,11 +160,6 @@
 								<td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
 								<td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
 								<td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
-
-								<td class='data__btns'>
-									<input class='btn' type='submit' name='applicants' value='Редактировать'>
-									<a class='btn btn__row btn--del' href='delete.php?id=<?= $applicant['id'] ?>'>Удалить</a>
-								</td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -168,42 +168,52 @@
 		</section>
 
 		<section>
-			<form action='vacancy/add.php' method='post' enctype='multipart/form-data'>
-				<h2>Создание вакансии</h2>
+			<h2>Создание вакансии</h2>
 
-				<label for='price'>Зарплата:
-        	<input id='price' name='price' type='number' placeholder='Введите число'>
-				</label>
-				<label for='job'>Специальность:
-					<input id='job' name='job' type='text' placeholder='Введите текст'>
-				</label>
-				<label for='description'>Описание:
-					<textarea id='description' name='description' placeholder='Введите текст'></textarea>
-				</label>
+			<div class='data form'>
+				<form action='vacancy/add.php' method='post' enctype='multipart/form-data'>
+					<label for='price'>Зарплата:
+						<input id='price' name='price' type='number' placeholder='Введите число *' required>
+					</label>
+					<label for='job'>Специальность:
+						<input id='job' name='job' type='text' placeholder='Введите текст *' required>
+					</label>
+					<label for='description'>Описание:
+						<textarea id='description' name='description' placeholder='Введите текст *' required></textarea>
+					</label>
 
-				<br>
+					<br>
 
-        <input type='submit' name='applicants_job' value='Опубликовать'>
-      </form>
+					<input type='submit' name='applicants_job' value='Опубликовать'>
+				</form>
+			</div>
 		</section>
 
 		<section class='data'>
 			<div class='job'>
-        <?php foreach ($applicants_job as $job) : ?>
-          <div class='job__item'>
-						<div class='price'><?= $job['price'] ?> руб.</div>
-						<h2><?= $applicant['full_name'] ?></h2>
-						<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
-						<p><?= $job['description'] ?></p>
 
-						<div>
-							<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
-							<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
+				<?php if(!empty($applicant['full_name']) && !empty($applicant['region']) && !empty($applicant['phone_number'])): ?>
+
+					<?php foreach ($applicants_job as $job) : ?>
+						<div class='job__item'>
+							<div class='price'><?= $job['price'] ?> руб.</div>
+							<h2><?= $applicant['full_name'] ?></h2>
+							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
+							<p><?= $job['description'] ?></p>
+
+							<div>
+								<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
+								<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
+							</div>
+
+							<a class='btn btn__job btn--del' href='vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 						</div>
+					<?php endforeach; ?>
 
-						<a class='btn btn__job btn--del' href='vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
-          </div>
-        <?php endforeach; ?>
+				<?php else: ?>
+					<span class="error"><?php echo 'Добавьте заполненные поля в таблице профиля' ?></span>
+
+				<?php endif ?>
     	</div>
 		</section>
 

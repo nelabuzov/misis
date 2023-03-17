@@ -118,9 +118,10 @@
       <h2>Работодатель</h2>
 
       <div class='data'>
-        <form class='edit' action='edit.php' method='post' enctype='multipart/form-data'>
+        <form action='edit.php' method='post' enctype='multipart/form-data'>
           <table class='data__table' border='1'>
             <tr>
+              <th>Действие</th>
               <th>Название</th>
               <th>Описание</th>
               <th>Вакансии</th>
@@ -128,11 +129,15 @@
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
-              <th>Действие</th>
             </tr>
 
             <?php foreach ($employers as $key => $employer) : ?>
               <tr>
+								<td class='data__btns'>
+                  <input class='btn' type='submit' name='employers' value='Редактировать'>
+                  <a class='btn btn--del' href='delete.php?id=<?= $employer['id'] ?>'>Удалить</a>
+                </td>
+
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='description' type='text' placeholder='Введите текст' value='<?php echo $employer['description'] ?>'></td>
                 <td><input name='vacancy' type='text' placeholder='Введите текст' value='<?php echo $employer['vacancy'] ?>'></td>
@@ -140,11 +145,6 @@
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
-
-                <td class='data__btns'>
-                  <input class='btn' type='submit' name='employers' value='Редактировать'>
-                  <a class='btn btn--del' href='delete.php?id=<?= $employer['id'] ?>'>Удалить</a>
-                </td>
               </tr>
             <?php endforeach; ?>
           </table>

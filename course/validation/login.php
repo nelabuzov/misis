@@ -6,28 +6,25 @@
 
   $mysql = new mysqli('localhost', 'root', '', 'workflow');
 
-  $admin = $mysql -> query("SELECT * FROM admin WHERE email = '$email'");
+  $admin = $mysql -> query("SELECT * FROM admin WHERE email = '$email' AND password = '$password'");
   $account0 = $admin -> fetch_assoc();
 
-  $employer = $mysql -> query("SELECT * FROM employers WHERE email = '$email'");
+  $employer = $mysql -> query("SELECT * FROM employers WHERE email = '$email' AND password = '$password'");
   $account1 = $employer -> fetch_assoc();
 
-  $applicant = $mysql -> query("SELECT * FROM applicants WHERE email = '$email'");
+  $applicant = $mysql -> query("SELECT * FROM applicants WHERE email = '$email' AND password = '$password'");
   $account2 = $applicant -> fetch_assoc();
 
-  // if(count($account0, $account1, $account2) == 0) {
-  //   echo "Пользователь не найден";
-  //   exit();
-  // }
-
-  if(mysqli_num_rows($employer)) {
+  if(mysqli_num_rows($admin)) {
+    setcookie('account', $account0['email'], time() + 100000, '/course');
+    header('Location: ../account/admin/index.php');
+  } elseif(mysqli_num_rows($employer)) {
     setcookie('account', $account1['email'], time() + 100000, '/course');
     header('Location: ../account/employers/index.php');
   } elseif(mysqli_num_rows($applicant)) {
     setcookie('account', $account2['email'], time() + 100000, '/course');
     header('Location: ../account/applicants/index.php');
   } else {
-    setcookie('account', $account0['email'], time() + 100000, '/course');
-    header('Location: ../account/admin/index.php');
+    header('Location: ../index.php')
   }
 ?>

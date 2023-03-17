@@ -103,23 +103,23 @@
       <h2>Администратор</h2>
 
       <div class='data'>
-        <form class='edit' action='edit.php' method='post' enctype='multipart/form-data'>
+        <form action='edit.php' method='post' enctype='multipart/form-data'>
           <table class='data__table' border='1'>
             <tr>
+              <th>Действие</th>
               <th>Почта</th>
               <th>Пароль</th>
-              <th>Действие</th>
             </tr>
 
             <?php foreach ($admins as $key => $admin) : ?>
               <tr>
-                <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $admin['email'] ?>'></td>
-                <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $admin['password'] ?>'></td>
-
                 <td class='data__btns'>
                   <input class='btn' type='submit' name='admins' value='Редактировать'>
                   <a class='btn btn--del' href='delete.php?id=<?= $admin['id'] ?>'>Удалить</a>
                 </td>
+
+                <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $admin['email'] ?>'></td>
+                <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $admin['password'] ?>'></td>
               </tr>
             <?php endforeach; ?>
           </table>
@@ -131,9 +131,10 @@
       <h2>Работодатели</h2>
 
       <div class='data'>
-        <form class='edit' action='employers/edit.php' method='post' enctype='multipart/form-data'>
+        <form action='employers/edit.php' method='post' enctype='multipart/form-data'>
           <table class='data__table' border='1'>
             <tr>
+              <th>Действие</th>
               <th>#</th>
               <th>Название</th>
               <th>Описание</th>
@@ -142,11 +143,15 @@
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
-              <th>Действие</th>
             </tr>
 
             <?php foreach ($employers as $key => $employer) : ?>
               <tr>
+                <td class='data__btns'>
+                  <input class='btn' type='submit' name='employers' value='Редактировать'>
+                  <a class='btn btn--del' href='employers/delete.php?id=<?= $employer['id'] ?>'>Удалить</a>
+                </td>
+
                 <td><?= $key + 1 ?></td>
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='description' type='text' placeholder='Введите текст' value='<?php echo $employer['description'] ?>'></td>
@@ -155,11 +160,6 @@
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
-
-                <td class='data__btns'>
-                  <input class='btn' type='submit' name='employers' value='Редактировать'>
-                  <a class='btn btn--del' href='employers/delete.php?id=<?= $employer['id'] ?>'>Удалить</a>
-                </td>
               </tr>
             <?php endforeach; ?>
           </table>
@@ -171,9 +171,10 @@
       <h2>Соискатели</h2>
 
       <div class='data'>
-        <form class='edit' action='applicants/edit.php' method='post' enctype='multipart/form-data'>
+        <form action='applicants/edit.php' method='post' enctype='multipart/form-data'>
           <table class='data__table' border='1'>
             <tr>
+              <th>Действие</th>
               <th>#</th>
               <th>Полное имя</th>
               <th>Регион</th>
@@ -182,11 +183,15 @@
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
-              <th>Действие</th>
             </tr>
 
             <?php foreach ($applicants as $key => $applicant) : ?>
               <tr>
+                <td class='data__btns'>
+                  <input class='btn' type='submit' name='applicants' value='Редактировать'>
+                  <a class='btn btn--del' href='applicants/delete.php?id=<?= $applicant['id'] ?>'>Удалить</a>
+                </td>
+
                 <td><?= $key + 1 ?></td>
                 <td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
@@ -195,11 +200,6 @@
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
-
-                <td class='data__btns'>
-                  <input class='btn' type='submit' name='applicants' value='Редактировать'>
-                  <a class='btn btn--del' href='applicants/delete.php?id=<?= $applicant['id'] ?>'>Удалить</a>
-                </td>
               </tr>
             <?php endforeach; ?>
           </table>

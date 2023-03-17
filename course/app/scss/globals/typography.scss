@@ -127,6 +127,6 @@ input[type=submit] {
 	}
 }
 
-span {
+span:not(.error) {
 	color: var(--brand);
 }
