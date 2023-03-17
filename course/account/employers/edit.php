@@ -16,7 +16,6 @@
     $name = $row['name'];
     $description = $row['description'];
     $region = $row['region'];
-    $vacancy = $row['vacancy'];
     $email = $row['email'];
     $password = $row['password'];
     $phone_number = $row['phone_number'];
@@ -29,7 +28,6 @@
     $new_name = $_POST['name'];
     $new_description = $_POST['description'];
     $new_region = $_POST['region'];
-    $new_vacancy = $_POST['vacancy'];
     $new_email = $_POST['email'];
     $new_password = $_POST['password'];
     $new_phone_number = $_POST['phone_number'];
@@ -39,7 +37,6 @@
     name = '$new_name',
     description = '$new_description',
     region = '$new_region',
-    vacancy = '$new_vacancy',
     email = '$new_email',
     password = '$new_password',
     phone_number = '$new_phone_number'

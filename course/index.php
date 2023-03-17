@@ -35,7 +35,7 @@
 
 <body>
 	<?php
-		if (($_COOKIE['account'] ?? '') === ''):
+		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
 	<div id='popup' class='overlay'>
@@ -113,10 +113,10 @@
 
 			<div class='account__menu hidden' id='menu'>
 
-				<?php if ($employers): ?>
+				<?php if($employers): ?>
 					<a href='account/employers/index.php'>Профиль</a>
 
-				<?php elseif ($applicants): ?>
+				<?php elseif($applicants): ?>
 					<a href='account/applicants/index.php'>Профиль</a>
 
 				<?php else: ?>
@@ -138,7 +138,7 @@
 					<li><a href='index.php#about'>О сервисе</a></li>
 					<li><a href='index.php#feedback'>Помощь</a></li>
 					<li>
-						<a href='employer.php'>Вакансии</a>
+						<a href='employer.php'>Работодатели</a>
 					</li>
 					<li>
 						<a href='applicant.php'>Соискатели</a>
@@ -239,38 +239,21 @@
 			</div>
 		</div>
 	</section>
+	
+	<section class="container">
+		<h2>Мы поможем</h2>
 
-	<section class='about container wow animate__animated animate__slideInLeft' id='about'>
-		<div class='about__inner'>
-			<h2>О сервисе</h2>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum,
-				voluptates esse, quasi corrupti quidem optio repellat beatae et. Lorem ipsum dolor sit amet consectetur
-				adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem
-				optio repellat beatae et.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum,
-				voluptates esse, quasi corrupti quidem optio repellat beatae et. Lorem ipsum dolor sit amet consectetur
-				adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem
-				optio repellat beatae et.
-			</p>
-		</div>
-	</section>
+		<section class='feedback' id='feedback'>
+			<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor" width="1100" height="600" frameborder="0"></iframe>
 
-	<section class='feedback' id='feedback'>
-		<div class='container'>
-			<h2>Мы поможем</h2>
-		</div>
-		<div class='feedback__inner'>
-			<div class='feedback__bg'></div>
-
-			<form action='index.php' method='post'>
-				<input type='text' name='email' placeholder='Почта *' value='<?php echo $cookie ?>' required>
-				<textarea name='description' placeholder='Сообщение *' required></textarea>
-				<button type='submit'>Отправить</button>
-			</form>
-		</div>
+			<div class="feedback__inner">
+				<form action='index.php' method='post'>
+					<input type='text' name='email' placeholder='Почта *' value='<?php echo $cookie ?>' required>
+					<textarea name='description' placeholder='Сообщение *' required></textarea>
+					<button type='submit'>Отправить</button>
+				</form>
+			</div>
+		</section>
 	</section>
 
 	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>

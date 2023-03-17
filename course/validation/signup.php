@@ -28,13 +28,13 @@
 
     if(in_array($chosenValue, $allowedValues)){
       if(strcasecmp($chosenValue, 1) == 0){
-        $mysql -> query("INSERT INTO employers(name, description, region, vacancy, email, password, phone_number, category) VALUES('', '', '', '', '$email', '$password', 0, 1)");
+        $mysql -> query("INSERT INTO employers(name, description, region, email, password, phone_number, category) VALUES('', '', '', '$email', '$password', 0, 1)");
         $result = $mysql -> query("SELECT * FROM employers WHERE email = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();
         header('Location: ../account/employers/index.php');
       } else {
-        $mysql -> query("INSERT INTO applicants(full_name, region, experience, birthday, email, password, phone_number, category) VALUES('', '', 0, '2000-01-01', '$email', '$password', 0, 2)");
+        $mysql -> query("INSERT INTO applicants(full_name, region, birthday, email, password, phone_number, category) VALUES('', '', '2000-01-01', '$email', '$password', 0, 2)");
         $result = $mysql -> query("SELECT * FROM applicants WHERE email = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();

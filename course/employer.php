@@ -34,7 +34,7 @@
 
 <body>
 	<?php
-		if (($_COOKIE['account'] ?? '') === ''):
+		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
 	<div id="popup" class="overlay">
@@ -112,10 +112,10 @@
 
 			<div class="account__menu hidden" id="menu">
 
-				<?php if ($employer): ?>
+				<?php if($employer): ?>
 					<a href="admin/employer.php">Профиль</a>
 
-				<?php elseif ($applicant): ?>
+				<?php elseif($applicant): ?>
 					<a href="admin/applicant.php">Профиль</a>
 
 				<?php else: ?>
@@ -137,7 +137,7 @@
 					<li><a href="./#about">О сервисе</a></li>
 					<li><a href="./#feedback">Помощь</a></li>
 					<li>
-						<a href="#">Вакансии</a>
+						<a href="#">Работодатели</a>
 					</li>
 					<li>
 						<a href="applicant.php">Соискатели</a>
@@ -146,7 +146,7 @@
 						<input type="text" placeholder="Специальность" id="input" onkeyup="filterList()">
 					</li>
 					<li>
-						<a class="btn btn__account" href="#popup">Аккаунт
+						<a class="btn btn__account" href="employer.php#popup">Аккаунт
 							<img src="images/tools/account.svg" alt="account">
 						</a>
 					</li>

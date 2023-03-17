@@ -41,7 +41,7 @@
 	</div> -->
 
 	<?php
-		if (($_COOKIE['account'] ?? '') === ''):
+		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
 	<?php else: ?>
@@ -103,7 +103,7 @@
 					<li><a href='../../index.php#about'>О сервисе</a></li>
 					<li><a href='../../index.php#feedback'>Помощь</a></li>
 					<li>
-						<a href='../../employer.php'>Вакансии</a>
+						<a href='../../employer.php'>Работодатели</a>
 					</li>
 					<li>
 						<a href='../../applicant.php'>Соискатели</a>
@@ -124,14 +124,13 @@
               <th>Действие</th>
               <th>Название</th>
               <th>Описание</th>
-              <th>Вакансии</th>
               <th>Регион</th>
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
             </tr>
 
-            <?php foreach ($employers as $key => $employer) : ?>
+            <?php foreach($employers as $key => $employer): ?>
               <tr>
 								<td class='data__btns'>
                   <input class='btn' type='submit' name='employers' value='Редактировать'>
@@ -140,13 +139,13 @@
 
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='description' type='text' placeholder='Введите текст' value='<?php echo $employer['description'] ?>'></td>
-                <td><input name='vacancy' type='text' placeholder='Введите текст' value='<?php echo $employer['vacancy'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach ?>
+
           </table>
         </form>
       </div>

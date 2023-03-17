@@ -26,7 +26,7 @@
 </head>
 <body>
 	<?php
-		if (($_COOKIE['account'] ?? '') === ''):
+		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
 	<?php else: ?>
@@ -88,7 +88,7 @@
 					<li><a href='../../index.php#about'>О сервисе</a></li>
 					<li><a href='../../index.php#feedback'>Помощь</a></li>
 					<li>
-						<a href='../../employer.php'>Вакансии</a>
+						<a href='../../employer.php'>Работодатели</a>
 					</li>
 					<li>
 						<a href='../../applicant.php'>Соискатели</a>
@@ -111,7 +111,7 @@
               <th>Пароль</th>
             </tr>
 
-            <?php foreach ($admins as $key => $admin) : ?>
+            <?php foreach($admins as $key => $admin): ?>
               <tr>
                 <td class='data__btns'>
                   <input class='btn' type='submit' name='admins' value='Редактировать'>
@@ -121,7 +121,8 @@
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $admin['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $admin['password'] ?>'></td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach ?>
+
           </table>
         </form>
       </div>
@@ -138,14 +139,13 @@
               <th>#</th>
               <th>Название</th>
               <th>Описание</th>
-              <th>Вакансии</th>
               <th>Регион</th>
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
             </tr>
 
-            <?php foreach ($employers as $key => $employer) : ?>
+            <?php foreach($employers as $key => $employer): ?>
               <tr>
                 <td class='data__btns'>
                   <input class='btn' type='submit' name='employers' value='Редактировать'>
@@ -155,13 +155,13 @@
                 <td><?= $key + 1 ?></td>
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='description' type='text' placeholder='Введите текст' value='<?php echo $employer['description'] ?>'></td>
-                <td><input name='vacancy' type='text' placeholder='Введите текст' value='<?php echo $employer['vacancy'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach ?>
+
           </table>
         </form>
       </div>
@@ -178,14 +178,13 @@
               <th>#</th>
               <th>Полное имя</th>
               <th>Регион</th>
-              <th>Опыт</th>
               <th>Дата рождения</th>
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
             </tr>
 
-            <?php foreach ($applicants as $key => $applicant) : ?>
+            <?php foreach($applicants as $key => $applicant): ?>
               <tr>
                 <td class='data__btns'>
                   <input class='btn' type='submit' name='applicants' value='Редактировать'>
@@ -195,13 +194,13 @@
                 <td><?= $key + 1 ?></td>
                 <td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
-                <td><input name='experience' type='number' placeholder='Введите число' value='<?php echo $applicant['experience'] ?>'></td>
                 <td><input name='birthday' type='date' placeholder='Введите дату' value='<?php echo $applicant['birthday'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach ?>
+
           </table>
         </form>
       </div>

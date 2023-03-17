@@ -56,7 +56,7 @@
 	</div>
 
 	<?php
-		if (($_COOKIE['account'] ?? '') === ''):
+		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
 	<?php else: ?>
@@ -118,7 +118,7 @@
 					<li><a href='../../index.php#about'>О сервисе</a></li>
 					<li><a href='../../index.php#feedback'>Помощь</a></li>
 					<li>
-						<a href='../../employer.php'>Вакансии</a>
+						<a href='../../employer.php'>Работодатели</a>
 					</li>
 					<li>
 						<a href='../../applicant.php'>Соискатели</a>
@@ -139,14 +139,13 @@
 							<th>Действие</th>
 							<th>Полное имя</th>
 							<th>Регион</th>
-							<th>Опыт</th>
 							<th>Дата рождения</th>
 							<th>Почта</th>
 							<th>Пароль</th>
 							<th>Телефон</th>
 						</tr>
 
-						<?php foreach ($applicants as $key => $applicant) : ?>
+						<?php foreach($applicants as $key => $applicant): ?>
 							<tr>
 								<td class='data__btns'>
 									<input class='btn' type='submit' name='applicants' value='Редактировать'>
@@ -155,13 +154,12 @@
 
 								<td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
 								<td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
-								<td><input name='experience' type='number' placeholder='Введите число' value='<?php echo $applicant['experience'] ?>'></td>
 								<td><input name='birthday' type='date' placeholder='Введите дату' value='<?php echo $applicant['birthday'] ?>'></td>
 								<td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
 								<td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
 								<td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
 							</tr>
-						<?php endforeach; ?>
+						<?php endforeach ?>
 					</table>
 				</form>
 			</div>
@@ -177,6 +175,9 @@
 					</label>
 					<label for='job'>Специальность:
 						<input id='job' name='job' type='text' placeholder='Введите текст *' required>
+					</label>
+					<label for='experience'>Опыт:
+						<input id='experience' name='experience' type='number' placeholder='Введите число *' required>
 					</label>
 					<label for='description'>Описание:
 						<textarea id='description' name='description' placeholder='Введите текст *' required></textarea>
@@ -194,11 +195,16 @@
 
 				<?php if(!empty($applicant['full_name']) && !empty($applicant['region']) && !empty($applicant['phone_number'])): ?>
 
-					<?php foreach ($applicants_job as $job) : ?>
+					<?php foreach($applicants_job as $job): ?>
 						<div class='job__item'>
-							<div class='price'><?= $job['price'] ?> руб.</div>
-							<h2><?= $applicant['full_name'] ?></h2>
-							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
+							<div class='job__sub'>
+								<h2><?= $applicant['full_name'] ?></h2>
+								<div class='price'><?= $job['price'] ?> руб.</div>
+							</div>
+							<div class='job__sub'>
+								<div><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
+								<div><?= $job['experience'] ?> лет опыта</div>
+							</div>
 							<p><?= $job['description'] ?></p>
 
 							<div>
@@ -208,25 +214,26 @@
 
 							<a class='btn btn__job btn--del' href='vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 						</div>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 
 				<?php else: ?>
 					<span class="error"><?php echo 'Добавьте заполненные поля в таблице профиля' ?></span>
 
 				<?php endif ?>
+
     	</div>
 		</section>
 
   	<section class='data portfolio'>
     	<div id='lightgallery' class='gallery'>
-        <?php foreach ($works as $work) : ?>
+        <?php foreach($works as $work): ?>
           <div>
 						<a class='img-wrapper' data-sub-html='<?= $work['name'] ?>' href='http://misis/course/<?= $work['file_path'] ?>'>
             	<img src='http://misis/course/<?= $work['file_path'] ?>' alt='<?= $work['name'] ?>'>
           	</a>
 						<a class='btn btn__work btn--del' href='portfolio/delete.php?id=<?= $work['id'] ?>'>Удалить</a>
 					</div>
-        <?php endforeach; ?>
+        <?php endforeach ?>
     	</div>
 
     	<div class='portfolio__content'>

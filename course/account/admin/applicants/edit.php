@@ -14,7 +14,6 @@
     $row = mysqli_fetch_assoc($result);
     $full_name = $row['full_name'];
     $region = $row['region'];
-    $experience = $row['experience'];
     $birthday = $row['birthday'];
     $email = $row['email'];
     $password = $row['password'];
@@ -27,7 +26,6 @@
   if (isset($_POST['applicants'])) {
     $new_full_name = $_POST['full_name'];
     $new_region = $_POST['region'];
-    $new_experience = $_POST['experience'];
     $new_birthday = $_POST['birthday'];
     $new_email = $_POST['email'];
     $new_password = $_POST['password'];
@@ -37,7 +35,6 @@
     $applicant = "UPDATE applicants SET
     full_name = '$new_full_name',
     region = '$new_region',
-    experience = '$new_experience',
     birthday = '$new_birthday',
     email = '$new_email',
     password = '$new_password',

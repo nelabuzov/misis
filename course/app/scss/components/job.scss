@@ -2,6 +2,8 @@
 
 .job {
   position: unset;
+  display: flex;
+  flex-direction: column-reverse;
 
   &__slider {
     position: relative;
@@ -13,24 +15,24 @@
     border-radius: rem(20);
     border: rem(1) solid var(--gray);
     margin-bottom: rem(40);
+    word-wrap: break-word;
+    position: relative;
 
-    div {
+    div:last-child {
+      display: flex;
+      align-items: center;
 
-      &:last-child {
-        display: flex;
-        align-items: center;
-
-        *+* {
-          margin-left: rem(20);
-        }
+      *+* {
+        margin-left: rem(20);
       }
     }
+  }
 
-    .price {
-      float: right;
-    }
+  &__sub {
+    display: flex;
+    justify-content: space-between;
 
-    .search {
+    &:nth-child(2) {
       opacity: .5;
     }
   }

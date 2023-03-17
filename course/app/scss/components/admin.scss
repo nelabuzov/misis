@@ -2,6 +2,7 @@
 
 .data {
   margin: rem(50) 0;
+  width: 100%;
 
   &:has(table) {
     overflow-x: scroll;

@@ -2,7 +2,8 @@
 
 h1,
 h2,
-h3 {
+h3,
+.price {
 	margin: 0 0 rem(40);
 	line-height: 1.1;
 	position: relative;
@@ -54,6 +55,7 @@ textarea {
 
 textarea {
 	resize: vertical;
+	font-family: var(--font-body);
 }
 
 .hidden {
@@ -92,11 +94,19 @@ input[type=submit] {
 	}
 }
 
-.btn--del {
-	float: right;
-	color: var(--brand);
-	border-color: var(--black);
-	background-color: var(--black);
+.btn {
+
+	&__job {
+		position: absolute;
+		right: rem(20);
+		bottom: rem(-18);
+	}
+
+	&--del {
+		color: var(--brand);
+		border-color: var(--black);
+		background-color: var(--black);
+	}
 }
 
 .logo {
