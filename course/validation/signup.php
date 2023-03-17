@@ -4,14 +4,22 @@
   $category = filter_var(trim($_POST['category']));
 
   if(mb_strlen($email) < 5 || mb_strlen($email) > 50) {
-    echo 'Недопустимая длина почты';
+    echo
+    '<script>
+      alert("Недопустимая длина почты (от 5 до 50 символов)");
+      window.location="../index.php";
+    </script>';
     exit();
-  } else if(mb_strlen($password) < 5 || mb_strlen($password) > 50) {
-    echo 'Недопустимая длина пароля (от 5 до 50 символов)';
+  } elseif(mb_strlen($password) < 5 || mb_strlen($password) > 50) {
+    echo
+    '<script>
+      alert("Недопустимая длина пароля (от 5 до 50 символов)");
+      window.location="../index.php";
+    </script>';
     exit();
   }
 
-  $password = md5($password.'fa32tro8');
+  // $password = md5($password.'fa32tro8');
   $mysql = new mysqli('localhost', 'root', '', 'workflow');
 
   if(isset($_POST['category'])) {
