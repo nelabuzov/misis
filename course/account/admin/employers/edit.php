@@ -13,7 +13,6 @@
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $name = $row['name'];
-    $description = $row['description'];
     $region = $row['region'];
     $email = $row['email'];
     $password = $row['password'];
@@ -25,7 +24,6 @@
   // Обработка данных формы редактирования
   if (isset($_POST['employers'])) {
     $new_name = $_POST['name'];
-    $new_description = $_POST['description'];
     $new_region = $_POST['region'];
     $new_email = $_POST['email'];
     $new_password = $_POST['password'];
@@ -34,7 +32,6 @@
     // Запрос для обновления данных пользователя
     $employer = "UPDATE employers SET
     name = '$new_name',
-    description = '$new_description',
     region = '$new_region',
     email = '$new_email',
     password = '$new_password',

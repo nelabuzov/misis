@@ -28,7 +28,7 @@
 
     if(in_array($chosenValue, $allowedValues)){
       if(strcasecmp($chosenValue, 1) == 0){
-        $mysql -> query("INSERT INTO employers(name, description, region, email, password, phone_number, category) VALUES('', '', '', '$email', '$password', 0, 1)");
+        $mysql -> query("INSERT INTO employers(name, region, email, password, phone_number, category) VALUES('', '', '$email', '$password', 0, 1)");
         $result = $mysql -> query("SELECT * FROM employers WHERE email = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();

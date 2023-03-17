@@ -8,6 +8,9 @@
 		$stmt -> execute([$cookie]);
 		$employers = $stmt -> fetchAll();
 	}
+
+	$stmt = $pdo -> query("SELECT * FROM employers_job");
+  $employers_job = $stmt -> fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -150,6 +153,60 @@
         </form>
       </div>
     </section>
+
+		<section>
+			<h2>Создание вакансии</h2>
+
+			<div class='data form'>
+				<form action='vacancy/add.php' method='post' enctype='multipart/form-data'>
+					<label for='price'>Зарплата:
+						<input id='price' name='price' type='number' placeholder='Введите число *' required>
+					</label>
+					<label for='job'>Специальность:
+						<input id='job' name='job' type='text' placeholder='Введите текст *' required>
+					</label>
+					<label for='experience'>Опыт:
+						<input id='experience' name='experience' type='number' placeholder='Введите число *' required>
+					</label>
+					<label for='description'>Описание:
+						<textarea id='description' name='description' placeholder='Введите текст *' required></textarea>
+					</label>
+
+					<br>
+
+					<input type='submit' name='employers_job' value='Опубликовать'>
+				</form>
+			</div>
+		</section>
+
+		<section class='data'>
+			<div class='job'>
+
+				<?php foreach($employers as $key => $employer): ?>
+
+					<?php foreach($employers_job as $job): ?>
+						<div class='job__item'>
+							<div class='job__sub'>
+								<h2><?= $employer['name'] ?></h2>
+								<div class='price'><?= $job['price'] ?> руб.</div>
+							</div>
+							<div class='job__sub'>
+								<div><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
+								<div><?= $job['experience'] ?> лет опыта</div>
+							</div>
+							<p><?= $job['description'] ?></p>
+
+							<div>
+								<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
+								<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
+							</div>
+						</div>
+					<?php endforeach ?>
+
+				<?php endforeach ?>
+
+    	</div>
+		</section>
 	</main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>

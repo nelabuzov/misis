@@ -160,6 +160,7 @@
 								<td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
 							</tr>
 						<?php endforeach ?>
+
 					</table>
 				</form>
 			</div>
