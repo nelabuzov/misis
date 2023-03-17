@@ -138,7 +138,6 @@
               <th>Действие</th>
               <th>#</th>
               <th>Название</th>
-              <th>Описание</th>
               <th>Регион</th>
               <th>Почта</th>
               <th>Пароль</th>
@@ -154,7 +153,6 @@
 
                 <td><?= $key + 1 ?></td>
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
-                <td><input name='description' type='text' placeholder='Введите текст' value='<?php echo $employer['description'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>

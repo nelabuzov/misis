@@ -26,13 +26,9 @@
         margin-left: rem(20);
       }
     }
-  }
 
-  &__sub {
-    display: flex;
-    justify-content: space-between;
-
-    &:nth-child(2) {
+    .demand {
+      float: right;
       opacity: .5;
     }
   }

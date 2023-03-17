@@ -192,20 +192,16 @@
 		</section>
 
 		<section class='data'>
-			<div class='job'>
+			<div class='job' id='job'>
 
 				<?php if(!empty($applicant['full_name']) && !empty($applicant['region']) && !empty($applicant['phone_number'])): ?>
 
 					<?php foreach($applicants_job as $job): ?>
 						<div class='job__item'>
-							<div class='job__sub'>
-								<h2><?= $applicant['full_name'] ?></h2>
-								<div class='price'><?= $job['price'] ?> руб.</div>
-							</div>
-							<div class='job__sub'>
-								<div><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
-								<div><?= $job['experience'] ?> лет опыта</div>
-							</div>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h2><?= $applicant['full_name'] ?></h2>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
 							<p><?= $job['description'] ?></p>
 
 							<div>

@@ -126,7 +126,6 @@
             <tr>
               <th>Действие</th>
               <th>Название</th>
-              <th>Описание</th>
               <th>Регион</th>
               <th>Почта</th>
               <th>Пароль</th>
@@ -141,7 +140,6 @@
                 </td>
 
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
-                <td><input name='description' type='text' placeholder='Введите текст' value='<?php echo $employer['description'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
@@ -180,30 +178,31 @@
 		</section>
 
 		<section class='data'>
-			<div class='job'>
+			<div class='job' id='job'>
 
-				<?php foreach($employers as $key => $employer): ?>
+				<?php if(!empty($employer['name']) && !empty($employer['region']) && !empty($employer['phone_number'])): ?>
 
 					<?php foreach($employers_job as $job): ?>
 						<div class='job__item'>
-							<div class='job__sub'>
-								<h2><?= $employer['name'] ?></h2>
-								<div class='price'><?= $job['price'] ?> руб.</div>
-							</div>
-							<div class='job__sub'>
-								<div><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
-								<div><?= $job['experience'] ?> лет опыта</div>
-							</div>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h2><?= $employer['name'] ?></h2>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
 							<p><?= $job['description'] ?></p>
 
 							<div>
 								<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
 								<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
 							</div>
+
+							<a class='btn btn__job btn--del' href='vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 						</div>
 					<?php endforeach ?>
 
-				<?php endforeach ?>
+				<?php else: ?>
+					<span class="error"><?php echo 'Добавьте заполненные поля в таблице профиля' ?></span>
+
+				<?php endif ?>
 
     	</div>
 		</section>

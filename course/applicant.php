@@ -148,7 +148,7 @@
 						<a href='applicant.php'>Соискатели</a>
 					</li>
 					<li>
-						<input type='text' placeholder='Специальность / Город' id='input' onkeyup='filterList()'>
+						<input type='text' placeholder='Специальность / Регион' id='input' onkeyup='filterList()'>
 					</li>
 					<li>
 						<a class='btn btn__account' href='applicant.php#popup'>Аккаунт
@@ -160,53 +160,18 @@
 		</div>
 	</header>
 
-	<main class='search container'>
-		<!-- <aside class='aside'>
-			<label for='view' class='aside__box'>
-				<h3>Исключения:</h3>
-				<input type='text' id='view' name='view' placeholder='Введите что исключить'>
-			</label>
-
-			<div class='aside__box'>
-				<h3>Опыт работы:</h3>
-				<label for='exp-one'><input type='checkbox' id='exp-one' name='exp' value='0'>Без опыта</label>
-				<label for='exp-two'><input type='checkbox' id='exp-two' name='exp' value='1-2'>1-2 года</label>
-				<label for='exp-three'><input type='checkbox' id='exp-three' name='exp' value='3-4'>3-4 года</label>
-				<label for='exp-four'><input type='checkbox' id='exp-four' name='exp' value='3-4'>Более 4 лет</label>
-			</div>
-
-			<div class='aside__box'>
-				<h3>Занятость:</h3>
-				<label for='work-one'><input type='checkbox' id='work-one' name='work' value='part'>Подработка</label>
-				<label for='work-two'><input type='checkbox' id='work-two' name='work' value='full'>Полный день</label>
-				<label for='work-three'><input type='checkbox' id='work-three' name='work' value='period'>Частичная занятось</label>
-			</div>
-
-			<div class='aside__box'>
-				<h3>Регион:</h3>
-				<label for='geo-one'><input type='checkbox' id='geo-one' name='geo' value='moskow'>Москва</label>
-				<label for='geo-two'><input type='checkbox' id='geo-two' name='geo' value='belgorod'>Белгород</label>
-				<label for='geo-three'><input type='checkbox' id='geo-three' name='geo' value='kursk'>Курск</label>
-				<label for='geo-four'><input type='checkbox' id='geo-four' name='geo' value='voronezh'>Воронеж</label>
-				<label for='geo-five'><input type='checkbox' id='geo-five' name='geo' value='stary-oskol'>Старый Оскол</label>
-			</div>
-		</aside> -->
-
+	<main class='container'>
 		<section class='data'>
-			<div class='job'>
+			<div class='job' id='job'>
 
 				<?php foreach($applicants as $key => $applicant): ?>
 
 					<?php foreach($applicants_job as $job): ?>
 						<div class='job__item'>
-							<div class='job__sub'>
-								<h2><?= $applicant['full_name'] ?></h2>
-								<div class='price'><?= $job['price'] ?> руб.</div>
-							</div>
-							<div class='job__sub'>
-								<div><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
-								<div><?= $job['experience'] ?> лет опыта</div>
-							</div>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h2><?= $applicant['full_name'] ?></h2>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
 							<p><?= $job['description'] ?></p>
 
 							<div>
