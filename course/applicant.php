@@ -81,8 +81,7 @@
 				left: 50%;
 				z-index: 2;
 				font-weight: 700;
-				transform: translateX(-170%);
-				/* transform: translateX(-210%); */
+				transform: translateX(-210%);
 				padding: 17px 0;
 				cursor: pointer;
 			}

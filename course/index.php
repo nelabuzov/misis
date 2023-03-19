@@ -248,7 +248,7 @@
 
 			<div class="feedback__inner">
 				<form action='index.php' method='post'>
-					<input type='text' name='email' placeholder='Почта *' value='<?php echo $cookie ?>' required>
+					<input type='text' name='email' placeholder='Почта *' required>
 					<textarea name='description' placeholder='Сообщение *' required></textarea>
 					<button type='submit'>Отправить</button>
 				</form>
