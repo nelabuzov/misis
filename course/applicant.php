@@ -96,7 +96,7 @@
 				position: absolute;
 				top: 78px;
 				left: 0;
-				transition: .3s;
+				transition: var(--transition);
 				border-radius: 0 0 10px 10px;
 			}
 
@@ -192,3 +192,5 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
 	<script src='dist/script.js'></script>
 </body>
+
+</html>

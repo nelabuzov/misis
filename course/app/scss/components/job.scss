@@ -17,6 +17,7 @@
     margin-bottom: rem(40);
     word-wrap: break-word;
     position: relative;
+    overflow: hidden;
 
     div:last-child {
       display: flex;
@@ -37,19 +38,23 @@
     font-size: rem(14);
   }
 
+  &__image {
+    filter: grayscale(1);
+    width: rem(50);
+    margin: 0 auto;
+    display: block;
+    transition: var(--transition);
+
+    &--wide {
+      transform: scale(2);
+    }
+  }
+
   .swiper-slide {
     margin-bottom: 0;
 
     &:hover img {
       filter: none;
-    }
-
-    img {
-      filter: grayscale(1);
-      width: rem(75);
-      margin: 0 auto;
-      display: block;
-      transition: .3s;
     }
 
     p {

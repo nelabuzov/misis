@@ -25,7 +25,7 @@
 	<meta charset='UTF-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<title>Work Flow - поиск персонала и публикация вакансий</title>
+	<title>WORKFLOW - поиск персонала и публикация вакансий</title>
 
   <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'>
@@ -93,7 +93,7 @@
 				top: 78px;
 				left: 0;
 				z-index: -1;
-				transition: .3s;
+				transition: var(--transition);
 				border-radius: 0 0 10px 10px;
 			}
 
@@ -173,43 +173,63 @@
 		<div class='job__slider'>
 			<div class='swiper job'>
 				<div class='swiper-wrapper'>
-					<a class='swiper-slide job__item' href='https://google.com'>
-						<img src="images/tools/google.svg" alt="google">
+					<a class='swiper-slide job__item' href='https://google.com' target='_blank'>
+						<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
 						<p>Google</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://instagram.com'>
-						<img src="images/tools/instagram.svg" alt="instagram">
+					<a class='swiper-slide job__item' href='https://netflix.com' target='_blank'>
+						<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
+						<p>Netflix</p>
+					</a>
+
+					<a class='swiper-slide job__item' href='https://instagram.com' target='_blank'>
+						<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
 						<p>Instagram</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://facebook.com'>
-						<img src="images/tools/facebook.svg" alt="facebook">
+					<a class='swiper-slide job__item' href='https://facebook.com' target='_blank'>
+						<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
 						<p>Facebook</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://twitter.com'>
-						<img src="images/tools/twitter.svg" alt="twitter">
+					<a class='swiper-slide job__item' href='https://britishcouncil.org' target='_blank'>
+						<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
+						<p>British Council</p>
+					</a>
+
+					<a class='swiper-slide job__item' href='https://twitter.com' target='_blank'>
+						<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
 						<p>Twitter</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://google.com'>
-						<img src="images/tools/google.svg" alt="google">
+					<a class='swiper-slide job__item' href='https://google.com' target='_blank'>
+						<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
 						<p>Google</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://instagram.com'>
-						<img src="images/tools/instagram.svg" alt="instagram">
+					<a class='swiper-slide job__item' href='https://netflix.com' target='_blank'>
+						<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
+						<p>Netflix</p>
+					</a>
+
+					<a class='swiper-slide job__item' href='https://instagram.com' target='_blank'>
+						<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
 						<p>Instagram</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://facebook.com'>
-						<img src="images/tools/facebook.svg" alt="facebook">
+					<a class='swiper-slide job__item' href='https://facebook.com' target='_blank'>
+						<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
 						<p>Facebook</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='https://twitter.com'>
-						<img src="images/tools/twitter.svg" alt="twitter">
+					<a class='swiper-slide job__item' href='https://britishcouncil.org' target='_blank'>
+						<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
+						<p>British Council</p>
+					</a>
+
+					<a class='swiper-slide job__item' href='https://twitter.com' target='_blank'>
+						<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
 						<p>Twitter</p>
 					</a>
 				</div>
@@ -240,17 +260,22 @@
 			</div>
 		</div>
 	</section>
-	
-	<section class="container">
+
+	<section class='container'>
 		<h2>Обратная связь</h2>
 
 		<section class='feedback' id='feedback'>
-			<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor" width="1100" height="600" frameborder="0"></iframe>
+			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' width='1100' height='600' frameborder='0'></iframe>
 
-			<div class="feedback__inner">
+			<div class='feedback__inner'>
 				<form action='index.php' method='post'>
-					<input type='text' name='email' placeholder='Почта *' required>
-					<textarea name='description' placeholder='Сообщение *' required></textarea>
+					<input type="hidden" name='project_name' value='WORKFLOW'>
+					<input type="hidden" name='admin_email' value='pozetiv4ik171@yandex.ru'>
+					<input type="hidden" name='form_subject' value='Обратная связь'>
+
+					<input type='text' name='Имя' placeholder='Имя'>
+					<input type='text' name='Почта' placeholder='Почта *' required>
+					<textarea name='Сообщение' placeholder='Сообщение *' required></textarea>
 					<button type='submit'>Отправить</button>
 				</form>
 			</div>
@@ -263,7 +288,27 @@
 	<script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>
 	<script src='assets/wow.min.js'></script>
 	<script src='dist/script.js'></script>
-  <script>new WOW().init()</script>
+	<script>
+		$(document).ready(function() {
+			//E-mail Ajax Send
+			$('form').submit(function() {
+				var th = $(this);
+				$.ajax({
+					type: 'POST',
+					url: 'validation/mail.php',
+					data: th.serialize()
+				}).done(function() {
+					alert('Сообщение отправлено');
+					setTimeout(function() {
+						// Done Functions
+						th.trigger('reset');
+					}, 1000);
+				});
+				return false;
+			});
+		});
+	</script>
+
 	<script>
 		var ocean = document.getElementById('ocean'),
     waveWidth = 10,
@@ -279,6 +324,7 @@
 		}
 
 		ocean.appendChild(docFrag);
+		new WOW().init()
 	</script>
 </body>
 

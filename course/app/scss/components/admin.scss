@@ -64,7 +64,7 @@
   .img-wrapper {
     height: rem(400);
     overflow: hidden;
-    transition: .3s ease-in-out;
+    transition: var(--transition);
     display: block;
 
     &:hover {

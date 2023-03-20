@@ -3,7 +3,7 @@ const job = new Swiper('.job', {
     delay: 2000
   },
   spaceBetween: 30,
-  slidesPerView: 4,
+  slidesPerView: 6,
   loop: true,
 
   navigation: {

@@ -21,7 +21,7 @@
       a:not(.btn, .btn__search) {
         display: block;
         padding: rem(30) 0;
-        transition: .3s;
+        transition: var(--transition);
 
         &:hover {
           box-shadow: 0 rem(10) 0 var(--brand) inset;

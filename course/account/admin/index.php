@@ -53,7 +53,7 @@
 				top: 78px;
 				left: 0;
 				z-index: -1;
-				transition: .3s;
+				transition: var(--transition);
 				border-radius: 0 0 10px 10px;
 			}
 

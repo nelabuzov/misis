@@ -71,15 +71,15 @@ input[type=submit] {
 	color: var(--brand);
 	background-color: transparent;
 	border: rem(2) solid var(--brand);
+	transition: var(--transition);
 	padding: rem(5) rem(20);
 	border-radius: rem(10);
-	transition: .4s;
 	box-shadow: none;
 	cursor: pointer;
 
 	img {
 		position: relative;
-		transition: .4s;
+		transition: var(--transition);
 		left: rem(70);
 	}
 
@@ -123,7 +123,7 @@ input[type=submit] {
 		content: '';
 		width: 100%;
 		height: rem(40);
-		transition: .3s;
+		transition: var(--transition);
 		background-color: var(--black);
 		position: absolute;
 		top: rem(65);
