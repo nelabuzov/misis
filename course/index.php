@@ -109,7 +109,7 @@
 		</style>
 
 		<div class='account' onclick='showHide()'>
-			<img src='images/tools/user.svg' alt='user'>
+			<img src='images/tools/user.svg' alt='user' loading='lazy'>
 			<?= $_COOKIE['account'] ?>
 
 			<div class='account__menu hidden' id='menu'>
@@ -146,7 +146,7 @@
 					</li>
 					<li>
 						<a class='btn btn__account' href='index.php#popup'>Аккаунт
-							<img src='images/tools/account.svg' alt='account'>
+							<img src='images/tools/account.svg' alt='account' loading='lazy'>
 						</a>
 					</li>
 				</ul>
@@ -250,13 +250,76 @@
 
 		<div class='swiper worker wow animate__animated animate__slideInRight'>
 			<div class='swiper-wrapper'>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-1.png' alt='banner-user-1'></div>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-2.png' alt='banner-user-2'></div>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-3.png' alt='banner-user-3'></div>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-4.png' alt='banner-user-4'></div>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-5.png' alt='banner-user-5'></div>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-6.png' alt='banner-user-6'></div>
-				<div class='swiper-slide worker__item'><img src='images/content/banner-user-7.png' alt='banner-user-7'></div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-1.png' alt='banner-user-1' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-2.png' alt='banner-user-2' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-3.png' alt='banner-user-3' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-4.png' alt='banner-user-4' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-5.png' alt='banner-user-5' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-6.png' alt='banner-user-6' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
+				<div class='swiper-slide worker__item'>
+					<img src='images/content/banner-user-7.png' alt='banner-user-7' loading='lazy'>
+					<div class='worker__stars'>
+						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-3' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-4' loading='lazy'>
+						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -265,7 +328,7 @@
 		<h2>Обратная связь</h2>
 
 		<section class='feedback' id='feedback'>
-			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' width='1100' height='600' frameborder='0'></iframe>
+			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' width='1100' height='600' frameborder='0' loading='lazy'></iframe>
 
 			<div class='feedback__inner'>
 				<form action='index.php' method='post'>

@@ -112,7 +112,7 @@
 		</style>
 
 		<div class='account' onclick='showHide()'>
-			<img src='images/tools/user.svg' alt='user'>
+			<img src='images/tools/user.svg' alt='user' loading='lazy'>
 			<?= $_COOKIE['account'] ?>
 
 			<div class='account__menu hidden' id='menu'>
@@ -152,7 +152,7 @@
 					</li>
 					<li>
 						<a class='btn btn__account' href='applicant.php#popup'>Аккаунт
-							<img src='images/tools/account.svg' alt='account'>
+							<img src='images/tools/account.svg' alt='account' loading='lazy'>
 						</a>
 					</li>
 				</ul>

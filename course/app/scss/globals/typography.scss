@@ -126,14 +126,14 @@ input[type=submit] {
 		transition: var(--transition);
 		background-color: var(--black);
 		position: absolute;
-		top: rem(65);
+		top: rem(70);
 		left: 0;
 		z-index: -1;
 		clip-path: polygon(50% 50%, 100% 100%, 100% 0, 0 0, 0 100%);
 	}
 
 	&:hover::after {
-		top: rem(75);
+		top: rem(80);
 	}
 }
 

@@ -21,26 +21,26 @@
       border-radius: rem(20);
       font-size: rem(20);
       font-weight: bold;
-      border: 2px solid var(--black);
-      overflow: visible !important;
+      text-align: center;
+      color: var(--white);
+      box-shadow: 0 0 rem(25) var(--black) inset;
       position: relative;
 
-      &::before {
+      &::after {
         position: absolute;
-        top: rem(-44);
+        bottom: 0;
         left: 50%;
-        text-align: center;
-        transform: translateX(-50%);
-        border-radius: rem(20) rem(20) 0 0;
-        background-color: var(--black);
+        width: 100%;
+        height: rem(75);
         padding: rem(10);
-        color: var(--white);
+        transform: translateX(-50%);
+        background-color: var(--black);
       }
 
       &:nth-child(1n) {
         background-color: rgba(206, 17, 17, .8);
 
-        &::before {
+        &::after {
           content: 'Дизайнер';
         }
       }
@@ -48,7 +48,7 @@
       &:nth-child(2n) {
         background-color: rgb(0, 140, 255, .8) !important;
 
-        &::before {
+        &::after {
           content: 'Разработчик' !important;
         }
       }
@@ -56,14 +56,24 @@
       &:nth-child(3n) {
         background-color: rgb(10, 184, 111, .8) !important;
 
-        &::before {
+        &::after {
           content: 'Бухгалтер' !important;
         }
       }
 
-      img {
+      >img {
         width: rem(250);
-        height: rem(321);
+        height: rem(320);
+      }
+    }
+
+    &__stars {
+      position: relative;
+      bottom: rem(38);
+      z-index: 1;
+
+      img {
+        width: rem(20);
       }
     }
   }

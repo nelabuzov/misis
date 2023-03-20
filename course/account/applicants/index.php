@@ -75,7 +75,7 @@
 		</style>
 
 		<div class='account' onclick='showHide()'>
-			<img src='../../images/tools/user.svg' alt='user'>
+			<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
 			<?= $_COOKIE['account'] ?>
 
 			<div class='account__menu hidden' id='menu'>
@@ -226,7 +226,7 @@
         <?php foreach($works as $work): ?>
           <div>
 						<a class='img-wrapper' data-sub-html='<?= $work['name'] ?>' href='http://misis/course/<?= $work['file_path'] ?>'>
-            	<img src='http://misis/course/<?= $work['file_path'] ?>' alt='<?= $work['name'] ?>'>
+            	<img src='http://misis/course/<?= $work['file_path'] ?>' alt='<?= $work['name'] ?>' loading='lazy'>
           	</a>
 						<a class='btn btn__work btn--del' href='portfolio/delete.php?id=<?= $work['id'] ?>'>Удалить</a>
 					</div>

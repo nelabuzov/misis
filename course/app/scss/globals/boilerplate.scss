@@ -52,9 +52,9 @@ body {
 	}
 
 	.popup {
-		margin: rem(100) auto;
 		padding: rem(40);
-		background: #fff;
+		margin: rem(100) auto;
+		background-color: var(--white);
 		max-width: rem(790);
 		position: relative;
 		display: flex;

@@ -71,7 +71,7 @@
 		</style>
 
 		<div class='account' onclick='showHide()'>
-			<img src='../../images/tools/user.svg' alt='user'>
+			<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
 			<?= $_COOKIE['account'] ?>
 
 			<div class='account__menu hidden' id='menu'>
