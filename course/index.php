@@ -57,6 +57,7 @@
 				<form action='validation/signup.php' method='post'>
 					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
 					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
+					<input type='password' class='form-control' name='cpassword' id='cpassword' placeholder='Повторите пароль' required>
           <div>
           	<label for='employer'><input type='radio' name='category' id='employer' value='1' checked>Работодатель</label>
 						<label for='applicant'><input type='radio' name='category' id='applicant' value='2'>Соискатель</label>
@@ -77,7 +78,7 @@
 				left: 50%;
 				z-index: 2;
 				font-weight: 700;
-				transform: translateX(-65%);
+				transform: translateX(-50%);
 				padding: 17px 0;
 				cursor: pointer;
 			}
@@ -136,7 +137,7 @@
 			<nav class='menu'>
 				<ul>
 					<li><a href='index.php#about'>О сервисе</a></li>
-					<li><a href='index.php#feedback'>Помощь</a></li>
+					<li><a href='index.php#feedback'>Обратная связь</a></li>
 					<li>
 						<a href='employer.php'>Работодатели</a>
 					</li>
@@ -172,44 +173,44 @@
 		<div class='job__slider'>
 			<div class='swiper job'>
 				<div class='swiper-wrapper'>
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://google.com'>
+						<img src="images/tools/google.svg" alt="google">
+						<p>Google</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
-					</a>
-					
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://instagram.com'>
+						<img src="images/tools/instagram.svg" alt="instagram">
+						<p>Instagram</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://facebook.com'>
+						<img src="images/tools/facebook.svg" alt="facebook">
+						<p>Facebook</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://twitter.com'>
+						<img src="images/tools/twitter.svg" alt="twitter">
+						<p>Twitter</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://google.com'>
+						<img src="images/tools/google.svg" alt="google">
+						<p>Google</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://instagram.com'>
+						<img src="images/tools/instagram.svg" alt="instagram">
+						<p>Instagram</p>
 					</a>
 
-					<a class='swiper-slide job__item' href='#'>
-						<h3 class='job__title'>Frontend Разработчик</h3>
-						<p class='job__subtitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, molestias?</p>
+					<a class='swiper-slide job__item' href='https://facebook.com'>
+						<img src="images/tools/facebook.svg" alt="facebook">
+						<p>Facebook</p>
+					</a>
+
+					<a class='swiper-slide job__item' href='https://twitter.com'>
+						<img src="images/tools/twitter.svg" alt="twitter">
+						<p>Twitter</p>
 					</a>
 				</div>
 
@@ -219,9 +220,9 @@
 		</div>
 	</section>
 
-	<section class='description container'>
+	<section class='description container' id='about'>
 		<div>
-			<h2>Наши заслуги</h2>
+			<h2>О сервисе</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptas perferendis cupiditate! At vero molestiae sint, voluptates adipisci eius fugit odit itaque aliquid deserunt illum aperiam rem debitis voluptas esse eveniet quam ut quo laudantium sit est nesciunt! Aperiam at harum ullam, modi alias dicta eius hic, itaque ut debitis quo dolorem! Architecto fuga et hic quo accusamus aperiam reprehenderit exercitationem perferendis, perspiciatis sint ad id, nulla veniam in mollitia, rerum cupiditate enim ipsa quasi nemo porro consectetur quis doloribus ut. Voluptatem eveniet obcaecati, officiis excepturi debitis velit veniam doloremque repudiandae rerum omnis quo provident fugit dolore ex molestias laborum?
 			</p>
@@ -241,7 +242,7 @@
 	</section>
 	
 	<section class="container">
-		<h2>Мы поможем</h2>
+		<h2>Обратная связь</h2>
 
 		<section class='feedback' id='feedback'>
 			<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor" width="1100" height="600" frameborder="0"></iframe>

@@ -61,6 +61,7 @@
 				<form action='validation/signup.php' method='post'>
 					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
 					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
+					<input type='password' class='form-control' name='cpassword' id='cpassword' placeholder='Повторите пароль' required>
           <div>
           	<label for='employer'><input type='radio' name='category' id='employer' value='1' checked>Работодатель</label>
 						<label for='applicant'><input type='radio' name='category' id='applicant' value='2'>Соискатель</label>
@@ -141,7 +142,7 @@
 					<li><a href='index.php#about'>О сервисе</a></li>
 					<li><a href='index.php#feedback'>Помощь</a></li>
 					<li>
-						<a href='employer.php'>Работодатели</a>
+						<a class='menu--active' href='employer.php'>Работодатели</a>
 					</li>
 					<li>
 						<a href='applicant.php'>Соискатели</a>

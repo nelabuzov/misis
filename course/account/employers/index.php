@@ -27,22 +27,6 @@
 	<link rel='stylesheet' href='../../dist/style.css'>
 </head>
 <body>
-	<!-- <div id='popup' class='overlay'>
-		<a class='cancel' href='#'></a>
-		<div class='popup'>
-			<a class='close' href='#'>&times;</a>
-
-			<div class='popup__inner'>
-				<h2>Добавление работы</h2>
-				<form action='add.php' method='post' enctype='multipart/form-data'>
-          <input name='name' type='text' placeholder='Название' required>
-          <input name='file' type='file' required>
-          <input type='submit' value='Создать'>
-        </form>
-			</div>
-		</div>
-	</div> -->
-
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>

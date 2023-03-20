@@ -1,6 +1,7 @@
 <?php
   $email = filter_var(trim($_POST['email']));
   $password = filter_var(trim($_POST['password']));
+  $cpassword = filter_var(trim($_POST['cpassword']));
   $category = filter_var(trim($_POST['category']));
 
   if(mb_strlen($email) < 5 || mb_strlen($email) > 50) {
@@ -14,6 +15,13 @@
     echo
     '<script>
       alert("Недопустимая длина пароля (от 5 до 50 символов)");
+      window.location="../index.php";
+    </script>';
+    exit();
+  } elseif($password != $cpassword) {
+    echo
+    '<script>
+      alert("Пароли не совпадают");
       window.location="../index.php";
     </script>';
     exit();

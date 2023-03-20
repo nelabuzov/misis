@@ -31,30 +31,6 @@
 </head>
 
 <body>
-	<div id='popup' class='overlay'>
-		<a class='cancel' href='index.php'></a>
-		<div class='popup'>
-			<a class='close' href='index.php'>&times;</a>
-
-			<div class='popup__inner form'>
-				<form action='portfolio/add.php' method='post' enctype='multipart/form-data'>
-					<h2>Добавление работы</h2>
-
-					<label for='name'>Название:
-						<input id='name' name='name' type='text' placeholder='Название' required>
-					</label>
-					<label for='file_path'>Путь:
-						<input id='file_path' name='file_path' type='file' required>
-					</label>
-
-					<br>
-
-					<input type='submit' value='Добавить'>
-      	</form>
-			</div>
-		</div>
-	</div>
-
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
@@ -108,6 +84,30 @@
 			</div>
 		</div>
 	<?php endif ?>
+
+	<div id='popup' class='overlay'>
+		<a class='cancel' href='index.php'></a>
+		<div class='popup'>
+			<a class='close' href='index.php'>&times;</a>
+
+			<div class='popup__inner form'>
+				<form action='portfolio/add.php' method='post' enctype='multipart/form-data'>
+					<h2>Добавление работы</h2>
+
+					<label for='name'>Название:
+						<input id='name' name='name' type='text' placeholder='Название' required>
+					</label>
+					<label for='file_path'>Путь:
+						<input id='file_path' name='file_path' type='file' required>
+					</label>
+
+					<br>
+
+					<input type='submit' value='Добавить'>
+      	</form>
+			</div>
+		</div>
+	</div>
 
 	<header class='header'>
 		<div class='header__inner container'>

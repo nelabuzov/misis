@@ -37,6 +37,27 @@
     font-size: rem(14);
   }
 
+  .swiper-slide {
+    margin-bottom: 0;
+
+    &:hover img {
+      filter: none;
+    }
+
+    img {
+      filter: grayscale(1);
+      width: rem(75);
+      margin: 0 auto;
+      display: block;
+      transition: .3s;
+    }
+
+    p {
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
   .swiper-button-prev,
   .swiper-button-next {
     border-radius: 5px;
@@ -56,6 +77,4 @@
   .swiper-button-next {
     right: -15px;
   }
-
-  .swiper-slide-active {}
 }

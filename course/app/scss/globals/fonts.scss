@@ -1,3 +1,9 @@
+@font-face {
+	font-family: Atomed;
+	src: url('../assets/fonts/atomed.otf') format('opentype');
+}
+
 :root {
 	--font-body: Arial, sans-serif;
+	--font-brand: Atomed;
 }

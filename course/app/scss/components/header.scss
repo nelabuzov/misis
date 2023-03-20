@@ -3,22 +3,29 @@
 .header {
   background-color: var(--white);
 
-  .menu ul {
-    display: flex;
-    align-items: center;
-    justify-content: right;
+  .menu {
 
-    li+li {
-      margin-left: rem(20);
+    &--active {
+      box-shadow: 0 rem(10) 0 var(--brand) inset;
     }
 
-    a:not(.btn, .btn__search) {
-      display: block;
-      padding: rem(30) 0;
-      transition: .3s;
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: right;
 
-      &:hover {
-        box-shadow: 0 rem(10) 0 var(--brand) inset;
+      li+li {
+        margin-left: rem(20);
+      }
+
+      a:not(.btn, .btn__search) {
+        display: block;
+        padding: rem(30) 0;
+        transition: .3s;
+
+        &:hover {
+          box-shadow: 0 rem(10) 0 var(--brand) inset;
+        }
       }
     }
   }
