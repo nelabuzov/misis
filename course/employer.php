@@ -51,23 +51,33 @@
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
-	<div id='popup' class='overlay'>
+	<div id='popup-login' class='overlay'>
 		<a class='cancel' href='#'></a>
 		<div class='popup'>
 			<a class='close' href='#'>&times;</a>
 
-			<div class='popup__inner' id='login'>
+			<div id='login'>
 				<h2>Вход</h2>
 				<form action='validation/login.php' method='post'>
-					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
+					<input type='text' class='form-control' name='text' id='text' placeholder='Введите псевдоним или почту' required>
 					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
 					<button type='submit' class='btn'>Вход</button>
 				</form>
+				<p>Нет аккаунта? <a href='index.php#popup-signup'>Зарегистрироваться</a></p>
 			</div>
 
-			<div class='popup__inner' id='signup'>
+		</div>
+	</div>
+
+	<div id='popup-signup' class='overlay'>
+		<a class='cancel' href='#'></a>
+		<div class='popup'>
+			<a class='close' href='#'>&times;</a>
+
+			<div id='signup'>
 				<h2>Регистрация</h2>
 				<form action='validation/signup.php' method='post'>
+					<input type='text' class='form-control' name='nickname' id='nickname' placeholder='Введите псевдоним' required>
 					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
 					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
 					<input type='password' class='form-control' name='cpassword' id='cpassword' placeholder='Повторите пароль' required>
@@ -77,6 +87,7 @@
 					</div>
 					<button type='submit' class='btn'>Регистрация</button>
 				</form>
+				<p>Уже зарегистрированы? <a href="index.php#popup-login">Войти</a></p>
 			</div>
 
 		</div>
@@ -160,7 +171,12 @@
 						<input type='text' placeholder='Специальность / Регион' id='input' onkeyup='filterList()'>
 					</li>
 					<li>
-						<a class='btn btn__account' href='employer.php#popup'>Аккаунт
+						<a class='btn btn__account' href='index.php#popup-login'>Вход
+							<img src='images/tools/account.svg' alt='account' loading='lazy'>
+						</a>
+					</li>
+					<li>
+						<a class='btn btn__account' href='index.php#popup-signup'>Регистрация
 							<img src='images/tools/account.svg' alt='account' loading='lazy'>
 						</a>
 					</li>

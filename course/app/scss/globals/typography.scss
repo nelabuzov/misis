@@ -29,7 +29,7 @@ h3 {
 
 p {
 	font-size: rem(18);
-	opacity: .6;
+	color: var(--gray-400);
 }
 
 ul {
@@ -64,13 +64,14 @@ textarea {
 
 .btn,
 input[type=submit] {
-	font-size: rem(18);
 	font-weight: 700;
+	font-size: rem(18);
+	background-color: transparent;
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	overflow: hidden;
 	color: var(--brand);
-	background-color: transparent;
 	border: rem(2) solid var(--brand);
 	transition: var(--transition-min);
 	padding: rem(5) rem(20);

@@ -27,6 +27,21 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<title>WORKFLOW - поиск персонала и публикация вакансий</title>
 
+	<!-- SEO -->
+	<meta name='description' content='Работа со всей России'>
+	<!-- <meta name='keywords' content='Работа, Персонал, Вакансии, Профессия, Занятие'> -->
+	<meta name='author' content='thelabuzov'>
+	<meta name='copyright' content='Дмитрий Лабузов'>
+	<meta property='og:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta property='og:description' content='Работа со всей России'>
+	<!-- <meta property='og:image' content='./images/promo.webp'> -->
+	<meta property='og:site_name' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta name='twitter:site' content='thelabuzov'>
+	<meta name='twitter:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta name='twitter:description' content='Работа со всей России'>
+	<!-- <meta name='twitter:image' content='./images/promo.webp'> -->
+
+	<!-- Подключения -->
   <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'>
 	<link rel='stylesheet' href='assets/animate.min.css'>
@@ -47,23 +62,33 @@
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
-	<div id='popup' class='overlay'>
+	<div id='popup-login' class='overlay'>
 		<a class='cancel' href='#'></a>
 		<div class='popup'>
 			<a class='close' href='#'>&times;</a>
 
-			<div class='popup__inner' id='login'>
+			<div id='login'>
 				<h2>Вход</h2>
 				<form action='validation/login.php' method='post'>
-					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
+					<input type='text' class='form-control' name='text' id='text' placeholder='Введите псевдоним или почту' required>
 					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
 					<button type='submit' class='btn'>Вход</button>
 				</form>
+				<p>Нет аккаунта? <a href='index.php#popup-signup'>Зарегистрироваться</a></p>
 			</div>
 
-			<div class='popup__inner' id='signup'>
+		</div>
+	</div>
+
+	<div id='popup-signup' class='overlay'>
+		<a class='cancel' href='#'></a>
+		<div class='popup'>
+			<a class='close' href='#'>&times;</a>
+
+			<div id='signup'>
 				<h2>Регистрация</h2>
 				<form action='validation/signup.php' method='post'>
+					<input type='text' class='form-control' name='nickname' id='nickname' placeholder='Введите псевдоним' required>
 					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
 					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
 					<input type='password' class='form-control' name='cpassword' id='cpassword' placeholder='Повторите пароль' required>
@@ -73,6 +98,7 @@
 					</div>
 					<button type='submit' class='btn'>Регистрация</button>
 				</form>
+				<p>Уже зарегистрированы? <a href="index.php#popup-login">Войти</a></p>
 			</div>
 
 		</div>
@@ -154,7 +180,12 @@
 						<a href='applicant.php'>Соискатели</a>
 					</li>
 					<li>
-						<a class='btn btn__account' href='index.php#popup'>Аккаунт
+						<a class='btn btn__account' href='index.php#popup-login'>Вход
+							<img src='images/tools/account.svg' alt='account' loading='lazy'>
+						</a>
+					</li>
+					<li>
+						<a class='btn btn__account' href='index.php#popup-signup'>Регистрация
 							<img src='images/tools/account.svg' alt='account' loading='lazy'>
 						</a>
 					</li>
@@ -262,7 +293,7 @@
 		<div class='swiper worker wow animate__animated animate__slideInRight'>
 			<div class='swiper-wrapper'>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-1.png' alt='banner-user-1' loading='lazy'>
+					<img src='images/content/banners/user-1.png' alt='banner-user-1' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -272,7 +303,7 @@
 					</div>
 				</div>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-2.png' alt='banner-user-2' loading='lazy'>
+					<img src='images/content/banners/user-2.png' alt='banner-user-2' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -282,7 +313,7 @@
 					</div>
 				</div>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-3.png' alt='banner-user-3' loading='lazy'>
+					<img src='images/content/banners/user-3.png' alt='banner-user-3' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -292,7 +323,7 @@
 					</div>
 				</div>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-4.png' alt='banner-user-4' loading='lazy'>
+					<img src='images/content/banners/user-4.png' alt='banner-user-4' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -302,7 +333,7 @@
 					</div>
 				</div>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-5.png' alt='banner-user-5' loading='lazy'>
+					<img src='images/content/banners/user-5.png' alt='banner-user-5' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -312,7 +343,7 @@
 					</div>
 				</div>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-6.png' alt='banner-user-6' loading='lazy'>
+					<img src='images/content/banners/user-6.png' alt='banner-user-6' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -322,7 +353,7 @@
 					</div>
 				</div>
 				<div class='swiper-slide worker__item'>
-					<img src='images/content/banner-user-7.png' alt='banner-user-7' loading='lazy'>
+					<img src='images/content/banners/user-7.png' alt='banner-user-7' loading='lazy'>
 					<div class='worker__stars'>
 						<img src='images/tools/star.svg' alt='star-1' loading='lazy'>
 						<img src='images/tools/star.svg' alt='star-2' loading='lazy'>
@@ -364,6 +395,8 @@
 	<script src='assets/wow.min.js'></script>
 	<script src='dist/script.js'></script>
 	<script>
+		new WOW().init();
+
 		$(document).ready(function() {
 			//E-mail Ajax Send
 			$('form').submit(function() {
@@ -382,10 +415,6 @@
 				return false;
 			});
 		});
-	</script>
-
-	<script>
-		new WOW().init()
 	</script>
 </body>
 

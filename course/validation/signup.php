@@ -1,10 +1,18 @@
 <?php
+  $nickname = filter_var(trim($_POST['nickname']));
   $email = filter_var(trim($_POST['email']));
   $password = filter_var(trim($_POST['password']));
   $cpassword = filter_var(trim($_POST['cpassword']));
   $category = filter_var(trim($_POST['category']));
 
-  if(mb_strlen($email) < 5 || mb_strlen($email) > 50) {
+  if(mb_strlen($nickname) < 5 || mb_strlen($nickname) > 50) {
+    echo
+    '<script>
+      alert("Недопустимая длина логина (от 5 до 50 символов)");
+      window.location="../index.php";
+    </script>';
+    exit();
+  } elseif(mb_strlen($email) < 5 || mb_strlen($email) > 50) {
     echo
     '<script>
       alert("Недопустимая длина почты (от 5 до 50 символов)");
@@ -36,13 +44,13 @@
 
     if(in_array($chosenValue, $allowedValues)){
       if(strcasecmp($chosenValue, 1) == 0){
-        $mysql -> query("INSERT INTO employers(name, region, email, password, phone_number, category) VALUES('', '', '$email', '$password', 0, 1)");
+        $mysql -> query("INSERT INTO employers(name, region, nickname, email, password, phone_number, category) VALUES('', '', '$nickname', '$email', '$password', 0, 1)");
         $result = $mysql -> query("SELECT * FROM employers WHERE email = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();
         header('Location: ../account/employers/index.php');
       } else {
-        $mysql -> query("INSERT INTO applicants(full_name, region, birthday, email, password, phone_number, category) VALUES('', '', '2000-01-01', '$email', '$password', 0, 2)");
+        $mysql -> query("INSERT INTO applicants(full_name, region, birthday, nickname, email, password, phone_number, category) VALUES('', '', '2000-01-01', '$nickname', '$email', '$password', 0, 2)");
         $result = $mysql -> query("SELECT * FROM applicants WHERE email = '$email'");
         $account = $result -> fetch_assoc();
         $mysql -> close();

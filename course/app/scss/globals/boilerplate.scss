@@ -59,15 +59,21 @@ body {
 		padding: rem(40);
 		margin: rem(100) auto;
 		background-color: var(--white);
-		max-width: rem(790);
+		max-width: rem(416);
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		border-radius: rem(20);
 
-		&__inner {
-			margin: 0 rem(20);
+		form,
+		p {
+			text-align: center;
+		}
+
+		input:not([type=radio]),
+		.btn {
+			width: 100%;
 		}
 
 		.close {

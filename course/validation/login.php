@@ -1,18 +1,18 @@
 <?php
-  $email = filter_var(trim($_POST['email']));
+  $text = filter_var(trim($_POST['text']));
   $password = filter_var(trim($_POST['password']));
 
   // $password = md5($password.'fa32tro8');
 
   $mysql = new mysqli('localhost', 'root', '', 'workflow');
 
-  $admin = $mysql -> query("SELECT * FROM admin WHERE email = '$email' AND password = '$password'");
+  $admin = $mysql -> query("SELECT * FROM admin WHERE (nickname = '$text' OR email = '$text') AND password = '$password'");
   $account0 = $admin -> fetch_assoc();
 
-  $employers = $mysql -> query("SELECT * FROM employers WHERE email = '$email' AND password = '$password'");
+  $employers = $mysql -> query("SELECT * FROM employers WHERE (nickname = '$text' OR email = '$text') AND password = '$password'");
   $account1 = $employers -> fetch_assoc();
 
-  $applicants = $mysql -> query("SELECT * FROM applicants WHERE email = '$email' AND password = '$password'");
+  $applicants = $mysql -> query("SELECT * FROM applicants WHERE (nickname = '$text' OR email = '$text') AND password = '$password'");
   $account2 = $applicants -> fetch_assoc();
 
   if(mysqli_num_rows($admin)) {
