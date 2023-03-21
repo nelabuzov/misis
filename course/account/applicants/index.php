@@ -40,6 +40,30 @@
 		</svg>
 	</div>
 
+	<div id='popup' class='overlay'>
+		<a class='cancel' href='index.php'></a>
+		<div class='popup'>
+			<a class='close' href='index.php'>&times;</a>
+
+			<div class='popup__inner form'>
+				<form action='portfolio/add.php' method='post' enctype='multipart/form-data'>
+					<h2>Добавление работы</h2>
+
+					<label for='name'>Название:
+						<input id='name' name='name' type='text' placeholder='Название' required>
+					</label>
+					<label for='file_path'>Путь:
+						<input id='file_path' name='file_path' type='file' required>
+					</label>
+
+					<br>
+
+					<input type='submit' value='Добавить'>
+      	</form>
+			</div>
+		</div>
+	</div>
+
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
@@ -94,30 +118,6 @@
 		</div>
 	<?php endif ?>
 
-	<div id='popup' class='overlay'>
-		<a class='cancel' href='index.php'></a>
-		<div class='popup'>
-			<a class='close' href='index.php'>&times;</a>
-
-			<div class='popup__inner form'>
-				<form action='portfolio/add.php' method='post' enctype='multipart/form-data'>
-					<h2>Добавление работы</h2>
-
-					<label for='name'>Название:
-						<input id='name' name='name' type='text' placeholder='Название' required>
-					</label>
-					<label for='file_path'>Путь:
-						<input id='file_path' name='file_path' type='file' required>
-					</label>
-
-					<br>
-
-					<input type='submit' value='Добавить'>
-      	</form>
-			</div>
-		</div>
-	</div>
-
 	<header class='header'>
 		<div class='header__inner container'>
 			<a class='logo' href='../../index.php'>Work<span>Flow</span></a>
@@ -149,6 +149,7 @@
 							<th>Полное имя</th>
 							<th>Регион</th>
 							<th>Дата рождения</th>
+							<th>Псевдоним</th>
 							<th>Почта</th>
 							<th>Пароль</th>
 							<th>Телефон</th>
@@ -164,6 +165,7 @@
 								<td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
 								<td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
 								<td><input name='birthday' type='date' placeholder='Введите дату' value='<?php echo $applicant['birthday'] ?>'></td>
+								<td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $applicant['nickname'] ?>'></td>
 								<td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
 								<td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
 								<td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
@@ -223,7 +225,7 @@
 					<?php endforeach ?>
 
 				<?php else: ?>
-					<span class="error"><?php echo 'Добавьте заполненные поля в таблице профиля' ?></span>
+					<span class='error'><?php echo 'Добавьте заполненные поля в таблице профиля' ?></span>
 
 				<?php endif ?>
 

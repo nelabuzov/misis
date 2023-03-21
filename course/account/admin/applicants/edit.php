@@ -15,6 +15,7 @@
     $full_name = $row['full_name'];
     $region = $row['region'];
     $birthday = $row['birthday'];
+    $nickname = $row['nickname'];
     $email = $row['email'];
     $password = $row['password'];
     $phone_number = $row['phone_number'];
@@ -27,6 +28,7 @@
     $new_full_name = $_POST['full_name'];
     $new_region = $_POST['region'];
     $new_birthday = $_POST['birthday'];
+    $new_nickname = $_POST['nickname'];
     $new_email = $_POST['email'];
     $new_password = $_POST['password'];
     $new_phone_number = $_POST['phone_number'];
@@ -36,6 +38,7 @@
     full_name = '$new_full_name',
     region = '$new_region',
     birthday = '$new_birthday',
+    nickname = '$new_nickname',
     email = '$new_email',
     password = '$new_password',
     phone_number = '$new_phone_number'";

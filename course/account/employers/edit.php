@@ -15,6 +15,7 @@
     $row = mysqli_fetch_assoc($result);
     $name = $row['name'];
     $region = $row['region'];
+    $nickname = $row['nickname'];
     $email = $row['email'];
     $password = $row['password'];
     $phone_number = $row['phone_number'];
@@ -26,6 +27,7 @@
   if (isset($_POST['employers'])) {
     $new_name = $_POST['name'];
     $new_region = $_POST['region'];
+    $new_nickname = $_POST['nickname'];
     $new_email = $_POST['email'];
     $new_password = $_POST['password'];
     $new_phone_number = $_POST['phone_number'];
@@ -34,13 +36,14 @@
     $employer = "UPDATE employers SET
     name = '$new_name',
     region = '$new_region',
+    nickname = '$new_nickname',
     email = '$new_email',
     password = '$new_password',
     phone_number = '$new_phone_number'
     WHERE email = '$cookie'";
 
     if (mysqli_query($mysql, $employer)) {
-      if ($email != $new_email || $password != $new_password) {
+      if ($nickname != $new_nickname || $email != $new_email || $password != $new_password) {
 				setcookie('account', $account['email'], time() - 100000, '/course');
 				header('Location: ../../index.php');
 			} else {

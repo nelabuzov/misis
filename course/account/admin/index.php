@@ -116,6 +116,7 @@
           <table class='data__table' border='1'>
             <tr>
               <th>Действие</th>
+              <th>Псевдоним</th>
               <th>Почта</th>
               <th>Пароль</th>
             </tr>
@@ -127,6 +128,7 @@
                   <a class='btn btn--del' href='delete.php?id=<?= $admin['id'] ?>'>Удалить</a>
                 </td>
 
+                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $admin['nickname'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $admin['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $admin['password'] ?>'></td>
               </tr>
@@ -148,6 +150,7 @@
               <th>#</th>
               <th>Название</th>
               <th>Регион</th>
+              <th>Псевдоним</th>
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
@@ -163,6 +166,7 @@
                 <td><?= $key + 1 ?></td>
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
+                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $employer['nickname'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
@@ -186,6 +190,7 @@
               <th>Полное имя</th>
               <th>Регион</th>
               <th>Дата рождения</th>
+              <th>Псевдоним</th>
               <th>Почта</th>
               <th>Пароль</th>
               <th>Телефон</th>
@@ -202,6 +207,7 @@
                 <td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
                 <td><input name='birthday' type='date' placeholder='Введите дату' value='<?php echo $applicant['birthday'] ?>'></td>
+                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $applicant['nickname'] ?>'></td>
                 <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
                 <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
                 <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>

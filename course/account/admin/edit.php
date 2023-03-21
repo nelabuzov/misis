@@ -13,6 +13,7 @@
   $result = mysqli_query($mysql, $admin);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
+    $nickname = $row['nickname'];
     $email = $row['email'];
     $password = $row['password'];
   } else {
@@ -21,17 +22,19 @@
 
   // Обработка данных из формы редактирования
   if (isset($_POST['admins'])) {
+    $new_nickname = $_POST['nickname'];
     $new_email = $_POST['email'];
     $new_password = $_POST['password'];
 
     // Запрос для обновления данных пользователя
     $admin = "UPDATE admin SET
+    nickname = '$new_nickname',
     email = '$new_email',
     password = '$new_password'
     WHERE email = '$cookie'";
 
     if (mysqli_query($mysql, $admin)) {
-      if ($email != $new_email || $password != $new_password) {
+      if ($nickname != $new_nickname || $email != $new_email || $password != $new_password) {
 				setcookie('account', $account['email'], time() - 100000, '/course');
 				header('Location: ../../index.php');
 			} else {
