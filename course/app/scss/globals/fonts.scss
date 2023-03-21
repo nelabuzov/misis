@@ -4,7 +4,9 @@
 }
 
 :root {
-	--transition: .3s ease-in-out;
-	--font-body: Arial, sans-serif;
 	--font-brand: Despairs;
+	--font-body: Arial, sans-serif;
+
+	--transition-min: .3s ease-in-out;
+	--transition-max: 1.2s ease-in;
 }

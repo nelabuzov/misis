@@ -38,6 +38,15 @@
 </head>
 
 <body>
+	<div class='loader'>
+		<svg width='200' height='200' viewBox='0 0 100 100'>
+			<polyline class='line' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
+			<polyline class='line' points='0,0 0,100 100,100' stroke-width='10' fill='none'></polyline>
+			<polyline class='line line__animation' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
+			<polyline class='line line__animation' points='0,0 0,100 100,100' stroke-width='10' fill='none'></polyline>
+		</svg>
+	</div>
+
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
@@ -96,7 +105,7 @@
 				position: absolute;
 				top: 78px;
 				left: 0;
-				transition: var(--transition);
+				transition: var(--transition-min);
 				border-radius: 0 0 10px 10px;
 			}
 

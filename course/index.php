@@ -34,6 +34,15 @@
 </head>
 
 <body>
+	<div class='loader'>
+		<svg width='200' height='200' viewBox='0 0 100 100'>
+			<polyline class='line' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
+			<polyline class='line' points='0,0 0,100 100,100' stroke-width='10' fill='none'></polyline>
+			<polyline class='line line__animation' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
+			<polyline class='line line__animation' points='0,0 0,100 100,100' stroke-width='10' fill='none'></polyline>
+		</svg>
+	</div>
+
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
@@ -93,7 +102,7 @@
 				top: 78px;
 				left: 0;
 				z-index: -1;
-				transition: var(--transition);
+				transition: var(--transition-min);
 				border-radius: 0 0 10px 10px;
 			}
 
@@ -132,7 +141,7 @@
 
 	<header class='header'>
 		<div class='header__inner container'>
-			<a class='logo' href='index.php'>Work<span>Flow</span></a>
+			<a class='logo' href='#'>Work<span>Flow</span></a>
 
 			<nav class='menu'>
 				<ul>
@@ -166,7 +175,9 @@
 			</div>
 		</div>
 
-		<div id='ocean'></div>
+		<div class="wave">
+			<div class="wave__inner"></div>
+		</div>
 	</section>
 
 	<section class='container'>
@@ -346,8 +357,9 @@
 	</section>
 
 	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
 	<script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>
 	<script src='assets/wow.min.js'></script>
 	<script src='dist/script.js'></script>
@@ -373,20 +385,6 @@
 	</script>
 
 	<script>
-		var ocean = document.getElementById('ocean'),
-    waveWidth = 10,
-    waveCount = Math.floor(window.innerWidth/waveWidth),
-    docFrag = document.createDocumentFragment();
-
-		for(var i = 0; i < waveCount; i++) {
-			var wave = document.createElement('div');
-			wave.className += ' wave';
-			docFrag.appendChild(wave);
-			wave.style.left = i * waveWidth + 'px';
-			wave.style.webkitAnimationDelay = (i/100) + 's';
-		}
-
-		ocean.appendChild(docFrag);
 		new WOW().init()
 	</script>
 </body>

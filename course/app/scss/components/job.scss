@@ -13,7 +13,7 @@
     display: block;
     padding: rem(20);
     border-radius: rem(20);
-    border: rem(1) solid var(--gray);
+    border: rem(1) solid var(--gray-400);
     margin-bottom: rem(40);
     word-wrap: break-word;
     position: relative;
@@ -43,7 +43,7 @@
     width: rem(50);
     margin: 0 auto;
     display: block;
-    transition: var(--transition);
+    transition: var(--transition-min);
 
     &--wide {
       transform: scale(2);

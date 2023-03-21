@@ -3,8 +3,12 @@
 html {
 	box-sizing: border-box !important;
 	scroll-behavior: smooth;
-	overflow-x: hidden;
+	overflow: hidden;
 	font-size: 100%;
+
+	&:has(.loader--hidden) {
+		overflow: visible;
+	}
 }
 
 *,
@@ -18,14 +22,14 @@ body {
 	padding: 0;
 	font-family: var(--font-body);
 
+	// Three.js
 	canvas {
 		position: absolute;
-		top: rem(250);
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 1;
+		top: rem(150);
+		transform: translateX(-5%);
 	}
 
+	// Popup
 	.overlay {
 		position: fixed;
 		top: 0;
@@ -76,7 +80,7 @@ body {
 			font-size: rem(30);
 			font-weight: bold;
 			text-decoration: none;
-			color: var(--gray);
+			color: var(--gray-400);
 		}
 
 		input[type=radio],
@@ -85,40 +89,88 @@ body {
 		}
 	}
 
-	#ocean {
-		position: absolute;
-		top: rem(800);
-		width: 100vw;
-		height: rem(250);
-		background-color: var(--white);
-	}
-
+	// Wave
 	.wave {
-		background-color: var(--black);
-		display: inline-block;
-		height: 60%;
-		width: 10px;
+		overflow: hidden;
 		position: absolute;
-		animation: 3s dostuff infinite ease-in-out;
+		bottom: 0;
+		width: 100%;
+		height: rem(100);
+
+		&__inner {
+			position: absolute;
+			width: 200%;
+			height: 100%;
+			transform-origin: 0 100%;
+			background: url(../images/content/wave.png) 0 / 50% rem(100);
+			animation: wave 15s linear infinite;
+		}
 	}
 
-	@keyframes dostuff {
+	@keyframes wave {
 		0% {
-			height: 60%;
+			transform: translateX(0) scaleY(1);
 		}
 
 		50% {
-			height: 40%;
+			transform: translateX(-25%) scaleY(0.55);
 		}
 
 		100% {
-			height: 60%;
+			transform: translateX(-50%) scaleY(1);
+		}
+	}
+
+	// Loader
+	.loader {
+		position: fixed;
+		z-index: 50;
+		width: 100%;
+		height: 100%;
+		background-color: var(--gray-700);
+
+		&--hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg) scale(1);
+		}
+
+		.line {
+			stroke: var(--gray-800);
+
+			&__animation {
+				animation: loading var(--transition-max) infinite;
+			}
+		}
+
+		@keyframes loading {
+			0% {
+				stroke: var(--brand);
+				stroke-dasharray: 0 200;
+			}
+
+			50% {
+				stroke-dashoffset: 0;
+				stroke-dasharray: 200 200;
+			}
+
+			100% {
+				stroke: var(--brand);
+				stroke-dashoffset: -200;
+				stroke-dasharray: 200 200;
+			}
 		}
 	}
 
 	footer {
 		text-align: center;
-		color: var(--gray);
+		color: var(--gray-400);
 		padding: 20px 0;
 	}
 }
