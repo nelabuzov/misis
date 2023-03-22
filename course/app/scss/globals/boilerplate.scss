@@ -22,11 +22,18 @@ body {
 	padding: 0;
 	font-family: var(--font-body);
 
+	@include breakpoint-down(small) {
+
+		canvas {
+			display: none !important;
+		}
+	}
+
 	// Three.js
 	canvas {
 		position: absolute;
-		top: rem(150);
-		transform: translateX(-5%);
+		top: rem(200);
+		right: 0;
 	}
 
 	// Popup
@@ -99,7 +106,7 @@ body {
 	.wave {
 		overflow: hidden;
 		position: absolute;
-		bottom: 0;
+		bottom: rem(-2);
 		width: 100%;
 		height: rem(100);
 

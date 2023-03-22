@@ -1,9 +1,13 @@
 @use '../util' as *;
 
 .header {
-  background-color: var(--white);
 
   .menu {
+    box-shadow: 0 0 rem(10) var(--black) inset;
+    background: var(--gray-400);
+    position: sticky;
+    display: block;
+    width: 100%;
 
     &--active {
       box-shadow: 0 rem(10) 0 var(--brand) inset;
@@ -12,21 +16,32 @@
     ul {
       display: flex;
       align-items: center;
-      justify-content: right;
+      justify-content: center;
 
       li+li {
         margin-left: rem(20);
       }
 
       a:not(.btn, .btn__search) {
-        display: block;
         padding: rem(30) 0;
         transition: var(--transition-min);
+        text-transform: uppercase;
+        display: block;
 
         &:hover {
           box-shadow: 0 rem(10) 0 var(--brand) inset;
         }
       }
+    }
+  }
+
+  .menu__top>* {
+    display: flex;
+    align-items: center;
+    height: rem(78);
+
+    div {
+      margin-left: auto;
     }
   }
 }

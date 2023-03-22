@@ -3,9 +3,10 @@
 .container {
 	padding: 0 rem(25);
 	max-width: rem(1200);
+	position: relative;
 	margin: 0 auto;
 
-	&:not(.header__inner) {
+	&:not(.header__inner, .account__outer) {
 
 		@include breakpoint(large) {
 			padding: rem(60) 0;

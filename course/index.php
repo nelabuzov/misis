@@ -110,23 +110,19 @@
 				display: inline-flex;
 				align-items: center;
 				position: absolute;
-				left: 50%;
+				right: 0;
 				z-index: 2;
 				font-weight: 700;
-				transform: translateX(-50%);
+				margin-right: 25px;
 				padding: 17px 0;
 				cursor: pointer;
-			}
-
-			.account img {
-				margin-right: 5px;
 			}
 
 			.account__menu {
 				background-color: var(--white);
 				position: absolute;
 				top: 78px;
-				left: 0;
+				right: 0;
 				z-index: -1;
 				transition: var(--transition-min);
 				border-radius: 0 0 10px 10px;
@@ -143,51 +139,59 @@
 			}
 		</style>
 
-		<div class='account' onclick='showHide()'>
-			<img src='images/tools/user.svg' alt='user' loading='lazy'>
-			<?= $_COOKIE['account'] ?>
+		<div class='account__outer container'>
+			<div class='account' onclick='showHide()'>
+				<img src='images/tools/user.svg' alt='user' loading='lazy'>
 
-			<div class='account__menu hidden' id='menu'>
+				<div class='account__menu hidden' id='menu'>
 
-				<?php if($employers): ?>
-					<a href='account/employers/index.php'>Профиль</a>
+					<?php if($employers): ?>
+						<a href='account/employers/index.php'>Профиль</a>
 
-				<?php elseif($applicants): ?>
-					<a href='account/applicants/index.php'>Профиль</a>
+					<?php elseif($applicants): ?>
+						<a href='account/applicants/index.php'>Профиль</a>
 
-				<?php else: ?>
-					<a href='account/admin/index.php'>Профиль</a>
+					<?php else: ?>
+						<a href='account/admin/index.php'>Профиль</a>
 
-				<?php endif ?>
+					<?php endif ?>
 
-				<a href='exit.php'>Выход</a>
+					<a href='exit.php'>Выход</a>
+				</div>
 			</div>
 		</div>
 	<?php endif ?>
 
 	<header class='header'>
-		<div class='header__inner container'>
-			<a class='logo' href='#'>Work<span>Flow</span></a>
+		<div class="menu__top">
+			<div class='header__inner container'>
+				<a class='logo' href='#'>Work<span>Flow</span></a>
 
-			<nav class='menu'>
+				<div>
+					<a class='btn btn__account' href='index.php#popup-login'>Вход
+						<img src='images/tools/account.svg' alt='account' loading='lazy'>
+					</a>
+					<a class='btn btn__account' href='index.php#popup-signup'>Регистрация
+						<img src='images/tools/account.svg' alt='account' loading='lazy'>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class='menu'>
+			<nav class='header__inner container'>
 				<ul>
-					<li><a href='index.php#about'>О сервисе</a></li>
-					<li><a href='index.php#feedback'>Обратная связь</a></li>
+					<li>
+						<a href='index.php#about'>О сервисе</a>
+					</li>
+					<li>
+						<a href='index.php#feedback'>Обратная связь</a>
+					</li>
 					<li>
 						<a href='employer.php'>Работодатели</a>
 					</li>
 					<li>
 						<a href='applicant.php'>Соискатели</a>
-					</li>
-					<li>
-						<a class='btn btn__account' href='index.php#popup-login'>Вход
-							<img src='images/tools/account.svg' alt='account' loading='lazy'>
-						</a>
-					</li>
-					<li>
-						<a class='btn btn__account' href='index.php#popup-signup'>Регистрация
-							<img src='images/tools/account.svg' alt='account' loading='lazy'>
-						</a>
 					</li>
 				</ul>
 			</nav>
@@ -216,63 +220,87 @@
 			<div class='swiper job'>
 				<div class='swiper-wrapper'>
 					<a class='swiper-slide job__item' href='https://google.com' target='_blank'>
-						<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
-						<p>Google</p>
+						<div>
+							<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
+							<p>Google</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://netflix.com' target='_blank'>
-						<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
-						<p>Netflix</p>
+						<div>
+							<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
+							<p>Netflix</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://instagram.com' target='_blank'>
-						<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
-						<p>Instagram</p>
+						<div>
+							<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
+							<p>Instagram</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://facebook.com' target='_blank'>
-						<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
-						<p>Facebook</p>
+						<div>
+							<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
+							<p>Facebook</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://britishcouncil.org' target='_blank'>
-						<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
-						<p>British Council</p>
+						<div>
+							<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
+							<p>British Council</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://twitter.com' target='_blank'>
-						<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
-						<p>Twitter</p>
+						<div>
+							<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
+							<p>Twitter</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://google.com' target='_blank'>
-						<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
-						<p>Google</p>
+						<div>
+							<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
+							<p>Google</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://netflix.com' target='_blank'>
-						<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
-						<p>Netflix</p>
+						<div>
+							<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
+							<p>Netflix</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://instagram.com' target='_blank'>
-						<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
-						<p>Instagram</p>
+						<div>
+							<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
+							<p>Instagram</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://facebook.com' target='_blank'>
-						<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
-						<p>Facebook</p>
+						<div>
+							<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
+							<p>Facebook</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://britishcouncil.org' target='_blank'>
-						<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
-						<p>British Council</p>
+						<div>
+							<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
+							<p>British Council</p>
+						</div>
 					</a>
 
 					<a class='swiper-slide job__item' href='https://twitter.com' target='_blank'>
-						<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
-						<p>Twitter</p>
+						<div>
+							<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
+							<p>Twitter</p>
+						</div>
 					</a>
 				</div>
 
@@ -283,7 +311,7 @@
 	</section>
 
 	<section class='description container' id='about'>
-		<div>
+		<div class='description__inner'>
 			<h2>О сервисе</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptas perferendis cupiditate! At vero molestiae sint, voluptates adipisci eius fugit odit itaque aliquid deserunt illum aperiam rem debitis voluptas esse eveniet quam ut quo laudantium sit est nesciunt! Aperiam at harum ullam, modi alias dicta eius hic, itaque ut debitis quo dolorem! Architecto fuga et hic quo accusamus aperiam reprehenderit exercitationem perferendis, perspiciatis sint ad id, nulla veniam in mollitia, rerum cupiditate enim ipsa quasi nemo porro consectetur quis doloribus ut. Voluptatem eveniet obcaecati, officiis excepturi debitis velit veniam doloremque repudiandae rerum omnis quo provident fugit dolore ex molestias laborum?
@@ -384,7 +412,7 @@
 		<h2>Обратная связь</h2>
 
 		<section class='feedback' id='feedback'>
-			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' width='1100' height='600' frameborder='0' loading='lazy'></iframe>
+			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' loading='lazy'></iframe>
 
 			<div class='feedback__inner'>
 				<form action='index.php' method='post'>

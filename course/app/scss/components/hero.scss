@@ -8,6 +8,15 @@
   margin-bottom: rem(200);
   position: relative;
 
+  @include breakpoint-down(small) {
+    min-height: rem(700);
+
+    &__inner {
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
   &__inner {
     max-width: rem(500);
     transform: translateY(50%);

@@ -242,6 +242,8 @@
 								<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
 								<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
 							</div>
+
+							<a class='btn btn__job btn--del' href='employers/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 						</div>
 					<?php endforeach ?>
 
@@ -267,6 +269,8 @@
 								<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
 								<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
 							</div>
+
+							<a class='btn btn__job btn--del' href='applicants/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 						</div>
 					<?php endforeach ?>
 

@@ -74,9 +74,11 @@ input[type=submit] {
 	cursor: pointer;
 
 	img {
-		position: relative;
 		transition: var(--transition-min);
+		position: relative;
 		left: rem(70);
+		width: rem(36);
+		height: rem(36);
 	}
 
 	&:hover {
