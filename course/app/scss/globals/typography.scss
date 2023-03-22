@@ -11,7 +11,6 @@ h3 {
 
 h1 {
 	font-size: rem(66);
-	text-transform: uppercase;
 }
 
 h2 {
@@ -20,11 +19,6 @@ h2 {
 
 h3 {
 	font-size: rem(20);
-}
-
-.subtitle {
-	font-size: rem(24);
-	opacity: .6;
 }
 
 p {
@@ -120,7 +114,6 @@ input[type=submit] {
 	z-index: 3;
 	color: var(--white);
 	background-color: var(--black);
-	// float: left;
 
 	&::after {
 		content: '';

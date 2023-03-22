@@ -11,5 +11,10 @@
   &__inner {
     max-width: rem(500);
     transform: translateY(50%);
+
+    p {
+      color: var(--gray-400);
+      font-size: rem(24);
+    }
   }
 }

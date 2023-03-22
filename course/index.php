@@ -199,7 +199,7 @@
 			<div class='hero__inner'>
 				<div>
 					<h1>Работа со <span>всей</span> россии</h1>
-					<p class='subtitle'>
+					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem optio repellat beatae et.
 					</p>
 				</div>
@@ -292,6 +292,8 @@
 
 		<div class='swiper worker wow animate__animated animate__slideInRight'>
 			<div class='swiper-wrapper'>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-1.png' alt='banner-user-1' loading='lazy'>
 					<div class='worker__stars'>
@@ -302,6 +304,8 @@
 						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
 					</div>
 				</div>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-2.png' alt='banner-user-2' loading='lazy'>
 					<div class='worker__stars'>
@@ -312,6 +316,8 @@
 						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
 					</div>
 				</div>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-3.png' alt='banner-user-3' loading='lazy'>
 					<div class='worker__stars'>
@@ -322,6 +328,8 @@
 						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
 					</div>
 				</div>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-4.png' alt='banner-user-4' loading='lazy'>
 					<div class='worker__stars'>
@@ -332,6 +340,8 @@
 						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
 					</div>
 				</div>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-5.png' alt='banner-user-5' loading='lazy'>
 					<div class='worker__stars'>
@@ -342,6 +352,8 @@
 						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
 					</div>
 				</div>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-6.png' alt='banner-user-6' loading='lazy'>
 					<div class='worker__stars'>
@@ -352,6 +364,8 @@
 						<img src='images/tools/star.svg' alt='star-5' loading='lazy'>
 					</div>
 				</div>
+
+				<!-- Элемент слайдера -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-7.png' alt='banner-user-7' loading='lazy'>
 					<div class='worker__stars'>

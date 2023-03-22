@@ -1,14 +1,20 @@
 <?php
   require_once '../../db.php';
 
-	$stmt = $pdo -> query("SELECT * FROM admin");
+	$stmt = $pdo -> query('SELECT * FROM admin');
   $admins = $stmt -> fetchAll();
 
-  $stmt = $pdo -> query("SELECT * FROM employers");
+  $stmt = $pdo -> query('SELECT * FROM employers');
   $employers = $stmt -> fetchAll();
 
-  $stmt = $pdo -> query("SELECT * FROM applicants");
+  $stmt = $pdo -> query('SELECT * FROM employers_job');
+	$employers_job = $stmt -> fetchAll();
+
+  $stmt = $pdo -> query('SELECT * FROM applicants');
   $applicants = $stmt -> fetchAll();
+
+  $stmt = $pdo -> query('SELECT * FROM applicants_job');
+	$applicants_job = $stmt -> fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -218,6 +224,56 @@
         </form>
       </div>
     </section>
+
+    <section class='data'>
+			<div class='job' id='job'>
+
+				<?php foreach($employers as $key => $employer): ?>
+
+					<?php foreach($employers_job as $job): ?>
+						<div class='job__item'>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h3><?= $employer['name'] ?></h3>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
+							<p><?= $job['description'] ?></p>
+
+							<div>
+								<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
+								<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
+							</div>
+						</div>
+					<?php endforeach ?>
+
+				<?php endforeach ?>
+
+    	</div>
+		</section>
+
+    <section class='data'>
+			<div class='job' id='job'>
+
+				<?php foreach($applicants as $key => $applicant): ?>
+
+					<?php foreach($applicants_job as $job): ?>
+						<div class='job__item'>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h3><?= $applicant['full_name'] ?></h3>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
+							<p><?= $job['description'] ?></p>
+
+							<div>
+								<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
+								<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
+							</div>
+						</div>
+					<?php endforeach ?>
+
+				<?php endforeach ?>
+
+    	</div>
+		</section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>

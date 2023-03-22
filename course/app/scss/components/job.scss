@@ -17,7 +17,6 @@
     margin-bottom: rem(40);
     word-wrap: break-word;
     position: relative;
-    overflow: hidden;
 
     div:last-child {
       display: flex;
@@ -32,10 +31,6 @@
       float: right;
       opacity: .5;
     }
-  }
-
-  &__subtitle {
-    font-size: rem(14);
   }
 
   &__image {

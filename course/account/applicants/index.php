@@ -210,7 +210,7 @@
 					<?php foreach($applicants_job as $job): ?>
 						<div class='job__item'>
 							<div class='demand'><?= $job['price'] ?> руб.</div>
-							<h2><?= $applicant['full_name'] ?></h2>
+							<h3><?= $applicant['full_name'] ?></h3>
 							<div class='demand'><?= $job['experience'] ?> год опыта</div>
 							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
 							<p><?= $job['description'] ?></p>
