@@ -113,7 +113,7 @@
 				right: 0;
 				z-index: 2;
 				font-weight: 700;
-				margin-right: 25px;
+				margin-right: 100px;
 				padding: 17px 0;
 				cursor: pointer;
 			}
@@ -121,7 +121,7 @@
 			.account__menu {
 				background-color: var(--white);
 				position: absolute;
-				top: 78px;
+				top: 77px;
 				right: 0;
 				z-index: -1;
 				transition: var(--transition-min);
@@ -166,6 +166,26 @@
 		<div class="menu__top">
 			<div class='header__inner container'>
 				<a class='logo' href='#'>Work<span>Flow</span></a>
+
+				<div class='menu__outer'>
+					<a href="#" class="menu__toggle">☰</a>
+					<nav class="menu__box">
+						<ul>
+							<li>
+								<a href='index.php#about'>О сервисе</a>
+							</li>
+							<li>
+								<a href='index.php#feedback'>Обратная связь</a>
+							</li>
+							<li>
+								<a href='employer.php'>Работодатели</a>
+							</li>
+							<li>
+								<a href='applicant.php'>Соискатели</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
 
 				<div>
 					<a class='btn btn__account' href='index.php#popup-login'>Вход
@@ -215,7 +235,7 @@
 		</div>
 	</section>
 
-	<section class='container'>
+	<section class='slider container'>
 		<div class='job__slider'>
 			<div class='swiper job'>
 				<div class='swiper-wrapper'>
@@ -457,6 +477,14 @@
 				return false;
 			});
 		});
+
+		$(function() {
+			let menu = $('.menu__outer');
+			$('.menu__toggle').bind('click', function() {
+				menu.toggleClass('menu__open');
+				return false;
+			})
+		})
 	</script>
 </body>
 

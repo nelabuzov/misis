@@ -18,7 +18,7 @@ const job = new Swiper('.job', {
       slidesPerView: 4,
     },
     // when window width is <= 999px
-    1150: {
+    1200: {
       slidesPerView: 6,
     }
   },

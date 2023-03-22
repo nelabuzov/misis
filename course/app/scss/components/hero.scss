@@ -7,8 +7,9 @@
   color: var(--white);
   margin-bottom: rem(200);
   position: relative;
+  z-index: -2;
 
-  @include breakpoint-down(small) {
+  @include breakpoint-down(medium) {
     min-height: rem(700);
 
     &__inner {

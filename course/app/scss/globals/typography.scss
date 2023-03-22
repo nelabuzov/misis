@@ -108,12 +108,10 @@ input[type=submit] {
 
 .logo {
 	padding: rem(25);
-	font-weight: 700;
 	font-size: rem(30);
 	font-family: var(--font-brand);
 	text-transform: uppercase;
-	position: fixed;
-	z-index: 3;
+	position: relative;
 	color: var(--white);
 	background-color: var(--black);
 

@@ -9,7 +9,7 @@
 	&:not(.header__inner, .account__outer) {
 
 		@include breakpoint(large) {
-			padding: rem(60) 0;
+			padding: rem(60) rem(25);
 		}
 	}
 }
