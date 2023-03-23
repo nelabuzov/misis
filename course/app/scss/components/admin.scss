@@ -1,5 +1,12 @@
 @use '../util' as *;
 
+@include breakpoint-down(medium) {
+
+  section:has(.data) h2 {
+    text-align: center;
+  }
+}
+
 .data {
   margin: rem(50) 0;
   width: 100%;
@@ -42,54 +49,6 @@
     textarea {
       width: rem(350);
     }
-  }
-}
-
-.portfolio {
-  display: flex;
-  flex-direction: column;
-
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    order: -1;
-  }
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: rem(30);
-
-  .img-wrapper {
-    height: rem(400);
-    overflow: hidden;
-    transition: var(--transition-min);
-    display: block;
-
-    &:hover {
-      box-shadow: 0 0 rem(50) var(--black);
-    }
-
-    img {
-      border: rem(2) solid var(--black);
-      width: rem(380);
-      height: 100%;
-      transition: 1s;
-      position: relative;
-      object-fit: cover;
-      object-position: top center;
-
-      &:hover {
-        object-position: bottom center;
-      }
-    }
-  }
-
-  .btn--del {
-    border-radius: 0;
-    position: relative;
-    top: rem(-2);
   }
 }
 

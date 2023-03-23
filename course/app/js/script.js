@@ -1,3 +1,30 @@
+$(function() {
+  let menu = $('.menu__outer');
+  $('.menu__toggle').bind('click', function() {
+    menu.toggleClass('menu__open');
+    return false;
+  })
+})
+
+$(document).ready(function() {
+  //E-mail Ajax Send
+  $('form').submit(function() {
+    var th = $(this);
+    $.ajax({
+      type: 'POST',
+      url: 'validation/mail.php',
+      data: th.serialize()
+    }).done(function() {
+      alert('Сообщение отправлено');
+      setTimeout(function() {
+        // Done Functions
+        th.trigger('reset');
+      }, 1000);
+    });
+    return false;
+  });
+});
+
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.querySelector('.loader').classList.add('loader--hidden');
@@ -29,6 +56,7 @@ const job = new Swiper('.job', {
   }
 });
 
+new WOW().init();
 const workers = new Swiper(".worker", {
   effect: "cards",
   grabCursor: true

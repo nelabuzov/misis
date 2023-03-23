@@ -44,7 +44,7 @@
 	<!-- Подключения -->
   <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'>
-	<link rel='stylesheet' href='assets/animate.min.css'>
+	<link rel='stylesheet' href='assets/css/animate.min.css'>
 	<link rel='stylesheet' href='dist/style.css'>
 </head>
 
@@ -123,7 +123,6 @@
 				position: absolute;
 				top: 77px;
 				right: 0;
-				z-index: -1;
 				transition: var(--transition-min);
 				border-radius: 0 0 10px 10px;
 			}
@@ -134,7 +133,7 @@
 				margin: 20px 0;
 			}
 
-			.btn__account {
+			li:has(.btn__account) {
 				display: none;
 			}
 		</style>
@@ -173,21 +172,25 @@
 						<ul>
 							<li>
 								<a href='index.php#about'>О сервисе</a>
-							</li>
-							<li>
 								<a href='index.php#feedback'>Обратная связь</a>
 							</li>
 							<li>
 								<a href='employer.php'>Работодатели</a>
+								<a href='applicant.php'>Соискатели</a>
 							</li>
 							<li>
-								<a href='applicant.php'>Соискатели</a>
+								<a class='btn btn__account' href='index.php#popup-login'>Вход
+									<img src='images/tools/account.svg' alt='account' loading='lazy'>
+								</a>
+								<a class='btn btn__account' href='index.php#popup-signup'>Регистрация
+									<img src='images/tools/account.svg' alt='account' loading='lazy'>
+								</a>
 							</li>
 						</ul>
 					</nav>
 				</div>
 
-				<div>
+				<div class='btns'>
 					<a class='btn btn__account' href='index.php#popup-login'>Вход
 						<img src='images/tools/account.svg' alt='account' loading='lazy'>
 					</a>
@@ -454,38 +457,8 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
 	<script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>
-	<script src='assets/wow.min.js'></script>
+	<script src='assets/js/wow.min.js'></script>
 	<script src='dist/script.js'></script>
-	<script>
-		new WOW().init();
-
-		$(document).ready(function() {
-			//E-mail Ajax Send
-			$('form').submit(function() {
-				var th = $(this);
-				$.ajax({
-					type: 'POST',
-					url: 'validation/mail.php',
-					data: th.serialize()
-				}).done(function() {
-					alert('Сообщение отправлено');
-					setTimeout(function() {
-						// Done Functions
-						th.trigger('reset');
-					}, 1000);
-				});
-				return false;
-			});
-		});
-
-		$(function() {
-			let menu = $('.menu__outer');
-			$('.menu__toggle').bind('click', function() {
-				menu.toggleClass('menu__open');
-				return false;
-			})
-		})
-	</script>
 </body>
 
 </html>

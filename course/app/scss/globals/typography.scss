@@ -36,6 +36,7 @@ li {
 }
 
 a {
+	display: inline-block;
 	text-decoration: none;
 	color: var(--black);
 }
@@ -113,6 +114,7 @@ input[type=submit] {
 	text-transform: uppercase;
 	position: relative;
 	color: var(--white);
+	z-index: 2;
 	background-color: var(--black);
 
 	&::after {

@@ -11,9 +11,6 @@
 
 	$stmt = $pdo -> query("SELECT * FROM applicants_job");
   $applicants_job = $stmt -> fetchAll();
-
-  $stmt = $pdo -> query("SELECT * FROM works");
-  $works = $stmt -> fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +22,6 @@
 	<title>Страница Пользователя</title>
 
   <link rel='shortcut icon' href='../../images/tools/favicon.ico' type='image/x-icon'>
-	<link rel='stylesheet' href='../../assets/css/lightgallery.min.css'>
-	<link rel='stylesheet' href='../../assets/css/lg-transitions.min.css'>
 	<link rel='stylesheet' href='../../dist/style.css'>
 </head>
 
@@ -40,30 +35,6 @@
 		</svg>
 	</div>
 
-	<div id='popup' class='overlay'>
-		<a class='cancel' href='index.php'></a>
-		<div class='popup'>
-			<a class='close' href='index.php'>&times;</a>
-
-			<div class='popup__inner form'>
-				<form action='portfolio/add.php' method='post' enctype='multipart/form-data'>
-					<h2>Добавление работы</h2>
-
-					<label for='name'>Название:
-						<input id='name' name='name' type='text' placeholder='Название' required>
-					</label>
-					<label for='file_path'>Путь:
-						<input id='file_path' name='file_path' type='file' required>
-					</label>
-
-					<br>
-
-					<input type='submit' value='Добавить'>
-      	</form>
-			</div>
-		</div>
-	</div>
-
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
@@ -74,24 +45,19 @@
 				display: inline-flex;
 				align-items: center;
 				position: absolute;
-				left: 50%;
+				right: 0;
 				z-index: 2;
 				font-weight: 700;
-				transform: translateX(-65%);
+				margin-right: 100px;
 				padding: 17px 0;
 				cursor: pointer;
-			}
-
-			.account img {
-				margin-right: 5px;
 			}
 
 			.account__menu {
 				background-color: var(--white);
 				position: absolute;
-				top: 78px;
-				left: 0;
-				z-index: -1;
+				top: 77px;
+				right: 0;
 				transition: var(--transition-min);
 				border-radius: 0 0 10px 10px;
 			}
@@ -102,30 +68,55 @@
 				margin: 20px 0;
 			}
 
-			.btn__account {
+			li:has(.btn__account) {
 				display: none;
 			}
 		</style>
 
-		<div class='account' onclick='showHide()'>
-			<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
-			<?= $_COOKIE['account'] ?>
+		<div class='account__outer container'>
+			<div class='account' onclick='showHide()'>
+				<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
 
-			<div class='account__menu hidden' id='menu'>
-				<a href='index.php'>Профиль</a>
-				<a href='../../exit.php'>Выход</a>
+				<div class='account__menu hidden' id='menu'>
+					<a href='#'>Профиль</a>
+					<a href='../../exit.php'>Выход</a>
+				</div>
 			</div>
 		</div>
 	<?php endif ?>
 
 	<header class='header'>
-		<div class='header__inner container'>
-			<a class='logo' href='../../index.php'>Work<span>Flow</span></a>
+		<div class="menu__top">
+			<div class='header__inner container'>
+				<a class='logo' href='../../index.php'>Work<span>Flow</span></a>
 
-			<nav class='menu'>
+				<div class='menu__outer'>
+					<a href="#" class="menu__toggle">☰</a>
+					<nav class="menu__box">
+						<ul>
+							<li>
+								<a href='../../index.php#about'>О сервисе</a>
+								<a href='../../index.php#feedback'>Обратная связь</a>
+							</li>
+							<li>
+								<a href='../../employer.php'>Работодатели</a>
+								<a href='../../applicant.php'>Соискатели</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<div class='menu'>
+			<nav class='header__inner container'>
 				<ul>
-					<li><a href='../../index.php#about'>О сервисе</a></li>
-					<li><a href='../../index.php#feedback'>Помощь</a></li>
+					<li>
+						<a href='../../index.php#about'>О сервисе</a>
+					</li>
+					<li>
+						<a href='../../index.php#feedback'>Обратная связь</a>
+					</li>
 					<li>
 						<a href='../../employer.php'>Работодатели</a>
 					</li>
@@ -231,33 +222,11 @@
 
     	</div>
 		</section>
-
-  	<section class='data portfolio'>
-    	<div id='lightgallery' class='gallery'>
-        <?php foreach($works as $work): ?>
-          <div>
-						<a class='img-wrapper' data-sub-html='<?= $work['name'] ?>' href='http://misis/course/<?= $work['file_path'] ?>'>
-            	<img src='http://misis/course/<?= $work['file_path'] ?>' alt='<?= $work['name'] ?>' loading='lazy'>
-          	</a>
-						<a class='btn btn__work btn--del' href='portfolio/delete.php?id=<?= $work['id'] ?>'>Удалить</a>
-					</div>
-        <?php endforeach ?>
-    	</div>
-
-    	<div class='portfolio__content'>
-      	<h2>Портфолио</h2>
-
-      	<div>
-					<a class='btn' href='index.php#popup'>Добавить</a>
-      	</div>
-    	</div>
-  	</section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
-  <script src='../../assets/js/lightgallery.min.js'></script>
 	<script src='../../dist/script.js'></script>
 </body>
 </html>

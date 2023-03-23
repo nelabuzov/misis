@@ -7,11 +7,11 @@
   $stmt = $pdo -> query('SELECT * FROM employers');
   $employers = $stmt -> fetchAll();
 
-  $stmt = $pdo -> query('SELECT * FROM employers_job');
-	$employers_job = $stmt -> fetchAll();
-
   $stmt = $pdo -> query('SELECT * FROM applicants');
   $applicants = $stmt -> fetchAll();
+
+	$stmt = $pdo -> query('SELECT * FROM employers_job');
+	$employers_job = $stmt -> fetchAll();
 
   $stmt = $pdo -> query('SELECT * FROM applicants_job');
 	$applicants_job = $stmt -> fetchAll();
@@ -26,8 +26,6 @@
   <title>Страница Пользователя</title>
 
   <link rel='shortcut icon' href='../../images/tools/favicon.ico' type='image/x-icon'>
-	<link rel='stylesheet' href='../../assets/css/lightgallery.css'>
-	<link rel='stylesheet' href='../../assets/css/lg-transitions.css'>
 	<link rel='stylesheet' href='../../dist/style.css'>
 </head>
 <body>
@@ -50,24 +48,19 @@
 				display: inline-flex;
 				align-items: center;
 				position: absolute;
-				left: 50%;
+				right: 0;
 				z-index: 2;
 				font-weight: 700;
-				transform: translateX(-65%);
+				margin-right: 100px;
 				padding: 17px 0;
 				cursor: pointer;
-			}
-
-			.account img {
-				margin-right: 5px;
 			}
 
 			.account__menu {
 				background-color: var(--white);
 				position: absolute;
-				top: 78px;
-				left: 0;
-				z-index: -1;
+				top: 77px;
+				right: 0;
 				transition: var(--transition-min);
 				border-radius: 0 0 10px 10px;
 			}
@@ -78,30 +71,55 @@
 				margin: 20px 0;
 			}
 
-			.btn__account {
+			li:has(.btn__account) {
 				display: none;
 			}
 		</style>
 
-		<div class='account' onclick='showHide()'>
-			<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
-			<?= $_COOKIE['account'] ?>
+		<div class='account__outer container'>
+			<div class='account' onclick='showHide()'>
+				<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
 
-			<div class='account__menu hidden' id='menu'>
-				<a href='index.php'>Профиль</a>
-				<a href='../../exit.php'>Выход</a>
+				<div class='account__menu hidden' id='menu'>
+					<a href='#'>Профиль</a>
+					<a href='../../exit.php'>Выход</a>
+				</div>
 			</div>
 		</div>
 	<?php endif ?>
 
 	<header class='header'>
-		<div class='header__inner container'>
-			<a class='logo' href='../../index.php'>Work<span>Flow</span></a>
+		<div class="menu__top">
+			<div class='header__inner container'>
+				<a class='logo' href='../../index.php'>Work<span>Flow</span></a>
 
-			<nav class='menu'>
+				<div class='menu__outer'>
+					<a href="#" class="menu__toggle">☰</a>
+					<nav class="menu__box">
+						<ul>
+							<li>
+								<a href='../../index.php#about'>О сервисе</a>
+								<a href='../../index.php#feedback'>Обратная связь</a>
+							</li>
+							<li>
+								<a href='../../employer.php'>Работодатели</a>
+								<a href='../../applicant.php'>Соискатели</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<div class='menu'>
+			<nav class='header__inner container'>
 				<ul>
-					<li><a href='../../index.php#about'>О сервисе</a></li>
-					<li><a href='../../index.php#feedback'>Помощь</a></li>
+					<li>
+						<a href='../../index.php#about'>О сервисе</a>
+					</li>
+					<li>
+						<a href='../../index.php#feedback'>Обратная связь</a>
+					</li>
 					<li>
 						<a href='../../employer.php'>Работодатели</a>
 					</li>
@@ -225,65 +243,72 @@
       </div>
     </section>
 
-    <section class='data'>
-			<div class='job' id='job'>
+		<section>
+      <h2>Вакансии работодателей</h2>
 
-				<?php foreach($employers as $key => $employer): ?>
+			<div class='data'>
+				<div class='job' id='job'>
 
-					<?php foreach($employers_job as $job): ?>
-						<div class='job__item'>
-							<div class='demand'><?= $job['price'] ?> руб.</div>
-							<h3><?= $employer['name'] ?></h3>
-							<div class='demand'><?= $job['experience'] ?> год опыта</div>
-							<div class='search'><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
-							<p><?= $job['description'] ?></p>
+					<?php foreach($employers as $key => $employer): ?>
 
-							<div>
-								<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
-								<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
+						<?php foreach($employers_job as $job): ?>
+							<div class='job__item'>
+								<div class='demand'><?= $job['price'] ?> руб.</div>
+								<h3><?= $employer['name'] ?></h3>
+								<div class='demand'><?= $job['experience'] ?> год опыта</div>
+								<div class='search'><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
+								<p><?= $job['description'] ?></p>
+
+								<div>
+									<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
+									<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
+								</div>
+
+								<a class='btn btn__job btn--del' href='employers/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 							</div>
+						<?php endforeach ?>
 
-							<a class='btn btn__job btn--del' href='employers/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
-						</div>
 					<?php endforeach ?>
 
-				<?php endforeach ?>
-
-    	</div>
+				</div>
+			</div>
 		</section>
 
-    <section class='data'>
-			<div class='job' id='job'>
+		<section>
+      <h2>Вакансии соискателей</h2>
 
-				<?php foreach($applicants as $key => $applicant): ?>
+			<div class='data'>
+				<div class='job' id='job'>
 
-					<?php foreach($applicants_job as $job): ?>
-						<div class='job__item'>
-							<div class='demand'><?= $job['price'] ?> руб.</div>
-							<h3><?= $applicant['full_name'] ?></h3>
-							<div class='demand'><?= $job['experience'] ?> год опыта</div>
-							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
-							<p><?= $job['description'] ?></p>
+					<?php foreach($applicants as $key => $applicant): ?>
 
-							<div>
-								<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
-								<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
+						<?php foreach($applicants_job as $job): ?>
+							<div class='job__item'>
+								<div class='demand'><?= $job['price'] ?> руб.</div>
+								<h3><?= $applicant['full_name'] ?></h3>
+								<div class='demand'><?= $job['experience'] ?> год опыта</div>
+								<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
+								<p><?= $job['description'] ?></p>
+
+								<div>
+									<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
+									<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
+								</div>
+
+								<a class='btn btn__job btn--del' href='applicants/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
 							</div>
+						<?php endforeach ?>
 
-							<a class='btn btn__job btn--del' href='applicants/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
-						</div>
 					<?php endforeach ?>
 
-				<?php endforeach ?>
-
-    	</div>
+				</div>
+			</div>
 		</section>
   </main>
 
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
-  <script src='../../assets/js/lightgallery.min.js'></script>
   <script src='../../dist/script.js'></script>
 </body>
 </html>

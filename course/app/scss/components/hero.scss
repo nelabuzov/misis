@@ -7,7 +7,6 @@
   color: var(--white);
   margin-bottom: rem(200);
   position: relative;
-  z-index: -2;
 
   @include breakpoint-down(medium) {
     min-height: rem(700);
