@@ -29,7 +29,7 @@
 
 	<!-- SEO -->
 	<meta name='description' content='Работа со всей России'>
-	<!-- <meta name='keywords' content='Работа, Персонал, Вакансии, Профессия, Занятие'> -->
+	<meta name='keywords' content='Работа, Персонал, Вакансии, Профессия, Деньги'>
 	<meta name='author' content='thelabuzov'>
 	<meta name='copyright' content='Дмитрий Лабузов'>
 	<meta property='og:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
@@ -41,7 +41,7 @@
 	<meta name='twitter:description' content='Работа со всей России'>
 	<!-- <meta name='twitter:image' content='./images/promo.webp'> -->
 
-	<!-- Подключения -->
+	<!-- Подключение внешних объектов -->
   <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'>
 	<link rel='stylesheet' href='assets/css/animate.min.css'>
@@ -133,7 +133,7 @@
 				margin: 20px 0;
 			}
 
-			li:has(.btn__account) {
+			.btn__account {
 				display: none;
 			}
 		</style>

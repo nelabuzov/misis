@@ -122,7 +122,7 @@
 				margin: 20px 0;
 			}
 
-			li:has(.btn__account) {
+			.btn__account {
 				display: none;
 			}
 		</style>

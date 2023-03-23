@@ -128,7 +128,7 @@
 		</div>
 	</header>
 
-  <main class='container'>
+  <main class='data__outer container'>
 		<section>
 			<h2>Соискатель</h2>
 

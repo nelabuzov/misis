@@ -1,8 +1,9 @@
 @use '../util' as *;
 
-@include breakpoint-down(medium) {
+section:has(.data) h2 {
+  margin-top: rem(100);
 
-  section:has(.data) h2 {
+  @include breakpoint-down(medium) {
     text-align: center;
   }
 }
