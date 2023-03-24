@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\PR6\PR62\bin\Debug\PR62.exe.config
+C:\Users\positive\source\repos\PR6\PR62\bin\Debug\PR62.exe
+C:\Users\positive\source\repos\PR6\PR62\bin\Debug\PR62.pdb
+C:\Users\positive\source\repos\PR6\PR62\obj\Debug\PR62.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR6\PR62\obj\Debug\PR62.exe
+C:\Users\positive\source\repos\PR6\PR62\obj\Debug\PR62.pdb
+C:\Users\positive\source\repos\PR6\PR62\obj\Debug\PR62.csprojAssemblyReference.cache
