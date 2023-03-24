@@ -1,0 +1,14 @@
+C:\Users\positive\source\repos\ConsoleApp1\PR31\bin\Debug\PR31.exe.config
+C:\Users\positive\source\repos\ConsoleApp1\PR31\bin\Debug\PR31.exe
+C:\Users\positive\source\repos\ConsoleApp1\PR31\bin\Debug\PR31.pdb
+C:\Users\positive\source\repos\ConsoleApp1\PR31\obj\Debug\PR31.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\ConsoleApp1\PR31\obj\Debug\PR31.exe
+C:\Users\positive\source\repos\ConsoleApp1\PR31\obj\Debug\PR31.pdb
+C:\Users\positive\source\repos\ConsoleApp1\PR31\obj\Debug\PR31.csprojAssemblyReference.cache
+C:\Users\positive\source\repos\PR3\PR31\bin\Debug\PR31.exe.config
+C:\Users\positive\source\repos\PR3\PR31\bin\Debug\PR31.exe
+C:\Users\positive\source\repos\PR3\PR31\bin\Debug\PR31.pdb
+C:\Users\positive\source\repos\PR3\PR31\obj\Debug\PR31.csprojAssemblyReference.cache
+C:\Users\positive\source\repos\PR3\PR31\obj\Debug\PR31.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR3\PR31\obj\Debug\PR31.exe
+C:\Users\positive\source\repos\PR3\PR31\obj\Debug\PR31.pdb
