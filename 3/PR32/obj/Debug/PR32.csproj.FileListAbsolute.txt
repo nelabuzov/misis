@@ -1,7 +1,0 @@
-C:\Users\positive\source\repos\ConsoleApp1\PR32\obj\Debug\PR32.csprojAssemblyReference.cache
-C:\Users\positive\source\repos\ConsoleApp1\PR32\obj\Debug\PR32.csproj.CoreCompileInputs.cache
-C:\Users\positive\source\repos\ConsoleApp1\PR32\bin\Debug\PR32.exe.config
-C:\Users\positive\source\repos\ConsoleApp1\PR32\bin\Debug\PR32.exe
-C:\Users\positive\source\repos\ConsoleApp1\PR32\bin\Debug\PR32.pdb
-C:\Users\positive\source\repos\ConsoleApp1\PR32\obj\Debug\PR32.exe
-C:\Users\positive\source\repos\ConsoleApp1\PR32\obj\Debug\PR32.pdb
