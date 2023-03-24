@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\PR3\PR35\obj\Debug\PR35.csprojAssemblyReference.cache
+C:\Users\positive\source\repos\PR3\PR35\obj\Debug\PR35.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR3\PR35\bin\Debug\PR35.exe.config
+C:\Users\positive\source\repos\PR3\PR35\bin\Debug\PR35.exe
+C:\Users\positive\source\repos\PR3\PR35\bin\Debug\PR35.pdb
+C:\Users\positive\source\repos\PR3\PR35\obj\Debug\PR35.exe
+C:\Users\positive\source\repos\PR3\PR35\obj\Debug\PR35.pdb

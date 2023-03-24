@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\ConsoleApp1\PR33\obj\Debug\PR33.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\ConsoleApp1\PR33\bin\Debug\PR33.exe.config
+C:\Users\positive\source\repos\ConsoleApp1\PR33\bin\Debug\PR33.exe
+C:\Users\positive\source\repos\ConsoleApp1\PR33\bin\Debug\PR33.pdb
+C:\Users\positive\source\repos\ConsoleApp1\PR33\obj\Debug\PR33.exe
+C:\Users\positive\source\repos\ConsoleApp1\PR33\obj\Debug\PR33.pdb
+C:\Users\positive\source\repos\ConsoleApp1\PR33\obj\Debug\PR33.csprojAssemblyReference.cache
