@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\PR4\PR41\bin\Debug\PR41.exe.config
+C:\Users\positive\source\repos\PR4\PR41\bin\Debug\PR41.exe
+C:\Users\positive\source\repos\PR4\PR41\bin\Debug\PR41.pdb
+C:\Users\positive\source\repos\PR4\PR41\obj\Debug\PR41.csprojAssemblyReference.cache
+C:\Users\positive\source\repos\PR4\PR41\obj\Debug\PR41.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR4\PR41\obj\Debug\PR41.exe
+C:\Users\positive\source\repos\PR4\PR41\obj\Debug\PR41.pdb
