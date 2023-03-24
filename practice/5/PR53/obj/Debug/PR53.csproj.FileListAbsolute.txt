@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\PR5\PR53\bin\Debug\PR53.exe.config
+C:\Users\positive\source\repos\PR5\PR53\bin\Debug\PR53.exe
+C:\Users\positive\source\repos\PR5\PR53\bin\Debug\PR53.pdb
+C:\Users\positive\source\repos\PR5\PR53\obj\Debug\PR53.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR5\PR53\obj\Debug\PR53.exe
+C:\Users\positive\source\repos\PR5\PR53\obj\Debug\PR53.pdb
+C:\Users\positive\source\repos\PR5\PR53\obj\Debug\PR53.csprojAssemblyReference.cache
