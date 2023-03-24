@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\PR22\PR22\bin\Debug\PR22.exe.config
+C:\Users\positive\source\repos\PR22\PR22\bin\Debug\PR22.exe
+C:\Users\positive\source\repos\PR22\PR22\bin\Debug\PR22.pdb
+C:\Users\positive\source\repos\PR22\PR22\obj\Debug\PR22.csprojAssemblyReference.cache
+C:\Users\positive\source\repos\PR22\PR22\obj\Debug\PR22.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR22\PR22\obj\Debug\PR22.exe
+C:\Users\positive\source\repos\PR22\PR22\obj\Debug\PR22.pdb

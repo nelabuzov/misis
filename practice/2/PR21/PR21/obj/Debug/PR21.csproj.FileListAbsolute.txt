@@ -1,0 +1,7 @@
+C:\Users\positive\source\repos\PR21\PR21\bin\Debug\PR21.exe.config
+C:\Users\positive\source\repos\PR21\PR21\bin\Debug\PR21.exe
+C:\Users\positive\source\repos\PR21\PR21\bin\Debug\PR21.pdb
+C:\Users\positive\source\repos\PR21\PR21\obj\Debug\PR21.csprojAssemblyReference.cache
+C:\Users\positive\source\repos\PR21\PR21\obj\Debug\PR21.csproj.CoreCompileInputs.cache
+C:\Users\positive\source\repos\PR21\PR21\obj\Debug\PR21.exe
+C:\Users\positive\source\repos\PR21\PR21\obj\Debug\PR21.pdb
