@@ -1,7 +1,0 @@
-C:\Users\positive\source\repos\PR3\PR34\bin\Debug\PR4.exe.config
-C:\Users\positive\source\repos\PR3\PR34\bin\Debug\PR4.exe
-C:\Users\positive\source\repos\PR3\PR34\bin\Debug\PR4.pdb
-C:\Users\positive\source\repos\PR3\PR34\obj\Debug\PR34.csprojAssemblyReference.cache
-C:\Users\positive\source\repos\PR3\PR34\obj\Debug\PR34.csproj.CoreCompileInputs.cache
-C:\Users\positive\source\repos\PR3\PR34\obj\Debug\PR4.exe
-C:\Users\positive\source\repos\PR3\PR34\obj\Debug\PR4.pdb
