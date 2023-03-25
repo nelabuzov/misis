@@ -1,7 +1,0 @@
-C:\Users\positive\source\repos\PR5\PR52\bin\Debug\PR53.exe.config
-C:\Users\positive\source\repos\PR5\PR52\bin\Debug\PR53.exe
-C:\Users\positive\source\repos\PR5\PR52\bin\Debug\PR53.pdb
-C:\Users\positive\source\repos\PR5\PR52\obj\Debug\PR52.csprojAssemblyReference.cache
-C:\Users\positive\source\repos\PR5\PR52\obj\Debug\PR52.csproj.CoreCompileInputs.cache
-C:\Users\positive\source\repos\PR5\PR52\obj\Debug\PR53.exe
-C:\Users\positive\source\repos\PR5\PR52\obj\Debug\PR53.pdb
