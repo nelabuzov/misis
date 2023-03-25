@@ -1,6 +1,0 @@
-C:\Users\positive\source\repos\PR5\PR51\bin\Debug\PR51.exe.config
-C:\Users\positive\source\repos\PR5\PR51\bin\Debug\PR51.exe
-C:\Users\positive\source\repos\PR5\PR51\bin\Debug\PR51.pdb
-C:\Users\positive\source\repos\PR5\PR51\obj\Debug\PR51.csproj.CoreCompileInputs.cache
-C:\Users\positive\source\repos\PR5\PR51\obj\Debug\PR51.exe
-C:\Users\positive\source\repos\PR5\PR51\obj\Debug\PR51.pdb
