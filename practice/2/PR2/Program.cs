@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +8,20 @@ namespace PR2
 {
     class QuadEq
     {
-        //Инициализация переменных
+
+        // Инициализация переменных
         private double x, x1;
         private double x3 = 1;
         private double a, b, c, D;
 
-        //Установка коэффициентов
+        // Установка коэффициентов
         public void SetCoefficient(double a,double b, double c)
         {
             this.a = a;
             this.b = b;
             this.c = c;
         }
+
         public QuadEq() { }
         public QuadEq(double a, double b, double c)
         {
@@ -28,13 +30,13 @@ namespace PR2
             this.c = c;
         }
 
-        //Расчёт Дискрименанта
+        // Расчет Дискрименанта
         private double Dis(double a, double b, double c)
         {
             return (Math.Pow(b, 2) - 4 * a * c);
         }
 
-        //Расчёт квадратных уравнений всех видов
+        //Расчет квадратных уравнений всех видов
         public void CalculateRoots()
         {
             D = Dis(a, b, c);
@@ -77,7 +79,7 @@ namespace PR2
             }
         }
 
-        //Вывод значений X's
+        // Вывод значений X's
         public double[] GetX()
         {
             if (x3 == 1)
@@ -98,10 +100,11 @@ namespace PR2
     {
         static void Main(string[] args)
         {
-            //Инициальзация переменных
+
+            // Инициальзация переменных
             QuadEq Qe = new QuadEq();
-            
-            //Приветствие
+
+            // Приветствие
             Console.Write("Вас приветствует Арифмометр 0.1" +
                 "\nПравила пользования: " +
                 "\n * Уравнение писать писать слитно, без \"=0\"" +
@@ -109,23 +112,22 @@ namespace PR2
                 "\nВведите уравнение: ");
             string input = Console.ReadLine();
             Console.WriteLine("Решение: ");
-            
-            //Проверка на -
+
+            // Проверка на -
             string[] chars = input.Replace("-","+-").Split('+');
             if (chars[0] == "")
                 chars[0] = chars[0] + chars[1];    
-            
-            //Разбор на числа
+
+            // Разбор на числа
             double[] numbers = new double[chars.Length];
             for (int i = 0; i < numbers.Length; i++)
                 numbers[i] = double.Parse(chars[i].Replace("x", ""));
 
-            //Ввод переменных
-            //QuadEq Qe = new QuadEq(number[0],number[1],number[2]);
+            // Ввод переменных
             Qe.SetCoefficient(numbers[0],numbers[1], numbers[2]);
             Qe.CalculateRoots();
 
-            //Вывод значений
+            // Вывод значений
             double[] xy = Qe.GetX();
             for (int i = 0; i < xy.Length; i++)
                 Console.WriteLine($" x{i}= {xy[i]}");
