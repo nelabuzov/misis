@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +42,7 @@ namespace PR3
         {
             Console.WriteLine($"{red}, {green}, {blue}");
         }
+
         private int NormalizeColorValue(int colorValue)
         {
             if (colorValue > 255)
@@ -71,7 +72,6 @@ namespace PR3
             
             pink.DisplayColor();
             Console.ReadKey();
-            
         }
     }
 }
