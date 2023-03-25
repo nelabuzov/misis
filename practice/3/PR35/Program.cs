@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,21 +8,22 @@ namespace PR35
 {
     class RndMath
     {
-        //Инициализация свойств класса
+
+        // Инициализация свойств класса
         public double Disperation { get { return CalcDispertion(); }  }
         public double Mediana { get { return CalcMediana(); } }
         public double QuadRev { get { return CalcQuadRev(); } }
 
-        //Инициализация длины выборки
+        // Инициализация длины выборки
         private int num;
 
-        //Конструктор принимающий значения длинны поля
+        // Конструктор принимающий значения длинны поля
         public RndMath(int n)
         {
             num = n;
         }
 
-        //Метод генерации массивов с рандомными числами
+        // Метод генерации массивов с рандомными числами
         private int[] GetRndNum()
         {
             int[] rndNum = new int[num];
@@ -34,17 +35,18 @@ namespace PR35
             return rndNum;
         }
 
-        //Расчёт дисперсии
+        // Расчет дисперсии
         private double CalcDispertion()
         {
-            //Сохранение массива с рандомными числами
+
+            // Сохранение массива с рандомными числами
             int[] DispRndNum = new int[num];
             for (int i = 0; i < DispRndNum.Length; i++)
             {
                 DispRndNum[i] = GetRndNum()[i];
             }
 
-            //Вычитание значений от среднегоарифметического и возведение во квадрат
+            // Вычитание значений от среднего арифметического и возведение в квадрат
             double DispMathAvg = DispRndNum.Average();
             double[] ChAvgNum = new double[num];
             for (int i=0;i<ChAvgNum.Length;i++)
@@ -52,35 +54,37 @@ namespace PR35
                 ChAvgNum[i] = Math.Pow(DispRndNum[i] - DispMathAvg,2);
             }
 
-            //Расчёт суммы прошлого выражения
+            // Расчет суммы прошлого выражения
             double SumQuad = 0;
             for (int i=0; i<ChAvgNum.Length;i++)
             {
                 SumQuad = ChAvgNum[i] + SumQuad;
             }
 
-            //Расчёт дисперсии
+            // Расчет дисперсии
             return SumQuad / (DispRndNum.Length - 1);
         }
 
-        //Расчёт квадратичного отклонения
+        // Расчет квадратичного отклонения
         private double CalcQuadRev()
         {
-            //Отличие отклонения от дисперсии в квадрате -> дисперсия под корнем
+
+            // Отличие отклонения от дисперсии под корнем
             return Math.Sqrt(CalcDispertion());
         }
 
-        //Расчёт медианы
+        // Расчет медианы
         private double CalcMediana()
         {
-            //Сохранение массива со случайными данными
+
+            // Сохранение массива со случайными данными
             int[] MedianaRndNum = new int[num];
             for (int i = 0; i < MedianaRndNum.Length; i++)
             {
                 MedianaRndNum[i] = GetRndNum()[i];
             }
 
-            //Расчёт медианы
+            // Расчет медианы
             int sum = MedianaRndNum.Sum();
             int accum = 0;
             for (int i = 0; i < MedianaRndNum.Length; i++)
@@ -93,11 +97,13 @@ namespace PR35
             return MedianaRndNum.Length;
         }
     }
+
     class Program
     {
         static void Main(string[] args)
         {
-            //Приветствие пользователя
+
+            // Приветствие пользователя
             Console.Write("Вас приветсвует Математик-1000! Данная программа способна:" +
                 "\n* Вычислить медиану;" +
                 "\n* Дисперсии;" +
@@ -105,13 +111,13 @@ namespace PR35
                 "\n" +
                 "\nВведите количество чисел: ");
 
-            //Вввод длины выборки
+            // Ввод длины выборки
             int num = int.Parse(Console.ReadLine());
 
-            //Расчёт
+            //Расчет
             RndMath rndmath = new RndMath(num);
 
-            //Вывод значений
+            // Вывод значений
             Console.Write($"Ответы:" +
                 $"\nДисперсия: {rndmath.Disperation:f3};" +
                 $"\nСреднеквадратичное отклонение: {rndmath.QuadRev:f3};" +
