@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,35 +29,40 @@ namespace PR22
             return res.ToString();
         }
     }
+
     class Program
     {
         static void Main(string[] args)
         {
-            //Приветствие
+
+            // Приветствие
             Console.Write("Вас приветствует Цезеригма 2000" +
                 "\nКраткая информация:" +
                 "\nШифровка/Дешифровка текстов на шифре Цезеря" +
                 "\nРасшифровка или Шифрование(Р/Ш):");
             char chs = char.Parse(Console.ReadLine());
 
-            //Выбор действия
+            // Выбор действия
             if(chs == 'Ш')
             {
-                //Шифрование
+
+                // Шифрование
                 Console.Write("Введите ваше сообщение: ");
                 string txt = Console.ReadLine();
                 Console.WriteLine(CaesarCipher.encryption(txt));
             }
             else if (chs == 'Р')
             {
-                //Расшифровка
+
+                // Расшифровка
                 Console.Write("Введите ваше зашифрованное сообщение: ");
                 string crypt = Console.ReadLine();
                 Console.WriteLine(CaesarCipher.decryption(crypt));
             }
             else
             {
-                //Вслучуе если пользователь неправильно ввёл букву, то происходит закрытие
+
+                // Закрытие при ошибке
                 Environment.Exit(0);
             }
 
