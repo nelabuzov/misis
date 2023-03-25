@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace PR51
 {
-    //Интерфейс с методом 
+
+    // Интерфейс с методом 
     interface IHello
     {
         void SayHello();
     }
 
-    //Дочерний класс с интерфейсом
+    // Дочерний класс с интерфейсом
     class EngHello : IHello
     {
         public void SayHello()
@@ -21,7 +22,7 @@ namespace PR51
         }
     }
 
-    //Дочерний класс с интерфейсом
+    // Дочерний класс с интерфейсом
     class GerHallo : IHello
     {
         public void SayHello()
@@ -30,7 +31,7 @@ namespace PR51
         }
     }
 
-    //Дочерний класс с интерфейсом
+    // Дочерний класс с интерфейсом
     class PolWitam : IHello
     {
         public void SayHello()
@@ -43,15 +44,16 @@ namespace PR51
     {
         static void Main(string[] args)
         {
-            //Инициализация коллекции 
+
+            // Инициализация коллекции 
             List<IHello> interNatHello = new List<IHello>();
 
-            //Инициализации элементов коллекции с интерфейсом и дочерним классом
+            // Инициализации элементов коллекции с интерфейсом и дочерним классом
             interNatHello.Add(new EngHello());
             interNatHello.Add(new GerHallo());
             interNatHello.Add(new PolWitam());
 
-            //Перебор элементов и вывод 
+            // Перебор элементов и вывод
             foreach(IHello interhello in interNatHello)
             {
                 interhello.SayHello();
