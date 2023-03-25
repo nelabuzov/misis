@@ -22,6 +22,7 @@ namespace PR1
             return (distance / maxSpeed) * 100;
         }
     }
+
     class Program
     {
         static void Main(string[] args)
