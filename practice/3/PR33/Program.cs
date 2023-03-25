@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace PR33
 {
-    //Класс подсчёта среднего арифметического значения
+
+    // Класс подсчёта среднего арифметического значения
     class MyIntList
     {
-        //Инициализация поля
+
+        // Инициализация поля
         private List<int> numberList = new List<int>();
 
-        //Свойство вывода среднего значения 
+        // Свойство вывода среднего значения 
         public double Average
         {
             get
@@ -22,25 +24,25 @@ namespace PR33
             }
         }
 
-        //Ввод массива чисел
+        // Ввод массива чисел
         public void AddNumberRange(int[] numbers)
         {
             numberList.AddRange(numbers);
         }
 
-        //Ввод одного значения в список
+        // Ввод одного значения в список
         public void AddNumber(int number)
         {
             numberList.Add(number);
         }
 
-        //Удаление одного значения в списке
+        // Удаление одного значения в списке
         public void RemoveNumber(int number)
         {
             numberList.Remove(number);
         }
 
-        //Расчёт среднего арифметического
+        // Расчет среднего арифметического
         private double CalculateAverage()
         {
             int sum = 0;
