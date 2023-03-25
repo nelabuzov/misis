@@ -1,7 +1,0 @@
-C:\Users\positive\source\repos\PR5\PR54\obj\Debug\PR54.csprojAssemblyReference.cache
-C:\Users\positive\source\repos\PR5\PR54\obj\Debug\PR54.csproj.CoreCompileInputs.cache
-C:\Users\positive\source\repos\PR5\PR54\bin\Debug\PR54.exe.config
-C:\Users\positive\source\repos\PR5\PR54\bin\Debug\PR54.exe
-C:\Users\positive\source\repos\PR5\PR54\bin\Debug\PR54.pdb
-C:\Users\positive\source\repos\PR5\PR54\obj\Debug\PR54.exe
-C:\Users\positive\source\repos\PR5\PR54\obj\Debug\PR54.pdb
