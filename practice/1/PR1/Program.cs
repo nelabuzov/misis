@@ -10,15 +10,16 @@ namespace PR1
     {
         public int maxSpeed;
         public string Name;
-        public Car(int maxSpeed,string Name)
+        public Car(int maxSpeed, string Name)
         {
             this.Name = Name;
             this.maxSpeed = maxSpeed;
         }
-        //Расчёт времени гонщика в минутах, округление в большую сторону
+
+        // Расчет времени гонщика в минутах, округление в большую сторону
         public double CalculateTime(double distance)
         {
-            return (distance / maxSpeed)*100;
+            return (distance / maxSpeed) * 100;
         }
     }
     class Program
@@ -27,7 +28,8 @@ namespace PR1
         {
             int distance = 100;
             string win = "";
-            //Генерация значений скорости
+
+            // Генерация значений скорости
             Random rndSpeed = new Random();
             int[] mXS = {
                 rndSpeed.Next(100, 180),
@@ -36,7 +38,7 @@ namespace PR1
                 rndSpeed.Next(100, 180)
             };
 
-            //Генерация номеров гонщиков
+            // Генерация номеров гонщиков
             Random rndNum = new Random();
             string[] num = {
                 "Автомобиль-" +  rndNum.Next(0, 99),
@@ -45,13 +47,13 @@ namespace PR1
                 "Автомобиль-" + rndNum.Next(0, 99)
             };
 
-            //Инициализация классов с конструкторами
+            // Инициализация классов с конструкторами
             Car car1 = new Car(mXS[0], num[0]);
             Car car2 = new Car(mXS[1], num[1]);
             Car car3 = new Car(mXS[2], num[2]);
             Car car4 = new Car(mXS[3], num[3]);
 
-            //Расчёт времени движения гонщика в минутах
+            // Расчет времени движения гонщика в минутах
             double[] timeC = {
                 car1.CalculateTime(distance),
                 car2.CalculateTime(distance),
@@ -59,7 +61,7 @@ namespace PR1
                 car4.CalculateTime(distance)
             };    
 
-            //Вычисление победителя
+            // Вычисление победителя
             double winner = timeC.Min();
             if (winner == timeC[0])
                 win = num[0];
@@ -70,7 +72,7 @@ namespace PR1
             else if (winner == timeC[3])
                 win = num[3];
 
-            //Вывод значений
+            // Вывод значений
             Console.WriteLine($"Случайные гонки " +
                 $"\nЗаезд на 100Км " +
                 $"\n\tПобедитель: \"{win}\""+
