@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace PR34
 {
-    //Класс отвечающий за отправку сообщений
+
+    // Класс отвечающий за отправку сообщений
     class SmsMessage
     {
 
-        //Инициализация свойств класса
+        // Инициализация свойств класса
         private string messagetxt;
         private double firstprice;
         private double secondprice;
@@ -22,7 +23,7 @@ namespace PR34
         public double SecondPrice { set { secondprice = value; } }
         public int MaxLenghtMsg {set { maxlenghtmsg = value; } }
 
-        //Конструктор с приёмом аргументов(свойств)
+        // Конструктор с приемом свойств
         public SmsMessage(double fprice, double sprice, int msxlnght)
         {
             FirstPrice = fprice;
@@ -30,7 +31,7 @@ namespace PR34
             MaxLenghtMsg = msxlnght;
         }
 
-        //Перегрузка конструктора без аргументов, свойства = обычные
+        // Перегрузка конструктора без аргументов
         public SmsMessage()
         {
             FirstPrice = 1.5;
@@ -38,7 +39,7 @@ namespace PR34
             MaxLenghtMsg = 250;
         }
 
-        //Метод проверки длинны сообщения
+        // Метод проверки длинны сообщения
         private string CheckLongMess(string msg1)
         {
             if (msg1.Length > maxlenghtmsg)
@@ -50,7 +51,7 @@ namespace PR34
                     }
         }
 
-        //Метод расчёта цены сообщения
+        // Метод расчета цены сообщения
         private double MsgPrice(string msg2)
         {
             if (msg2.Length < 65)
@@ -61,12 +62,13 @@ namespace PR34
         }
     }
 
-    //Клиентский код
+    // Клиентский код
     class Program
     {
         static void Main(string[] args)
         {
-            //Приветствие
+
+            // Приветствие
             Console.Write("Вас приветсвует Телеграф-80000! Мы можем отправить ваше сообщение любому человеку, но только до 250 символов." +
                 "\nТарифы:" +
                 "\nИХ БОЛЬШЕ НЕТ! Но вы можете использовать старые или вести свои" +
@@ -74,37 +76,39 @@ namespace PR34
                 "\nСообщения > 65 символов стоят 0.5 рублей." +
                 "\nВведите ваш ответ (С/В): ");
 
-            //Ввод выбора пользователя
+            // Ввод выбора пользователя
             char answ = char.Parse(Console.ReadLine());
 
-            //Ввод пользовтаельского сообщения
+            // Ввод пользовтаельского сообщения
             Console.WriteLine("Введите ваше сообщение (max:250 по старому):");
             string msg = Console.ReadLine();
 
-            //Операция по отправке
+            // Операция по отправке
             if(answ == 'С' | answ == 'с')
             {
-                //Если используется старый формат
+
+                // Если используется старый формат
                 SmsMessage smstext = new SmsMessage();
                 smstext.MessageText = msg;
 
-                //Вывод о состоянии отправки
+                // Вывод о состоянии отправки
                 Console.Write($"\nЦена сообщения: {smstext.Price}");
             }
             else if(answ == 'В' | answ == 'в')
             {
-                //Если используетсясобственный формат
+
+                // Если используется собственный формат
                 Console.Write("Введите вашу цену для сообщения до 65 символов, после и максимальную длину сообщения (через пробел): ");
 
-                //Получение данных формата
+                // Получение данных формата
                 string srv = Console.ReadLine();
                 string[] num = srv.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                //Инициализация объекта с конструктором
+                // Инициализация объекта с конструктором
                 SmsMessage smstext = new SmsMessage(Convert.ToDouble(num[0]), Convert.ToDouble(num[1]), Convert.ToInt32(num[2]));
                 smstext.MessageText = msg;
 
-                //Вывод
+                // Вывод
                 Console.Write($"\nЦена сообщения: {smstext.Price}");
             }
             Console.ReadKey(true);
