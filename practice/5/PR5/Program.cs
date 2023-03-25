@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +7,14 @@ using System.IO;
 
 namespace PR5
 {
-    //Интерфейс с методом Voice
+
+    // Интерфейс с методом Voice
     interface IAnimal
     {
         void Voice();
     }
 
-    //Классы с интерфейсом IAnimal
+    // Классы с интерфейсом IAnimal
     class Dog : IAnimal
     {
         public void Voice()
@@ -37,6 +38,7 @@ namespace PR5
             Console.WriteLine("Курлык!");
         }
     }
+
     class Sparrow : IAnimal
     {
         public void Voice()
@@ -45,15 +47,16 @@ namespace PR5
         }
     }
 
-    class Owl :  IAnimal
+    class Owl : IAnimal
     {
-        //Чтение времени(Часа) из файла
+
+        // Чтение времени из файла
         private int GetCurrentTime()
         {
             return Convert.ToInt32(File.ReadAllText("current_time.txt"));
         }
 
-        //Проверка времени и воспроизведение звука совы
+        // Проверка времени и воспроизведение звука совы
         public void Voice()
         {
             int currentTime = GetCurrentTime();
@@ -71,7 +74,8 @@ namespace PR5
 
     class Program
     {
-        //Статический метод
+
+        // Статический метод
         static void PetAnimal(IAnimal animal)
         {
             Console.WriteLine("Мы гладим зверушку, а она нам говорит: ");
@@ -80,10 +84,11 @@ namespace PR5
 
         static void Main(string[] args)
         {
-            //Приветствие пользователя
+
+            // Приветствие пользователя
             Console.WriteLine("Вас приветсвует наш гладильный зоопарк!");
 
-            //Инициализация объектов с интерфейсом и дочерним классом
+            // Инициализация объектов с интерфейсом и дочерним классом
             Dog tuzik = new Dog();
             PetAnimal(tuzik);
 
