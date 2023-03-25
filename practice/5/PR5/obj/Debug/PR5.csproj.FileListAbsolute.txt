@@ -1,7 +1,0 @@
-C:\Users\positive\source\repos\PR5\PR5\bin\Debug\PR5.exe.config
-C:\Users\positive\source\repos\PR5\PR5\bin\Debug\PR5.exe
-C:\Users\positive\source\repos\PR5\PR5\bin\Debug\PR5.pdb
-C:\Users\positive\source\repos\PR5\PR5\obj\Debug\PR5.csprojAssemblyReference.cache
-C:\Users\positive\source\repos\PR5\PR5\obj\Debug\PR5.csproj.CoreCompileInputs.cache
-C:\Users\positive\source\repos\PR5\PR5\obj\Debug\PR5.exe
-C:\Users\positive\source\repos\PR5\PR5\obj\Debug\PR5.pdb
