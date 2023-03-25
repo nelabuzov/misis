@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,10 +31,8 @@ namespace PR6
 
     }
 
-
     class Smartphone : Phone
     {
-
         public Smartphone(string model, string number, double cameraResolution) : base(model, number)
         {
             CameraResolution = cameraResolution;
@@ -47,8 +45,8 @@ namespace PR6
             Console.WriteLine("Снимок сделан");
             WriteToLog($"Снимок сделан");
         }
-
     }
+
     class Program
     {
         static void Main(string[] args)
