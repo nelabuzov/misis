@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace PR53
 {
-    //Интерфейс с методом для создания фигур
+
+    // Интерфейс с методом для создания фигур
     interface IShare
     {
         void Draw(int size);
     }
 
-    //Класс позволяющий рисовать прямую вертикальную линию
+    // Класс позволяющий рисовать прямую вертикальную линию
     class VerticalLine : IShare
     {
         public void Draw(int size)
@@ -22,7 +23,7 @@ namespace PR53
         }
     }
 
-    //Класс рисующий горизонтальную линию
+    // Класс рисующий горизонтальную линию
     class HorizontalLine : IShare
     {
         public void Draw(int size)
@@ -32,7 +33,7 @@ namespace PR53
         }
     }
 
-    //Класс отрисовывающий квадрат
+    // Класс отрисовывающий квадрат
     class Square : IShare
     {
        public void Draw(int size)
@@ -50,12 +51,13 @@ namespace PR53
     {
         static void Main(string[] args)
         {
-            //Инициализация объектов
+
+            // Инициализация объектов
             IShare square = new Square();
             IShare vertLine = new VerticalLine();
             IShare horline = new HorizontalLine();
 
-            //Приветствие пользователя
+            // Приветствие пользователя
             Console.Write("Вас приветсвует генератор простых и не очень геометрических фигур!" +
                 "\nВозможности: " +
                 "\n* Отрисовка вертикальных/горизонтальных линий;" +
@@ -63,17 +65,17 @@ namespace PR53
                 "\n" +
                 "\nВыберите фигуру (К/Г/В): ");
 
-            //Получение ответа
+            // Получение ответа
             char answ = char.Parse(Console.ReadLine());
 
-            //Получение размера фигуры
+            // Получение размера фигуры
             Console.Write("Введите её размер: ");
             int size = int.Parse(Console.ReadLine());
 
-            //Отступ
+            // Отступ
             Console.WriteLine("");
 
-            //Отрисовка
+            // Отрисовка
             if (answ == 'К' | answ == 'к')
                 square.Draw(size);
             else if (answ == 'Г' | answ == 'г')
