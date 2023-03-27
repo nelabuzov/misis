@@ -193,7 +193,7 @@
 			</div>
 		</section>
 
-		<section class='data'>
+		<section class='data jobs'>
 			<div class='job' id='job'>
 
 				<?php if(!empty($applicant['full_name']) && !empty($applicant['region']) && !empty($applicant['phone_number'])): ?>
@@ -201,14 +201,14 @@
 					<?php foreach($applicants_job as $job): ?>
 						<div class='job__item'>
 							<div class='demand'><?= $job['price'] ?> руб.</div>
-							<h3><?= $applicant['full_name'] ?></h3>
+							<h3><?= $job['full_name'] ?></h3>
 							<div class='demand'><?= $job['experience'] ?> год опыта</div>
-							<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
+							<div class='search'><?= $job['job'] ?> (<?= $job['region'] ?>)</div>
 							<p><?= $job['description'] ?></p>
 
 							<div>
-								<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
-								<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
+								<a class='btn' href='mailto:<?= $job['email'] ?>'><?= $job['email'] ?></a>
+								<a class='btn' href='tel:<?= $job['phone_number'] ?>'><?= $job['phone_number'] ?></a>
 							</div>
 
 							<a class='btn btn__job btn--del' href='vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>

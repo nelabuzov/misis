@@ -161,7 +161,7 @@
 		</div>
 	<?php endif ?>
 
-	<header class='header'>
+	<header class='header__outer header'>
 		<div class="menu__top">
 			<div class='header__inner container'>
 				<a class='logo' href='#'>Work<span>Flow</span></a>
@@ -431,10 +431,10 @@
 		</div>
 	</section>
 
-	<section class='container'>
+	<section class='feedback__outer' id='feedback'>
 		<h2>Обратная связь</h2>
 
-		<section class='feedback' id='feedback'>
+		<section class='feedback'>
 			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' loading='lazy'></iframe>
 
 			<div class='feedback__inner'>

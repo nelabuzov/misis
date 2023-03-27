@@ -1,7 +1,15 @@
 @use '../util' as *;
 
-section:has(.feedback) h2 {
-  text-align: center;
+.feedback__outer {
+  padding-top: rem(60);
+
+  @include breakpoint-down(medium) {
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+  }
 }
 
 .feedback {

@@ -215,7 +215,7 @@
 		</div>
 	</header>
 
-	<main class='container'>
+	<main class='data__outer container'>
 		<section class='data'>
 			<div class='job' id='job'>
 

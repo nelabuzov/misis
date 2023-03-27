@@ -1,5 +1,9 @@
 @use '../util' as *;
 
+.jobs {
+  margin-top: rem(50);
+}
+
 .job {
   position: unset;
   display: flex;
@@ -19,7 +23,7 @@
     position: relative;
 
     &:not(:last-child) {
-      margin-bottom: rem(40);
+      margin-top: rem(40);
     }
 
     div:last-child {
@@ -50,6 +54,10 @@
 
   .swiper-slide {
     margin-bottom: 0;
+
+    &.job__item {
+      margin-top: 0;
+    }
 
     &:hover img {
       filter: none;

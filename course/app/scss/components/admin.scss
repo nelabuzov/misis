@@ -9,7 +9,6 @@ section:has(.data) h2 {
 }
 
 .data {
-  margin: rem(50) 0;
   width: 100%;
 
   &:has(table) {
@@ -62,6 +61,7 @@ section:has(.data) h2 {
   position: relative;
   text-align: center;
   width: rem(425);
+  margin-top: rem(50);
 
   &::before {
     content: '';

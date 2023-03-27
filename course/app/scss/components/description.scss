@@ -8,11 +8,15 @@
   @include breakpoint-down(medium) {
     flex-direction: column;
     text-align: center;
-    margin: rem(100) 0;
+    padding: rem(100) 0;
 
     &__inner {
       width: 100% !important;
       margin-bottom: rem(50);
+
+      p {
+        margin: 0;
+      }
     }
   }
 

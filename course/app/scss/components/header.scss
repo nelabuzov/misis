@@ -2,6 +2,7 @@
 
 .header {
   background-color: var(--white);
+  margin-bottom: rem(100);
   font-weight: 700;
 
   @include breakpoint-down(medium) {
@@ -26,6 +27,10 @@
     a.menu--active {
       box-shadow: none;
     }
+  }
+
+  &.header__outer {
+    margin: 0;
   }
 
   .menu {
@@ -82,7 +87,7 @@
     transition: color var(--transition-min);
     box-shadow: 0 0 rem(10) var(--black) inset;
     background: var(--gray-400);
-    position: fixed;
+    position: absolute;
     top: rem(-230);
     left: 0;
     height: rem(230);

@@ -6,7 +6,9 @@
 	position: relative;
 	margin: 0 auto;
 
-	&:not(.header__inner, .account__outer, .data__outer) {
+	&:not(.header__inner,
+		.account__outer,
+		.data__outer) {
 
 		@include breakpoint(large) {
 			padding: rem(60) rem(25);

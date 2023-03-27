@@ -190,7 +190,7 @@
 			</div>
 		</section>
 
-		<section class='data'>
+		<section class='data jobs'>
 			<div class='job' id='job'>
 
 				<?php if(!empty($employer['name']) && !empty($employer['region']) && !empty($employer['phone_number'])): ?>
