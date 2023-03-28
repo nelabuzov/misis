@@ -12,6 +12,7 @@
       $stmt -> execute([$_GET['id']]);
     }
 
-    header('Location: index.php');
+    setcookie('account', $account['email'], time() - 100000, '/course');
+    header('Location: ../../index.php');
   }
 ?>

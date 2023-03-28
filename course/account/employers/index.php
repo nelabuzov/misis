@@ -19,7 +19,7 @@
 	<meta charset='UTF-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Страница Пользователя</title>
+	<title>WORKFLOW - страница пользователя</title>
 
   <link rel='shortcut icon' href='../../images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='../../dist/style.css'>
@@ -174,7 +174,7 @@
 						<input id='price' name='price' type='number' placeholder='Введите число *' required>
 					</label>
 					<label for='name'>Название:
-						<input id='name' name='name' type='text' placeholder='Введите текст *' value='<?php echo $applicant['name'] ?>' required>
+						<input id='name' name='name' type='text' placeholder='Введите текст *' value='<?php echo $employer['name'] ?>' required>
 					</label>
 					<label for='experience'>Опыт:
 						<input id='experience' name='experience' type='number' placeholder='Введите число *' required>
@@ -183,7 +183,7 @@
 						<input id='job' name='job' type='text' placeholder='Введите текст *' required>
 					</label>
 					<label for='region'>Регион:
-						<input id='region' name='region' type='text' placeholder='Введите текст *' value='<?php echo $applicant['region'] ?>' required>
+						<input id='region' name='region' type='text' placeholder='Введите текст *' value='<?php echo $employer['region'] ?>' required>
 					</label>
 					<label for='description'>Описание:
 						<textarea id='description' name='description' placeholder='Введите текст *' required></textarea>
@@ -192,10 +192,10 @@
 					<br>
 
 					<label for='email'>Почта:
-						<input id='email' name='email' type='email' placeholder='Введите почту *' value='<?php echo $applicant['email'] ?>' required>
+						<input id='email' name='email' type='email' placeholder='Введите почту *' value='<?php echo $employer['email'] ?>' required>
 					</label>
 					<label for='phone_number'>Телефон:
-						<input id='phone_number' name='phone_number' type='tel' placeholder='Введите номер *' value='<?php echo $applicant['phone_number'] ?>' required>
+						<input id='phone_number' name='phone_number' type='tel' placeholder='Введите номер *' value='<?php echo $employer['phone_number'] ?>' required>
 					</label>
 
 					<br>
