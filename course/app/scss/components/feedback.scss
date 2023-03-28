@@ -2,13 +2,10 @@
 
 .feedback__outer {
   padding-top: rem(60);
+  text-align: center;
 
   @include breakpoint-down(medium) {
     padding: 0;
-  }
-
-  h2 {
-    text-align: center;
   }
 }
 
@@ -57,8 +54,6 @@
       border: none;
       position: relative;
       top: rem(94);
-      left: 50%;
-      transform: translateX(-50%);
       font-size: rem(25);
       font-weight: 700;
       cursor: pointer;

@@ -1,5 +1,9 @@
 @use '../util' as *;
 
+.slider.container {
+  padding-top: 0;
+}
+
 .jobs {
   margin-top: rem(50);
 }

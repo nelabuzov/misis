@@ -23,6 +23,7 @@ body {
 	font-family: var(--font-body);
 
 	@include breakpoint-down(medium) {
+		text-align: center;
 
 		.account__menu {
 			right: auto;

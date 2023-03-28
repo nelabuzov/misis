@@ -17,9 +17,6 @@
 		$applicants = $stmt -> fetchAll();
 	}
 
-	$stmt = $pdo -> query('SELECT * FROM employers');
-	$employers_all = $stmt -> fetchAll();
-
 	$stmt = $pdo -> query('SELECT * FROM employers_job');
 	$employers_job = $stmt -> fetchAll();
 ?>
@@ -219,23 +216,19 @@
 		<section class='data'>
 			<div class='job' id='job'>
 
-				<?php foreach($employers_all as $key => $employer): ?>
+				<?php foreach($employers_job as $job): ?>
+					<div class='job__item'>
+						<div class='demand'><?= $job['price'] ?> руб.</div>
+						<h3><?= $job['name'] ?></h3>
+						<div class='demand'><?= $job['experience'] ?> год опыта</div>
+						<div class='search'><?= $job['job'] ?> (<?= $job['region'] ?>)</div>
+						<p><?= $job['description'] ?></p>
 
-					<?php foreach($employers_job as $job): ?>
-						<div class='job__item'>
-							<div class='demand'><?= $job['price'] ?> руб.</div>
-							<h3><?= $employer['name'] ?></h3>
-							<div class='demand'><?= $job['experience'] ?> год опыта</div>
-							<div class='search'><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
-							<p><?= $job['description'] ?></p>
-
-							<div>
-								<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
-								<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
-							</div>
+						<div>
+							<a class='btn' href='mailto:<?= $job['email'] ?>'><?= $job['email'] ?></a>
+							<a class='btn' href='tel:<?= $job['phone_number'] ?>'><?= $job['phone_number'] ?></a>
 						</div>
-					<?php endforeach ?>
-
+					</div>
 				<?php endforeach ?>
 
     	</div>

@@ -225,9 +225,9 @@
 		<div class='container'>
 			<div class='hero__inner'>
 				<div>
-					<h1>Работа со <span>всей</span> россии</h1>
+					<h1>Работа со <span>всей</span> России</h1>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere delectus molestias ad vel quibusdam fugiat cum, voluptates esse, quasi corrupti quidem optio repellat beatae et.
+						Экономические возможности во всероссийской рабочей площадке, где компании всех размеров и независимые таланты со всего мира встречаются, чтобы добиться невероятных результатов
 					</p>
 				</div>
 			</div>
@@ -239,6 +239,8 @@
 	</section>
 
 	<section class='slider container'>
+		<h2>Работают с нами</h2>
+
 		<div class='job__slider'>
 			<div class='swiper job'>
 				<div class='swiper-wrapper'>
@@ -337,7 +339,7 @@
 		<div class='description__inner'>
 			<h2>О сервисе</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptas perferendis cupiditate! At vero molestiae sint, voluptates adipisci eius fugit odit itaque aliquid deserunt illum aperiam rem debitis voluptas esse eveniet quam ut quo laudantium sit est nesciunt! Aperiam at harum ullam, modi alias dicta eius hic, itaque ut debitis quo dolorem! Architecto fuga et hic quo accusamus aperiam reprehenderit exercitationem perferendis, perspiciatis sint ad id, nulla veniam in mollitia, rerum cupiditate enim ipsa quasi nemo porro consectetur quis doloribus ut. Voluptatem eveniet obcaecati, officiis excepturi debitis velit veniam doloremque repudiandae rerum omnis quo provident fugit dolore ex molestias laborum?
+				WORKFLOW это площадка для подбора работодателей и соискателей, объединяющая пользователей со всей России. Работодатели могут нанимать соискателей для выполнения работы в различных областях, как разработка программного обеспечения, написание текстов и тому подобные, а соискатели устроится на перспективную работу
 			</p>
 		</div>
 
