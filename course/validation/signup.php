@@ -5,24 +5,24 @@
   $cpassword = filter_var(trim($_POST['cpassword']));
   $category = filter_var(trim($_POST['category']));
 
-  if(mb_strlen($nickname) < 5 || mb_strlen($nickname) > 50) {
+  if(mb_strlen($nickname) < 4 || mb_strlen($nickname) > 20) {
     echo
     '<script>
-      alert("Недопустимая длина логина (от 5 до 50 символов)");
+      alert("Недопустимая длина логина (от 4 до 20 символов)");
       window.location="../index.php";
     </script>';
     exit();
-  } elseif(mb_strlen($email) < 5 || mb_strlen($email) > 50) {
+  } elseif(mb_strlen($email) < 12 || mb_strlen($email) > 40) {
     echo
     '<script>
-      alert("Недопустимая длина почты (от 5 до 50 символов)");
+      alert("Недопустимая длина почты (от 12 до 40 символов)");
       window.location="../index.php";
     </script>';
     exit();
-  } elseif(mb_strlen($password) < 5 || mb_strlen($password) > 50) {
+  } elseif(mb_strlen($password) < 6 || mb_strlen($password) > 40) {
     echo
     '<script>
-      alert("Недопустимая длина пароля (от 5 до 50 символов)");
+      alert("Недопустимая длина пароля (от 6 до 40 символов)");
       window.location="../index.php";
     </script>';
     exit();
@@ -35,7 +35,6 @@
     exit();
   }
 
-  // $password = md5($password.'fa32tro8');
   $mysql = new mysqli('localhost', 'root', '', 'workflow');
 
   if(isset($_POST['category'])) {

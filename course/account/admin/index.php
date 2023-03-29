@@ -152,9 +152,9 @@
                   <a class='btn btn--del' href='delete.php?id=<?= $admin['id'] ?>'>Удалить</a>
                 </td>
 
-                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $admin['nickname'] ?>'></td>
-                <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $admin['email'] ?>'></td>
-                <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $admin['password'] ?>'></td>
+                <td><input name='nickname' type='text' placeholder='Введите псевдоним *' value='<?php echo $admin['nickname'] ?>' required></td>
+                <td><input name='email' type='email' placeholder='Введите почту *' value='<?php echo $admin['email'] ?>' required></td>
+                <td><input name='password' type='password' placeholder='Введите пароль *' value='<?php echo $admin['password'] ?>' required></td>
               </tr>
             <?php endforeach ?>
 
@@ -190,10 +190,10 @@
                 <td><?= $key + 1 ?></td>
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
-                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $employer['nickname'] ?>'></td>
-                <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
-                <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
-                <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
+                <td><input name='nickname' type='text' placeholder='Введите псевдоним *' value='<?php echo $employer['nickname'] ?>' required></td>
+                <td><input name='email' type='email' placeholder='Введите почту *' value='<?php echo $employer['email'] ?>' required></td>
+                <td><input name='password' type='password' placeholder='Введите пароль *' value='<?php echo $employer['password'] ?>' required></td>
+                <td><input name='phone_number' type='tel' placeholder='Введите номер *' value='<?php echo $employer['phone_number'] ?>' required></td>
               </tr>
             <?php endforeach ?>
 
@@ -229,12 +229,12 @@
 
                 <td><?= $key + 1 ?></td>
                 <td><input name='full_name' type='text' placeholder='Введите текст' value='<?php echo $applicant['full_name'] ?>'></td>
-                <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
-                <td><input name='birthday' type='date' placeholder='Введите дату' value='<?php echo $applicant['birthday'] ?>'></td>
-                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $applicant['nickname'] ?>'></td>
-                <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $applicant['email'] ?>'></td>
-                <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $applicant['password'] ?>'></td>
-                <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $applicant['phone_number'] ?>'></td>
+								<td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $applicant['region'] ?>'></td>
+								<td><input name='birthday' type='date' value='<?php echo $applicant['birthday'] ?>' required></td>
+								<td><input name='nickname' type='text' placeholder='Введите псевдоним *' value='<?php echo $applicant['nickname'] ?>' required></td>
+								<td><input name='email' type='email' placeholder='Введите почту *' value='<?php echo $applicant['email'] ?>' required></td>
+								<td><input name='password' type='password' placeholder='Введите пароль *' value='<?php echo $applicant['password'] ?>' required></td>
+								<td><input name='phone_number' type='tel' placeholder='Введите номер *' value='<?php echo $applicant['phone_number'] ?>' required></td>
               </tr>
             <?php endforeach ?>
 
@@ -249,25 +249,21 @@
 			<div class='data'>
 				<div class='job' id='job'>
 
-					<?php foreach($employers as $key => $employer): ?>
+					<?php foreach($employers_job as $job): ?>
+						<div class='job__item'>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h3><?= $job['name'] ?></h3>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $job['region'] ?>)</div>
+							<p><?= $job['description'] ?></p>
 
-						<?php foreach($employers_job as $job): ?>
-							<div class='job__item'>
-								<div class='demand'><?= $job['price'] ?> руб.</div>
-								<h3><?= $employer['name'] ?></h3>
-								<div class='demand'><?= $job['experience'] ?> год опыта</div>
-								<div class='search'><?= $job['job'] ?> (<?= $employer['region'] ?>)</div>
-								<p><?= $job['description'] ?></p>
-
-								<div>
-									<a class='btn' href='mailto:<?= $employer['email'] ?>'><?= $employer['email'] ?></a>
-									<a class='btn' href='tel:<?= $employer['phone_number'] ?>'><?= $employer['phone_number'] ?></a>
-								</div>
-
-								<a class='btn btn__job btn--del' href='employers/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
+							<div>
+								<a class='btn' href='mailto:<?= $job['email'] ?>'><?= $job['email'] ?></a>
+								<a class='btn' href='tel:<?= $job['phone_number'] ?>'><?= $job['phone_number'] ?></a>
 							</div>
-						<?php endforeach ?>
 
+							<a class='btn btn__job btn--del' href='employers/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
+						</div>
 					<?php endforeach ?>
 
 				</div>
@@ -280,25 +276,21 @@
 			<div class='data'>
 				<div class='job' id='job'>
 
-					<?php foreach($applicants as $key => $applicant): ?>
+					<?php foreach($applicants_job as $job): ?>
+						<div class='job__item'>
+							<div class='demand'><?= $job['price'] ?> руб.</div>
+							<h3><?= $job['full_name'] ?></h3>
+							<div class='demand'><?= $job['experience'] ?> год опыта</div>
+							<div class='search'><?= $job['job'] ?> (<?= $job['region'] ?>)</div>
+							<p><?= $job['description'] ?></p>
 
-						<?php foreach($applicants_job as $job): ?>
-							<div class='job__item'>
-								<div class='demand'><?= $job['price'] ?> руб.</div>
-								<h3><?= $applicant['full_name'] ?></h3>
-								<div class='demand'><?= $job['experience'] ?> год опыта</div>
-								<div class='search'><?= $job['job'] ?> (<?= $applicant['region'] ?>)</div>
-								<p><?= $job['description'] ?></p>
-
-								<div>
-									<a class='btn' href='mailto:<?= $applicant['email'] ?>'><?= $applicant['email'] ?></a>
-									<a class='btn' href='tel:<?= $applicant['phone_number'] ?>'><?= $applicant['phone_number'] ?></a>
-								</div>
-
-								<a class='btn btn__job btn--del' href='applicants/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
+							<div>
+								<a class='btn' href='mailto:<?= $job['email'] ?>'><?= $job['email'] ?></a>
+								<a class='btn' href='tel:<?= $job['phone_number'] ?>'><?= $job['phone_number'] ?></a>
 							</div>
-						<?php endforeach ?>
 
+							<a class='btn btn__job btn--del' href='applicants/vacancy/delete.php?id=<?= $job['id'] ?>'>Удалить</a>
+						</div>
 					<?php endforeach ?>
 
 				</div>

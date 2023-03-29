@@ -13,6 +13,17 @@
   display: flex;
   flex-direction: column-reverse;
 
+  @include breakpoint-down(medium) {
+
+    &__item {
+      text-align: left;
+
+      .demand {
+        margin-left: rem(20);
+      }
+    }
+  }
+
   &__slider {
     display: flex;
     position: relative;

@@ -70,8 +70,8 @@
 			<div id='login'>
 				<h2>Вход</h2>
 				<form action='validation/login.php' method='post'>
-					<input type='text' class='form-control' name='text' id='text' placeholder='Введите псевдоним или почту' required>
-					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
+					<input type='text' class='form-control' name='text' id='text' placeholder='Введите псевдоним или почту *' required>
+					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль *' required>
 					<button type='submit' class='btn'>Вход</button>
 				</form>
 				<p>Нет аккаунта? <a href='index.php#popup-signup'>Зарегистрироваться</a></p>
@@ -88,10 +88,10 @@
 			<div id='signup'>
 				<h2>Регистрация</h2>
 				<form action='validation/signup.php' method='post'>
-					<input type='text' class='form-control' name='nickname' id='nickname' placeholder='Введите псевдоним' required>
-					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту' required>
-					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль' required>
-					<input type='password' class='form-control' name='cpassword' id='cpassword' placeholder='Повторите пароль' required>
+					<input type='text' class='form-control' name='nickname' id='nickname' placeholder='Введите псевдоним *' required>
+					<input type='email' class='form-control' name='email' id='email' placeholder='Введите почту *' required>
+					<input type='password' class='form-control' name='password' id='password' placeholder='Введите пароль *' required>
+					<input type='password' class='form-control' name='cpassword' id='cpassword' placeholder='Повторите пароль *' required>
           <div>
           	<label for='employer'><input type='radio' name='category' id='employer' value='1' checked>Работодатель</label>
 						<label for='applicant'><input type='radio' name='category' id='applicant' value='2'>Соискатель</label>

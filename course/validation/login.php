@@ -2,8 +2,6 @@
   $text = filter_var(trim($_POST['text']));
   $password = filter_var(trim($_POST['password']));
 
-  // $password = md5($password.'fa32tro8');
-
   $mysql = new mysqli('localhost', 'root', '', 'workflow');
 
   $admin = $mysql -> query("SELECT * FROM admin WHERE (nickname = '$text' OR email = '$text') AND password = '$password'");

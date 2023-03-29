@@ -41,6 +41,26 @@ section:has(.data) h2 {
 .form {
   display: flex;
 
+  @include breakpoint-down(medium) {
+    flex-direction: column;
+
+    * {
+      width: 100% !important;
+    }
+
+    form {
+      margin-bottom: rem(50);
+
+      label {
+        text-align: left;
+      }
+    }
+  }
+
+  >* {
+    width: 50%;
+  }
+
   label {
     display: block;
     text-align: right;
@@ -49,29 +69,5 @@ section:has(.data) h2 {
     textarea {
       width: rem(350);
     }
-  }
-}
-
-.error {
-  padding: rem(10);
-  border-radius: rem(25);
-  color: var(--white);
-  font-weight: 700;
-  background-color: var(--gray-400);
-  position: relative;
-  text-align: center;
-  width: rem(425);
-  margin-top: rem(50);
-
-  &::before {
-    content: '';
-    width: rem(25);
-    height: rem(25);
-    display: inline-block;
-    background-color: var(--gray-400);
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
-    position: absolute;
-    top: rem(-25);
-    left: rem(25);
   }
 }

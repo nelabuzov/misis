@@ -153,10 +153,10 @@
 
                 <td><input name='name' type='text' placeholder='Введите текст' value='<?php echo $employer['name'] ?>'></td>
                 <td><input name='region' type='text' placeholder='Введите текст' value='<?php echo $employer['region'] ?>'></td>
-                <td><input name='nickname' type='text' placeholder='Введите псевдоним' value='<?php echo $employer['nickname'] ?>'></td>
-                <td><input name='email' type='email' placeholder='Введите почту' value='<?php echo $employer['email'] ?>'></td>
-                <td><input name='password' type='password' placeholder='Введите пароль' value='<?php echo $employer['password'] ?>'></td>
-                <td><input name='phone_number' type='tel' placeholder='Введите номер' value='<?php echo $employer['phone_number'] ?>'></td>
+                <td><input name='nickname' type='text' placeholder='Введите псевдоним *' value='<?php echo $employer['nickname'] ?>' required></td>
+                <td><input name='email' type='email' placeholder='Введите почту *' value='<?php echo $employer['email'] ?>' required></td>
+                <td><input name='password' type='password' placeholder='Введите пароль *' value='<?php echo $employer['password'] ?>' required></td>
+                <td><input name='phone_number' type='tel' placeholder='Введите номер *' value='<?php echo $employer['phone_number'] ?>' required></td>
               </tr>
             <?php endforeach ?>
 
