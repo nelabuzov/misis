@@ -1,22 +1,27 @@
 <?php
 	require_once 'db.php';
 
+	// Условие если вошел пользователь
 	if (isset($_COOKIE['account'])) {
 		$cookie = $_COOKIE['account'];
 
+		// Проверка наличия админа
 		$stmt = $pdo -> prepare("SELECT * FROM admin WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$admin = $stmt -> fetchAll();
 
+		// Проверка наличия работодателя
 		$stmt = $pdo -> prepare("SELECT * FROM employers WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$employers = $stmt -> fetchAll();
 	
+		// Проверка наличия соискателя
 		$stmt = $pdo -> prepare("SELECT * FROM applicants WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$applicants = $stmt -> fetchAll();
 	}
 
+	// Вывод вакансий соискателей
 	$stmt = $pdo -> query("SELECT * FROM applicants_job");
 	$applicants_job = $stmt -> fetchAll();
 ?>
@@ -30,11 +35,27 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<title>WORKFLOW - поиск персонала и публикация вакансий</title>
 
+	<!-- SEO -->
+	<meta name='description' content='Работа со всей России'>
+	<meta name='keywords' content='Работа, Персонал, Вакансии, Профессия, Деньги'>
+	<meta name='author' content='thelabuzov'>
+	<meta name='copyright' content='Дмитрий Лабузов'>
+	<meta property='og:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta property='og:description' content='Работа со всей России'>
+	<meta property='og:image' content='images/content/promo.png'>
+	<meta property='og:site_name' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta name='twitter:site' content='thelabuzov'>
+	<meta name='twitter:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta name='twitter:description' content='Работа со всей России'>
+	<meta name='twitter:image' content='images/content/promo.png'>
+
+	<!-- Подключение внешних объектов -->
   <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='dist/style.css'>
 </head>
 
 <body>
+	<!-- Загрузка страницы -->
 	<div class='loader'>
 		<svg width='200' height='200' viewBox='0 0 100 100'>
 			<polyline class='line' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
@@ -44,10 +65,12 @@
 		</svg>
 	</div>
 
+	<!-- Условие для гостя -->
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
+	<!-- Попап для входа -->
 	<div id='popup-login' class='overlay'>
 		<a class='cancel' href='#'></a>
 		<div class='popup'>
@@ -66,6 +89,7 @@
 		</div>
 	</div>
 
+	<!-- Попап для регистрации -->
 	<div id='popup-signup' class='overlay'>
 		<a class='cancel' href='#'></a>
 		<div class='popup'>
@@ -90,7 +114,9 @@
 		</div>
 	</div>
 
+	<!-- Условие для пользователя -->
 	<?php else: ?>
+		<!-- Выравнивание кнопки пользователя -->
 		<style>
 			.account {
 				display: inline-flex;
@@ -124,10 +150,12 @@
 			}
 		</style>
 
+		<!-- Кнопка пользователя -->
 		<div class='account__outer container'>
 			<div class='account' onclick='showHide()'>
 				<img src='images/tools/user.svg' alt='user' loading='lazy'>
 
+				<!-- Ссылка типа профиля -->
 				<div class='account__menu hidden' id='menu'>
 
 					<?php if($employers): ?>
@@ -147,15 +175,20 @@
 		</div>
 	<?php endif ?>
 
+	<!-- Шапка -->
 	<header class='header'>
 		<div class="menu__top">
 			<div class='header__inner container'>
 				<a class='logo' href='index.php'>Work<span>Flow</span></a>
 
+				<!-- Строка поиска -->
 				<input type='text' placeholder='Специальность / Регион' id='input' onkeyup='filterList()'>
 
+				<!-- Гамбургер -->
 				<div class='menu__outer'>
 					<a href="#" class="menu__toggle">☰</a>
+
+					<!-- Меню гамбургера -->
 					<nav class="menu__box">
 						<ul>
 							<li>
@@ -181,6 +214,7 @@
 					</nav>
 				</div>
 
+				<!-- Кнопки для аккаунта -->
 				<div class='btns'>
 					<a class='btn btn__account' href='applicant.php#popup-login'>Вход
 						<img src='images/tools/account.svg' alt='account' loading='lazy'>
@@ -192,6 +226,7 @@
 			</div>
 		</div>
 
+		<!-- Нижнее меню шапки -->
 		<div class='menu'>
 			<nav class='header__inner container'>
 				<ul>
@@ -212,6 +247,7 @@
 		</div>
 	</header>
 
+	<!-- Вакансии работодателей -->
 	<main class='data__outer container'>
 		<section class='data'>
 			<div class='job' id='job'>
@@ -235,8 +271,10 @@
 		</section>
 	</main>
 
+	<!-- Подвал -->
 	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
 
+	<!-- Скрипты -->
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
 	<script src='dist/script.js'></script>
 </body>

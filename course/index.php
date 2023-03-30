@@ -1,17 +1,21 @@
 <?php
 	require_once 'db.php';
 
+	// Условие если вошел пользователь
 	if (isset($_COOKIE['account'])) {
 		$cookie = $_COOKIE['account'];
 
+		// Проверка наличия админа
 		$stmt = $pdo -> prepare("SELECT * FROM admin WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$admins = $stmt -> fetch();
 
+		// Проверка наличия работодателя
 		$stmt = $pdo -> prepare("SELECT * FROM employers WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$employers = $stmt -> fetch();
 
+		// Проверка наличия соискателя
 		$stmt = $pdo -> prepare("SELECT * FROM applicants WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$applicants = $stmt -> fetch();
@@ -34,21 +38,22 @@
 	<meta name='copyright' content='Дмитрий Лабузов'>
 	<meta property='og:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
 	<meta property='og:description' content='Работа со всей России'>
-	<!-- <meta property='og:image' content='./images/promo.webp'> -->
+	<meta property='og:image' content='images/content/promo.png'>
 	<meta property='og:site_name' content='WORKFLOW - поиск персонала и публикация вакансий'>
 	<meta name='twitter:site' content='thelabuzov'>
 	<meta name='twitter:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
 	<meta name='twitter:description' content='Работа со всей России'>
-	<!-- <meta name='twitter:image' content='./images/promo.webp'> -->
+	<meta name='twitter:image' content='images/content/promo.png'>
 
 	<!-- Подключение внешних объектов -->
   <link rel='shortcut icon' href='images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'>
-	<link rel='stylesheet' href='assets/css/animate.min.css'>
+	<link rel='stylesheet' href='assets/css/animate.css'>
 	<link rel='stylesheet' href='dist/style.css'>
 </head>
 
 <body>
+	<!-- Загрузка страницы -->
 	<div class='loader'>
 		<svg width='200' height='200' viewBox='0 0 100 100'>
 			<polyline class='line' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
@@ -58,10 +63,12 @@
 		</svg>
 	</div>
 
+	<!-- Условие для гостя -->
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
+	<!-- Попап для входа -->
 	<div id='popup-login' class='overlay'>
 		<a class='cancel' href='#'></a>
 		<div class='popup'>
@@ -80,6 +87,7 @@
 		</div>
 	</div>
 
+	<!-- Попап для регистрации -->
 	<div id='popup-signup' class='overlay'>
 		<a class='cancel' href='#'></a>
 		<div class='popup'>
@@ -104,7 +112,9 @@
 		</div>
 	</div>
 
+	<!-- Условие для пользователя -->
 	<?php else: ?>
+		<!-- Выравнивание кнопки пользователя -->
 		<style>
 			.account {
 				display: inline-flex;
@@ -138,10 +148,12 @@
 			}
 		</style>
 
+		<!-- Кнопка пользователя -->
 		<div class='account__outer container'>
 			<div class='account' onclick='showHide()'>
 				<img src='images/tools/user.svg' alt='user' loading='lazy'>
 
+				<!-- Ссылка типа профиля -->
 				<div class='account__menu hidden' id='menu'>
 
 					<?php if($employers): ?>
@@ -161,13 +173,17 @@
 		</div>
 	<?php endif ?>
 
+	<!-- Шапка -->
 	<header class='header__outer header'>
 		<div class="menu__top">
 			<div class='header__inner container'>
 				<a class='logo' href='#'>Work<span>Flow</span></a>
 
+				<!-- Гамбургер -->
 				<div class='menu__outer'>
 					<a href="#" class="menu__toggle">☰</a>
+
+					<!-- Меню гамбургера -->
 					<nav class="menu__box">
 						<ul>
 							<li>
@@ -190,6 +206,7 @@
 					</nav>
 				</div>
 
+				<!-- Кнопки для аккаунта -->
 				<div class='btns'>
 					<a class='btn btn__account' href='index.php#popup-login'>Вход
 						<img src='images/tools/account.svg' alt='account' loading='lazy'>
@@ -201,6 +218,7 @@
 			</div>
 		</div>
 
+		<!-- Нижнее меню шапки -->
 		<div class='menu'>
 			<nav class='header__inner container'>
 				<ul>
@@ -221,6 +239,7 @@
 		</div>
 	</header>
 
+	<!-- Заглавная секция -->
 	<section class='hero'>
 		<div class='container'>
 			<div class='hero__inner'>
@@ -233,17 +252,20 @@
 			</div>
 		</div>
 
+		<!-- Волна для перехода -->
 		<div class="wave">
 			<div class="wave__inner"></div>
 		</div>
 	</section>
 
+	<!-- Слайдер компаний -->
 	<section class='slider container'>
 		<h2>Работают с нами</h2>
 
 		<div class='job__slider'>
 			<div class='swiper job'>
 				<div class='swiper-wrapper'>
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://google.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
@@ -251,6 +273,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://netflix.com' target='_blank'>
 						<div>
 							<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
@@ -258,6 +281,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://instagram.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
@@ -265,6 +289,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://facebook.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
@@ -272,6 +297,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://britishcouncil.org' target='_blank'>
 						<div>
 							<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
@@ -279,6 +305,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://twitter.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
@@ -286,6 +313,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://google.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/google.svg' alt='google' loading='lazy'>
@@ -293,6 +321,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://netflix.com' target='_blank'>
 						<div>
 							<img class='job__image job__image--wide' src='images/tools/netflix.svg' alt='netflix' loading='lazy'>
@@ -300,6 +329,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://instagram.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/instagram.svg' alt='instagram' loading='lazy'>
@@ -307,6 +337,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://facebook.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/facebook.svg' alt='facebook' loading='lazy'>
@@ -314,6 +345,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://britishcouncil.org' target='_blank'>
 						<div>
 							<img class='job__image job__image--wide' src='images/tools/british-council.svg' alt='british-council' loading='lazy'>
@@ -321,6 +353,7 @@
 						</div>
 					</a>
 
+					<!-- Элемент слайдера компаний -->
 					<a class='swiper-slide job__item' href='https://twitter.com' target='_blank'>
 						<div>
 							<img class='job__image' src='images/tools/twitter.svg' alt='twitter' loading='lazy'>
@@ -329,12 +362,14 @@
 					</a>
 				</div>
 
+				<!-- Переключатели слайдера компаний -->
 				<div class='swiper-button-prev'></div>
 				<div class='swiper-button-next'></div>
 			</div>
 		</div>
 	</section>
 
+	<!-- Описание сервиса -->
 	<section class='description container' id='about'>
 		<div class='description__inner'>
 			<h2>О сервисе</h2>
@@ -343,10 +378,10 @@
 			</p>
 		</div>
 
+		<!-- Слайдер работников -->
 		<div class='swiper worker wow animate__animated animate__slideInRight'>
 			<div class='swiper-wrapper'>
-
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-1.png' alt='banner-user-1' loading='lazy'>
 					<div class='worker__stars'>
@@ -358,7 +393,7 @@
 					</div>
 				</div>
 
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-2.png' alt='banner-user-2' loading='lazy'>
 					<div class='worker__stars'>
@@ -370,7 +405,7 @@
 					</div>
 				</div>
 
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-3.png' alt='banner-user-3' loading='lazy'>
 					<div class='worker__stars'>
@@ -382,7 +417,7 @@
 					</div>
 				</div>
 
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-4.png' alt='banner-user-4' loading='lazy'>
 					<div class='worker__stars'>
@@ -394,7 +429,7 @@
 					</div>
 				</div>
 
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-5.png' alt='banner-user-5' loading='lazy'>
 					<div class='worker__stars'>
@@ -406,7 +441,7 @@
 					</div>
 				</div>
 
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-6.png' alt='banner-user-6' loading='lazy'>
 					<div class='worker__stars'>
@@ -418,7 +453,7 @@
 					</div>
 				</div>
 
-				<!-- Элемент слайдера -->
+				<!-- Элемент слайдера работников -->
 				<div class='swiper-slide worker__item'>
 					<img src='images/content/banners/user-7.png' alt='banner-user-7' loading='lazy'>
 					<div class='worker__stars'>
@@ -433,12 +468,15 @@
 		</div>
 	</section>
 
+	<!-- Секция обратной связи -->
 	<section class='feedback__outer' id='feedback'>
 		<h2>Обратная связь</h2>
 
 		<section class='feedback'>
+			<!-- Интерактивная карта -->
 			<iframe src='https://yandex.ru/map-widget/v1/?um=constructor%3A1a16b812f78421035c4bd25ac085af5fc4b42684b9a6442c70bc9730ebfe2212&amp;source=constructor' loading='lazy'></iframe>
 
+				<!-- Форма -->
 			<div class='feedback__inner'>
 				<form action='index.php' method='post'>
 					<input type="hidden" name='project_name' value='WORKFLOW'>
@@ -454,8 +492,10 @@
 		</section>
 	</section>
 
+	<!-- Подвал -->
 	<footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
 
+	<!-- Скрипты -->
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
 	<script src='https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'></script>

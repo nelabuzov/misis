@@ -1,5 +1,6 @@
 @use '../util' as *;
 
+// Текст
 h1,
 h2,
 h3 {
@@ -41,6 +42,7 @@ a {
 	color: var(--black);
 }
 
+// Поля ввода
 input:not([type=radio]),
 textarea {
 	border: rem(2) solid var(--gray-400);
@@ -52,10 +54,12 @@ textarea {
 	font-family: var(--font-body);
 }
 
+// Правила классов
 .hidden {
 	display: none;
 }
 
+// Кнопки
 .btn,
 input[type=submit] {
 	font-weight: 700;
@@ -106,6 +110,7 @@ input[type=submit] {
 	}
 }
 
+// Логотип
 .logo {
 	padding: rem(25);
 	font-size: rem(30);

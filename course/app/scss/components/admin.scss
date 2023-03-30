@@ -1,5 +1,6 @@
 @use '../util' as *;
 
+// Адаптив заголовков
 section:has(.data) h2 {
   margin-top: rem(100);
 
@@ -8,9 +9,11 @@ section:has(.data) h2 {
   }
 }
 
+// Родитель данных
 .data {
   width: 100%;
 
+  // Таблица данных
   &:has(table) {
     overflow-x: scroll;
     box-shadow: rem(1) 0 0 var(--gray-400) inset,
@@ -38,9 +41,11 @@ section:has(.data) h2 {
   }
 }
 
+// Форма
 .form {
   display: flex;
 
+  // Адаптив формы
   @include breakpoint-down(medium) {
     flex-direction: column;
 

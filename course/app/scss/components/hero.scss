@@ -1,5 +1,6 @@
 @use '../util' as *;
 
+// Родитель заглавной секции
 .hero {
   min-height: rem(875);
   font-size: rem(40);
@@ -8,6 +9,7 @@
   margin-bottom: rem(200);
   position: relative;
 
+  // Адаптив заглавной секции
   @include breakpoint-down(medium) {
     min-height: rem(700);
 
@@ -16,6 +18,7 @@
     }
   }
 
+  // Контейнер заглавной секции
   &__inner {
     max-width: rem(500);
     transform: translateY(50%);

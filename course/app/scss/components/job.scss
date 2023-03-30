@@ -1,5 +1,6 @@
 @use '../util' as *;
 
+// Настройка отступов слайдера
 .slider.container {
   padding-top: 0;
 }
@@ -8,11 +9,13 @@
   margin-top: rem(50);
 }
 
+// Родитель
 .job {
   position: unset;
   display: flex;
   flex-direction: column-reverse;
 
+  // Адаптив
   @include breakpoint-down(medium) {
 
     &__item {
@@ -29,6 +32,7 @@
     position: relative;
   }
 
+  // Стили блока
   &__item {
     display: block;
     padding: rem(20);
@@ -37,6 +41,7 @@
     word-wrap: break-word;
     position: relative;
 
+    // Отступ вакансий
     &:not(:last-child) {
       margin-top: rem(40);
     }
@@ -50,12 +55,14 @@
       }
     }
 
+    // Боковые элементы
     .demand {
       float: right;
       color: var(--gray-400);
     }
   }
 
+  // Иконки слайдера
   &__image {
     filter: grayscale(1);
     width: rem(50);
@@ -67,6 +74,7 @@
     }
   }
 
+  // Настройка слайда
   .swiper-slide {
     margin-bottom: 0;
 
@@ -92,6 +100,7 @@
     }
   }
 
+  // Настройка кнопок
   .swiper-button-prev,
   .swiper-button-next {
     border-radius: 5px;

@@ -1,10 +1,12 @@
 @use '../util' as *;
 
+// Родитель шапки
 .header {
   background-color: var(--white);
   margin-bottom: rem(100);
   font-weight: 700;
 
+  // Адаптив шапки
   @include breakpoint-down(medium) {
 
     &__inner>input {
@@ -33,6 +35,7 @@
     margin: 0;
   }
 
+  // Меню шапки
   .menu {
     box-shadow: 0 0 rem(10) var(--black) inset;
     background: var(--gray-400);
@@ -67,6 +70,7 @@
     }
   }
 
+  // Верхнее меню шапки
   .menu__top>* {
     display: flex;
     align-items: center;
@@ -83,6 +87,7 @@
     height: rem(78);
   }
 
+  // Нижнее меню шапки
   .menu__box {
     transition: color var(--transition-min);
     box-shadow: 0 0 rem(10) var(--black) inset;
@@ -123,6 +128,7 @@
     }
   }
 
+  // Вывод нижнего меню
   .menu__open .menu__box {
     top: rem(78);
   }

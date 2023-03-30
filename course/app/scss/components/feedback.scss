@@ -1,5 +1,6 @@
 @use '../util' as *;
 
+// Обратная связь
 .feedback__outer {
   padding-top: rem(60);
   text-align: center;
@@ -9,6 +10,7 @@
   }
 }
 
+// Родитель обратной связи
 .feedback {
   display: block;
   position: relative;
@@ -23,12 +25,14 @@
     transform: translate(-50%, -50%);
   }
 
+  // Интерактивная карта
   iframe {
     border: none;
     width: 100%;
     height: rem(600);
   }
 
+  // Форма
   form {
     font-size: rem(20);
 

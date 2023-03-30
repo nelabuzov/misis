@@ -1,8 +1,10 @@
+// Подключение шрифта
 @font-face {
 	font-family: Despairs;
 	src: url('../assets/fonts/despairs.ttf') format('truetype');
 }
 
+// Шрифты и анимации
 :root {
 	--font-brand: Despairs;
 	--font-body: Arial, sans-serif;

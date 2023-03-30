@@ -1,11 +1,13 @@
 @use '../util' as *;
 
+// Контейнер
 .container {
 	padding: 0 rem(25);
 	max-width: rem(1200);
 	position: relative;
 	margin: 0 auto;
 
+	// Адаптив контейнера
 	&:not(.header__inner,
 		.account__outer,
 		.data__outer) {

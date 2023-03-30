@@ -12,12 +12,14 @@ $breakpoints-down: (
 	'large': '87.4375em',
 );
 
+// Адаптив mobile first
 @mixin breakpoint($size) {
 	@media (min-width: map-get($breakpoints-up, $size)) {
 		@content;
 	}
 }
 
+// Адаптив desktop first
 @mixin breakpoint-down($size) {
 	@media (max-width: map-get($breakpoints-down, $size)) {
 		@content;

@@ -1,18 +1,23 @@
 <?php
   require_once '../../db.php';
 
+	// Вывод админа
 	$stmt = $pdo -> query('SELECT * FROM admin');
   $admins = $stmt -> fetchAll();
 
+	// Вывод работодателей
   $stmt = $pdo -> query('SELECT * FROM employers');
   $employers = $stmt -> fetchAll();
 
+	// Вывод соискателей
   $stmt = $pdo -> query('SELECT * FROM applicants');
   $applicants = $stmt -> fetchAll();
 
+	// Вывод вакансий работодателей
 	$stmt = $pdo -> query('SELECT * FROM employers_job');
 	$employers_job = $stmt -> fetchAll();
 
+	// Вывод вакансий соискателей
   $stmt = $pdo -> query('SELECT * FROM applicants_job');
 	$applicants_job = $stmt -> fetchAll();
 ?>
@@ -25,10 +30,26 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<title>WORKFLOW - страница администратора</title>
 
+	<!-- SEO -->
+	<meta name='description' content='Работа со всей России'>
+	<meta name='keywords' content='Работа, Персонал, Вакансии, Профессия, Деньги'>
+	<meta name='author' content='thelabuzov'>
+	<meta name='copyright' content='Дмитрий Лабузов'>
+	<meta property='og:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta property='og:description' content='Работа со всей России'>
+	<meta property='og:image' content='../../images/content/promo.png'>
+	<meta property='og:site_name' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta name='twitter:site' content='thelabuzov'>
+	<meta name='twitter:title' content='WORKFLOW - поиск персонала и публикация вакансий'>
+	<meta name='twitter:description' content='Работа со всей России'>
+	<meta name='twitter:image' content='../../images/content/promo.png'>
+
+	<!-- Подключение внешних объектов -->
   <link rel='shortcut icon' href='../../images/tools/favicon.ico' type='image/x-icon'>
 	<link rel='stylesheet' href='../../dist/style.css'>
 </head>
 <body>
+	<!-- Загрузка страницы -->
 	<div class='loader'>
 		<svg width='200' height='200' viewBox='0 0 100 100'>
 			<polyline class='line' points='0,0 100,0 100,100' stroke-width='10' fill='none'></polyline>
@@ -38,11 +59,14 @@
 		</svg>
 	</div>
 
+	<!-- Условие для гостя -->
 	<?php
 		if(($_COOKIE['account'] ?? '') === ''):
 	?>
 
+	<!-- Условие для пользователя -->
 	<?php else: ?>
+		<!-- Выравнивание кнопки пользователя -->
 		<style>
 			.account {
 				display: inline-flex;
@@ -76,10 +100,12 @@
 			}
 		</style>
 
+		<!-- Кнопка пользователя -->
 		<div class='account__outer container'>
 			<div class='account' onclick='showHide()'>
 				<img src='../../images/tools/user.svg' alt='user' loading='lazy'>
 
+				<!-- Ссылка типа профиля -->
 				<div class='account__menu hidden' id='menu'>
 					<a href='#'>Профиль</a>
 					<a href='../../exit.php'>Выход</a>
@@ -88,13 +114,17 @@
 		</div>
 	<?php endif ?>
 
+	<!-- Шапка -->
 	<header class='header'>
 		<div class="menu__top">
 			<div class='header__inner container'>
 				<a class='logo' href='../../index.php'>Work<span>Flow</span></a>
 
+				<!-- Гамбургер -->
 				<div class='menu__outer'>
 					<a href="#" class="menu__toggle">☰</a>
+
+					<!-- Меню гамбургера -->
 					<nav class="menu__box">
 						<ul>
 							<li>
@@ -111,6 +141,7 @@
 			</div>
 		</div>
 
+		<!-- Нижнее меню шапки -->
 		<div class='menu'>
 			<nav class='header__inner container'>
 				<ul>
@@ -132,6 +163,7 @@
 	</header>
 
   <main class='data__outer container'>
+		<!-- Данные админа -->
     <section>
       <h2>Администратор</h2>
 
@@ -163,6 +195,7 @@
       </div>
     </section>
 
+		<!-- Данные работодателей -->
     <section>
       <h2>Работодатели</h2>
 
@@ -202,6 +235,7 @@
       </div>
     </section>
 
+		<!-- Данные соискателей -->
     <section>
       <h2>Соискатели</h2>
 
@@ -243,6 +277,7 @@
       </div>
     </section>
 
+		<!-- Вакансии работодателей -->
 		<section>
       <h2>Вакансии работодателей</h2>
 
@@ -270,6 +305,7 @@
 			</div>
 		</section>
 
+		<!-- Вакансии соискателей -->
 		<section>
       <h2>Вакансии соискателей</h2>
 
@@ -298,8 +334,10 @@
 		</section>
   </main>
 
+	<!-- Подвал -->
   <footer>© 2023 WORKFLOW. Все права защищены. Разработан <a href='https://thelabuzov.github.io'>THELABUZOV</a></footer>
 
+	<!-- Скрипты -->
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
   <script src='../../dist/script.js'></script>
 </body>

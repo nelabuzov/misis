@@ -1,3 +1,4 @@
+// Событие нажатия гамбургера
 $(function() {
   let menu = $('.menu__outer');
   $('.menu__toggle').bind('click', function() {
@@ -6,8 +7,9 @@ $(function() {
   })
 })
 
+// Отправка сообщения на почту
 $(document).ready(function() {
-  //E-mail Ajax Send
+  // E-mail Ajax Send
   $('form').submit(function() {
     var th = $(this);
     $.ajax({
@@ -25,12 +27,14 @@ $(document).ready(function() {
   });
 });
 
+// Загрузка страницы
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.querySelector('.loader').classList.add('loader--hidden');
   }, 2000);
 });
 
+// Слайдер компаний
 const job = new Swiper('.job', {
   spaceBetween: 30,
   slidesPerView: 2,
@@ -44,7 +48,6 @@ const job = new Swiper('.job', {
     640: {
       slidesPerView: 4,
     },
-    // when window width is <= 999px
     1200: {
       slidesPerView: 6,
     }
@@ -56,16 +59,21 @@ const job = new Swiper('.job', {
   }
 });
 
+// Анимация в фокусе
 new WOW().init();
+
+// Слайдер работников
 const workers = new Swiper(".worker", {
   effect: "cards",
   grabCursor: true
 });
 
+// Создание parallax в положении мыши
 const mouse = new THREE.Vector2();
 const target = new THREE.Vector2();
 const windowHalf = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
 
+// Положение 3D модели шара
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 0);
 const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -74,6 +82,7 @@ renderer.setClearColor(0x000000, 0);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// Создание 3D модели шара
 const geometry = new THREE.SphereGeometry(1.5, 15, 15);
 const material = new THREE.MeshBasicMaterial({ 
   wireframe: true, 
@@ -82,14 +91,15 @@ const material = new THREE.MeshBasicMaterial({
 const object = new THREE.Mesh(geometry, material);
 scene.add(object);
 object.position.set(2, 0, 0);
-
 camera.position.z = 5;
 
+// Вызов parallax в положении мыши
 function onMouseMove( event ) {
 	mouse.x = ( event.clientX - windowHalf.x );
 	mouse.y = ( event.clientY - windowHalf.x );
 }
 
+// Анимация 3D модели шара
 function animate() {
   requestAnimationFrame(animate);
 
@@ -104,16 +114,15 @@ function animate() {
 
   renderer.render(scene, camera);
 };
-
 animate();
 
-lightGallery(document.getElementById('lightgallery'));
-
+// Событие наведения dropdown меню
 function showHide() {
 	let menu = document.getElementById('menu');
   menu.classList.toggle('hidden');
 }
 
+// Событие фильтра вакансий
 function filterList() {
   let input, filter, box, div, search, i, txtValue;
   input = document.getElementById('input');
