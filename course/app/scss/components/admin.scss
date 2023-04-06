@@ -59,6 +59,15 @@ section:has(.data) h2 {
       label {
         text-align: left;
       }
+
+      input,
+      textarea {
+        margin-top: rem(10);
+
+        &:not(#description, #phone_number) {
+          margin-bottom: rem(10);
+        }
+      }
     }
   }
 

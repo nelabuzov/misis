@@ -121,7 +121,7 @@
           margin-right: rem(20);
         }
 
-        &:hover {
+        &:not(.btn):hover {
           color: var(--white);
         }
       }

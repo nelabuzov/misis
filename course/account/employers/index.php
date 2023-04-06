@@ -9,11 +9,12 @@
 		$stmt = $pdo -> prepare("SELECT * FROM employers WHERE email = ?");
 		$stmt -> execute([$cookie]);
 		$employers = $stmt -> fetchAll();
-	}
 
-	// Вывод вакансий работодателей
-	$stmt = $pdo -> query("SELECT * FROM employers_job");
-  $employers_job = $stmt -> fetchAll();
+		// Вывод вакансий работодателей
+		$stmt = $pdo -> prepare("SELECT * FROM employers_job WHERE email = ?");
+		$stmt -> execute([$cookie]);
+		$employers_job = $stmt -> fetchAll();
+	}
 ?>
 
 <!DOCTYPE html>
