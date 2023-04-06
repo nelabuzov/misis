@@ -2,13 +2,14 @@
   require_once '../../../db.php';
 
   session_start();
+  $cookie = $_POST['email'];
   $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
   if (!$mysql) {
     die('Ошибка подключения: ' . mysqli_connect_error());
   }
 
   // Получаем значения из employers
-  $employer = "SELECT * FROM employers";
+  $employer = "SELECT * FROM employers WHERE email = '$cookie'";
   $result = mysqli_query($mysql, $employer);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -38,7 +39,8 @@
     nickname = '$new_nickname',
     email = '$new_email',
     password = '$new_password',
-    phone_number = '$new_phone_number'";
+    phone_number = '$new_phone_number'
+    WHERE email = '$cookie'";
 
     if (mysqli_query($mysql, $employer)) {
 			header('Location: ../index.php');
