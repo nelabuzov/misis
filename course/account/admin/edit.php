@@ -5,7 +5,7 @@
   $cookie = $_COOKIE['account'];
   $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
   if (!$mysql) {
-    die('Connection failed: ' . mysqli_connect_error());
+    die('Ошибка подключения: ' . mysqli_connect_error());
   }
 
   // Получаем значения из admin
@@ -17,7 +17,7 @@
     $email = $row['email'];
     $password = $row['password'];
   } else {
-    echo 'Error: ' . $admin . '<br>' . mysqli_error($mysql);
+    echo 'Ошибка: ' . $admin . '<br>' . mysqli_error($mysql);
   }
 
   // Обработка данных из формы редактирования
@@ -41,11 +41,11 @@
 				header('Location: index.php');
 			}
     } else {
-      echo 'Error: ' . $admin . '<br>' . mysqli_error($mysql);
+      echo 'Ошибка: ' . $admin . '<br>' . mysqli_error($mysql);
     }
 
     if (empty($cookie)) {
-      echo 'Error: Account is empty';
+      echo 'Ошибка: Пустой аккаунт';
       exit;
     }
   }

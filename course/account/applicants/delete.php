@@ -1,7 +1,7 @@
 <?php
   require_once '../../db.php';
 
-  // Удаление соискателя
+  // Удаление данных соискателя
 	if(isset($_GET['id'])) {
 		$stmt = $pdo -> prepare("SELECT * FROM applicants WHERE id = ?");
 		$stmt -> execute([$_GET['id']]);

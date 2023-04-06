@@ -4,7 +4,7 @@
   session_start();
   $mysql = mysqli_connect('localhost', 'root', '', 'workflow');
   if (!$mysql) {
-    die('Connection failed: ' . mysqli_connect_error());
+    die('Ошибка подключения: ' . mysqli_connect_error());
   }
 
   // Получаем значения из employers
@@ -19,7 +19,7 @@
     $password = $row['password'];
     $phone_number = $row['phone_number'];
   } else {
-    echo 'Error: ' . $employer . '<br>' . mysqli_error($mysql);
+    echo 'Ошибка: ' . $employer . '<br>' . mysqli_error($mysql);
   }
 
   // Обработка данных формы редактирования
@@ -43,11 +43,11 @@
     if (mysqli_query($mysql, $employer)) {
 			header('Location: ../index.php');
     } else {
-      echo 'Error: ' . $employer . '<br>' . mysqli_error($mysql);
+      echo 'Ошибка: ' . $employer . '<br>' . mysqli_error($mysql);
     }
 
     if (empty($cookie)) {
-      echo 'Error: Account is empty';
+      echo 'Ошибка: Пустой аккаунт';
       exit;
     }
   }

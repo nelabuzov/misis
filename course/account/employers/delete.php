@@ -1,7 +1,7 @@
 <?php
   require_once '../../db.php';
 
-  // Удаление работодателя
+  // Удаление данных работодателя
 	if(isset($_GET['id'])) {
     $stmt = $pdo -> prepare("SELECT * FROM employers WHERE id = ?");
     $stmt -> execute([$_GET['id']]);
