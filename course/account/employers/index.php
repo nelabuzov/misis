@@ -235,6 +235,8 @@
 
 					<input type='submit' name='employers_job' value='Опубликовать'>
 				</form>
+
+				<img src="../../images/content/job.gif" alt="job">
 			</div>
 		</section>
 
