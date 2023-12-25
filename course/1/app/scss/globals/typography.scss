@@ -1,0 +1,143 @@
+@use '../util' as *;
+
+// Текст
+h1,
+h2,
+h3 {
+	margin: 0 0 rem(40);
+	line-height: 1.1;
+	position: relative;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: rem(66);
+}
+
+h2 {
+	font-size: rem(40);
+}
+
+h3 {
+	font-size: rem(20);
+}
+
+p {
+	font-size: rem(18);
+	color: var(--gray-400);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: var(--black);
+}
+
+// Поля ввода
+input:not([type=radio]),
+textarea {
+	border: rem(2) solid var(--gray-400);
+	padding: rem(12) rem(20);
+}
+
+textarea {
+	resize: vertical;
+	font-family: var(--font-body);
+}
+
+// Правила классов
+.hidden {
+	display: none;
+}
+
+// Кнопки
+.btn,
+input[type=submit] {
+	font-weight: 700;
+	font-size: rem(18);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	color: var(--brand);
+	background-color: var(--white);
+	border: rem(2) solid var(--brand);
+	transition: var(--transition-min);
+	padding: rem(5) rem(20);
+	border-radius: rem(10);
+	box-shadow: none;
+	cursor: pointer;
+
+	img {
+		transition: var(--transition-min);
+		position: relative;
+		left: rem(70);
+		width: rem(36);
+		height: rem(36);
+	}
+
+	&:hover {
+		color: var(--black);
+		background-color: var(--brand);
+
+		img {
+			left: rem(8);
+		}
+	}
+}
+
+.btn {
+
+	&__job {
+		position: absolute;
+		right: rem(20);
+		bottom: rem(-18);
+	}
+
+	&--del {
+		color: var(--brand);
+		border-color: var(--black);
+		background-color: var(--black);
+	}
+}
+
+// Логотип
+.logo {
+	padding: rem(25);
+	font-size: rem(30);
+	font-family: var(--font-brand);
+	text-transform: uppercase;
+	position: relative;
+	color: var(--white);
+	z-index: 2;
+	background-color: var(--black);
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: rem(70);
+		left: 0;
+		width: 100%;
+		height: rem(40);
+		background-color: var(--black);
+		transition: var(--transition-min);
+		clip-path: polygon(50% 50%, 100% 100%, 100% 0, 0 0, 0 100%);
+	}
+
+	&:hover::after {
+		top: rem(80);
+	}
+}
+
+span {
+	color: var(--brand);
+}

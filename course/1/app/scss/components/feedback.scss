@@ -1,0 +1,66 @@
+@use '../util' as *;
+
+// Обратная связь
+.feedback__outer {
+  padding-top: rem(60);
+  text-align: center;
+
+  @include breakpoint-down(medium) {
+    padding: 0;
+  }
+}
+
+// Родитель обратной связи
+.feedback {
+  display: block;
+  position: relative;
+  padding: 0 !important;
+  margin: 0 auto rem(25);
+  border: rem(50) solid var(--black);
+
+  &__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // Интерактивная карта
+  iframe {
+    border: none;
+    width: 100%;
+    height: rem(600);
+  }
+
+  // Форма
+  form {
+    font-size: rem(20);
+
+    >*:not(:last-child) {
+      width: 100%;
+      margin-bottom: rem(40);
+      border-width: 0;
+      box-shadow: none;
+      padding: rem(25);
+      background-color: hsla(0, 0%, 0%, .7);
+
+      &,
+      &::placeholder {
+        color: var(--white);
+        font-size: rem(16);
+      }
+    }
+
+    button {
+      background-color: var(--black);
+      color: var(--white);
+      padding: rem(20) rem(50);
+      border: none;
+      position: relative;
+      top: rem(94);
+      font-size: rem(25);
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}

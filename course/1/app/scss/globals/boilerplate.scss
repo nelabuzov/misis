@@ -1,0 +1,203 @@
+@use '../util' as *;
+
+// Родительские стили
+html {
+	box-sizing: border-box !important;
+	scroll-behavior: smooth;
+	overflow: hidden;
+	font-size: 100%;
+
+	&:has(.loader--hidden) {
+		overflow: visible;
+	}
+}
+
+// Расчет отступов
+*,
+*::before,
+*::after {
+	box-sizing: inherit !important;
+}
+
+// Общие стили
+body {
+	margin: 0;
+	padding: 0;
+	font-family: var(--font-body);
+
+	// Адаптив
+	@include breakpoint-down(medium) {
+		text-align: center;
+
+		.account__menu {
+			right: auto;
+		}
+
+		canvas {
+			display: none !important;
+		}
+	}
+
+	// 3D модель шара
+	canvas {
+		position: absolute;
+		top: rem(200);
+		right: 0;
+	}
+
+	// Область попапа
+	.overlay {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, .8);
+		transition: opacity 200ms;
+		visibility: hidden;
+		opacity: 0;
+		z-index: 10;
+
+		.cancel {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			cursor: default;
+		}
+
+		&:target {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	// Попап
+	.popup {
+		padding: rem(40);
+		margin: rem(100) auto;
+		background-color: var(--white);
+		max-width: rem(416);
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-radius: rem(20);
+
+		form,
+		p {
+			text-align: center;
+		}
+
+		input:not([type=radio]),
+		.btn {
+			width: 100%;
+		}
+
+		// Крест попапа
+		.close {
+			position: absolute;
+			width: rem(20);
+			top: rem(10);
+			right: rem(15);
+			transition: all 200ms;
+			text-align: center;
+			font-size: rem(30);
+			font-weight: bold;
+			text-decoration: none;
+			color: var(--gray-400);
+		}
+
+		input[type=radio],
+		.btn {
+			margin-top: rem(20);
+		}
+	}
+
+	// Волна
+	.wave {
+		overflow: hidden;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: rem(100);
+
+		&__inner {
+			position: absolute;
+			width: 200%;
+			height: 100%;
+			transform-origin: 0 100%;
+			background: url(../images/content/wave.png) 0 / 50% rem(100);
+			animation: wave 15s linear infinite;
+		}
+	}
+
+	// Анимация волны
+	@keyframes wave {
+		0% {
+			transform: translateX(0) scaleY(1);
+		}
+
+		50% {
+			transform: translateX(-25%) scaleY(0.55);
+		}
+
+		100% {
+			transform: translateX(-50%) scaleY(1);
+		}
+	}
+
+	// Загрузка страницы
+	.loader {
+		position: fixed;
+		z-index: 50;
+		width: 100%;
+		height: 100%;
+		background-color: var(--gray-700);
+
+		&--hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg) scale(1);
+		}
+
+		.line {
+			stroke: var(--gray-800);
+
+			&__animation {
+				animation: loading var(--transition-max) infinite;
+			}
+		}
+
+		// Анимация загрузки страницы
+		@keyframes loading {
+			0% {
+				stroke: var(--brand);
+				stroke-dasharray: 0 200;
+			}
+
+			50% {
+				stroke-dashoffset: 0;
+				stroke-dasharray: 200 200;
+			}
+
+			100% {
+				stroke: var(--brand);
+				stroke-dashoffset: -200;
+				stroke-dasharray: 200 200;
+			}
+		}
+	}
+
+	// Подвал
+	footer {
+		text-align: center;
+		color: var(--gray-400);
+		margin: rem(100) 0 rem(20);
+	}
+}

@@ -1,0 +1,123 @@
+@use '../util' as *;
+
+// Настройка отступов слайдера
+.slider.container {
+  padding-top: 0;
+}
+
+.jobs {
+  margin-top: rem(50);
+}
+
+// Родитель
+.job {
+  position: unset;
+  display: flex;
+  flex-direction: column-reverse;
+
+  // Адаптив
+  @include breakpoint-down(medium) {
+
+    &__item {
+      text-align: left;
+
+      .demand {
+        margin-left: rem(20);
+      }
+    }
+  }
+
+  &__slider {
+    display: flex;
+    position: relative;
+  }
+
+  // Стили блока
+  &__item {
+    display: block;
+    padding: rem(20);
+    border-radius: rem(20);
+    border: rem(1) solid var(--gray-400);
+    word-wrap: break-word;
+    position: relative;
+
+    // Отступ вакансий
+    &:not(:last-child) {
+      margin-top: rem(40);
+    }
+
+    div:last-child {
+      display: flex;
+      align-items: center;
+
+      *+* {
+        margin-left: rem(20);
+      }
+    }
+
+    // Боковые элементы
+    .demand {
+      float: right;
+      color: var(--gray-400);
+    }
+  }
+
+  // Иконки слайдера
+  &__image {
+    filter: grayscale(1);
+    width: rem(50);
+    margin: 0 auto;
+    transition: var(--transition-min);
+
+    &--wide {
+      transform: scale(1.8);
+    }
+  }
+
+  // Настройка слайда
+  .swiper-slide {
+    margin-bottom: 0;
+
+    &.job__item {
+      margin-top: 0;
+    }
+
+    &:hover img {
+      filter: none;
+    }
+
+    div {
+      flex-direction: column;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+
+      p {
+        text-align: center;
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
+  // Настройка кнопок
+  .swiper-button-prev,
+  .swiper-button-next {
+    border-radius: 5px;
+    background-color: var(--black);
+    color: var(--white);
+    transform: scale(1.3);
+
+    &::after {
+      transform: scale(.3)
+    }
+  }
+
+  .swiper-button-prev {
+    left: -15px;
+  }
+
+  .swiper-button-next {
+    right: -15px;
+  }
+}
