@@ -1,0 +1,17 @@
+C:\Users\thelabuzov\source\repos\vcs\vcs\bin\Debug\vcs.exe.config
+C:\Users\thelabuzov\source\repos\vcs\vcs\bin\Debug\vcs.exe
+C:\Users\thelabuzov\source\repos\vcs\vcs\bin\Debug\vcs.pdb
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.csproj.AssemblyReference.cache
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.Properties.Resources.resources
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.csproj.GenerateResource.cache
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.csproj.CoreCompileInputs.cache
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.exe
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.pdb
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.About.resources
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.Calc.resources
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.csproj.CopyComplete
+C:\Users\thelabuzov\source\repos\vcs\vcs\bin\Debug\MaterialSkin.dll
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.Main.resources
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.Verify.resources
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.Profile.resources
+C:\Users\thelabuzov\source\repos\vcs\vcs\obj\Debug\vcs.Save.resources
